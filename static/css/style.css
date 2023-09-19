@@ -1,0 +1,69 @@
+* {
+    left: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #E2E2E2;
+}
+
+.content-container {
+    width: calc(100% - 80px);
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+}
+
+.product-table-container {
+    width: calc(50%);
+    height: max-content;
+}
+
+.product-table-content {
+    background-color: #fff;
+    overflow-y: auto;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin-right: 40px;
+    border-radius: 8px;
+    max-height: 500px;
+    margin-bottom: 15px;
+}
+
+.logs-container {
+    width: calc(50% - 40px);
+}
+
+.logs-content {
+    background-color: #fff;
+    height: 500px;
+    max-height: 500px;
+    border-radius: 8px;
+    overflow-y: auto;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.pag-message {
+    margin-top: 30px;
+}
+
+.submit-action-container {
+    display: block;
+    margin-left: 40px;
+}
+
+.update-button {
+    padding: 20px;
+    background-color: #3ec242;
+    color: rgb(255, 255, 255);
+    width: max-content;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 20px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.update-button:hover {
+    background-color: #4ece52;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}

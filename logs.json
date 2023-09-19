@@ -425,6 +425,494 @@
                     "regular_price": "1661625"
                 }
             ]
+        },
+        {
+            "date": "2023-09-19 / 11:50:53",
+            "qty": 8,
+            "products": [
+                {
+                    "id": 1690,
+                    "sku": "101001",
+                    "usd_cop_price": 3901.24,
+                    "past_price": "917367",
+                    "regular_price": "917367"
+                },
+                {
+                    "id": 1695,
+                    "sku": "101002",
+                    "usd_cop_price": 3901.24,
+                    "past_price": "1245294",
+                    "regular_price": "1245294"
+                },
+                {
+                    "id": 1701,
+                    "sku": "101003",
+                    "usd_cop_price": 3901.24,
+                    "past_price": "518566",
+                    "regular_price": "518566"
+                },
+                {
+                    "id": 1707,
+                    "sku": "101004",
+                    "usd_cop_price": 3901.24,
+                    "past_price": "493228",
+                    "regular_price": "493228"
+                },
+                {
+                    "id": 1711,
+                    "sku": "101005",
+                    "usd_cop_price": 3901.24,
+                    "past_price": "1345672",
+                    "regular_price": "1347067"
+                },
+                {
+                    "id": 1730,
+                    "sku": "101007",
+                    "usd_cop_price": 3901.24,
+                    "past_price": "286973",
+                    "regular_price": "287270"
+                },
+                {
+                    "id": 1714,
+                    "sku": "101008",
+                    "usd_cop_price": 3901.24,
+                    "past_price": "563413",
+                    "regular_price": "563997"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009",
+                    "usd_cop_price": 3901.24,
+                    "past_price": "337387",
+                    "regular_price": "337737"
+                }
+            ]
+        },
+        {
+            "date": "2023-09-19 / 12:27:06",
+            "qty": 60,
+            "products": [
+                {
+                    "id": 1690,
+                    "sku": "101001",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "917367",
+                    "regular_price": "917099"
+                },
+                {
+                    "id": 1695,
+                    "sku": "101002",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "1245294",
+                    "regular_price": "1244930"
+                },
+                {
+                    "id": 1701,
+                    "sku": "101003",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "518566",
+                    "regular_price": "518415"
+                },
+                {
+                    "id": 1707,
+                    "sku": "101004",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "493228",
+                    "regular_price": "493084"
+                },
+                {
+                    "id": 1711,
+                    "sku": "101005",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "1347067",
+                    "regular_price": "1346673"
+                },
+                {
+                    "id": 1730,
+                    "sku": "101007",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "287270",
+                    "regular_price": "287186"
+                },
+                {
+                    "id": 1714,
+                    "sku": "101008",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "563997",
+                    "regular_price": "563832"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "337737",
+                    "regular_price": "337638"
+                },
+                {
+                    "id": 1815,
+                    "sku": "201001",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "911072",
+                    "regular_price": "911750"
+                },
+                {
+                    "id": 1830,
+                    "sku": "201002",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "2407043",
+                    "regular_price": "2408834"
+                },
+                {
+                    "id": 1840,
+                    "sku": "201003",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "538310",
+                    "regular_price": "538711"
+                },
+                {
+                    "id": 1847,
+                    "sku": "201004",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "2256639",
+                    "regular_price": "2258318"
+                },
+                {
+                    "id": 1853,
+                    "sku": "201005",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "20637553",
+                    "regular_price": "20652910"
+                },
+                {
+                    "id": 1862,
+                    "sku": "301001",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "648781",
+                    "regular_price": "649264"
+                },
+                {
+                    "id": 1869,
+                    "sku": "301002",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "953415",
+                    "regular_price": "954125"
+                },
+                {
+                    "id": 1878,
+                    "sku": "301003",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "707423",
+                    "regular_price": "707950"
+                },
+                {
+                    "id": 1889,
+                    "sku": "301004",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "952158",
+                    "regular_price": "952866"
+                },
+                {
+                    "id": 1898,
+                    "sku": "301005",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "1127035",
+                    "regular_price": "1127874"
+                },
+                {
+                    "id": 1905,
+                    "sku": "301006",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "739286",
+                    "regular_price": "739836"
+                },
+                {
+                    "id": 2902,
+                    "sku": "301007",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "791849",
+                    "regular_price": "792438"
+                },
+                {
+                    "id": 2914,
+                    "sku": "301008",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "1425171",
+                    "regular_price": "1426232"
+                },
+                {
+                    "id": 2037,
+                    "sku": "401001",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "10465250",
+                    "regular_price": "10473038"
+                },
+                {
+                    "id": 2044,
+                    "sku": "401002",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "8095519",
+                    "regular_price": "8101543"
+                },
+                {
+                    "id": 2055,
+                    "sku": "401003",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "8095519",
+                    "regular_price": "8101543"
+                },
+                {
+                    "id": 2070,
+                    "sku": "401004",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "6203885",
+                    "regular_price": "6208501"
+                },
+                {
+                    "id": 2081,
+                    "sku": "401005",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "7895434",
+                    "regular_price": "7901310"
+                },
+                {
+                    "id": 2090,
+                    "sku": "401006",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "15303392",
+                    "regular_price": "15314780"
+                },
+                {
+                    "id": 2915,
+                    "sku": "401010",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "2020237",
+                    "regular_price": "2021741"
+                },
+                {
+                    "id": 3170,
+                    "sku": "401011",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "4100899",
+                    "regular_price": "4103950"
+                },
+                {
+                    "id": 2925,
+                    "sku": "401017",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "3190351",
+                    "regular_price": "3192725"
+                },
+                {
+                    "id": 2933,
+                    "sku": "401018",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "3172480",
+                    "regular_price": "3174841"
+                },
+                {
+                    "id": 2942,
+                    "sku": "401019",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "1679810",
+                    "regular_price": "1681060"
+                },
+                {
+                    "id": 2948,
+                    "sku": "401020",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "2293795",
+                    "regular_price": "2295502"
+                },
+                {
+                    "id": 2954,
+                    "sku": "401021",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "2044501",
+                    "regular_price": "2046022"
+                },
+                {
+                    "id": 2961,
+                    "sku": "401022",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "5144767",
+                    "regular_price": "5148595"
+                },
+                {
+                    "id": 2969,
+                    "sku": "401024",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "4494675",
+                    "regular_price": "4498019"
+                },
+                {
+                    "id": 2992,
+                    "sku": "401025",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "8023514",
+                    "regular_price": "8029484"
+                },
+                {
+                    "id": 2999,
+                    "sku": "401026",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "5546509",
+                    "regular_price": "5550636"
+                },
+                {
+                    "id": 3009,
+                    "sku": "401027",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "8945644",
+                    "regular_price": "8952300"
+                },
+                {
+                    "id": 2437,
+                    "sku": "501001",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "3278811",
+                    "regular_price": "3281251"
+                },
+                {
+                    "id": 2504,
+                    "sku": "501002",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "2566094",
+                    "regular_price": "2568004"
+                },
+                {
+                    "id": 2516,
+                    "sku": "501003",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "2328120",
+                    "regular_price": "2329853"
+                },
+                {
+                    "id": 2645,
+                    "sku": "601008",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "32124",
+                    "regular_price": "32148"
+                },
+                {
+                    "id": 2662,
+                    "sku": "601009",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "130542",
+                    "regular_price": "130639"
+                },
+                {
+                    "id": 2673,
+                    "sku": "601010",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "322451",
+                    "regular_price": "322691"
+                },
+                {
+                    "id": 2706,
+                    "sku": "701001",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "3896359",
+                    "regular_price": "3899259"
+                },
+                {
+                    "id": 2714,
+                    "sku": "701002",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "4618038",
+                    "regular_price": "4621474"
+                },
+                {
+                    "id": 2721,
+                    "sku": "701003",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "6142780",
+                    "regular_price": "6147351"
+                },
+                {
+                    "id": 2728,
+                    "sku": "701007",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "687457",
+                    "regular_price": "687968"
+                },
+                {
+                    "id": 2817,
+                    "sku": "701008",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "833669",
+                    "regular_price": "834289"
+                },
+                {
+                    "id": 2822,
+                    "sku": "701009",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "718219",
+                    "regular_price": "718753"
+                },
+                {
+                    "id": 3043,
+                    "sku": "701013",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "2046021",
+                    "regular_price": "2047543"
+                },
+                {
+                    "id": 3049,
+                    "sku": "701014",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "1104501",
+                    "regular_price": "1105323"
+                },
+                {
+                    "id": 3056,
+                    "sku": "701015",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "4956211",
+                    "regular_price": "4959899"
+                },
+                {
+                    "id": 3079,
+                    "sku": "701016",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "4422145",
+                    "regular_price": "4425436"
+                },
+                {
+                    "id": 3121,
+                    "sku": "801005",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "3944782",
+                    "regular_price": "3947718"
+                },
+                {
+                    "id": 3127,
+                    "sku": "801006",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "6977707",
+                    "regular_price": "6982899"
+                },
+                {
+                    "id": 3134,
+                    "sku": "801007",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "2631759",
+                    "regular_price": "2633717"
+                },
+                {
+                    "id": 3144,
+                    "sku": "801010",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "1020809",
+                    "regular_price": "1021569"
+                },
+                {
+                    "id": 3152,
+                    "sku": "801011",
+                    "usd_cop_price": 3900.1,
+                    "past_price": "1661625",
+                    "regular_price": "1662862"
+                }
+            ]
         }
     ]
 }

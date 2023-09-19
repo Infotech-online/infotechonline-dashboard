@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, session, url_for, redirect, send_file
+import requests
 from dotenv import dotenv_values
 from woocommerce import API
 import PyCurrency_Converter
@@ -27,8 +28,8 @@ wc = API(
     version = "wc/v3"
 )
 
-@app.route('/')
-def dashboard():
+@app.route('/submit')
+def submit():
 
     # return render_template("dashboard.html", status_code=r.json())
 
@@ -42,11 +43,15 @@ def dashboard():
     qty = 0
     products = []
 
+    # Dollar Price
+    request_currencies = requests.get("http://apilayer.net/api/live?access_key=35fecb58061d2dcd76ce985b306bcc07&currencies=COP&source=USD&format=1")
+    response = request_currencies.json()
+
     for category in products_data: # Categories
         for sku in products_data[category]: # Sku and Prices
 
             product_dollar_price = products_data[category][sku]
-            usd_to_cop = cop_price = env["COP"]# This var is set in env file
+            usd_to_cop = response["quotes"]["USDCOP"] # This var is set in env file
 
             # Calc the final price
             cop_price = float(product_dollar_price) * float(usd_to_cop)
@@ -100,6 +105,20 @@ def logs():
         logs_data = json.load(f)
 
     return logs_data
+
+@app.route('/')
+def dashboard():
+
+    products = wc.get("products", params={'per_page': 100}).json() # WooCommerce Productproducts
+    with open('logs.json') as f:
+        logs_data = json.load(f)
+
+    # Dollar Price
+    request_currencies = requests.get("http://apilayer.net/api/live?access_key=35fecb58061d2dcd76ce985b306bcc07&currencies=COP&source=USD&format=1")
+    response = request_currencies.json()
+    dollar = response["quotes"]["USDCOP"]
+
+    return render_template("dashboard.html", products=products, qty=len(products), logs=logs_data, dollar=dollar)
 
 if __name__ == '__main__':
 
