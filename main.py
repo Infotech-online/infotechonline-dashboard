@@ -13,6 +13,9 @@ import smtplib
 import time
 import hashlib
 
+# Local Libs
+from local_libs.ChatGpt import ChatGPT
+
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 # Env Vars
@@ -22,7 +25,6 @@ env = dotenv_values(".env")
 app.secret_key = "super secret key"
 
 # WooCommerce API Credentials
-
 wc = API(
     url=env["URL"],
     consumer_key=env['CONSUMER_KEY'],
@@ -35,8 +37,14 @@ def dashboard():
 
     # Display the dashboard
 
-    products = wc.get("products", params={
-                      'per_page': 100, 'order': 'asc', 'page': 2}).json()  # WooCommerce Productproducts
+    return render_template("dashboard.html")
+
+@app.route('/infotech-data')
+def infotech_data():
+
+    # Return a json with data
+
+    products = wc.get("products", params={'per_page': 100, 'order': 'asc', 'page': 1}).json()  # WooCommerce Productproducts
     with open('logs.json') as f:
         logs_data = json.load(f)
 
@@ -46,7 +54,7 @@ def dashboard():
     response = request_currencies.json()
     dollar = response["quotes"]["USDCOP"]
 
-    return render_template("dashboard.html", products=products, qty=len(products), logs=logs_data, dollar=dollar)
+    return ""
 
 @app.route('/price-update')
 def submit():
@@ -241,23 +249,74 @@ def intcomex_update():
 @app.route('/intcomex-add')
 def intcomex_add():
 
-    data = {
-        "name": "Premium Quality",
-        "type": "simple",
-        "regular_price": "21.99",
-        "description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-        "short_description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-        "categories": [
-            {
-                "id": 9
-            },
-            {
-                "id": 14
-            }
-        ],
-    }
+    # Get categories
+    with open('categories.json') as f:
+        categories = json.load(f)
 
-    print(wc.post("products", data).json())
+    # New products
+    new_products = {
+        "101045": "AB355NXT01",
+        "101046": "AB360NXT02"
+    }
+    
+    url = env["INTCOMEX_URL"]
+    api_key = env["API_KEY"]
+    access_key = env["ACCESS_KEY"]
+
+    utc_datetime = datetime.datetime.utcnow()
+    utc_datetime.strftime("%Y-%m-%dT %H:%M:%SZ")
+
+    signature = f"{api_key},{access_key},{utc_datetime}"
+    signature = signature.encode('utf-8')
+    signature = hashlib.sha256(signature)
+    signature = signature.hexdigest()
+
+    for product in new_products:
+        
+        product = f'{url}getproduct/?apiKey={api_key}&utcTimeStamp={utc_datetime}&signature={signature}&locale=es&sku={new_products[product]}'
+        product = requests.get(product).json()
+
+        if product.ok:
+
+            data = {
+                "name": product["Description"],
+                "type": "simple",
+                "regular_price": product["Price"]["UnitPrice"],
+                "description": "",
+                "short_description": "",
+                "categories": [
+                    {
+                        "id": 9
+                    },
+                    {
+                        "id": 14
+                    }
+                ],
+            }
+
+            print(wc.post("products", data).json())
+
+    return "success"
+
+@app.route("/intcomex-products")
+def intcomex_products():
+
+    url = env["INTCOMEX_URL"]
+    api_key = env["API_KEY"]
+    access_key = env["ACCESS_KEY"]
+
+    utc_datetime = datetime.datetime.utcnow()
+    utc_datetime.strftime("%Y-%m-%dT %H:%M:%SZ")
+
+    signature = f"{api_key},{access_key},{utc_datetime}"
+    signature = signature.encode('utf-8')
+    signature = hashlib.sha256(signature)
+    signature = signature.hexdigest()
+
+    products = f'{url}getcatalog/?apiKey={api_key}&utcTimeStamp={utc_datetime}&signature={signature}&locale=es'
+    products = requests.get(products).json()
+
+    return products
 
 if __name__ == '__main__':
 
