@@ -24,7 +24,7 @@
                 <span class="sub-title">InfotechOnline</span>
             </div>
             <div class="profile-container">
-                <span class="username-span">Compras</span>
+                <span class="username-span">Mercadeo</span>
                 <div class="tooltip-container">
                     <img src="/static/user.png" class="user-logo" width="40px" height="40px" style="padding: 5px;">
                     <ion-icon name="caret-down-outline"></ion-icon>
@@ -62,11 +62,10 @@
                         <table class="table">
                             <thead class="table-success">
                                 <tr>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">Cliente</th>
-                                    <th scope="col">Valor</th>
-                                    <th scope="col">Guia</th>
-                                    <th scope="col">Estado</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">SKU</th>
+                                    <th scope="col">PRECIO</th>
+                                    <th scope="col">TITULO</th>
                                 </tr>
                             </thead>
                             <tbody class="table-body">
@@ -89,6 +88,7 @@
                     <span class="elements-loaded-text">
                         <e>0</e> elements are displayed
                     </span>
+                    <span class="page-number"><ion-icon name="caret-back-outline" class="back-icon disabled"></ion-icon> <e class="page-text">Page 1</e> <ion-icon name="caret-forward-outline" class="forward-icon disabled"></ion-icon></span>
                 </div>
             </div>
         </div>
@@ -104,8 +104,7 @@
                     <span class="total-text">Total: <span><e class="log-total-qty">0</e> Updates</span></span>
                 </div>
                 <div class="update-form-container">
-                    <h3>Update table data</h3>
-                    
+                    <h3>Update Products</h3>
                     <div class="log-message">
                         <span class="success-message display-none">The file has been updated
                             successfully.</span>
@@ -122,13 +121,19 @@
                         <div class="form-check">
                             <input class="form-check-input only-empty-cells" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
-                                Only empty cells
+                                Only Ingram
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input all-cells" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
                             <label class="form-check-label" for="flexRadioDefault1">
-                                All cells
+                                Only Intcomex
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input all-cells" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                All Products
                             </label>
                         </div>
                     </div>

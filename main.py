@@ -13,9 +13,6 @@ import smtplib
 import time
 import hashlib
 
-# Local Libs
-from local_libs.ChatGpt import ChatGPT
-
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 # Env Vars
@@ -36,25 +33,39 @@ wc = API(
 def dashboard():
 
     # Display the dashboard
-
     return render_template("dashboard.html")
 
-@app.route('/infotech-data')
+@app.route('/infotech-data', methods=["POST"])
 def infotech_data():
 
-    # Return a json with data
+    if request.method == "POST":
 
-    products = wc.get("products", params={'per_page': 100, 'order': 'asc', 'page': 1}).json()  # WooCommerce Productproducts
-    with open('logs.json') as f:
-        logs_data = json.load(f)
+        # Get request args
+        page = request.form["page"]
 
-    # Dollar Price
-    request_currencies = requests.get(
-        "http://apilayer.net/api/live?access_key=35fecb58061d2dcd76ce985b306bcc07&currencies=COP&source=USD&format=1")
-    response = request_currencies.json()
-    dollar = response["quotes"]["USDCOP"]
+        # Return a json with data
+        products = wc.get("products", params={'per_page': 100, 'order': 'asc', 'page': page}).json() # WooCommerce Productproducts
 
-    return ""
+        #Get log data
+        with open('logs.json') as f:
+            logs_data = json.load(f)
+
+        # Dollar Price
+        request_currencies = requests.get("http://apilayer.net/api/live?access_key=35fecb58061d2dcd76ce985b306bcc07&currencies=COP&source=USD&format=1")
+        response = request_currencies.json()
+        dollar = response["quotes"]["USDCOP"]
+
+        # Save data
+        data = {}
+        data["products"] = products
+        data["logs"] = logs_data
+        data["dollar"] = dollar
+
+        return data
+    
+    else:
+
+        return "No deberias estar viendo esta pagina."
 
 @app.route('/price-update')
 def submit():
