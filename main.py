@@ -67,7 +67,7 @@ def infotech_data():
 
         return "No deberias estar viendo esta pagina."
 
-@app.route('/price-update')
+@app.route('/ingram-update')
 def submit():
 
     # Products SKU
@@ -145,81 +145,6 @@ def submit():
     total_time = end_time - init_time
 
     return str(total_time)  # Return success
-
-@app.route('/logs')
-def logs():
-
-    with open('logs.json') as f:
-        logs_data = json.load(f)
-
-    return logs_data
-
-@app.route('/especific-description-update')
-def description_update():
-
-    # It is used to update the Warranty in the description of the products
-
-    # WooCommerce Product
-    products = wc.get("products", params={'per_page': 100}).json()
-
-    for product in products:
-
-        # Updating the description
-        description = product["description"]
-
-        if description.find("Garant") == -1:
-
-            position = "</ul>"
-            new_element = "<li>Garantía: 1 año</li>\n"
-
-            # The description is parsed (convert to list)
-            parsed_description = description.split()
-
-            # Get Word Index (-1 is needed to add the word in the left position)
-            word_index = parsed_description.index(position) - 1
-            parsed_description[word_index] += new_element
-
-            # Convert the parsed description to String
-            new_description = ' '.join([str(element)
-                                       for element in parsed_description])
-
-            update_data = {
-                "attributes": [{
-                    "id": 19,
-                    "name": "Garantía",
-                    "options": [
-                        "1 año"
-                    ],
-                    "position": 2,
-                    "variation": False,
-                    "visible": True
-                }],
-                "description": new_description
-            }
-
-            for att in product["attributes"]:
-                update_data["attributes"].append(att)
-
-            wc.put(f"products/{product['id']}",
-                   update_data).json()  # Product Update
-
-    return "success"
-
-@app.route('/producto/<id>')
-def inspeccionar_producto(id):
-
-    return wc.get(f"products/{id}").json()  # WooCommerce Product
-
-@app.route('/get-categories')
-def get_categories():
-
-    categories = wc.get(f"products/categories", params={'per_page': 100}).json()
-
-    cats_short = {}
-    for category in categories:
-        cats_short[str(category['id'])] = str(category["name"])
-        
-    return cats_short   # WooCommerce Product
 
 @app.route('/intcomex-update')
 def intcomex_update():
@@ -308,6 +233,85 @@ def intcomex_add():
             print(wc.post("products", data).json())
 
     return "success"
+
+"""
+Data visualization
+This code is not used in production
+"""
+
+@app.route('/logs')
+def logs():
+
+    with open('logs.json') as f:
+        logs_data = json.load(f)
+
+    return logs_data
+
+@app.route('/especific-description-update')
+def description_update():
+
+    # It is used to update the Warranty in the description of the products
+
+    # WooCommerce Product
+    products = wc.get("products", params={'per_page': 100}).json()
+
+    for product in products:
+
+        # Updating the description
+        description = product["description"]
+
+        if description.find("Garant") == -1:
+
+            position = "</ul>"
+            new_element = "<li>Garantía: 1 año</li>\n"
+
+            # The description is parsed (convert to list)
+            parsed_description = description.split()
+
+            # Get Word Index (-1 is needed to add the word in the left position)
+            word_index = parsed_description.index(position) - 1
+            parsed_description[word_index] += new_element
+
+            # Convert the parsed description to String
+            new_description = ' '.join([str(element)
+                                       for element in parsed_description])
+
+            update_data = {
+                "attributes": [{
+                    "id": 19,
+                    "name": "Garantía",
+                    "options": [
+                        "1 año"
+                    ],
+                    "position": 2,
+                    "variation": False,
+                    "visible": True
+                }],
+                "description": new_description
+            }
+
+            for att in product["attributes"]:
+                update_data["attributes"].append(att)
+
+            wc.put(f"products/{product['id']}", update_data).json()  # Product Update
+
+    return "success"
+
+@app.route('/producto/<id>')
+def inspeccionar_producto(id):
+
+    return wc.get(f"products/{id}").json()  # WooCommerce Product
+
+@app.route('/get-categories')
+def get_categories():
+
+    categories = wc.get(f"products/categories", params={'per_page': 100}).json()
+
+    cats_short = {}
+    for category in categories:
+        cats_short[str(category['id'])] = str(category["name"])
+        
+    return cats_short   # WooCommerce Product
 
 @app.route("/intcomex-products")
 def intcomex_products():
