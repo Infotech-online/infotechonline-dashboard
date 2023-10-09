@@ -15,11 +15,14 @@ class ingramConnection():
         self.logs_file = 'logs.json'
         self.tokens_file = 'tokens.json'
 
-        # Urls
-        self.token_url = f'https://api.ingrammicro.com:443/oauth/oauth20/token?grant_type=client_credentials&client_id={env["INGRAM_CLIENT_ID"]}&client_secret={env["INGRAM_CLIENT_SECRET"]}'
-        self.api_url = f'https://api.ingrammicro.com:443/resellers/v5'
+        # Credentials
+        self.client_id = env["INGRAM_CLIENT_ID"]
+        self.client_secret = env["INGRAM_CLIENT_SECRET"]
+        self.customer_number = env["INGRAM_CUSTOMER_NUMBER"]
 
-        self.get_products()
+        # Urls
+        self.token_url = f'https://api.ingrammicro.com:443/oauth/oauth20/token?grant_type=client_credentials&client_id={self.client_id}&client_secret={self.client_secret}'
+        self.api_url = f'https://api.ingrammicro.com:443/resellers/v5'
 
     def generate_token(self):
 
@@ -56,7 +59,7 @@ class ingramConnection():
 
     def get_products(self):
 
-        catalog_url = self.api_url + "/catalog/priceandavailability?customerNumber=216793&isoCountryCode=CO&partNumber=5734408"
+        catalog_url = self.api_url + f"/catalog/priceandavailability?customerNumber={self.customer_number}&isoCountryCode=CO"
         token = f"Bearer {self.generate_token()}"
 
         # Headers of the cosult
@@ -66,6 +69,21 @@ class ingramConnection():
             "Authorization": token,
         }
 
+        items = []
+        sku_list = []
+
+        with open('ingram_products.json') as f:
+            products_data = json.load(f)
+
+        for category in products_data:  # Categories
+            for sku in products_data[category]:  # Sku and Prices
+                new_item = {
+                    "ingrampartnumber": products_data[category][sku]["ingramSku"],
+                    "quantity": 1
+                }
+                items.append(new_item)
+                sku_list.append(sku)
+            
         # Product data
         data = {
             "servicerequest": {
@@ -76,19 +94,25 @@ class ingramConnection():
                 "priceandstockrequest": {
                     "showwarehouseavailability": "True",
                     "extravailabilityflag": "Y",
-                    "item": [
-                        {
-                            "ingrampartnumber": "5734408",
-                            "quantity": 1
-                        }
-                    ],
+                    "item": items,
                     "includeallsystems": False
                 }
             }
         }
 
         response = requests.post(catalog_url, headers=headers, json=data)
+        response = response.json()["serviceresponse"]["priceandstockresponse"]["details"]
+    
+        return response, sku_list
 
-        return response.json()
+    def return_prices(self):
 
-ingramConnection()
+        products = self.get_products()[0]
+        sku_list = self.get_products()[1]
+
+        price_data = {}
+
+        for pos, product in enumerate(products):
+            price_data[sku_list[pos]] = product["customerprice"]
+
+        return price_data
