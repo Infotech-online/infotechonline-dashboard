@@ -28,7 +28,7 @@ function update_data(page) {
         //dataType: 'json',
         success: function (result) {
             
-            log_total_qty.innerHTML = result["log_qty"]
+            log_total_qty.innerHTML = result["logs_qty"]
             last_log_date.innerHTML = result["last_log_date"]
             today_log_qty.innerHTML = result["today_log_qty"]
             page_text.innerHTML = "Page " + page
@@ -90,7 +90,7 @@ $('.back-icon').click(function () {
 // Update section
 
 $('.update-button').click(function () {
-
+    
     let update_option = {"option": "0"}
     if($('.only-empty-cells').is(':checked')) { update_option = {"option": "0"};}
     if($('.all-cells').is(':checked')) { update_option = {"option": "1"};}

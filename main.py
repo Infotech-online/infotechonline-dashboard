@@ -3,7 +3,7 @@ import requests
 from dotenv import dotenv_values
 from woocommerce import API
 import time
-import datetime
+from datetime import datetime
 import json
 import time
 
@@ -51,6 +51,14 @@ def infotech_data():
         with open('logs.json') as f:
             logs_data = json.load(f)
 
+        logs_qty = 0
+        today_log_qty = 0
+        for pos, log in enumerate(logs_data["logs"]):
+            logs_qty+=1
+            if log["date"].find(f"{datetime.now().strftime('%Y-%m-%d')}") != -1:
+                today_log_qty+=1
+            
+
         # Dollar Price
         request_currencies = requests.get("http://apilayer.net/api/live?access_key=35fecb58061d2dcd76ce985b306bcc07&currencies=COP&source=USD&format=1")
         response = request_currencies.json()
@@ -60,6 +68,9 @@ def infotech_data():
         data = {}
         data["products"] = products
         data["logs"] = logs_data
+        data["logs_qty"] = logs_qty
+        data["last_log_date"] = logs_data["logs"][logs_qty-1]["date"]
+        data["today_log_qty"] = today_log_qty
         data["dollar"] = dollar
 
         return data
@@ -68,82 +79,84 @@ def infotech_data():
 
         return "No deberias estar viendo esta pagina."
 
-@app.route('/ingram-update')
+@app.route('/ingram-update', methods=["POST"])
 def ingram_update():
 
-    # Products SKU
-    # Productos a los cuales se les va a cambiar el precio
+    if request.method == "POST":
 
-    init_time = time.time()
-    print(init_time)
+        # Products SKU
+        # Productos a los cuales se les va a cambiar el precio
 
-    with open('ingram_products.json') as f:
-        products_data = json.load(f)
+        init_time = time.time()
+        print(init_time)
 
-    # Log data
-    qty = 0
-    products = []
+        with open('ingram_products.json') as f:
+            products_data = json.load(f)
 
-    for category in products_data:  # Categories
-        for sku in products_data[category]:  # Sku and Prices
+        # Log data
+        qty = 0
+        products = []
 
-            # Prices
-            prices = ingram.return_prices()
+        for category in products_data:  # Categories
+            for sku in products_data[category]:  # Sku and Prices
 
-            # Calc the final price
-            cop_price = int(prices[sku])
-            profit = (cop_price * 0.13) + cop_price
-            final_price_with_IVA = profit * 1.19
+                # Prices
+                prices = ingram.return_prices()
 
-            # WooCommerce Product
-            product = wc.get("products", params={'sku': sku, 'per_page': 1}).json()
+                # Calc the final price
+                cop_price = int(prices[sku])
+                profit = (cop_price * 0.13) + cop_price
+                final_price_with_IVA = profit * 1.19
 
-            data = {"regular_price": f"{int(final_price_with_IVA)}"}
-            wc.put(f"products/{product[0]['id']}", data).json()  # Product Update
+                # WooCommerce Product
+                product = wc.get("products", params={'sku': sku, 'per_page': 1}).json()
 
-            # Log
-            data_log = {
-                "id": product[0]["id"],
-                "sku": f"{sku}",
-                "past_price": f"{product[0]['price']}",
-                "regular_price": f"{int(final_price_with_IVA)}"
+                data = {"regular_price": f"{int(final_price_with_IVA)}"}
+                wc.put(f"products/{product[0]['id']}", data).json()  # Product Update
+
+                # Log
+                data_log = {
+                    "id": product[0]["id"],
+                    "sku": f"{sku}",
+                    "past_price": f"{product[0]['price']}",
+                    "regular_price": f"{int(final_price_with_IVA)}"
+                }
+
+                qty += 1
+                products.append(data_log)
+                    
+                products_data[category][sku]["price"] = int(final_price_with_IVA)
+                add_price = json.dumps(products_data, indent=4)
+
+                with open('ingram_products.json', 'w') as file:
+                    file.write(add_price)
+
+        # Save the Log in "logs.json"
+        with open('logs.json') as f:
+
+            logs_data = json.load(f)
+            logs_data_list = logs_data["logs"]
+
+            new_log = {
+                "date": f"{datetime.now().strftime('%Y-%m-%d')} / {datetime.now().time().strftime('%H:%M:%S')}",
+                "qty": qty,
+                "products": products
             }
 
-            qty += 1
-            products.append(data_log)
-                
-            products_data[category][sku]["price"] = int(final_price_with_IVA)
-            add_price = json.dumps(products_data, indent=4)
+            logs_data_list.append(new_log)
+            logs_data["logs"] = logs_data_list
+            log = json.dumps(logs_data, indent=4)
 
-            with open('ingram_products.json', 'w') as file:
-                file.write(add_price)
+        with open('logs.json', 'w') as file:
+            file.write(log)
 
-    # Save the Log in "logs.json"
-    with open('logs.json') as f:
+        end_time = time.time()
+        total_time = end_time - init_time
+        print(total_time)
 
-        logs_data = json.load(f)
-        logs_data_list = logs_data["logs"]
-
-        from datetime import datetime
-
-        new_log = {
-            "date": f"{datetime.now().strftime('%Y-%m-%d')} / {datetime.now().time().strftime('%H:%M:%S')}",
-            "qty": qty,
-            "products": products
-        }
-
-        logs_data_list.append(new_log)
-        logs_data["logs"] = logs_data_list
-        log = json.dumps(logs_data, indent=4)
-
-    with open('logs.json', 'w') as file:
-        file.write(log)
-
-    end_time = time.time()
-    total_time = end_time - init_time
-    print(total_time)
-
-    return "success"  # Return success
+        return "success"  # Return success
+    else:
+        return "No deberias estar viendo esta pagina. <a href='/'>VOLVER ATRAS</a>"
 
 @app.route('/intcomex-update')
 def intcomex_update():
@@ -219,55 +232,6 @@ def logs():
         logs_data = json.load(f)
 
     return logs_data
-
-@app.route('/especific-description-update')
-def description_update():
-
-    # It is used to update the Warranty in the description of the products
-
-    # WooCommerce Product
-    products = wc.get("products", params={'per_page': 100}).json()
-
-    for product in products:
-
-        # Updating the description
-        description = product["description"]
-
-        if description.find("Garant") == -1:
-
-            position = "</ul>"
-            new_element = "<li>Garantía: 1 año</li>\n"
-
-            # The description is parsed (convert to list)
-            parsed_description = description.split()
-
-            # Get Word Index (-1 is needed to add the word in the left position)
-            word_index = parsed_description.index(position) - 1
-            parsed_description[word_index] += new_element
-
-            # Convert the parsed description to String
-            new_description = ' '.join([str(element) for element in parsed_description])
-
-            update_data = {
-                "attributes": [{
-                    "id": 19,
-                    "name": "Garantía",
-                    "options": [
-                        "1 año"
-                    ],
-                    "position": 2,
-                    "variation": False,
-                    "visible": True
-                }],
-                "description": new_description
-            }
-
-            for att in product["attributes"]:
-                update_data["attributes"].append(att)
-
-            wc.put(f"products/{product['id']}", update_data).json()  # Product Update
-
-    return "success"
 
 @app.route('/producto/<id>')
 def inspeccionar_producto(id):
