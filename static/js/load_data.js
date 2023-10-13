@@ -22,7 +22,7 @@ function update_data(page) {
 
     $.ajax({
         type: "POST",
-        url: "/infotech-data",
+        url: "/local-data",
         data: {"page": page},
         //contentType: "application/json;charset=UTF-8",
         //dataType: 'json',
@@ -47,7 +47,7 @@ function update_data(page) {
                 table.innerHTML += new_row
                 count++;
             };
-            counter.innerHTML = `<e>${count}</e> elements are displayed`
+            counter.innerHTML = `<e>${count}</e> elements <e class="text-hidden_mobile">are displayed</e>`
 
             if(count >= 100) {
                 $( ".forward-icon" ).removeClass('disabled');
@@ -91,13 +91,15 @@ $('.back-icon').click(function () {
 
 $('.update-button').click(function () {
     
-    let update_option = {"option": "0"}
-    if($('.only-empty-cells').is(':checked')) { update_option = {"option": "0"};}
-    if($('.all-cells').is(':checked')) { update_option = {"option": "1"};}
+    let update_option = {"option": "2"}
+    let url = "/all-update"
+    if($('.only-ingram').is(':checked')) { update_option = {"option": "0"}; url="/ingram-update"}
+    if($('.only-intcomex').is(':checked')) { update_option = {"option": "1"}; url="/intcomex-update"}
+    if($('.all-cells').is(':checked')) { update_option = {"option": "2"}; url="/all-update"}
 
     $.ajax({
         type: "POST",
-        url: "/update",
+        url: url,
         data: update_option,
         dataType: 'json',
         beforeSend: function () {
@@ -110,7 +112,7 @@ $('.update-button').click(function () {
         complete: function () {
             $('.load-message').addClass('display-none')
             $('.success-message').removeClass('display-none')
-            update_data()
+            update_data(current_page)
         },
     });
 });

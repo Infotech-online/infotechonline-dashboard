@@ -86,7 +86,7 @@
 
                 <div class="elements-loaded-container">
                     <span class="elements-loaded-text">
-                        <e>0</e> elements are displayed
+                        <e class="qty">0</e> elements <e class="text-hidden_mobile">are displayed</e>
                     </span>
                     <span class="page-number"><ion-icon name="caret-back-outline" class="back-icon disabled"></ion-icon> <e class="page-text">Page 1</e> <ion-icon name="caret-forward-outline" class="forward-icon disabled"></ion-icon></span>
                 </div>
@@ -119,25 +119,60 @@
                     <div class="option-menu">
                         
                         <div class="form-check">
-                            <input class="form-check-input only-empty-cells" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" checked>
+                            <input class="form-check-input only-ingram" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Only Ingram
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input all-cells" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
+                            <input class="form-check-input only-intcomex" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Only Intcomex
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input all-cells" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
+                            <input class="form-check-input all-products" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 All Products
                             </label>
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+
+        <div class="forms-content-container">
+            <div class="centered-title">
+                <div><span>Logs</span></div>
+            </div>
+        
+            <div class="documents-container logs-container">
+                <div class="table-container">
+                    <div class="table-content">
+                        <table class="table">
+                            <thead class="table-success">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">DATE</th>
+                                    <th scope="col">QTY</th>
+                                    <th scope="col">PRODUCTS</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-body">
+                                <!--
+                                {%for row in table%}
+                                    <tr>
+                                        <td>{{row["Fecha"]}}</td>
+                                        <td>{{row["Cliente"]}}</td>
+                                        <td>{{row["Valor"]}}</td>
+                                        <td>{{row["Guia"]}}</td>
+                                        <td>{{row["Estado"]}}</td>
+                                    </tr>
+                                {%endfor%}-->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

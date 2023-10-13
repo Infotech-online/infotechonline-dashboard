@@ -5,7 +5,6 @@ from woocommerce import API
 import time
 from datetime import datetime
 import json
-import time
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -36,7 +35,7 @@ def dashboard():
     # Display the dashboard
     return render_template("dashboard.html")
 
-@app.route('/infotech-data', methods=["POST"])
+@app.route('/local-data', methods=["POST"])
 def infotech_data():
 
     if request.method == "POST":
@@ -58,7 +57,6 @@ def infotech_data():
             if log["date"].find(f"{datetime.now().strftime('%Y-%m-%d')}") != -1:
                 today_log_qty+=1
             
-
         # Dollar Price
         request_currencies = requests.get("http://apilayer.net/api/live?access_key=35fecb58061d2dcd76ce985b306bcc07&currencies=COP&source=USD&format=1")
         response = request_currencies.json()
@@ -69,14 +67,18 @@ def infotech_data():
         data["products"] = products
         data["logs"] = logs_data
         data["logs_qty"] = logs_qty
-        data["last_log_date"] = logs_data["logs"][logs_qty-1]["date"]
+
+        if len(logs_data["logs"]) > 0:
+            data["last_log_date"] = logs_data["logs"][logs_qty-1]["date"]
+        else:
+            data["last_log_date"] = "Null"
+
         data["today_log_qty"] = today_log_qty
         data["dollar"] = dollar
 
         return data
     
     else:
-
         return "No deberias estar viendo esta pagina."
 
 @app.route('/ingram-update', methods=["POST"])
@@ -97,39 +99,41 @@ def ingram_update():
         qty = 0
         products = []
 
+        # Prices
+        prices = ingram.return_prices()
+
         for category in products_data:  # Categories
             for sku in products_data[category]:  # Sku and Prices
-
-                # Prices
-                prices = ingram.return_prices()
-
+                
                 # Calc the final price
                 cop_price = int(prices[sku])
                 profit = (cop_price * 0.13) + cop_price
                 final_price_with_IVA = profit * 1.19
 
-                # WooCommerce Product
-                product = wc.get("products", params={'sku': sku, 'per_page': 1}).json()
-
-                data = {"regular_price": f"{int(final_price_with_IVA)}"}
-                wc.put(f"products/{product[0]['id']}", data).json()  # Product Update
-
-                # Log
-                data_log = {
-                    "id": product[0]["id"],
-                    "sku": f"{sku}",
-                    "past_price": f"{product[0]['price']}",
-                    "regular_price": f"{int(final_price_with_IVA)}"
-                }
-
-                qty += 1
-                products.append(data_log)
+                if int(final_price_with_IVA) != int(products_data[category][sku]["price"]):         
                     
-                products_data[category][sku]["price"] = int(final_price_with_IVA)
-                add_price = json.dumps(products_data, indent=4)
+                    # WooCommerce Product
+                    product = wc.get("products", params={'sku': sku, 'per_page': 1}).json()
 
-                with open('ingram_products.json', 'w') as file:
-                    file.write(add_price)
+                    data = {"regular_price": f"{int(final_price_with_IVA)}"}
+                    wc.put(f"products/{product[0]['id']}", data).json()  # Product Update
+
+                    # Log
+                    data_log = {
+                        "id": product[0]["id"],
+                        "sku": f"{sku}",
+                        "past_price": f"{product[0]['price']}",
+                        "regular_price": f"{int(final_price_with_IVA)}"
+                    }
+
+                    qty += 1
+                    products.append(data_log)
+                        
+                    products_data[category][sku]["price"] = int(final_price_with_IVA)
+                    add_price = json.dumps(products_data, indent=4)
+
+                    with open('ingram_products.json', 'w') as file:
+                        file.write(add_price)
 
         # Save the Log in "logs.json"
         with open('logs.json') as f:
@@ -154,7 +158,7 @@ def ingram_update():
         total_time = end_time - init_time
         print(total_time)
 
-        return "success"  # Return success
+        return "Success", 201  # Return success
     else:
         return "No deberias estar viendo esta pagina. <a href='/'>VOLVER ATRAS</a>"
 
@@ -171,16 +175,18 @@ def intcomex_update():
             provider_sku = products_data[category][id][1]
 
             product = intcomexConnection().get_single_product(provider_sku)
+            product_price = str(product["Price"]["UnitPrice"])
 
             update_data = {
-                "regular_price": str(product["Price"]["UnitPrice"]),
+                "regular_price": product_price,
                 "stock_quantity": product["InStock"]
             }
 
             wc.put(f"products/{id}", update_data).json()
 
-    return "success"
+    return "Success", 201
 
+"""
 @app.route('/intcomex-add')
 def intcomex_add():
 
@@ -218,7 +224,7 @@ def intcomex_add():
 
             print(wc.post("products", data).json())
 
-    return "success"
+    return "Success", 201 """
 
 """
 Data visualization ----------------------------------------------------------------------------------------------------
@@ -262,3 +268,6 @@ def ingram_products():
 if __name__ == '__main__':
 
     app.run(debug=True, host="0.0.0.0", port=1010)
+
+# π - 2023
+# An Infotech Solution

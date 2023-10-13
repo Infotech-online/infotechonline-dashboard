@@ -18,11 +18,11 @@ class intcomexConnection():
         self.tokens_file = "tokens.json"
 
         # Urls
-        self.url = env["INTCOMEX_URL"]
+        self.url = env["INTCOMEX_PROD_URL"]
 
         # Credentials
-        self.api_key = env["API_KEY"]
-        self.access_key = env["ACCESS_KEY"]
+        self.api_key = env["INTCOMEX_PROD_API_kEY"]
+        self.access_key = env["INTCOMEX_PROD_ACCESS_KEY"]
 
     def generate_signature(self):
 
