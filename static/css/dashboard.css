@@ -271,31 +271,6 @@ header {
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(25, 129, 39, 0.705) 0px 0px 0px 1px;
 }
 
-.table-container {
-    width: 100%;
-    display: flex;
-    height: max-content;
-}
-
-.table-content {
-    width: 100%;
-    height: 400px;
-    max-height: 400px;
-    background-color: transparent;
-    border-radius: 0 0 10px 10px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-}
-
-.add-icon {
-    width: 80px;
-    height: 80px;
-    color: #8f8f8f;
-    margin-bottom: 20px;
-}
-
 .elements-loaded-container {
     margin: 20px 0 0 0;
     color: #9e9e9e;
@@ -558,9 +533,12 @@ header {
 
 .update-button-container {
     margin-top: 20px;
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
 }
 
-.update-button {
+.update-button, .add-prod-button_modal, .add-prod-button {
     padding: 10px 20px;
     background-color: #568a58;
     color: white;
@@ -569,7 +547,7 @@ header {
     transition-duration: 0.3s;
 }
 
-.update-button:hover {
+.update-button:hover, .add-prod-button_modal:hover, .add-prod-button:hover {
     background-color: #69a66b;
 }
 
@@ -579,7 +557,6 @@ header {
 
 .option-menu {
     display: block;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: max-content;
@@ -663,4 +640,244 @@ header {
 }
 @media only screen and (max-width: 425px){
 	/*Small smartphones [325px -> 425px]*/
+}
+
+/* Logs container */
+
+.table-container {
+    width: 100%;
+    display: flex;
+    height: max-content;
+}
+
+.table-content {
+    width: 100%;
+    height: 400px;
+    max-height: 400px;
+    background-color: transparent;
+    border-radius: 0 0 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.logs-table .table-body {
+    position: relative;
+}
+
+.log-type_message {
+    color: #568a58;
+    padding: 5px;
+    background-color: #9acf9c8d;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.upd-prod-container, .add-prod-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #6e6e6e8d;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.display-none {
+    display: none;
+}
+
+.show-products_modal_btn {
+    cursor: pointer;
+}
+
+.buttons-container {
+    margin-top: 3vh;
+    width: 700px;
+    height: 50px;
+    border-radius: 8px 8px 0 0;
+    background-color: #fff;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.buttons-container span {
+    font-size: 25px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.upd-prod-content, .add-prod-content {
+    width: 700px;
+    height: 500px;
+    background-color: #f4f4f4;
+    border-radius: 0 0 8px 8px;
+    display: grid; /* Use CSS grid property */
+    grid-template-columns: repeat(3, 1fr); /* Define the number of columns and their width */
+    gap: 15px; /* Add some spacing between grid items */
+    padding: 15px;
+    overflow: auto;
+}
+
+.log-product {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.log-product:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.log-product .image-container {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+.log-product .image-container img {
+    width: 50px;
+    height: 50px;
+}
+
+.product-info-container {
+    padding: 15px 15px 0 15px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    color: #5c5c5c;
+    font-weight: bold;
+}
+
+.product-sku {
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+.last-price_qty {
+    text-decoration: line-through;
+}
+
+.last-price_title {
+    font-weight: bold;
+    color: #69a66b;
+}
+
+.curr-price_title {
+    font-weight: bold;
+    color: #69a66b;
+}
+
+/* Add Products Modal */
+
+.add-prod-container input {
+    border-radius: 10px;
+    padding: 5px 10px;
+    outline: none;
+    border: 0px;
+    color: #5c5c5c;
+    width: 300px;
+    transition-duration: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.add-prod-container input:hover {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(25, 129, 39, 0.705) 0px 0px 0px 1px;
+}
+
+.add-prod-container input:focus {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(25, 129, 39, 0.705) 0px 0px 0px 1px;
+}
+
+.add-prod-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-prod-content .title .first-title {
+    font-size: 30px;
+    color: #69a66b;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.title .sub-title {
+    font-size: 15px;
+    color: #6b6b6b;
+}
+
+.add-prod-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.add-prod-form label {
+    font-size: 12px;
+    color: #636363;
+}
+
+.add-prod-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.option-menu_modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.select {
+    padding: 20px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    outline: none;
+    border: 0px;
+    color: #5c5c5c;
+    width: 300px;
+    transition-duration: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    cursor: pointer;
+}
+
+.select:last-child {
+    margin-top: 20px;
+}
+
+.select input:hover {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(25, 129, 39, 0.705) 0px 0px 0px 1px;
+}
+
+.select input:focus {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(25, 129, 39, 0.705) 0px 0px 0px 1px;
 }

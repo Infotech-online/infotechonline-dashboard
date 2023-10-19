@@ -116,3 +116,30 @@ class ingramConnection():
             price_data[sku_list[pos]] = product["customerprice"]
 
         return price_data
+
+    def return_stock(self, sku):
+
+        products = self.get_products()[0]
+        total_stock = 0
+        
+        for product in products:
+            if product["ingrampartnumber"] == sku:
+                for provider in product["warehousedetails"]:
+                    total_stock += provider["availablequantity"]
+
+        return total_stock
+    
+    def return_all_stock(self):
+
+        all_stock = {}
+
+        for product in self.get_products()[0]:
+
+            stock = 0
+            for provider in product["warehousedetails"]:
+                stock += provider["availablequantity"]
+
+            all_stock[product["ingrampartnumber"]] = stock
+
+        return all_stock
+

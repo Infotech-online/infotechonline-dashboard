@@ -2,240 +2,296 @@
     "accesorios": {
         "101001": {
             "ingramSku": "5624551",
-            "price": 966798
+            "price": 966798,
+            "stock": "instock"
         },
         "101002": {
             "ingramSku": "4487567",
-            "price": 742672
+            "price": 742672,
+            "stock": "instock"
         },
         "101003": {
             "ingramSku": "5686905",
-            "price": 550750
+            "price": 553161,
+            "stock": "instock"
         },
         "101004": {
             "ingramSku": "5686913",
-            "price": 509124
+            "price": 509124,
+            "stock": "outofstock"
         },
         "101005": {
             "ingramSku": "5686908",
-            "price": 1430567
+            "price": 1436826,
+            "stock": "instock"
         },
         "101007": {
             "ingramSku": "5772230",
-            "price": 302744
+            "price": 302744,
+            "stock": "outofstock"
         },
         "101008": {
             "ingramSku": "5737009",
-            "price": 611608
+            "price": 614285,
+            "stock": "outofstock"
         },
         "101009": {
             "ingramSku": "5736938",
-            "price": 366212
+            "price": 367814,
+            "stock": "outofstock"
         }
     },
     "impresoras": {
         "201001": {
             "ingramSku": "5276303",
-            "price": 1093247
+            "price": 1093247,
+            "stock": "instock"
         },
         "201002": {
             "ingramSku": "5338224",
-            "price": 2536249
+            "price": 2536249,
+            "stock": "outofstock"
         },
         "201003": {
             "ingramSku": "5276297",
-            "price": 567884
+            "price": 567884,
+            "stock": "instock"
         },
         "201004": {
             "ingramSku": "4563856",
-            "price": 1592626
+            "price": 1649505,
+            "stock": "instock"
         },
         "201005": {
             "ingramSku": "5602147",
-            "price": 19301029
+            "price": 21055631,
+            "stock": "instock"
         }
     },
     "monitores": {
         "301001": {
             "ingramSku": "5278923",
-            "price": 708656
+            "price": 687141,
+            "stock": "instock"
         },
         "301002": {
             "ingramSku": "5224155",
-            "price": 992388
+            "price": 945324,
+            "stock": "instock"
         },
         "301003": {
             "ingramSku": "5698999",
-            "price": 880778
+            "price": 880778,
+            "stock": "instock"
         },
         "301004": {
             "ingramSku": "5699000",
-            "price": 981496
+            "price": 981496,
+            "stock": "instock"
         },
         "301005": {
             "ingramSku": "4972407",
-            "price": 1019032
+            "price": 1021864,
+            "stock": "instock"
         },
         "301006": {
             "ingramSku": "5187194",
-            "price": 823254
+            "price": 823254,
+            "stock": "outofstock"
         },
         "301007": {
             "ingramSku": "5173236",
-            "price": 859552
+            "price": 863313,
+            "stock": "instock"
         },
         "301008": {
             "ingramSku": "4996616",
-            "price": 1547054
+            "price": 1553825,
+            "stock": "outofstock"
         }
     },
     "pc": {
         "401001": {
             "ingramSku": "5195973",
-            "price": 11037083
+            "price": 11037083,
+            "stock": "outofstock"
         },
         "401002": {
             "ingramSku": "5196297",
-            "price": 8537886
+            "price": 8537886,
+            "stock": "outofstock"
         },
         "401003": {
             "ingramSku": "5196298",
-            "price": 8537886
+            "price": 8537886,
+            "stock": "outofstock"
         },
         "401004": {
             "ingramSku": "5114196",
-            "price": 5013071
+            "price": 5013071,
+            "stock": "instock"
         },
         "401005": {
             "ingramSku": "5755411",
-            "price": 10828818
+            "price": 10828818,
+            "stock": "outofstock"
         },
         "401006": {
             "ingramSku": "5707536",
-            "price": 16139613
+            "price": 16139613,
+            "stock": "outofstock"
         },
         "401010": {
             "ingramSku": "5734406",
-            "price": 2111179
+            "price": 2097732,
+            "stock": "instock"
         },
         "401017": {
             "ingramSku": "5322546",
-            "price": 5660421
+            "price": 3864667,
+            "stock": "outofstock"
         },
         "401018": {
             "ingramSku": "5620754",
-            "price": 4441544
+            "price": 4339346,
+            "stock": "instock"
         },
         "401019": {
             "ingramSku": "5678509",
-            "price": 1808181
+            "price": 1808181,
+            "stock": "instock"
         },
         "401020": {
             "ingramSku": "5718401",
-            "price": 2419115
+            "price": 2419115,
+            "stock": "instock"
         },
         "401021": {
             "ingramSku": "5725897",
-            "price": 2131892
+            "price": 2131892,
+            "stock": "instock"
         },
         "401022": {
             "ingramSku": "5730160",
-            "price": 5688081
+            "price": 5688081,
+            "stock": "outofstock"
         },
         "401024": {
             "ingramSku": "5087294",
-            "price": 4741814
+            "price": 4741814,
+            "stock": "outofstock"
         },
         "401025": {
             "ingramSku": "5620751",
-            "price": 8546513
+            "price": 8546513,
+            "stock": "outofstock"
         },
         "401026": {
             "ingramSku": "5741475",
-            "price": 4329934
+            "price": 4329934,
+            "stock": "outofstock"
         },
         "401027": {
             "ingramSku": "5739000",
-            "price": 8162329
+            "price": 8162329,
+            "stock": "outofstock"
         }
     },
     "proyectores": {
         "501001": {
             "ingramSku": "5241198",
-            "price": 3953278
+            "price": 3241242,
+            "stock": "outofstock"
         },
         "501002": {
             "ingramSku": "4991237",
-            "price": 2755580
+            "price": 2755580,
+            "stock": "instock"
         },
         "501003": {
             "ingramSku": "4525667",
-            "price": 2481456
+            "price": 2481456,
+            "stock": "instock"
         }
     },
     "smarthome": {},
     "smartphones": {
         "701001": {
             "ingramSku": "5046091",
-            "price": 4084393
+            "price": 4084393,
+            "stock": "outofstock"
         },
         "701002": {
             "ingramSku": "5323118",
-            "price": 5034061
+            "price": 5034061,
+            "stock": "instock"
         },
         "701003": {
             "ingramSku": "5626072",
-            "price": 6439242
+            "price": 6439242,
+            "stock": "instock"
         },
         "701007": {
             "ingramSku": "5737387",
-            "price": 658768
+            "price": 658768,
+            "stock": "instock"
         },
         "701008": {
             "ingramSku": "5567506",
-            "price": 820132
+            "price": 820132,
+            "stock": "outofstock"
         },
         "701009": {
             "ingramSku": "5677034",
-            "price": 680283
+            "price": 680283,
+            "stock": "instock"
         },
         "701013": {
             "ingramSku": "5744022",
-            "price": 2191861
+            "price": 2191861,
+            "stock": "instock"
         },
         "701014": {
             "ingramSku": "5754597",
-            "price": 1163165
+            "price": 1163165,
+            "stock": "instock"
         },
         "701015": {
             "ingramSku": "5726319",
-            "price": 5195432
+            "price": 5195432,
+            "stock": "outofstock"
         },
         "701016": {
             "ingramSku": "5624420",
-            "price": 4635574
+            "price": 4635574,
+            "stock": "outofstock"
         }
     },
     "tvs": {
         "801005": {
             "ingramSku": "5585694",
-            "price": 4135216
+            "price": 4135216,
+            "stock": "outofstock"
         },
         "801006": {
             "ingramSku": "5540719",
-            "price": 7405000
+            "price": 7405000,
+            "stock": "outofstock"
         },
         "801007": {
             "ingramSku": "5511322",
-            "price": 2758781
+            "price": 2758781,
+            "stock": "outofstock"
         },
         "801010": {
             "ingramSku": "4882629",
-            "price": 1070998
+            "price": 940847,
+            "stock": "instock"
         },
         "801011": {
             "ingramSku": "5786068",
-            "price": 1760470
+            "price": 1760470,
+            "stock": "instock"
         }
     }
 }

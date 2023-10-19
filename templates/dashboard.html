@@ -88,7 +88,10 @@
                     <span class="elements-loaded-text">
                         <e class="qty">0</e> elements <e class="text-hidden_mobile">are displayed</e>
                     </span>
-                    <span class="page-number"><ion-icon name="caret-back-outline" class="back-icon disabled"></ion-icon> <e class="page-text">Page 1</e> <ion-icon name="caret-forward-outline" class="forward-icon disabled"></ion-icon></span>
+                    <span class="page-number"><ion-icon name="caret-back-outline" class="back-icon disabled"></ion-icon>
+                        <e class="page-text">Page 1</e> <ion-icon name="caret-forward-outline"
+                            class="forward-icon disabled"></ion-icon>
+                    </span>
                 </div>
             </div>
         </div>
@@ -99,9 +102,13 @@
             <div class="reports-container-content">
                 <div class="total-post-report">
                     <div class="icon"><ion-icon name="document-text"></ion-icon></div>
-                    <span class="qty"><e class="today-log-qty">0</e> Updates</span>
+                    <span class="qty">
+                        <e class="today-log-qty">0</e> Updates
+                    </span>
                     <span class="today-text">Registered today</span>
-                    <span class="total-text">Total: <span><e class="log-total-qty">0</e> Updates</span></span>
+                    <span class="total-text">Total: <span>
+                            <e class="log-total-qty">0</e> Updates
+                        </span></span>
                 </div>
                 <div class="update-form-container">
                     <h3>Update Products</h3>
@@ -114,24 +121,62 @@
                     </div>
                     <div class="update-button-container">
                         <div class="update-button">Update data</div>
+                        <div class="add-prod-button_modal">Add products</div>
+                    </div>
+
+                    <div class="add-prod-container display-none">
+                        <div class="buttons-container"><span class="close-modal_button"><ion-icon
+                                    name="close-outline"></ion-icon></span></div>
+                        <div class="add-prod-content">
+                            <div class="title">
+                                <span class="first-title">Add Products</span>
+                                <span class="sub-title">only for products uploaded to the store</span>
+                            </div>
+                            <div class="add-prod-form">
+                                <label>SKU (The Sku Registered in the Store)</label>
+                                <input type="text" placeholder="Example: 101001">
+                                <div class="option-menu_modal">
+                                    <select class="category-select select" aria-label="Category">
+                                        <option selected disabled>Select a Category</option>
+                                        <option value="accesorios">Accesorios</option>
+                                        <option value="impresoras">Impresoras</option>
+                                        <option value="monitores">Monitores</option>
+                                        <option value="pc">Pc</option>
+                                        <option value="proyectores">Proyectores</option>
+                                        <option value="smarthome">Smarthome</option>
+                                        <option value="smartphones">Smartphones</option>
+                                        <option value="tvs">Tvs</option>
+                                    </select>
+                                    <select class="provider-select select" aria-label="Provider">
+                                        <option selected disabled>Select a Provider</option>
+                                        <option value="ingram">Ingram</option>
+                                        <option value="intcomex">Intcomex</option>
+                                    </select>
+                                </div>
+                                <div class="add-prod-button">Add product</div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="option-menu">
-                        
+
                         <div class="form-check">
-                            <input class="form-check-input only-ingram" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" checked>
+                            <input class="form-check-input only-ingram" type="radio" name="flexRadioDefault"
+                                id="flexRadioDefault2" value="0" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Only Ingram
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input only-intcomex" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
+                            <input class="form-check-input only-intcomex" type="radio" name="flexRadioDefault"
+                                id="flexRadioDefault1" value="1">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Only Intcomex
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input all-products" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
+                            <input class="form-check-input all-products" type="radio" name="flexRadioDefault"
+                                id="flexRadioDefault1" value="1">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 All Products
                             </label>
@@ -146,30 +191,22 @@
             <div class="centered-title">
                 <div><span>Logs</span></div>
             </div>
-        
+
             <div class="documents-container logs-container">
                 <div class="table-container">
                     <div class="table-content">
-                        <table class="table">
+                        <table class="table logs-table">
                             <thead class="table-success">
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">DATE</th>
                                     <th scope="col">QTY</th>
+                                    <th scope="col">TYPE</th>
                                     <th scope="col">PRODUCTS</th>
                                 </tr>
                             </thead>
                             <tbody class="table-body">
-                                <!--
-                                {%for row in table%}
-                                    <tr>
-                                        <td>{{row["Fecha"]}}</td>
-                                        <td>{{row["Cliente"]}}</td>
-                                        <td>{{row["Valor"]}}</td>
-                                        <td>{{row["Guia"]}}</td>
-                                        <td>{{row["Estado"]}}</td>
-                                    </tr>
-                                {%endfor%}-->
+                                <!-- Loading data -->
                             </tbody>
                         </table>
                     </div>
@@ -207,6 +244,7 @@
 
     <!-- Load data -->
     <script src="/static/js/load_data.js"></script>
+    <script src="/static/js/modals.js"></script>
 
 </body>
 

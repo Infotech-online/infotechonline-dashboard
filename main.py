@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template, session, url_for, redirect, send_file
 import requests
 from dotenv import dotenv_values
-from woocommerce import API
 import time
 from datetime import datetime
 import json
@@ -11,23 +10,14 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 # Env Vars
 env = dotenv_values(".env")
 
-# Session vars
-app.secret_key = "super secret key"
-
-# WooCommerce API Credentials
-wc = API(
-    url=env["URL"],
-    consumer_key=env['CONSUMER_KEY'],
-    consumer_secret=env['CONSUMER_SECRET'],
-    version="wc/v3"
-)
-
 # Local Libs
 from local_libs.ingram import ingramConnection
 from local_libs.intcomex import intcomexConnection
+from local_libs.woocommerce import wooConnection
 
 ingram = ingramConnection()
 intcomex = intcomexConnection()
+woo = wooConnection()
 
 @app.route('/')
 def dashboard():
@@ -44,9 +34,13 @@ def infotech_data():
         page = request.form["page"]
 
         # Return a json with data
-        products = wc.get("products", params={'per_page': 100, 'order': 'asc', 'page': page}).json() # WooCommerce Productproducts
+        products = woo.mconsult().get("products", params={'per_page': 100, 'order': 'asc', 'page': page}).json() # WooCommerce Productproducts
 
-        #Get log data
+        # Get image data
+        with open('products_imgs.json') as f:
+            imgs = json.load(f)
+
+        # Get log data
         with open('logs.json') as f:
             logs_data = json.load(f)
 
@@ -58,23 +52,24 @@ def infotech_data():
                 today_log_qty+=1
             
         # Dollar Price
-        request_currencies = requests.get("http://apilayer.net/api/live?access_key=35fecb58061d2dcd76ce985b306bcc07&currencies=COP&source=USD&format=1")
+        """request_currencies = requests.get("http://apilayer.net/api/live?access_key=35fecb58061d2dcd76ce985b306bcc07&currencies=COP&source=USD&format=1")
         response = request_currencies.json()
-        dollar = response["quotes"]["USDCOP"]
+        dollar = response["quotes"]["USDCOP"]"""
 
         # Save data
         data = {}
         data["products"] = products
-        data["logs"] = logs_data
+        data["logs"] = logs_data["logs"]
         data["logs_qty"] = logs_qty
 
         if len(logs_data["logs"]) > 0:
             data["last_log_date"] = logs_data["logs"][logs_qty-1]["date"]
         else:
-            data["last_log_date"] = "Null"
+            data["last_log_date"] = "(Null)"
 
         data["today_log_qty"] = today_log_qty
-        data["dollar"] = dollar
+        # data["dollar"] = dollar
+        data["imgs"] = imgs
 
         return data
     
@@ -102,38 +97,55 @@ def ingram_update():
         # Prices
         prices = ingram.return_prices()
 
+        # Stock
+        stock = ingram.return_all_stock()
+
         for category in products_data:  # Categories
             for sku in products_data[category]:  # Sku and Prices
+
+                # Ingram part number
+                ingram_pnumber = products_data[category][sku]["ingramSku"]
                 
                 # Calc the final price
                 cop_price = int(prices[sku])
                 profit = (cop_price * 0.13) + cop_price
                 final_price_with_IVA = profit * 1.19
 
-                if int(final_price_with_IVA) != int(products_data[category][sku]["price"]):         
+                # Stock
+                if stock[ingram_pnumber] > 0:
+                    stock_status = "instock"
+                else:
+                    stock_status = "outofstock"
+
+                print(sku, stock_status)
+
+                if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status):
                     
                     # WooCommerce Product
-                    product = wc.get("products", params={'sku': sku, 'per_page': 1}).json()
+                    product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
 
-                    data = {"regular_price": f"{int(final_price_with_IVA)}"}
-                    wc.put(f"products/{product[0]['id']}", data).json()  # Product Update
+                    data = {"regular_price": f"{int(final_price_with_IVA)}", "stock_status": f"{stock_status}"}
+                    woo.mconsult().put(f"products/{product[0]['id']}", data).json()  # Product Update
 
                     # Log
                     data_log = {
                         "id": product[0]["id"],
                         "sku": f"{sku}",
+                        "ingrampartnumber": ingram_pnumber,
+                        "stock": stock_status,
                         "past_price": f"{product[0]['price']}",
                         "regular_price": f"{int(final_price_with_IVA)}"
                     }
 
                     qty += 1
                     products.append(data_log)
-                        
+
                     products_data[category][sku]["price"] = int(final_price_with_IVA)
-                    add_price = json.dumps(products_data, indent=4)
+                    products_data[category][sku]["stock"] = stock_status
+                    upd_product = json.dumps(products_data, indent=4)
 
                     with open('ingram_products.json', 'w') as file:
-                        file.write(add_price)
+                        file.write(upd_product)
 
         # Save the Log in "logs.json"
         with open('logs.json') as f:
@@ -182,7 +194,7 @@ def intcomex_update():
                 "stock_quantity": product["InStock"]
             }
 
-            wc.put(f"products/{id}", update_data).json()
+            woo.mconsult().put(f"products/{id}", update_data).json()
 
     return "Success", 201
 
@@ -242,12 +254,12 @@ def logs():
 @app.route('/producto/<id>')
 def inspeccionar_producto(id):
 
-    return wc.get(f"products/{id}").json()  # WooCommerce Product
+    return woo.mconsult().get(f"products/{id}").json()  # WooCommerce Product
 
 @app.route('/get-categories')
 def get_categories():
 
-    categories = wc.get(f"products/categories", params={'per_page': 100}).json()
+    categories = woo.mconsult().get(f"products/categories", params={'per_page': 100}).json()
 
     cats_short = {}
     for category in categories:
@@ -264,6 +276,16 @@ def intcomex_products():
 def ingram_products():
 
     return ingram.get_products()[0]
+
+@app.route("/woo-products")
+def wordpress_products():
+
+    return woo.get_all_prods()
+
+@app.route("/woo-imgs")
+def wordpress_imgs():
+
+    return woo.get_all_imgs()
 
 if __name__ == '__main__':
 
