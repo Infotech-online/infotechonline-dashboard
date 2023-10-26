@@ -13,7 +13,7 @@ let logs_table = document.querySelector(".logs-table .table-body")
 // Number to currency format
 
 const currency = function(number){
-    return new Intl.NumberFormat('es', {style: 'currency', currency: 'COP', minimumFractionDigits: 0}).format(number);
+    return new Intl.NumberFormat().format(number);
 };
 
 // Getting table data usign Ajax
@@ -82,6 +82,7 @@ function update_data(page) {
                             <div class="product-info-container">
                                 <span class="product-sku">${product_info["sku"]} - ${product_info["id"]}</span>
                                 <div class="price-container">
+                                    <div><span class="stock-status">${product_info["stock"]}</span></div>
                                     <div><span class="last-price_title">Last price:</span> <e class="last-price_qty">${currency(product_info["past_price"])}</e></div>
                                     <div><span class="curr-price_title">Current price:</span> <e class="curr-price_qty">${currency(product_info["regular_price"])}</e></div>
                                 </div>
@@ -92,12 +93,21 @@ function update_data(page) {
                     log_products += log_product;
                 }
 
+                let log_type = result["logs"][row]["type"]
+                if (log_type == "Update") {
+                    log_type = "<span class='log-type_message log-type_message_update'>Update</span>";
+                } else if (log_type == "Add") {
+                    log_type = "<span class='log-type_message log-type_message_add'>Add</span>";
+                } else {
+                    log_type = "<span class='log-type_message log-type_message_update'>Update</span>";
+                }
+
                 let new_row = `
                 <tr>
                     <th scope="row">${count+1}</th>
                     <td>${result["logs"][row]["date"]}</td>
                     <td>${result["logs"][row]["qty"]}</td>
-                    <td><span class="log-type_message">Update</span></td>
+                    <td>${log_type}</td>
                     <td class="show-products_action-btn" style="text-decoration: underline;">
                         <span class="show-products_modal_btn">Ver productos</span>
                         <div class="upd-prod-container display-none">

@@ -82,7 +82,6 @@ def ingram_update():
     if request.method == "POST":
 
         # Products SKU
-        # Productos a los cuales se les va a cambiar el precio
 
         init_time = time.time()
         print(init_time)
@@ -106,7 +105,7 @@ def ingram_update():
                 # Ingram part number
                 ingram_pnumber = products_data[category][sku]["ingramSku"]
                 
-                # Calc the final price
+                # Calculate the final price
                 cop_price = int(prices[sku])
                 profit = (cop_price * 0.13) + cop_price
                 final_price_with_IVA = profit * 1.19
@@ -155,6 +154,7 @@ def ingram_update():
 
             new_log = {
                 "date": f"{datetime.now().strftime('%Y-%m-%d')} / {datetime.now().time().strftime('%H:%M:%S')}",
+                "type": "Update",
                 "qty": qty,
                 "products": products
             }
@@ -197,6 +197,75 @@ def intcomex_update():
             woo.mconsult().put(f"products/{id}", update_data).json()
 
     return "Success", 201
+
+@app.route('/add-product', methods=["POST"])
+def add_product():
+
+    if request.method == "POST":
+
+        product_sku = request.form["prod_sku"]
+        part_num = request.form["prod_pn"]
+        category = request.form["category"]
+        provider = request.form["provider"]
+
+        try:
+            with open(f'{provider}_products.json') as f:
+                products_data = json.load(f)
+
+            # Woocommerce product
+            woo_prod = woo.get_product_by_sku(product_sku)
+            price = woo_prod["regular_price"]
+            stock = woo_prod["stock_status"]
+
+            new_product = {
+                "ingramSku": part_num,
+                "price": price,
+                "stock": stock
+            }
+
+            products_data[category][str(product_sku)] = new_product
+
+            product = json.dumps(products_data, indent=4)
+
+            with open(f'{provider}_products.json', 'w') as f:
+                f.write(product)
+
+            # Save the Log in "logs.json"
+            with open('logs.json') as f:
+
+                logs_data = json.load(f)
+                logs_data_list = logs_data["logs"]
+
+                new_log = {
+                    "date": f"{datetime.now().strftime('%Y-%m-%d')} / {datetime.now().time().strftime('%H:%M:%S')}",
+                    "type": "Add",
+                    "qty": 1,
+                    "products": [{
+                        "id": woo_prod["id"],
+                        "sku": product_sku,
+                        "ingrampartnumber": part_num,
+                        "stock": stock,
+                        "past_price": price,
+                        "regular_price": price
+                    }]
+                }
+
+                logs_data_list.append(new_log)
+                logs_data["logs"] = logs_data_list
+                log = json.dumps(logs_data, indent=4)
+
+            with open('logs.json', 'w') as file:
+                file.write(log)
+
+            return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+        
+        except Exception as ex:
+
+            template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+            message = template.format(type(ex).__name__, ex.args)
+            print (message)
+
+            return json.dumps({'success':False}), 400, {'ContentType':'application/json'}
 
 """
 @app.route('/intcomex-add')
@@ -286,6 +355,12 @@ def wordpress_products():
 def wordpress_imgs():
 
     return woo.get_all_imgs()
+
+@app.route("/woo-sku")
+def woo_sku():
+
+    woo_prod = woo.get_product_by_sku("101009")
+    return woo_prod
 
 if __name__ == '__main__':
 

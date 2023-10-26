@@ -113,8 +113,7 @@
                 <div class="update-form-container">
                     <h3>Update Products</h3>
                     <div class="log-message">
-                        <span class="success-message display-none">The file has been updated
-                            successfully.</span>
+                        <span class="success-message display-none">The file has been updated successfully.</span>
                         <span class="load-message display-none">Updating data...</span>
                         <span class="error-message display-none">The file could not be updated.</span>
                         <span class="last-update-message">last update <e class="last-log-date">...</e></span>
@@ -130,11 +129,20 @@
                         <div class="add-prod-content">
                             <div class="title">
                                 <span class="first-title">Add Products</span>
-                                <span class="sub-title">only for products uploaded to the store</span>
+                            </div>
+                            <div class="notify-section_modal">
+                                <span class="first-message">Only for products uploaded from the store</span>
+                                <span class="prod-success-message display-none">The product was uploaded
+                                    successfully</span>
+                                <span class="add-prod-error-message display-none">The product cannot be added</span>
+                                <span class="add-prod-fill-message display-none">Fill out all the fields</span>
                             </div>
                             <div class="add-prod-form">
                                 <label>SKU (The Sku Registered in the Store)</label>
-                                <input type="text" placeholder="Example: 101001">
+                                <input class="prod-sku-input" type="text" placeholder="Example: 101001">
+                                <label style="margin-top: 20px;">Part Number (The Sku Registered by the
+                                    Provider)</label>
+                                <input class="prod-pn-input" type="text" placeholder="Example: 543321">
                                 <div class="option-menu_modal">
                                     <select class="category-select select" aria-label="Category">
                                         <option selected disabled>Select a Category</option>
@@ -244,7 +252,7 @@
 
     <!-- Load data -->
     <script src="/static/js/load_data.js"></script>
-    <script src="/static/js/modals.js"></script>
+    <script src="/static/js/add_product.js"></script>
 
 </body>
 

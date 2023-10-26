@@ -17,6 +17,13 @@ class wooConnection():
             version="wc/v3"
         )
 
+    def get_product_by_sku(self, sku):
+
+        try:
+            return self.wc.get("products", params={"sku": sku}).json()[0]
+        except:
+            return "Error Woocommerce Api"
+
     def get_all_prods(self):
 
         curr_page = 1

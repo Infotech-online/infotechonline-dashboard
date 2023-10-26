@@ -503,7 +503,7 @@ header {
     font-size: 12px;
 }
 
-.success-message {
+.success-message, .prod-success-message {
     color: #568a58;
     padding: 5px;
     background-color: #9acf9c8d;
@@ -674,6 +674,12 @@ header {
     font-size: 12px;
 }
 
+.log-type_message_add {
+    color: #aab038;
+    padding: 5px;
+    background-color: #eae02f8d;
+}
+
 .upd-prod-container, .add-prod-container {
     position: fixed;
     top: 0;
@@ -729,7 +735,7 @@ header {
 
 .log-product {
     width: 200px;
-    height: 200px;
+    height: 210px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -821,7 +827,6 @@ header {
     font-size: 30px;
     color: #69a66b;
     font-weight: 500;
-    margin-top: 20px;
 }
 
 .title .sub-title {
@@ -829,10 +834,31 @@ header {
     color: #6b6b6b;
 }
 
+.notify-section_modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    height: 17px;
+}
+
+.first-message {
+    color: #4e4e4e;
+    padding: 5px;
+    background-color: #aeaeae8d;
+    border-radius: 8px;
+}
+
+.add-prod-error-message, .add-prod-fill-message {
+    color: #be4a4a;
+    padding: 5px;
+    background-color: #ff7e7e8d;
+    border-radius: 8px;
+}
+
 .add-prod-form {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
