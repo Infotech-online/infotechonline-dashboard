@@ -33,7 +33,7 @@ class wooConnection():
             products.extend(self.wc.get("products", params={'per_page': 100, 'page': curr_page}).json())
 
         return products
-    
+        
     def get_all_imgs(self):
 
         all_products = self.get_all_prods()

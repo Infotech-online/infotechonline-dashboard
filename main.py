@@ -267,6 +267,16 @@ def add_product():
 
             return json.dumps({'success':False}), 400, {'ContentType':'application/json'}
 
+@app.route("/update-shipping-clases")
+def update_shipping_clases():
+
+    woo_productos = woo.get_all_prods()
+    list_product = {product["id"]: {"regular_price": product["regular_price"], "shipping_class": product["shipping_class"]} for product in woo_productos if product["regular_price"] != "" and int(float(product["regular_price"])) < 900000}
+    """for product in list_product:
+        woo.mconsult().put(f"products/{product}", {"shipping_class": "b-fee"}).json()  # Product Update 
+    """
+    return list_product
+
 """
 @app.route('/intcomex-add')
 def intcomex_add():

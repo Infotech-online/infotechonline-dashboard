@@ -241,6 +241,545 @@
                     "regular_price": "4257320"
                 }
             ]
+        },
+        {
+            "date": "2023-10-26 / 08:50:13",
+            "type": "Update",
+            "qty": 14,
+            "products": [
+                {
+                    "id": 1701,
+                    "sku": "101003",
+                    "ingrampartnumber": "5686905",
+                    "stock": "instock",
+                    "past_price": "551824",
+                    "regular_price": "546978"
+                },
+                {
+                    "id": 1711,
+                    "sku": "101005",
+                    "ingrampartnumber": "5686908",
+                    "stock": "outofstock",
+                    "past_price": "1433356",
+                    "regular_price": "1336372"
+                },
+                {
+                    "id": 1714,
+                    "sku": "101008",
+                    "ingrampartnumber": "5737009",
+                    "stock": "outofstock",
+                    "past_price": "612801",
+                    "regular_price": "607419"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009",
+                    "ingrampartnumber": "5736938",
+                    "stock": "outofstock",
+                    "past_price": "366925",
+                    "regular_price": "363702"
+                },
+                {
+                    "id": 1862,
+                    "sku": "301001",
+                    "ingrampartnumber": "5278923",
+                    "stock": "instock",
+                    "past_price": "710001",
+                    "regular_price": "710001"
+                },
+                {
+                    "id": 2902,
+                    "sku": "301007",
+                    "ingrampartnumber": "5173236",
+                    "stock": "instock",
+                    "past_price": "861227",
+                    "regular_price": "853665"
+                },
+                {
+                    "id": 2914,
+                    "sku": "301008",
+                    "ingrampartnumber": "4996616",
+                    "stock": "outofstock",
+                    "past_price": "1550071",
+                    "regular_price": "1536459"
+                },
+                {
+                    "id": 2037,
+                    "sku": "401001",
+                    "ingrampartnumber": "5195973",
+                    "stock": "outofstock",
+                    "past_price": "11025140",
+                    "regular_price": "11037083"
+                },
+                {
+                    "id": 2044,
+                    "sku": "401002",
+                    "ingrampartnumber": "5196297",
+                    "stock": "outofstock",
+                    "past_price": "8528646",
+                    "regular_price": "8537886"
+                },
+                {
+                    "id": 2055,
+                    "sku": "401003",
+                    "ingrampartnumber": "5196298",
+                    "stock": "outofstock",
+                    "past_price": "8528646",
+                    "regular_price": "8537886"
+                },
+                {
+                    "id": 2090,
+                    "sku": "401006",
+                    "ingrampartnumber": "5707536",
+                    "stock": "outofstock",
+                    "past_price": "16122148",
+                    "regular_price": "16139613"
+                },
+                {
+                    "id": 2925,
+                    "sku": "401017",
+                    "ingrampartnumber": "5322546",
+                    "stock": "outofstock",
+                    "past_price": "3864667",
+                    "regular_price": "5660421"
+                },
+                {
+                    "id": 2942,
+                    "sku": "401019",
+                    "ingrampartnumber": "5678509",
+                    "stock": "instock",
+                    "past_price": "1808181",
+                    "regular_price": "1768873"
+                },
+                {
+                    "id": 2961,
+                    "sku": "401022",
+                    "ingrampartnumber": "5730160",
+                    "stock": "outofstock",
+                    "past_price": "5688081",
+                    "regular_price": "5688081"
+                }
+            ]
+        },
+        {
+            "date": "2023-10-30 / 08:12:50",
+            "type": "Update",
+            "qty": 12,
+            "products": [
+                {
+                    "id": 1701,
+                    "sku": "101003",
+                    "ingrampartnumber": "5686905",
+                    "stock": "instock",
+                    "past_price": "546978",
+                    "regular_price": "536431"
+                },
+                {
+                    "id": 1711,
+                    "sku": "101005",
+                    "ingrampartnumber": "5686908",
+                    "stock": "outofstock",
+                    "past_price": "1336372",
+                    "regular_price": "1310602"
+                },
+                {
+                    "id": 1714,
+                    "sku": "101008",
+                    "ingrampartnumber": "5737009",
+                    "stock": "outofstock",
+                    "past_price": "607419",
+                    "regular_price": "595707"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009",
+                    "ingrampartnumber": "5736938",
+                    "stock": "outofstock",
+                    "past_price": "363702",
+                    "regular_price": "356689"
+                },
+                {
+                    "id": 1815,
+                    "sku": "201001",
+                    "ingrampartnumber": "5276303",
+                    "stock": "instock",
+                    "past_price": "1093247",
+                    "regular_price": "1093480"
+                },
+                {
+                    "id": 1830,
+                    "sku": "201002",
+                    "ingrampartnumber": "5338224",
+                    "stock": "instock",
+                    "past_price": "2536249",
+                    "regular_price": "2536249"
+                },
+                {
+                    "id": 1862,
+                    "sku": "301001",
+                    "ingrampartnumber": "5278923",
+                    "stock": "instock",
+                    "past_price": "710001",
+                    "regular_price": "747653"
+                },
+                {
+                    "id": 1898,
+                    "sku": "301005",
+                    "ingrampartnumber": "4972407",
+                    "stock": "instock",
+                    "past_price": "987838",
+                    "regular_price": "1019032"
+                },
+                {
+                    "id": 2902,
+                    "sku": "301007",
+                    "ingrampartnumber": "5173236",
+                    "stock": "instock",
+                    "past_price": "853665",
+                    "regular_price": "837203"
+                },
+                {
+                    "id": 2914,
+                    "sku": "301008",
+                    "ingrampartnumber": "4996616",
+                    "stock": "outofstock",
+                    "past_price": "1536459",
+                    "regular_price": "1506831"
+                },
+                {
+                    "id": 2915,
+                    "sku": "401010",
+                    "ingrampartnumber": "5734406",
+                    "stock": "outofstock",
+                    "past_price": "2097732",
+                    "regular_price": "2097732"
+                },
+                {
+                    "id": 2822,
+                    "sku": "701009",
+                    "ingrampartnumber": "5677034",
+                    "stock": "outofstock",
+                    "past_price": "680283",
+                    "regular_price": "680283"
+                }
+            ]
+        },
+        {
+            "date": "2023-10-31 / 17:20:48",
+            "type": "Update",
+            "qty": 13,
+            "products": [
+                {
+                    "id": 1701,
+                    "sku": "101003",
+                    "ingrampartnumber": "5686905",
+                    "stock": "instock",
+                    "past_price": "536431",
+                    "regular_price": "528654"
+                },
+                {
+                    "id": 1711,
+                    "sku": "101005",
+                    "ingrampartnumber": "5686908",
+                    "stock": "outofstock",
+                    "past_price": "1310602",
+                    "regular_price": "1291601"
+                },
+                {
+                    "id": 1714,
+                    "sku": "101008",
+                    "ingrampartnumber": "5737009",
+                    "stock": "outofstock",
+                    "past_price": "595707",
+                    "regular_price": "587070"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009",
+                    "ingrampartnumber": "5736938",
+                    "stock": "outofstock",
+                    "past_price": "356689",
+                    "regular_price": "351519"
+                },
+                {
+                    "id": 1869,
+                    "sku": "301002",
+                    "ingrampartnumber": "5224155",
+                    "stock": "instock",
+                    "past_price": "1013903",
+                    "regular_price": "997767"
+                },
+                {
+                    "id": 1878,
+                    "sku": "301003",
+                    "ingrampartnumber": "5698999",
+                    "stock": "instock",
+                    "past_price": "880778",
+                    "regular_price": "926498"
+                },
+                {
+                    "id": 1889,
+                    "sku": "301004",
+                    "ingrampartnumber": "5699000",
+                    "stock": "outofstock",
+                    "past_price": "981496",
+                    "regular_price": "1035419"
+                },
+                {
+                    "id": 2902,
+                    "sku": "301007",
+                    "ingrampartnumber": "5173236",
+                    "stock": "instock",
+                    "past_price": "837203",
+                    "regular_price": "825067"
+                },
+                {
+                    "id": 2914,
+                    "sku": "301008",
+                    "ingrampartnumber": "4996616",
+                    "stock": "outofstock",
+                    "past_price": "1506831",
+                    "regular_price": "1484987"
+                },
+                {
+                    "id": 2081,
+                    "sku": "401005",
+                    "ingrampartnumber": "5755411",
+                    "stock": "outofstock",
+                    "past_price": "10817098",
+                    "regular_price": "10817098"
+                },
+                {
+                    "id": 2933,
+                    "sku": "401018",
+                    "ingrampartnumber": "5620754",
+                    "stock": "instock",
+                    "past_price": "4257320",
+                    "regular_price": "4136297"
+                },
+                {
+                    "id": 2961,
+                    "sku": "401022",
+                    "ingrampartnumber": "5730160",
+                    "stock": "outofstock",
+                    "past_price": "5688081",
+                    "regular_price": "8076268"
+                },
+                {
+                    "id": 3009,
+                    "sku": "401027",
+                    "ingrampartnumber": "5739000",
+                    "stock": "outofstock",
+                    "past_price": "9387620",
+                    "regular_price": "8027859"
+                }
+            ]
+        },
+        {
+            "date": "2023-11-02 / 11:16:49",
+            "type": "Update",
+            "qty": 16,
+            "products": [
+                {
+                    "id": 1701,
+                    "sku": "101003",
+                    "ingrampartnumber": "5686905",
+                    "stock": "instock",
+                    "past_price": "528654",
+                    "regular_price": "742851"
+                },
+                {
+                    "id": 1707,
+                    "sku": "101004",
+                    "ingrampartnumber": "5686913",
+                    "stock": "outofstock",
+                    "past_price": "509124",
+                    "regular_price": "705502"
+                },
+                {
+                    "id": 1711,
+                    "sku": "101005",
+                    "ingrampartnumber": "5686908",
+                    "stock": "outofstock",
+                    "past_price": "1291601",
+                    "regular_price": "1814924"
+                },
+                {
+                    "id": 1714,
+                    "sku": "101008",
+                    "ingrampartnumber": "5737009",
+                    "stock": "outofstock",
+                    "past_price": "587070",
+                    "regular_price": "595313"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009",
+                    "ingrampartnumber": "5736938",
+                    "stock": "outofstock",
+                    "past_price": "351519",
+                    "regular_price": "356454"
+                },
+                {
+                    "id": 1815,
+                    "sku": "201001",
+                    "ingrampartnumber": "5276303",
+                    "stock": "instock",
+                    "past_price": "1093480",
+                    "regular_price": "1086361"
+                },
+                {
+                    "id": 1847,
+                    "sku": "201004",
+                    "ingrampartnumber": "4563856",
+                    "stock": "instock",
+                    "past_price": "1592626",
+                    "regular_price": "2456710"
+                },
+                {
+                    "id": 1853,
+                    "sku": "201005",
+                    "ingrampartnumber": "5602147",
+                    "stock": "instock",
+                    "past_price": "21055631",
+                    "regular_price": "18786810"
+                },
+                {
+                    "id": 2902,
+                    "sku": "301007",
+                    "ingrampartnumber": "5173236",
+                    "stock": "instock",
+                    "past_price": "825067",
+                    "regular_price": "836650"
+                },
+                {
+                    "id": 2914,
+                    "sku": "301008",
+                    "ingrampartnumber": "4996616",
+                    "stock": "outofstock",
+                    "past_price": "1484987",
+                    "regular_price": "1505838"
+                },
+                {
+                    "id": 2915,
+                    "sku": "401010",
+                    "ingrampartnumber": "5734406",
+                    "stock": "outofstock",
+                    "past_price": "2097732",
+                    "regular_price": "2084285"
+                },
+                {
+                    "id": 2516,
+                    "sku": "501003",
+                    "ingrampartnumber": "4525667",
+                    "stock": "outofstock",
+                    "past_price": "2481456",
+                    "regular_price": "2560651"
+                },
+                {
+                    "id": 2817,
+                    "sku": "701008",
+                    "ingrampartnumber": "5567506",
+                    "stock": "outofstock",
+                    "past_price": "820132",
+                    "regular_price": "1279959"
+                },
+                {
+                    "id": 2822,
+                    "sku": "701009",
+                    "ingrampartnumber": "5677034",
+                    "stock": "outofstock",
+                    "past_price": "680283",
+                    "regular_price": "1008390"
+                },
+                {
+                    "id": 3144,
+                    "sku": "801010",
+                    "ingrampartnumber": "4882629",
+                    "stock": "instock",
+                    "past_price": "940847",
+                    "regular_price": "1070998"
+                },
+                {
+                    "id": 3152,
+                    "sku": "801011",
+                    "ingrampartnumber": "5786068",
+                    "stock": "instock",
+                    "past_price": "1721213",
+                    "regular_price": "1798793"
+                }
+            ]
+        },
+        {
+            "date": "2023-11-04 / 11:07:18",
+            "type": "Update",
+            "qty": 8,
+            "products": [
+                {
+                    "id": 1701,
+                    "sku": "101003",
+                    "ingrampartnumber": "5686905",
+                    "stock": "instock",
+                    "past_price": "742851",
+                    "regular_price": "717101"
+                },
+                {
+                    "id": 1711,
+                    "sku": "101005",
+                    "ingrampartnumber": "5686908",
+                    "stock": "outofstock",
+                    "past_price": "1814924",
+                    "regular_price": "1752013"
+                },
+                {
+                    "id": 1714,
+                    "sku": "101008",
+                    "ingrampartnumber": "5737009",
+                    "stock": "outofstock",
+                    "past_price": "595313",
+                    "regular_price": "574679"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009",
+                    "ingrampartnumber": "5736938",
+                    "stock": "outofstock",
+                    "past_price": "356454",
+                    "regular_price": "344099"
+                },
+                {
+                    "id": 1815,
+                    "sku": "201001",
+                    "ingrampartnumber": "5276303",
+                    "stock": "instock",
+                    "past_price": "1086361",
+                    "regular_price": "995008"
+                },
+                {
+                    "id": 1853,
+                    "sku": "201005",
+                    "ingrampartnumber": "5602147",
+                    "stock": "instock",
+                    "past_price": "18786810",
+                    "regular_price": "18135616"
+                },
+                {
+                    "id": 2902,
+                    "sku": "301007",
+                    "ingrampartnumber": "5173236",
+                    "stock": "instock",
+                    "past_price": "836650",
+                    "regular_price": "807651"
+                },
+                {
+                    "id": 2914,
+                    "sku": "301008",
+                    "ingrampartnumber": "4996616",
+                    "stock": "outofstock",
+                    "past_price": "1505838",
+                    "regular_price": "1453642"
+                }
+            ]
         }
     ]
 }
