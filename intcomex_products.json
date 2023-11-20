@@ -1,33 +1,87 @@
 {
     "accesorios": {
-        "3620": ["101044", "AB230GEN01"]
+        "101022": {
+            "intcomexSku": "MM221XTK91",
+            "price": 77774,
+            "stock": "instock"
+        },
+        "101023": {
+            "intcomexSku": "MM221XTK73",
+            "price": 36700,
+            "stock": "instock"
+        },
+        "101024": {
+            "intcomexSku": "ID011XTK24",
+            "price": 23959,
+            "stock": "instock"
+        },
+        "101025": {
+            "intcomexSku": "MM221XTK11",
+            "price": 34763,
+            "stock": "instock"
+        },
+        "101026": {
+            "intcomexSku": "ID223XTK05",
+            "price": 88735,
+            "stock": "instock"
+        },
+        "101027": {
+            "intcomexSku": "MM221XTK99",
+            "price": 82258,
+            "stock": "instock"
+        },
+        "101028": {
+            "intcomexSku": "ID011XTK07",
+            "price": 42623,
+            "stock": "instock"
+        },
+        "101029": {
+            "intcomexSku": "MM111KLX28",
+            "price": 44047,
+            "stock": "outofstock"
+        },
+        "101030": {
+            "intcomexSku": "MM221XTK97",
+            "price": 70744,
+            "stock": "instock"
+        },
+        "101031": {
+            "intcomexSku": "ID011KLX11",
+            "price": 66942,
+            "stock": "instock"
+        },
+        "101085": {
+            "intcomexSku": "U7Z-00062",
+            "price": "67000",
+            "stock": "instock"
+        },
+        "101086": {
+            "intcomexSku": "U7Z-00011",
+            "price": "67000",
+            "stock": "instock"
+        }
     },
-
-    "impresoras": {
-
-    },
-
-    "monitores": {
-
-    },
-
-    "pc": {
-
-    },
-
-    "proyectores": {
-
-    },
-
+    "impresoras": {},
+    "monitores": {},
+    "pc": {},
+    "proyectores": {},
     "smarthome": {
-
+        "601008": {
+            "intcomexSku": "MM106NXT71",
+            "price": "69900",
+            "stock": "instock"
+        },
+        "601009": {
+            "intcomexSku": "MM106NXT46",
+            "price": 68900,
+            "stock": "outofstock"
+        },
+        "601010": {
+            "intcomexSku": "MM105NXT65",
+            "price": "325720",
+            "stock": "instock"
+        }
     },
-
-    "smartphones": {
-
-    },
-
-    "tvs": {
-
-    }
+    "smartphones": {},
+    "tvs": {}
 }

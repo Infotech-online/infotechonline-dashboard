@@ -98,6 +98,7 @@ def ingram_update():
 
         # Stock
         stock = ingram.return_all_stock()
+        print(stock)
 
         for category in products_data:  # Categories
             for sku in products_data[category]:  # Sku and Prices
@@ -116,14 +117,17 @@ def ingram_update():
                 else:
                     stock_status = "outofstock"
 
-                print(sku, stock_status)
-
                 if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status):
                     
                     # WooCommerce Product
                     product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
 
-                    data = {"regular_price": f"{int(final_price_with_IVA)}", "stock_status": f"{stock_status}"}
+                    data = {
+                        "regular_price": f"{int(final_price_with_IVA)}", 
+                        "stock_status": f"{stock_status}",
+                        "manage_stock": True,
+                        "stock_quantity": stock[ingram_pnumber]
+                    }
                     woo.mconsult().put(f"products/{product[0]['id']}", data).json()  # Product Update
 
                     # Log
@@ -174,29 +178,110 @@ def ingram_update():
     else:
         return "No deberias estar viendo esta pagina. <a href='/'>VOLVER ATRAS</a>"
 
-@app.route('/intcomex-update')
+@app.route('/intcomex-update', methods=["POST"])
 def intcomex_update():
 
-    # Get product data of local DB
-    with open('intcomex_products.json') as f:
-        products_data = json.load(f)
+    if request.method == "POST":
 
-    for category in products_data:  # Categories
-        for id in products_data[category]:  # Sku
+        # Products SKU
 
-            provider_sku = products_data[category][id][1]
+        init_time = time.time()
+        print(init_time)
 
-            product = intcomexConnection().get_single_product(provider_sku)
-            product_price = str(product["Price"]["UnitPrice"])
+        with open('intcomex_products.json') as f:
+            products_data = json.load(f)
 
-            update_data = {
-                "regular_price": product_price,
-                "stock_quantity": product["InStock"]
+        # Log data
+        qty = 0
+        products = []
+
+        # Get the current data of intcomex API
+        current_product_data = intcomex.get_current_products()
+        prices = current_product_data[1] # Prices
+        stock = current_product_data[2] # Stock
+
+        for category in products_data:  # Categories
+            for sku in products_data[category]:  # Sku and Prices
+
+                # Ingram part number
+                intcomex_sku = products_data[category][sku]["intcomexSku"]
+                
+                # Calculate the final price
+                if intcomex_sku in prices:
+                    cop_price = prices[intcomex_sku]
+                    profit = (cop_price * 0.13) + cop_price
+                    final_price_with_IVA = profit * 1.19
+                else:
+                    final_price_with_IVA = products_data[category][sku]["price"]
+
+                # Stock
+                stock_status = products_data[category][sku]["stock"]
+                if intcomex_sku in stock:
+                    if stock[intcomex_sku] > 0:
+                        stock_status = "instock"
+                    else:
+                        stock_status = "outofstock"
+
+                if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status):
+                    
+                    # WooCommerce Product
+                    product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
+
+                    data = {
+                        "regular_price": f"{int(final_price_with_IVA)}", 
+                        "stock_status": f"{stock_status}",
+                        "manage_stock": True,
+                        "stock_quantity": stock[intcomex_sku]
+                    }
+                    woo.mconsult().put(f"products/{product[0]['id']}", data).json() # Product Update
+
+                    # Log
+                    data_log = {
+                        "id": product[0]["id"],
+                        "sku": f"{sku}",
+                        "intcomexsku": intcomex_sku,
+                        "stock": stock_status,
+                        "past_price": f"{product[0]['price']}",
+                        "regular_price": f"{int(final_price_with_IVA)}"
+                    }
+
+                    qty += 1
+                    products.append(data_log)
+
+                    products_data[category][sku]["price"] = int(final_price_with_IVA)
+                    products_data[category][sku]["stock"] = stock_status
+                    upd_product = json.dumps(products_data, indent=4)
+
+                    with open('intcomex_products.json', 'w') as file:
+                        file.write(upd_product)
+
+        # Save the Log in "logs.json"
+        with open('logs.json') as f:
+
+            logs_data = json.load(f)
+            logs_data_list = logs_data["logs"]
+
+            new_log = {
+                "date": f"{datetime.now().strftime('%Y-%m-%d')} / {datetime.now().time().strftime('%H:%M:%S')}",
+                "type": "Update",
+                "qty": qty,
+                "products": products
             }
 
-            woo.mconsult().put(f"products/{id}", update_data).json()
+            logs_data_list.append(new_log)
+            logs_data["logs"] = logs_data_list
+            log = json.dumps(logs_data, indent=4)
 
-    return "Success", 201
+        with open('logs.json', 'w') as file:
+            file.write(log)
+
+        end_time = time.time()
+        total_time = end_time - init_time
+        print(total_time)
+
+        return "Success", 201  # Return success
+    else:
+        return "No deberias estar viendo esta pagina. <a href='/'>VOLVER ATRAS</a>"
 
 @app.route('/add-product', methods=["POST"])
 def add_product():
@@ -217,11 +302,21 @@ def add_product():
             price = woo_prod["regular_price"]
             stock = woo_prod["stock_status"]
 
-            new_product = {
-                "ingramSku": part_num,
-                "price": price,
-                "stock": stock
-            }
+            if provider == "ingram":
+
+                new_product = {
+                    "ingramSku": part_num,
+                    "price": price,
+                    "stock": stock
+                }
+
+            if provider == "intcomex":
+
+                new_product = {
+                    "intcomexSku": part_num,
+                    "price": price,
+                    "stock": stock
+                }
 
             products_data[category][str(product_sku)] = new_product
 
@@ -278,46 +373,6 @@ def update_shipping_clases():
     return list_product
 
 """
-@app.route('/intcomex-add')
-def intcomex_add():
-
-    # Get categories
-    with open('categories.json') as f:
-        categories = json.load(f)
-
-    # New products
-    new_products = {
-        "101045": "AB355NXT01",
-        "101046": "AB360NXT02"
-    }
-
-    for product in new_products:
-
-        product = intcomex.get_single_product(new_products[product])
-
-        if product.ok:
-
-            data = {
-                "name": product["Description"],
-                "type": "simple",
-                "regular_price": product["Price"]["UnitPrice"],
-                "description": "",
-                "short_description": "",
-                "categories": [
-                    {
-                        "id": 9
-                    },
-                    {
-                        "id": 14
-                    }
-                ],
-            }
-
-            print(wc.post("products", data).json())
-
-    return "Success", 201 """
-
-"""
 Data visualization ----------------------------------------------------------------------------------------------------
 This code is used to retrieve information
 """
@@ -344,12 +399,12 @@ def get_categories():
     for category in categories:
         cats_short[str(category['id'])] = str(category["name"])
         
-    return cats_short   # WooCommerce Product
+    return cats_short  # WooCommerce Product
 
 @app.route("/intcomex-products")
 def intcomex_products():
 
-    return intcomex.get_products()
+    return intcomex.get_catalog()
 
 @app.route("/ingram-products")
 def ingram_products():
@@ -365,12 +420,6 @@ def wordpress_products():
 def wordpress_imgs():
 
     return woo.get_all_imgs()
-
-@app.route("/woo-sku")
-def woo_sku():
-
-    woo_prod = woo.get_product_by_sku("101009")
-    return woo_prod
 
 if __name__ == '__main__':
 
