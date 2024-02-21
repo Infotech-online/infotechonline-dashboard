@@ -18,6 +18,9 @@ build/
 docs/_build/
 .vscode
 
+# Python files
+test_file.py
+
 # Coverage reports
 htmlcov/
 .coverage

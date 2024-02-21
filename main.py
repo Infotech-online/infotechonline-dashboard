@@ -4,8 +4,27 @@ from dotenv import dotenv_values
 import time
 from datetime import datetime
 import json
+import os
+
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+from flask_mail import Mail, Message
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
+
+# Email SMTP
+# Tu dirección de correo electrónico de Gmail y contraseña de aplicación
+app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
+app.config['MAIL_PORT'] = 587  # Puerto del servidor SMTP
+app.config['MAIL_USERNAME'] = 'mercadeodigital@infotech.com.co'  # Tu dirección de correo electrónico
+app.config['MAIL_PASSWORD'] = 'gnyqmrztrmyyjcxn'  # Tu contraseña de aplicación generada para acceso desde apps externas
+app.config['MAIL_USE_TLS'] = True  # Habilitar TLS para seguridad
+app.config['MAIL_USE_SSL'] = False  # Deshabilitar SSL para TLS
+
+mail = Mail(app)
 
 # Env Vars
 env = dotenv_values(".env")
@@ -14,6 +33,9 @@ env = dotenv_values(".env")
 from local_libs.ingram import ingramConnection
 from local_libs.intcomex import intcomexConnection
 from local_libs.woocommerce import wooConnection
+
+# Countable Vars
+UVT = 47065
 
 ingram = ingramConnection()
 intcomex = intcomexConnection()
@@ -50,7 +72,7 @@ def infotech_data():
             logs_qty+=1
             if log["date"].find(f"{datetime.now().strftime('%Y-%m-%d')}") != -1:
                 today_log_qty+=1
-            
+
         # Dollar Price
         """request_currencies = requests.get("http://apilayer.net/api/live?access_key=35fecb58061d2dcd76ce985b306bcc07&currencies=COP&source=USD&format=1")
         response = request_currencies.json()
@@ -105,50 +127,82 @@ def ingram_update():
 
                 # Ingram part number
                 ingram_pnumber = products_data[category][sku]["ingramSku"]
+                print(category, "-" , sku, "-", ingram_pnumber)
                 
+                if sku not in prices:
+                    print(f"{sku} not in ingram list")
+
                 # Calculate the final price
                 cop_price = int(prices[sku])
                 profit = (cop_price * 0.13) + cop_price
                 final_price_with_IVA = profit * 1.19
 
                 # Stock
+                current_stock_quantity = stock[ingram_pnumber]
                 if stock[ingram_pnumber] > 0:
                     stock_status = "instock"
                 else:
                     stock_status = "outofstock"
 
-                if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status):
+                """
+                Teniendo el cuenta la regla de UVT para Celulares y Portatiles
+                Segun cierto valor estos dispositivos no llevan IVA
+                Entonces el Precio final sera la variable (Profit)
+                """
+                if category == "smartphones" and (profit < (22*UVT)):
+                    final_price_with_IVA = profit
+                if category == "laptop" and (profit < (50*UVT)):
+                    final_price_with_IVA = profit
+
+                if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status) or (products_data[category][sku]["stock_quantity"] != current_stock_quantity):
                     
-                    # WooCommerce Product
-                    product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
+                    try:
+                        # WooCommerce Product
+                        product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()                  
 
-                    data = {
-                        "regular_price": f"{int(final_price_with_IVA)}", 
-                        "stock_status": f"{stock_status}",
-                        "manage_stock": True,
-                        "stock_quantity": stock[ingram_pnumber]
-                    }
-                    woo.mconsult().put(f"products/{product[0]['id']}", data).json()  # Product Update
+                        if product[0]["sale_price"] != "":
 
-                    # Log
-                    data_log = {
-                        "id": product[0]["id"],
-                        "sku": f"{sku}",
-                        "ingrampartnumber": ingram_pnumber,
-                        "stock": stock_status,
-                        "past_price": f"{product[0]['price']}",
-                        "regular_price": f"{int(final_price_with_IVA)}"
-                    }
+                            data = {
+                                "regular_price": f"{int(final_price_with_IVA) + 125000}", 
+                                "sale_price": f"{int(final_price_with_IVA)}",
+                                "stock_status": f"{stock_status}",
+                                "manage_stock": True,
+                                "stock_quantity": stock[ingram_pnumber]
+                            }
 
-                    qty += 1
-                    products.append(data_log)
+                        else:
 
-                    products_data[category][sku]["price"] = int(final_price_with_IVA)
-                    products_data[category][sku]["stock"] = stock_status
-                    upd_product = json.dumps(products_data, indent=4)
+                            data = {
+                                "regular_price": f"{int(final_price_with_IVA)}", 
+                                "stock_status": f"{stock_status}",
+                                "manage_stock": True,
+                                "stock_quantity": stock[ingram_pnumber]
+                            }
 
-                    with open('ingram_products.json', 'w') as file:
-                        file.write(upd_product)
+                        woo.mconsult().put(f"products/{product[0]['id']}", data).json()  # Product Update
+
+                        # Log
+                        data_log = {
+                            "id": product[0]["id"],
+                            "sku": f"{sku}",
+                            "ingrampartnumber": ingram_pnumber,
+                            "stock": stock_status,
+                            "past_price": f"{product[0]['price']}",
+                            "regular_price": f"{int(final_price_with_IVA)}"
+                        }
+
+                        qty += 1
+                        products.append(data_log)
+
+                        products_data[category][sku]["price"] = int(final_price_with_IVA)
+                        products_data[category][sku]["stock"] = stock_status
+                        products_data[category][sku]["stock_quantity"] = current_stock_quantity
+                        upd_product = json.dumps(products_data, indent=4)
+
+                        with open('ingram_products.json', 'w') as file:
+                            file.write(upd_product)
+                    except:
+                        print("ERROR: Update Ingram Product prices") 
 
         # Save the Log in "logs.json"
         with open('logs.json') as f:
@@ -197,63 +251,91 @@ def intcomex_update():
 
         # Get the current data of intcomex API
         current_product_data = intcomex.get_current_products()
+        print(current_product_data)
         prices = current_product_data[1] # Prices
         stock = current_product_data[2] # Stock
 
         for category in products_data:  # Categories
             for sku in products_data[category]:  # Sku and Prices
 
-                # Ingram part number
-                intcomex_sku = products_data[category][sku]["intcomexSku"]
-                
-                # Calculate the final price
-                if intcomex_sku in prices:
-                    cop_price = prices[intcomex_sku]
-                    profit = (cop_price * 0.13) + cop_price
-                    final_price_with_IVA = profit * 1.19
-                else:
-                    final_price_with_IVA = products_data[category][sku]["price"]
+                try:
 
-                # Stock
-                stock_status = products_data[category][sku]["stock"]
-                if intcomex_sku in stock:
-                    if stock[intcomex_sku] > 0:
-                        stock_status = "instock"
-                    else:
-                        stock_status = "outofstock"
+                    # Icrement
+                    increment_percent = 0.13
+                    twenty_percent_products = ["101022", "101023", "101024", "101025", "101026", "101027", "101028", "101029", "101030"]
+                    if sku in twenty_percent_products:
+                        increment_percent = 0.20
 
-                if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status):
+                    # Intcomex part number
+                    intcomex_sku = products_data[category][sku]["intcomexSku"]
                     
-                    # WooCommerce Product
-                    product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
+                    # Calculate the final price
+                    if intcomex_sku in prices:
+                        print(intcomex_sku)
+                        cop_price = prices[intcomex_sku]
+                        print(cop_price)
+                        profit = (cop_price * increment_percent) + cop_price
+                        final_price_with_IVA = profit * 1.19
+                    else:
+                        final_price_with_IVA = products_data[category][sku]["price"]
 
-                    data = {
-                        "regular_price": f"{int(final_price_with_IVA)}", 
-                        "stock_status": f"{stock_status}",
-                        "manage_stock": True,
-                        "stock_quantity": stock[intcomex_sku]
-                    }
-                    woo.mconsult().put(f"products/{product[0]['id']}", data).json() # Product Update
+                    # Stock
+                    stock_status = products_data[category][sku]["stock"]
+                    if intcomex_sku in stock:
+                        if stock[intcomex_sku] > 0:
+                            stock_status = "instock"
+                        else:
+                            stock_status = "outofstock"
 
-                    # Log
-                    data_log = {
-                        "id": product[0]["id"],
-                        "sku": f"{sku}",
-                        "intcomexsku": intcomex_sku,
-                        "stock": stock_status,
-                        "past_price": f"{product[0]['price']}",
-                        "regular_price": f"{int(final_price_with_IVA)}"
-                    }
+                    if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status):
+                        
+                        # WooCommerce Product
+                        product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
 
-                    qty += 1
-                    products.append(data_log)
+                        print(product[0])
 
-                    products_data[category][sku]["price"] = int(final_price_with_IVA)
-                    products_data[category][sku]["stock"] = stock_status
-                    upd_product = json.dumps(products_data, indent=4)
+                        if product[0]["sale_price"] != "":
 
-                    with open('intcomex_products.json', 'w') as file:
-                        file.write(upd_product)
+                            data = {
+                                "regular_price": f"{int(final_price_with_IVA) + 15500}", 
+                                "sale_price": f"{int(final_price_with_IVA)}",
+                                "stock_status": f"{stock_status}",
+                                "manage_stock": True,
+                                "stock_quantity": stock[intcomex_sku]
+                            }
+
+                        else:
+
+                            data = {
+                                "regular_price": f"{int(final_price_with_IVA)}", 
+                                "stock_status": f"{stock_status}",
+                                "manage_stock": True,
+                                "stock_quantity": stock[intcomex_sku]
+                            }
+
+                        woo.mconsult().put(f"products/{product[0]['id']}", data).json() # Product Update
+
+                        # Log
+                        data_log = {
+                            "id": product[0]["id"],
+                            "sku": f"{sku}",
+                            "intcomexsku": intcomex_sku,
+                            "stock": stock_status,
+                            "past_price": f"{product[0]['price']}",
+                            "regular_price": f"{int(final_price_with_IVA)}"
+                        }
+
+                        qty += 1
+                        products.append(data_log)
+
+                        products_data[category][sku]["price"] = int(final_price_with_IVA)
+                        products_data[category][sku]["stock"] = stock_status
+                        upd_product = json.dumps(products_data, indent=4)
+
+                        with open('intcomex_products.json', 'w') as file:
+                            file.write(upd_product)
+                except:
+                    print("Ocurrio un error")
 
         # Save the Log in "logs.json"
         with open('logs.json') as f:
@@ -374,7 +456,7 @@ def update_shipping_clases():
 
 """
 Data visualization ----------------------------------------------------------------------------------------------------
-This code is used to retrieve information
+This functions is used to retrieve information
 """
 
 @app.route('/logs')
@@ -404,7 +486,7 @@ def get_categories():
 @app.route("/intcomex-products")
 def intcomex_products():
 
-    return intcomex.get_catalog()
+    return intcomex.get_intcomex_prices_list(["ID223XTK11"])
 
 @app.route("/ingram-products")
 def ingram_products():
@@ -427,3 +509,4 @@ if __name__ == '__main__':
 
 # π - 2023
 # An Infotech Solution
+# w2ZhZ5W8OYH2Bkzzxbwz
