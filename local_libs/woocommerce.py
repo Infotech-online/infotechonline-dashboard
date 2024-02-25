@@ -28,9 +28,13 @@ class wooConnection():
 
         curr_page = 1
         products = self.wc.get("products", params={'per_page': 100, 'page': curr_page}).json()
-        if len(products) >= 100:
+        current_page = products
+
+        while len(current_page) >= 100:
+            print("se extiende")
             curr_page += 1
-            products.extend(self.wc.get("products", params={'per_page': 100, 'page': curr_page}).json())
+            current_page = self.wc.get("products", params={'per_page': 100, 'page': curr_page}).json()
+            products = products + current_page
 
         return products
         

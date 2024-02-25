@@ -5,6 +5,7 @@ import time
 from datetime import datetime
 import json
 import os
+import math
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -154,11 +155,18 @@ def ingram_update():
                 if category == "laptop" and (profit < (50*UVT)):
                     final_price_with_IVA = profit
 
+                # The final price is rounded
+                def round_price(precio):
+                    return int(math.ceil(precio / 1000.0)) * 1000
+
+                current_price = final_price_with_IVA  # COP Price
+                final_price_with_IVA = round_price(current_price) # The final price is changed
+
                 if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status) or (products_data[category][sku]["stock_quantity"] != current_stock_quantity):
                     
                     try:
                         # WooCommerce Product
-                        product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()                  
+                        product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
 
                         if product[0]["sale_price"] != "":
 
@@ -167,7 +175,7 @@ def ingram_update():
                                 "sale_price": f"{int(final_price_with_IVA)}",
                                 "stock_status": f"{stock_status}",
                                 "manage_stock": True,
-                                "stock_quantity": stock[ingram_pnumber]
+                                "stock_quantity": current_stock_quantity
                             }
 
                         else:
@@ -176,7 +184,7 @@ def ingram_update():
                                 "regular_price": f"{int(final_price_with_IVA)}", 
                                 "stock_status": f"{stock_status}",
                                 "manage_stock": True,
-                                "stock_quantity": stock[ingram_pnumber]
+                                "stock_quantity": current_stock_quantity
                             }
 
                         woo.mconsult().put(f"products/{product[0]['id']}", data).json()  # Product Update
@@ -228,9 +236,9 @@ def ingram_update():
         total_time = end_time - init_time
         print(total_time)
 
-        return "Success", 201  # Return success
+        return json.dumps({'success':True}), 200, {'ContentType':'application/json'}  # Return success
     else:
-        return "No deberias estar viendo esta pagina. <a href='/'>VOLVER ATRAS</a>"
+        return json.dumps({'success':False}), 400, {'ContentType':'application/json'}
 
 @app.route('/intcomex-update', methods=["POST"])
 def intcomex_update():
@@ -281,59 +289,79 @@ def intcomex_update():
 
                     # Stock
                     stock_status = products_data[category][sku]["stock"]
+                    current_stock_quantity = stock[intcomex_sku]
                     if intcomex_sku in stock:
                         if stock[intcomex_sku] > 0:
                             stock_status = "instock"
                         else:
                             stock_status = "outofstock"
 
-                    if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status):
+                    """
+                    Teniendo el cuenta la regla de UVT para Celulares y Portatiles
+                    Segun cierto valor estos dispositivos no llevan IVA
+                    Entonces el Precio final sera la variable (Profit)
+                    """
+                    if category == "smartphones" and (profit < (22*UVT)):
+                        final_price_with_IVA = profit
+                    if category == "laptop" and (profit < (50*UVT)):
+                        final_price_with_IVA = profit
+
+                    # The final price is rounded
+                    def round_price(precio):
+                        return int(math.ceil(precio / 1000.0)) * 1000
+
+                    current_price = final_price_with_IVA  # COP Price
+                    final_price_with_IVA = round_price(current_price) # The final price is changed
+
+                    if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status) or (products_data[category][sku]["stock_quantity"] != current_stock_quantity):
                         
-                        # WooCommerce Product
-                        product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
+                        try:
+                            # WooCommerce Product
+                            product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
 
-                        print(product[0])
+                            if product[0]["sale_price"] != "":
 
-                        if product[0]["sale_price"] != "":
+                                data = {
+                                    "regular_price": f"{int(final_price_with_IVA) + 125000}", 
+                                    "sale_price": f"{int(final_price_with_IVA)}",
+                                    "stock_status": f"{stock_status}",
+                                    "manage_stock": True,
+                                    "stock_quantity": current_stock_quantity
+                                }
 
-                            data = {
-                                "regular_price": f"{int(final_price_with_IVA) + 15500}", 
-                                "sale_price": f"{int(final_price_with_IVA)}",
-                                "stock_status": f"{stock_status}",
-                                "manage_stock": True,
-                                "stock_quantity": stock[intcomex_sku]
+                            else:
+
+                                data = {
+                                    "regular_price": f"{int(final_price_with_IVA)}", 
+                                    "stock_status": f"{stock_status}",
+                                    "manage_stock": True,
+                                    "stock_quantity": current_stock_quantity
+                                }
+
+                            woo.mconsult().put(f"products/{product[0]['id']}", data).json()  # Product Update
+
+                            # Log
+                            data_log = {
+                                "id": product[0]["id"],
+                                "sku": f"{sku}",
+                                "intcomexsku": intcomex_sku,
+                                "stock": stock_status,
+                                "past_price": f"{product[0]['price']}",
+                                "regular_price": f"{int(final_price_with_IVA)}"
                             }
 
-                        else:
+                            qty += 1
+                            products.append(data_log)
 
-                            data = {
-                                "regular_price": f"{int(final_price_with_IVA)}", 
-                                "stock_status": f"{stock_status}",
-                                "manage_stock": True,
-                                "stock_quantity": stock[intcomex_sku]
-                            }
+                            products_data[category][sku]["price"] = int(final_price_with_IVA)
+                            products_data[category][sku]["stock"] = stock_status
+                            products_data[category][sku]["stock_quantity"] = current_stock_quantity
+                            upd_product = json.dumps(products_data, indent=4)
 
-                        woo.mconsult().put(f"products/{product[0]['id']}", data).json() # Product Update
-
-                        # Log
-                        data_log = {
-                            "id": product[0]["id"],
-                            "sku": f"{sku}",
-                            "intcomexsku": intcomex_sku,
-                            "stock": stock_status,
-                            "past_price": f"{product[0]['price']}",
-                            "regular_price": f"{int(final_price_with_IVA)}"
-                        }
-
-                        qty += 1
-                        products.append(data_log)
-
-                        products_data[category][sku]["price"] = int(final_price_with_IVA)
-                        products_data[category][sku]["stock"] = stock_status
-                        upd_product = json.dumps(products_data, indent=4)
-
-                        with open('intcomex_products.json', 'w') as file:
-                            file.write(upd_product)
+                            with open('intcomex_products.json', 'w') as file:
+                                file.write(upd_product)
+                        except:
+                            print("ERROR: Update Ingram Product prices") 
                 except:
                     print("Ocurrio un error")
 
@@ -361,9 +389,9 @@ def intcomex_update():
         total_time = end_time - init_time
         print(total_time)
 
-        return "Success", 201  # Return success
+        return json.dumps({'success':True}), 200, {'ContentType':'application/json'}  # Return success
     else:
-        return "No deberias estar viendo esta pagina. <a href='/'>VOLVER ATRAS</a>"
+        return json.dumps({'success':False}), 400, {'ContentType':'application/json'}
 
 @app.route('/add-product', methods=["POST"])
 def add_product():
@@ -453,6 +481,61 @@ def update_shipping_clases():
         woo.mconsult().put(f"products/{product}", {"shipping_class": "b-fee"}).json()  # Product Update 
     """
     return list_product
+
+@app.route("/round-up-prices")
+def round_up_prices():
+
+    def round_price(precio):
+        return int(math.ceil(precio / 1000.0)) * 1000  # Redondear hacia arriba al mil más cercano
+    
+    # WooCommerce Product
+    products = woo.get_all_prods()
+
+    for product in products:
+
+        if product["status"] == "publish":
+    
+            if product["sale_price"] != "":
+                
+                print(product["id"])
+                print(product["regular_price"])
+                print(product["sale_price"])
+
+                current_price = int(product["sale_price"])  # Price in COP
+                rounded_price = round_price(current_price)
+
+                print("Precio original:", current_price)
+                print("Precio redondeado:", rounded_price)
+
+                if rounded_price <= 100000:
+                    increment = 25000
+                if rounded_price > 100000:
+                    increment = 125000
+                if rounded_price > 1000000:
+                    increment = 500000
+
+                print(increment)
+
+                data = {
+                    "regular_price": f"{int(rounded_price)+increment}", 
+                    "sale_price": f"{int(rounded_price)}"
+                }
+
+            else:
+                print(product["id"])
+                print(product["regular_price"])
+
+                current_price = int(product["regular_price"])  # Price in COP
+                rounded_price = round_price(current_price)
+
+                print("Precio original:", current_price)
+                print("Precio redondeado:", rounded_price)
+
+                data = {
+                    "regular_price": f"{int(rounded_price)}"
+                }
+
+            woo.mconsult().put(f"products/{product['id']}", data).json()  # Product Update
 
 """
 Data visualization ----------------------------------------------------------------------------------------------------

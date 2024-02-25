@@ -12,7 +12,7 @@ let logs_table = document.querySelector(".logs-table .table-body")
 
 // Number to currency format
 
-const currency = function(number){
+const currency = function (number) {
     return new Intl.NumberFormat().format(number);
 };
 
@@ -20,63 +20,80 @@ const currency = function(number){
 
 // Pagination
 let page_text = document.querySelector(".page-text")
+let animation_container_products = document.querySelector(".animations-content_container_products")
+let animation_container_logs = document.querySelector(".animations-content_container_logs")
 
-function update_data(page) {
+function update_data(page, type) {
 
-    table.innerHTML = "";
-    logs_table.innerHTML = "";
+    // Show loading animation
+    if(type == "products") {
+        animation_container_products.style.display = "flex"
+    }
+    if(type == "logs") {
+        animation_container_logs.style.display = "flex"
+    }
 
     $.ajax({
         type: "POST",
         url: "/local-data",
-        data: {"page": page},
+        data: { "page": page },
         //contentType: "application/json;charset=UTF-8",
         //dataType: 'json',
         success: function (result) {
-            
-            log_total_qty.innerHTML = result["logs_qty"];
-            last_log_date.innerHTML = result["last_log_date"];
-            today_log_qty.innerHTML = result["today_log_qty"];
+
             page_text.innerHTML = "Page " + page;
-            
-            // Products
-            let count = 0
-            for(row in result["products"]) {
-                
-                let new_row = `
+
+            if (type == "products") {
+
+                table.innerHTML = "";
+
+                // Update Products Table
+                let count = 0
+                for (row in result["products"]) {
+
+                    let new_row = `
                 <tr>
+                    <td><img src="${result["imgs"][result["products"][row]["id"]]}" width='50px' height='50px'></td>
                     <th scope="row">${result["products"][row]["id"]}</th>
                     <td>${result["products"][row]["sku"]}</td>
                     <td>${currency(result["products"][row]["regular_price"])}</td>
                     <td>${result["products"][row]["name"]}</td>
                 </tr>`;
-    
-                table.innerHTML += new_row;
-                count++;
-            };
-            
-            // Pagination state
-            counter.innerHTML = `<e>${count}</e> elements <e class="text-hidden_mobile">are displayed</e>`
-            if(count >= 100) {
-                $( ".forward-icon" ).removeClass('disabled');
-            } else {
-                $( ".forward-icon" ).addClass('disabled');
+
+                    table.innerHTML += new_row;
+                    count++;
+                };
+
+                // Pagination state
+                counter.innerHTML = `<e>${count}</e> elements <e class="text-hidden_mobile">are displayed</e>`
+                if (count >= 100) {
+                    $(".forward-icon").removeClass('disabled');
+                } else {
+                    $(".forward-icon").addClass('disabled');
+                }
+
             }
 
-            // Logs
-            
-            count = 0;
-            for(row in result["logs"]) {
+            if (type == "logs") {
 
-                let log_products = `
-                
-                `;
+                // Uptade Logs Table
 
-                for(product in result["logs"][row]["products"]) {
+                logs_table.innerHTML = "";
 
-                    product_info = result["logs"][row]["products"][product];
+                log_total_qty.innerHTML = result["logs_qty"];
+                last_log_date.innerHTML = result["last_log_date"];
+                today_log_qty.innerHTML = result["today_log_qty"];
 
-                    let log_product = `
+                count = 0;
+                for (row in result["logs"]) {
+
+                    let log_products = ``;
+
+                    for (product in result["logs"][row]["products"]) {
+
+                        product_info = result["logs"][row]["products"][product];
+
+                        let log_product = `
                         <div class="log-product">
                             <div class="image-container"><img src="${result["imgs"][product_info["id"]]}"></div>
                             <div class="product-info-container">
@@ -90,86 +107,99 @@ function update_data(page) {
                         </div>
                     `;
 
-                    log_products += log_product;
-                }
+                        log_products += log_product;
+                    }
 
-                let log_type = result["logs"][row]["type"]
-                if (log_type == "Update") {
-                    log_type = "<span class='log-type_message log-type_message_update'>Update</span>";
-                } else if (log_type == "Add") {
-                    log_type = "<span class='log-type_message log-type_message_add'>Add</span>";
-                } else {
-                    log_type = "<span class='log-type_message log-type_message_update'>Update</span>";
-                }
+                    let log_type = result["logs"][row]["type"]
+                    if (log_type == "Update") {
+                        log_type = "<span class='log-type_message log-type_message_update'>Update</span>";
+                    } else if (log_type == "Add") {
+                        log_type = "<span class='log-type_message log-type_message_add'>Add</span>";
+                    } else {
+                        log_type = "<span class='log-type_message log-type_message_update'>Update</span>";
+                    }
 
-                let new_row = `
-                <tr>
-                    <th scope="row">${count+1}</th>
-                    <td>${result["logs"][row]["date"]}</td>
-                    <td>${result["logs"][row]["qty"]}</td>
-                    <td>${log_type}</td>
-                    <td class="show-products_action-btn" style="text-decoration: underline;">
-                        <span class="show-products_modal_btn">Ver productos</span>
-                        <div class="upd-prod-container display-none">
-                            <div class="buttons-container"><span class="close-modal_button"><ion-icon name="close-outline"></ion-icon></span></div>
-                            <div class="upd-prod-content">
-                                ${log_products}
+                    let new_row = `
+                    <tr>
+                        <th scope="row">${count + 1}</th>
+                        <td>${result["logs"][row]["date"]}</td>
+                        <td>${result["logs"][row]["qty"]}</td>
+                        <td>${log_type}</td>
+                        <td class="show-products_action-btn" style="text-decoration: underline;">
+                            <span class="show-products_modal_btn">Ver productos</span>
+                            <div class="upd-prod-container display-none">
+                                <div class="buttons-container"><span class="close-modal_button"><ion-icon name="close-outline"></ion-icon></span></div>
+                                <div class="upd-prod-content">
+                                    ${log_products}
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>`;
-    
-                logs_table.innerHTML += new_row;
-                count++;
+                        </td>
+                    </tr>`;
+
+                    logs_table.innerHTML += new_row;
+                    count++;
+                }
+
+                $(".show-products_modal_btn").map(function () {
+
+                    let parent = $(this).parent();
+                    let modal = parent.children(".upd-prod-container");
+
+                    $(this).click(function () {
+                        // Display the modal
+                        $(modal).removeClass("display-none");
+                    });
+
+                    // Add close function
+                    let buttons_container = modal.children(".buttons-container");
+                    let close_btn = buttons_container.children(".close-modal_button");
+                    $(close_btn).click(function () {
+                        $(modal).addClass("display-none");
+                    });
+
+                });
+
             }
 
-            $(".show-products_modal_btn").map(function() {
+        },
+        complete: function () {
+            if(type == "products") {
+                animation_container_products.style.display = "none"
+            }
 
-                let parent = $(this).parent();
-                let modal = parent.children(".upd-prod-container");
-
-                $(this).click(function () {
-                    // Display the modal
-                    $(modal).removeClass("display-none");
-                });
-
-                // Add close function
-                let buttons_container = modal.children(".buttons-container");
-                let close_btn = buttons_container.children(".close-modal_button");
-                $(close_btn).click(function () {
-                    $(modal).addClass("display-none");
-                });
-
-            });
+            if(type == "logs") {
+                animation_container_logs.style.display = "none"
+            }
         }
     });
 }
 
 let current_page = 1
-update_data(current_page) // The data is loaded (first load)
+update_data(current_page, "products") // The data is loaded (first load)
+update_data(current_page, "logs") // The data is loaded (first load)
 
 // Pagination
 
 $('.forward-icon').click(function () {
 
-    if($(this).hasClass("disabled")) {
+    if ($(this).hasClass("disabled")) {
         console.log("current page - ", current_page)
     } else {
         $(".back-icon").removeClass('disabled');
         current_page = current_page + 1
-        update_data(current_page)
+        update_data(current_page, "products")
     }
 })
 
 $('.back-icon').click(function () {
-    
-    if($(this).hasClass("disabled")) {
+
+    if ($(this).hasClass("disabled")) {
         console.log("current page - ", current_page)
     } else {
         current_page = current_page - 1
-        update_data(current_page)
-        if(current_page == 1) {
-            $(".back-icon").addClass('disabled'); 
+        update_data(current_page, "products")
+        if (current_page == 1) {
+            $(".back-icon").addClass('disabled');
         }
     }
 })
@@ -177,12 +207,12 @@ $('.back-icon').click(function () {
 // Update section
 
 $('.update-button').click(function () {
-    
-    let update_option = {"option": "2"}
+
+    let update_option = { "option": "2" }
     let url = "/all-update"
-    if($('.only-ingram').is(':checked')) { update_option = {"option": "0"}; url="/ingram-update"}
-    if($('.only-intcomex').is(':checked')) { update_option = {"option": "1"}; url="/intcomex-update"}
-    if($('.all-cells').is(':checked')) { update_option = {"option": "2"}; url="/all-update"}
+    if ($('.only-ingram').is(':checked')) { update_option = { "option": "0" }; url = "/ingram-update" }
+    if ($('.only-intcomex').is(':checked')) { update_option = { "option": "1" }; url = "/intcomex-update" }
+    if ($('.all-cells').is(':checked')) { update_option = { "option": "2" }; url = "/all-update" }
 
     $.ajax({
         type: "POST",
@@ -195,11 +225,11 @@ $('.update-button').click(function () {
             $('.success-message').addClass('display-none')
         },
         success: function (data) {
+            update_data(current_page, "logs")
         },
         complete: function () {
             $('.load-message').addClass('display-none')
             $('.success-message').removeClass('display-none')
-            update_data(current_page)
         },
     });
 });

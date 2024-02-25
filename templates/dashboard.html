@@ -59,9 +59,13 @@
 
                 <div class="table-container">
                     <div class="table-content">
+                        <div class="animations-content_container_products">
+                            <img src="/static/loading.gif">
+                        </div>
                         <table class="table">
                             <thead class="table-success">
                                 <tr>
+                                    <th scope="col">IMAGE</th>
                                     <th scope="col">ID</th>
                                     <th scope="col">SKU</th>
                                     <th scope="col">PRECIO</th>
@@ -72,6 +76,7 @@
                                 <!--
                                 {%for row in table%}
                                     <tr>
+                                        <td>{{row["image"]}}</td>
                                         <td>{{row["Fecha"]}}</td>
                                         <td>{{row["Cliente"]}}</td>
                                         <td>{{row["Valor"]}}</td>
@@ -202,6 +207,9 @@
             <div class="documents-container logs-container">
                 <div class="table-container">
                     <div class="table-content">
+                        <div class="animations-content_container_logs">
+                            <img src="/static/loading.gif">
+                        </div>
                         <table class="table logs-table">
                             <thead class="table-success">
                                 <tr>
@@ -244,10 +252,11 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>-->
 
+    <!-- Animations -->
+    <script src="/static/js/anime-master/lib/anime.min.js"></script>
     <script src="/static/js/animations.js"></script>
-    <script src="/static/js/tooltip.js"></script>
 
     <!-- Load data -->
     <script src="/static/js/load_data.js"></script>
