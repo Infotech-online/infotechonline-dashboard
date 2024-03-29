@@ -25,3 +25,15 @@ function loading_animation() {
 }
 
 // loading_animation()
+
+let selectedItems = [];
+
+$('.brand-templante_items').each(function() {
+    $(this).find('li').each(function(){
+        if ($(this).is(':checked')) {
+            selectedItems.push($(this).attr('id'));
+        }
+    })
+})
+
+console.log(selectedItems);

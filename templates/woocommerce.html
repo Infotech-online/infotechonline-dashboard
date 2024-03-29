@@ -1,0 +1,90 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .brand-content_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 210px;
+        }
+
+        .brand-content_container input {
+            border-color: var(--wp--preset--color--contrast);
+            border-radius: 4px;
+            width: 18px;
+            height: 18px;
+            min-height: 18px;
+            min-width: 18px;
+            border-width: 1px;
+            margin-right: 9px;
+        }
+
+        .brand-content_container span {
+            font-size: 13px;
+            line-height: 1.5em;
+            vertical-align: middle;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 400 !important;
+        }
+
+        ul {
+            margin: 0px;
+            padding: 0;
+        }
+
+        li {
+            height: 32px;
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+    <div class="brand-content_container">
+        <h3>Marcas</h3>
+        <ul>
+            <li><input type="checkbox"><span>Brand</span></li>
+            <li><input type="checkbox"><span>Brand</span></li>
+            <li><input type="checkbox"><span>Brand</span></li>
+            <li><input type="checkbox"><span>Brand</span></li>
+            <li><input type="checkbox"><span>Brand</span></li>
+        </ul>
+    </div>
+</body>
+</html>-->
+
+<div data-block-name="woocommerce/legacy-template" data-template="archive-product" id="primary"
+    class="content-area alignwide">
+    <main id="main" class="site-main" role="main">
+        <nav class="woocommerce-breadcrumb" aria-label="Breadcrumb"><a
+                href="https://infotechonline.co">Inicio</a>&nbsp;/&nbsp;Accesorios</nav>
+        <header class="woocommerce-products-header">
+            <h1 class="woocommerce-products-header__title page-title">
+                Accesorios </h1>
+        </header>
+        <div class="woocommerce-notices-wrapper"></div>
+        <p class="woocommerce-result-count">
+            Mostrando 1–16 de 71 resultados</p>
+        <form class="woocommerce-ordering" method="get">
+            <select name="orderby" class="orderby" aria-label="Pedido de la tienda">
+                <option value="popularity">Ordenar por popularidad</option>
+                <option value="rating">Ordenar por puntuación media</option>
+                <option value="date">Ordenar por los últimos</option>
+                <option value="price" selected="selected">Ordenar por precio: bajo a alto</option>
+                <option value="price-desc">Ordenar por precio: alto a bajo</option>
+            </select>
+            <input type="hidden" name="paged" value="1">
+        </form>
+        <ul class="products columns-4">
+
+        </ul>
+        </nav>
+    </main>
+</div>

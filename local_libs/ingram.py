@@ -77,6 +77,7 @@ class ingramConnection():
 
         for category in products_data:  # Categories
             for sku in products_data[category]:  # Sku and Prices
+                print(sku)
                 new_item = {
                     "ingrampartnumber": products_data[category][sku]["ingramSku"],
                     "quantity": 1
@@ -108,14 +109,19 @@ class ingramConnection():
     def return_prices(self):
 
         products = self.get_products()[0]
-        sku_list = self.get_products()[1]
+        # sku_list = self.get_products()[1]
 
+        new_product_list = {}
+        for product in products:
+            new_product_list[product["ingrampartnumber"]] = product["customerprice"]
+
+        """
         price_data = {}
 
         for pos, product in enumerate(products):
-            price_data[sku_list[pos]] = product["customerprice"]
+            price_data[sku_list[pos]] = product["customerprice"]"""
 
-        return price_data
+        return new_product_list
 
     def return_stock(self, sku):
 

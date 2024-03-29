@@ -9,21 +9,21 @@
         },
         "101023 - MM221XTK73": {
             "intcomexSku": "MM221XTK73",
-            "price": 36000,
+            "price": 35000,
             "stock": "outofstock",
             "stock_quantity": 0,
             "availability": true
         },
         "101024 - ID011XTK24": {
             "intcomexSku": "ID011XTK24",
-            "price": 30000,
+            "price": 29000,
             "stock": "instock",
             "stock_quantity": 20,
             "availability": true
         },
         "101025 - MM221XTK11": {
             "intcomexSku": "MM221XTK11",
-            "price": 32000,
+            "price": 42000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
@@ -37,14 +37,14 @@
         },
         "101027 - MM221XTK99": {
             "intcomexSku": "MM221XTK99",
-            "price": 75000,
+            "price": 93000,
             "stock": "instock",
-            "stock_quantity": 1,
+            "stock_quantity": 20,
             "availability": true
         },
         "101028 - ID011XTK07": {
             "intcomexSku": "ID011XTK07",
-            "price": 36000,
+            "price": 42000,
             "stock": "instock",
             "stock_quantity": 20,
             "availability": true
@@ -58,9 +58,9 @@
         },
         "101030 - MM221XTK97": {
             "intcomexSku": "MM221XTK97",
-            "price": 68000,
+            "price": 76000,
             "stock": "instock",
-            "stock_quantity": 18,
+            "stock_quantity": 20,
             "availability": true
         },
         "101031 - ID011KLX11": {
@@ -91,19 +91,60 @@
             "availability": true,
             "stock_quantity": 0
         },
-        "101093 - MM902JBL96": {
-            "intcomexSku": "MM902JBL96",
-            "price": "820000",
-            "stock": "instock",
-            "availability": true,
-            "stock_quantity": 0
-        },
         "101099 - XTK-540S": {
             "intcomexSku": "ID223XTK11",
-            "price": 78000,
+            "price": 76000,
             "stock": "instock",
             "stock_quantity": 20,
             "availability": true
+        },
+        "101102 - PCH-102BK": {
+            "intcomexSku": "AM160PGL09",
+            "price": 743000,
+            "stock": "outofstock",
+            "stock_quantity": 0
+        },
+        "101103 - XTH-700": {
+            "intcomexSku": "MM221XTK15",
+            "price": 65000,
+            "stock": "instock",
+            "stock_quantity": 20
+        },
+        "101105 - KMO-505": {
+            "intcomexSku": "ID011KLX15",
+            "price": 39000,
+            "stock": "instock",
+            "stock_quantity": 4
+        },
+        "101106 - JBLGO3BLUAM": {
+            "intcomexSku": "MM902JBL74",
+            "price": 190000,
+            "stock": "outofstock",
+            "stock_quantity": 0
+        },
+        "101107 - JBLCLIP4BLKAM": {
+            "intcomexSku": "MM903JBL01",
+            "price": 245000,
+            "stock": "instock",
+            "stock_quantity": 20
+        },
+        " 101108 - JBLFLIP6BLUAM": {
+            "intcomexSku": "MM903JBL63-B1",
+            "price": "384000",
+            "stock": "instock"
+        },
+        "101109 - JBLT500WHTAM": {
+            "intcomexSku": "MM901JBL38",
+            "price": 101000,
+            "stock": "outofstock",
+            "stock_quantity": 0
+        },
+        "101113 - XTH-545": {
+            "intcomexSku": "MM221XTK35",
+            "price": 56000,
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 20
         }
     },
     "impresoras": {},
@@ -113,25 +154,25 @@
     "proyectores": {},
     "smarthome": {
         "601008 - MM106NXT69": {
-            "intcomexSku": "MM106NXT69",
-            "price": 33200,
+            "intcomexSku": "MM106NXT71",
+            "price": "59000",
             "stock": "instock",
             "availability": true,
             "stock_quantity": 0
         },
-        "601009 - MM106NXT46": {
+        "601009": {
             "intcomexSku": "MM106NXT46",
-            "price": 77919,
+            "price": 77000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 0
+            "stock_quantity": 20
         },
-        "601010 - MM105NXT65": {
-            "intcomexSku": "MM105NXT65",
-            "price": 101198,
-            "stock": "outofstock",
+        "601010": {
+            "intcomexSku": "MM106NXT32",
+            "price": 272000,
+            "stock": "instock",
             "availability": true,
-            "stock_quantity": 0
+            "stock_quantity": 9
         },
         "601021 - NHC-P710": {
             "intcomexSku": "NHC-P710",
@@ -141,13 +182,48 @@
             "stock_quantity": 0
         },
         "601022 - NHC-O610": {
-            "intcomexSku": "NHC-O610",
-            "price": 101198,
-            "stock": "outofstock",
+            "intcomexSku": "MM106NXT51",
+            "price": "194000",
+            "stock": "instock",
             "availability": true,
             "stock_quantity": 0
+        },
+        "601015 - NHB-C1104PK": {
+            "intcomexSku": "MM106NXT72",
+            "price": "199900",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "601023 - NHC-O612": {
+            "intcomexSku": "MM106NXT65",
+            "price": "230000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "601024 - NHC-I7102PK": {
+            "intcomexSku": "MM106NXT47",
+            "price": 204000,
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 20
+        },
+        "601025 - NHC-B100": {
+            "intcomexSku": "MM106NXT67",
+            "price": 177000,
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 20
         }
     },
     "smartphones": {},
-    "tvs": {}
+    "tvs": {},
+    "consolas": {},
+    "tablets": {},
+    "memorias-ram": {},
+    "almacenamiento": {},
+    "ups-energia": {},
+    "redes": {},
+    "servidores": {}
 }
