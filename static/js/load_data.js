@@ -218,6 +218,77 @@ $('.back-icon').click(function () {
     }
 })
 
+function update_all_product_prices(update_option = { "option": "2" }) {
+
+    // Se registra la hora en la consola
+    // Crear un nuevo objeto Date
+    var fechaActual = new Date();
+
+    // Obtener la hora, los minutos y los segundos
+    var horas = fechaActual.getHours();
+    var minutos = fechaActual.getMinutes();
+    var segundos = fechaActual.getSeconds();
+
+    // Formatear la hora para que tenga el formato HH:MM:SS
+    var horaActual = horas + ":" + minutos + ":" + segundos;
+
+    // Mostrar la hora actual
+    console.log("Actualizando precios, la hora actual es:", horaActual);
+    
+    // Se actualizan todos los productos
+
+    // Ingram UPDATE
+    $.ajax({
+        type: "POST",
+        url: '/ingram-update',
+        data: update_option,
+        dataType: 'json',
+        beforeSend: function () {
+            $('.load-message').removeClass('display-none')
+            $('.last-update-message').addClass('display-none')
+            $('.success-message').addClass('display-none')
+        },
+        success: function (data) {
+            update_data(current_page, "logs")
+        },
+        complete: function () {
+            // $('.load-message').addClass('display-none')
+            $('.success-message').addClass('display-none')
+        },
+    });
+    
+    // Intcomex UPDATE
+    $.ajax({
+        type: "POST",
+        url: '/intcomex-update',
+        data: update_option,
+        dataType: 'json',
+        beforeSend: function () {
+            $('.load-message').removeClass('display-none')
+            $('.last-update-message').addClass('display-none')
+            $('.success-message').addClass('display-none')
+        },
+        success: function (data) {
+            update_data(current_page, "logs")
+        },
+        complete: function () {
+            $('.load-message').addClass('display-none')
+            $('.success-message').removeClass('display-none')
+        },
+    });
+
+}
+
+// Se ejecutara esta funcion cada 30 minutos
+
+var timeInterval = 1800000; // 1800000 milisegundos = 30 minutos
+
+// Ejecutar la función AJAX inicialmente
+update_all_product_prices();
+
+// Ejecutar la función AJAX periódicamente cada cierto intervalo de tiempo
+var intervalID = setInterval(update_all_product_prices, timeInterval);
+
 // Update section
 
 $('.update-button').click(function () {
@@ -253,45 +324,9 @@ $('.update-button').click(function () {
     // Si se estan actualizando todos
     } else {
 
-        // Ingram UPDATE
-        $.ajax({
-            type: "POST",
-            url: '/ingram-update',
-            data: update_option,
-            dataType: 'json',
-            beforeSend: function () {
-                $('.load-message').removeClass('display-none')
-                $('.last-update-message').addClass('display-none')
-                $('.success-message').addClass('display-none')
-            },
-            success: function (data) {
-                update_data(current_page, "logs")
-            },
-            complete: function () {
-                // $('.load-message').addClass('display-none')
-                $('.success-message').addClass('display-none')
-            },
-        });
-        
-        // Intcomex UPDATE
-        $.ajax({
-            type: "POST",
-            url: 'intcomex-update',
-            data: update_option,
-            dataType: 'json',
-            beforeSend: function () {
-                $('.load-message').removeClass('display-none')
-                $('.last-update-message').addClass('display-none')
-                $('.success-message').addClass('display-none')
-            },
-            success: function (data) {
-                update_data(current_page, "logs")
-            },
-            complete: function () {
-                $('.load-message').addClass('display-none')
-                $('.success-message').removeClass('display-none')
-            },
-        });
+        // Se actualizan todos los precios
+
+        update_all_product_prices()
 
     }
 

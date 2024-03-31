@@ -18505,6 +18505,337 @@
                     "regular_price": "204000"
                 }
             ]
+        },
+        {
+            "date": "2024-03-30 / 23:11:49",
+            "type": "Update",
+            "qty": 0,
+            "products": []
+        },
+        {
+            "date": "2024-03-30 / 23:11:50",
+            "type": "Update",
+            "qty": 0,
+            "products": []
+        },
+        {
+            "date": "2024-03-30 / 23:14:58",
+            "type": "Update",
+            "qty": 0,
+            "products": []
+        },
+        {
+            "date": "2024-03-30 / 23:15:50",
+            "type": "Update",
+            "qty": 17,
+            "products": [
+                {
+                    "id": 2867,
+                    "sku": "101023 - MM221XTK73",
+                    "intcomexsku": "MM221XTK73",
+                    "stock": "outofstock",
+                    "past_price": "35000",
+                    "regular_price": "35000"
+                },
+                {
+                    "id": 2875,
+                    "sku": "101024 - ID011XTK24",
+                    "intcomexsku": "ID011XTK24",
+                    "stock": "instock",
+                    "past_price": "29000",
+                    "regular_price": "29000"
+                },
+                {
+                    "id": 2883,
+                    "sku": "101025 - MM221XTK11",
+                    "intcomexsku": "MM221XTK11",
+                    "stock": "outofstock",
+                    "past_price": "42000",
+                    "regular_price": "42000"
+                },
+                {
+                    "id": 3176,
+                    "sku": "101027 - MM221XTK99",
+                    "intcomexsku": "MM221XTK99",
+                    "stock": "instock",
+                    "past_price": "93000",
+                    "regular_price": "93000"
+                },
+                {
+                    "id": 3182,
+                    "sku": "101028 - ID011XTK07",
+                    "intcomexsku": "ID011XTK07",
+                    "stock": "instock",
+                    "past_price": "42000",
+                    "regular_price": "42000"
+                },
+                {
+                    "id": 3201,
+                    "sku": "101030 - MM221XTK97",
+                    "intcomexsku": "MM221XTK97",
+                    "stock": "instock",
+                    "past_price": "76000",
+                    "regular_price": "76000"
+                },
+                {
+                    "id": 5085,
+                    "sku": "101099 - XTK-540S",
+                    "intcomexsku": "ID223XTK11",
+                    "stock": "instock",
+                    "past_price": "76000",
+                    "regular_price": "76000"
+                },
+                {
+                    "id": 5670,
+                    "sku": "101102 - PCH-102BK",
+                    "intcomexsku": "AM160PGL09",
+                    "stock": "outofstock",
+                    "past_price": "743000",
+                    "regular_price": "743000"
+                },
+                {
+                    "id": 5763,
+                    "sku": "101103 - XTH-700",
+                    "intcomexsku": "MM221XTK15",
+                    "stock": "instock",
+                    "past_price": "65000",
+                    "regular_price": "65000"
+                },
+                {
+                    "id": 6047,
+                    "sku": "101105 - KMO-505",
+                    "intcomexsku": "ID011KLX15",
+                    "stock": "instock",
+                    "past_price": "39000",
+                    "regular_price": "39000"
+                },
+                {
+                    "id": 5840,
+                    "sku": "101106 - JBLGO3BLUAM",
+                    "intcomexsku": "MM902JBL74",
+                    "stock": "outofstock",
+                    "past_price": "190000",
+                    "regular_price": "190000"
+                },
+                {
+                    "id": 5849,
+                    "sku": "101107 - JBLCLIP4BLKAM",
+                    "intcomexsku": "MM903JBL01",
+                    "stock": "instock",
+                    "past_price": "245000",
+                    "regular_price": "245000"
+                },
+                {
+                    "id": 5873,
+                    "sku": "101109 - JBLT500WHTAM",
+                    "intcomexsku": "MM901JBL38",
+                    "stock": "instock",
+                    "past_price": "101000",
+                    "regular_price": "101000"
+                },
+                {
+                    "id": 6335,
+                    "sku": "101113 - XTH-545",
+                    "intcomexsku": "MM221XTK35",
+                    "stock": "instock",
+                    "past_price": "56000",
+                    "regular_price": "56000"
+                },
+                {
+                    "id": 2662,
+                    "sku": "601009",
+                    "intcomexsku": "MM106NXT46",
+                    "stock": "instock",
+                    "past_price": "77000",
+                    "regular_price": "77000"
+                },
+                {
+                    "id": 2673,
+                    "sku": "601010",
+                    "intcomexsku": "MM106NXT32",
+                    "stock": "instock",
+                    "past_price": "272000",
+                    "regular_price": "272000"
+                },
+                {
+                    "id": 5368,
+                    "sku": "601024 - NHC-I7102PK",
+                    "intcomexsku": "MM106NXT47",
+                    "stock": "instock",
+                    "past_price": "204000",
+                    "regular_price": "204000"
+                }
+            ]
+        },
+        {
+            "date": "2024-03-30 / 23:47:36",
+            "type": "Update",
+            "qty": 0,
+            "products": []
+        },
+        {
+            "date": "2024-03-30 / 23:48:38",
+            "type": "Update",
+            "qty": 17,
+            "products": [
+                {
+                    "id": 2867,
+                    "sku": "101023 - MM221XTK73",
+                    "intcomexsku": "MM221XTK73",
+                    "stock": "outofstock",
+                    "past_price": "35000",
+                    "regular_price": "35000"
+                },
+                {
+                    "id": 2875,
+                    "sku": "101024 - ID011XTK24",
+                    "intcomexsku": "ID011XTK24",
+                    "stock": "instock",
+                    "past_price": "29000",
+                    "regular_price": "29000"
+                },
+                {
+                    "id": 2883,
+                    "sku": "101025 - MM221XTK11",
+                    "intcomexsku": "MM221XTK11",
+                    "stock": "outofstock",
+                    "past_price": "42000",
+                    "regular_price": "42000"
+                },
+                {
+                    "id": 3176,
+                    "sku": "101027 - MM221XTK99",
+                    "intcomexsku": "MM221XTK99",
+                    "stock": "instock",
+                    "past_price": "93000",
+                    "regular_price": "93000"
+                },
+                {
+                    "id": 3182,
+                    "sku": "101028 - ID011XTK07",
+                    "intcomexsku": "ID011XTK07",
+                    "stock": "instock",
+                    "past_price": "42000",
+                    "regular_price": "42000"
+                },
+                {
+                    "id": 3201,
+                    "sku": "101030 - MM221XTK97",
+                    "intcomexsku": "MM221XTK97",
+                    "stock": "instock",
+                    "past_price": "76000",
+                    "regular_price": "76000"
+                },
+                {
+                    "id": 5085,
+                    "sku": "101099 - XTK-540S",
+                    "intcomexsku": "ID223XTK11",
+                    "stock": "instock",
+                    "past_price": "76000",
+                    "regular_price": "76000"
+                },
+                {
+                    "id": 5670,
+                    "sku": "101102 - PCH-102BK",
+                    "intcomexsku": "AM160PGL09",
+                    "stock": "outofstock",
+                    "past_price": "743000",
+                    "regular_price": "743000"
+                },
+                {
+                    "id": 5763,
+                    "sku": "101103 - XTH-700",
+                    "intcomexsku": "MM221XTK15",
+                    "stock": "instock",
+                    "past_price": "65000",
+                    "regular_price": "65000"
+                },
+                {
+                    "id": 6047,
+                    "sku": "101105 - KMO-505",
+                    "intcomexsku": "ID011KLX15",
+                    "stock": "instock",
+                    "past_price": "39000",
+                    "regular_price": "39000"
+                },
+                {
+                    "id": 5840,
+                    "sku": "101106 - JBLGO3BLUAM",
+                    "intcomexsku": "MM902JBL74",
+                    "stock": "outofstock",
+                    "past_price": "190000",
+                    "regular_price": "190000"
+                },
+                {
+                    "id": 5849,
+                    "sku": "101107 - JBLCLIP4BLKAM",
+                    "intcomexsku": "MM903JBL01",
+                    "stock": "instock",
+                    "past_price": "245000",
+                    "regular_price": "245000"
+                },
+                {
+                    "id": 5873,
+                    "sku": "101109 - JBLT500WHTAM",
+                    "intcomexsku": "MM901JBL38",
+                    "stock": "instock",
+                    "past_price": "101000",
+                    "regular_price": "101000"
+                },
+                {
+                    "id": 6335,
+                    "sku": "101113 - XTH-545",
+                    "intcomexsku": "MM221XTK35",
+                    "stock": "instock",
+                    "past_price": "56000",
+                    "regular_price": "56000"
+                },
+                {
+                    "id": 2662,
+                    "sku": "601009",
+                    "intcomexsku": "MM106NXT46",
+                    "stock": "instock",
+                    "past_price": "77000",
+                    "regular_price": "77000"
+                },
+                {
+                    "id": 2673,
+                    "sku": "601010",
+                    "intcomexsku": "MM106NXT32",
+                    "stock": "instock",
+                    "past_price": "272000",
+                    "regular_price": "272000"
+                },
+                {
+                    "id": 5368,
+                    "sku": "601024 - NHC-I7102PK",
+                    "intcomexsku": "MM106NXT47",
+                    "stock": "instock",
+                    "past_price": "204000",
+                    "regular_price": "204000"
+                }
+            ]
+        },
+        {
+            "date": "2024-03-31 / 00:15:00",
+            "type": "Update",
+            "qty": 1,
+            "products": [
+                {
+                    "id": 6325,
+                    "sku": "301021 - LH43QBCEBGCXGO",
+                    "ingrampartnumber": "6081024",
+                    "stock": "instock",
+                    "past_price": "2340000",
+                    "regular_price": "2339000"
+                }
+            ]
+        },
+        {
+            "date": "2024-03-31 / 00:16:11",
+            "type": "Update",
+            "qty": 0,
+            "products": []
         }
     ]
 }
