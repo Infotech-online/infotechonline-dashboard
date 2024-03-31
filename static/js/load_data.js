@@ -51,17 +51,31 @@ function update_data(page, type) {
                 let count = 0
                 for (row in result["products"]) {
 
-                    let new_row = `
-                <tr>
-                    <td><img src="${result["imgs"][result["products"][row]["id"]]}" width='50px' height='50px'></td>
-                    <th scope="row">${result["products"][row]["id"]}</th>
-                    <td>${result["products"][row]["sku"]}</td>
-                    <td>${currency(result["products"][row]["regular_price"])}</td>
-                    <td>${result["products"][row]["name"]}</td>
-                </tr>`;
+                    // Si el producto esta publicado
 
-                    table.innerHTML += new_row;
-                    count++;
+                    if (result["products"][row]["status"] == "publish") {
+                        
+                        let product_price = 0;
+
+                        if (result["products"][row]["sale_price"] != "") {
+                            product_price = currency(result["products"][row]["sale_price"])
+                        } else {
+                            product_price = currency(result["products"][row]["regular_price"])
+                        }
+
+                        let new_row = `
+                        <tr>
+                            <td><img src="${result["imgs"][result["products"][row]["id"]]}" width='50px' height='50px'></td>
+                            <th scope="row">${result["products"][row]["id"]}</th>
+                            <td>${result["products"][row]["sku"]}</td>
+                            <td>$${product_price}</td>
+                            <td>${result["products"][row]["name"]}</td>
+                        </tr>`;
+
+                        table.innerHTML += new_row;
+                        count++;
+                    }
+                
                 };
 
                 // Pagination state
@@ -214,22 +228,72 @@ $('.update-button').click(function () {
     if ($('.only-intcomex').is(':checked')) { update_option = { "option": "1" }; url = "/intcomex-update" }
     if ($('.all-cells').is(':checked')) { update_option = { "option": "2" }; url = "/all-update" }
 
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: update_option,
-        dataType: 'json',
-        beforeSend: function () {
-            $('.load-message').removeClass('display-none')
-            $('.last-update-message').addClass('display-none')
-            $('.success-message').addClass('display-none')
-        },
-        success: function (data) {
-            update_data(current_page, "logs")
-        },
-        complete: function () {
-            $('.load-message').addClass('display-none')
-            $('.success-message').removeClass('display-none')
-        },
-    });
+    // Si se esta realizando una actualización en especifico
+    if (url != "/all-update") {
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: update_option,
+            dataType: 'json',
+            beforeSend: function () {
+                $('.load-message').removeClass('display-none')
+                $('.last-update-message').addClass('display-none')
+                $('.success-message').addClass('display-none')
+            },
+            success: function (data) {
+                update_data(current_page, "logs")
+            },
+            complete: function () {
+                $('.load-message').addClass('display-none')
+                $('.success-message').removeClass('display-none')
+            },
+        });
+
+    // Si se estan actualizando todos
+    } else {
+
+        // Ingram UPDATE
+        $.ajax({
+            type: "POST",
+            url: '/ingram-update',
+            data: update_option,
+            dataType: 'json',
+            beforeSend: function () {
+                $('.load-message').removeClass('display-none')
+                $('.last-update-message').addClass('display-none')
+                $('.success-message').addClass('display-none')
+            },
+            success: function (data) {
+                update_data(current_page, "logs")
+            },
+            complete: function () {
+                // $('.load-message').addClass('display-none')
+                $('.success-message').addClass('display-none')
+            },
+        });
+        
+        // Intcomex UPDATE
+        $.ajax({
+            type: "POST",
+            url: 'intcomex-update',
+            data: update_option,
+            dataType: 'json',
+            beforeSend: function () {
+                $('.load-message').removeClass('display-none')
+                $('.last-update-message').addClass('display-none')
+                $('.success-message').addClass('display-none')
+            },
+            success: function (data) {
+                update_data(current_page, "logs")
+            },
+            complete: function () {
+                $('.load-message').addClass('display-none')
+                $('.success-message').removeClass('display-none')
+            },
+        });
+
+    }
+
+    
 });

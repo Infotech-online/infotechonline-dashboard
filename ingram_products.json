@@ -86,7 +86,7 @@
         },
         "101111 - 910-005459": {
             "ingramSku": "5863171",
-            "price": 38000,
+            "price": 37000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 163
@@ -123,14 +123,14 @@
         },
         "201004 - C11CG07301": {
             "ingramSku": "4563856",
-            "price": 1540000,
+            "price": 2484000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 6
         },
         "201005 - 4055C002AA": {
             "ingramSku": "5602147",
-            "price": 17482000,
+            "price": 20494000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 4
@@ -174,7 +174,7 @@
     "monitores": {
         "301001 - E2222HS": {
             "ingramSku": "5278923",
-            "price": 580000,
+            "price": 573000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 210
@@ -244,7 +244,7 @@
         },
         "301012 - E2424HS": {
             "ingramSku": "5735761",
-            "price": 583000,
+            "price": 575000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 382
@@ -794,14 +794,14 @@
         },
         "801010 - UN32T4300AKXZL": {
             "ingramSku": "4882629",
-            "price": 817000,
+            "price": 866000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 153
         },
         "801011 - UN43CU7000KXZL": {
             "ingramSku": "5786068",
-            "price": 1496000,
+            "price": 1578000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 370
@@ -815,7 +815,7 @@
         },
         "801024 - UN85CU8000KXZL": {
             "ingramSku": "5786074",
-            "price": 6122000,
+            "price": 7237000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 10

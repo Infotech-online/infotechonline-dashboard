@@ -24,9 +24,8 @@ class wooConnection():
         except:
             return "Error Woocommerce Api"
 
-    def get_all_prods(self):
+    def get_all_prods(self, curr_page=1):
 
-        curr_page = 1
         products = self.wc.get("products", params={'per_page': 100, 'page': curr_page}).json()
         current_page = products
 

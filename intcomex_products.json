@@ -136,8 +136,8 @@
         "101109 - JBLT500WHTAM": {
             "intcomexSku": "MM901JBL38",
             "price": 101000,
-            "stock": "outofstock",
-            "stock_quantity": 0
+            "stock": "instock",
+            "stock_quantity": 20
         },
         "101113 - XTH-545": {
             "intcomexSku": "MM221XTK35",

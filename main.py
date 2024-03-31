@@ -56,8 +56,8 @@ def infotech_data():
         # Get request args
         page = request.form["page"]
 
-        # Return a json with data
-        products = woo.mconsult().get("products", params={'per_page': 100, 'order': 'asc', 'page': page}).json() # WooCommerce Productproducts
+        # Se llama la funcion para obtener todos los productos de woocommerce
+        products = woo.get_all_prods(int(page))
 
         # Get image data
         with open('products_imgs.json') as f:
