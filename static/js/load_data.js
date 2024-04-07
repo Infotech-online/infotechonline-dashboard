@@ -249,31 +249,36 @@ function update_all_product_prices(update_option = { "option": "2" }) {
             $('.success-message').addClass('display-none')
         },
         success: function (data) {
+            
             update_data(current_page, "logs")
+
+            // Actualizar los precios de Intcomex al finalizar la actualización de Ingram
+
+            // Intcomex UPDATE
+            $.ajax({
+                type: "POST",
+                url: '/intcomex-update',
+                data: update_option,
+                dataType: 'json',
+                beforeSend: function () {
+                    $('.load-message').removeClass('display-none')
+                    $('.last-update-message').addClass('display-none')
+                    $('.success-message').addClass('display-none')
+                },
+                success: function (data) {
+                    update_data(current_page, "logs")
+                    console.log("completado")
+                },
+                complete: function () {
+                    $('.load-message').addClass('display-none')
+                    $('.success-message').removeClass('display-none')
+                },
+            });
+
         },
         complete: function () {
             // $('.load-message').addClass('display-none')
             $('.success-message').addClass('display-none')
-        },
-    });
-    
-    // Intcomex UPDATE
-    $.ajax({
-        type: "POST",
-        url: '/intcomex-update',
-        data: update_option,
-        dataType: 'json',
-        beforeSend: function () {
-            $('.load-message').removeClass('display-none')
-            $('.last-update-message').addClass('display-none')
-            $('.success-message').addClass('display-none')
-        },
-        success: function (data) {
-            update_data(current_page, "logs")
-        },
-        complete: function () {
-            $('.load-message').addClass('display-none')
-            $('.success-message').removeClass('display-none')
         },
     });
 
@@ -284,10 +289,10 @@ function update_all_product_prices(update_option = { "option": "2" }) {
 var timeInterval = 1800000; // 1800000 milisegundos = 30 minutos
 
 // Ejecutar la función AJAX inicialmente
-update_all_product_prices();
+// update_all_product_prices();
 
 // Ejecutar la función AJAX periódicamente cada cierto intervalo de tiempo
-var intervalID = setInterval(update_all_product_prices, timeInterval);
+// var intervalID = setInterval(update_all_product_prices, timeInterval);
 
 // Update section
 
