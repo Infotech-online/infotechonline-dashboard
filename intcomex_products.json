@@ -16,7 +16,7 @@
         },
         "101024 - ID011XTK24": {
             "intcomexSku": "ID011XTK24",
-            "price": 29000,
+            "price": 28000,
             "stock": "instock",
             "stock_quantity": 20,
             "availability": true
@@ -37,14 +37,14 @@
         },
         "101027 - MM221XTK99": {
             "intcomexSku": "MM221XTK99",
-            "price": 96000,
+            "price": 93000,
             "stock": "instock",
             "stock_quantity": 20,
             "availability": true
         },
         "101028 - ID011XTK07": {
             "intcomexSku": "ID011XTK07",
-            "price": 46000,
+            "price": 45000,
             "stock": "instock",
             "stock_quantity": 20,
             "availability": true
@@ -106,7 +106,7 @@
         },
         "101103 - XTH-700": {
             "intcomexSku": "MM221XTK15",
-            "price": 69000,
+            "price": 66000,
             "stock": "instock",
             "stock_quantity": 20
         },
@@ -118,7 +118,7 @@
         },
         "101106 - JBLGO3BLUAM": {
             "intcomexSku": "MM902JBL74",
-            "price": 168000,
+            "price": 147000,
             "stock": "outofstock",
             "stock_quantity": 0
         },
@@ -170,7 +170,7 @@
         },
         "601010": {
             "intcomexSku": "MM106NXT32",
-            "price": 292000,
+            "price": 277000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 9
