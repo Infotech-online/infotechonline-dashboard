@@ -509,9 +509,6 @@ def intcomex_update():
 
         # Se retorna un mensaje de Success
         return json.dumps({'success':True}), 200, {'ContentType':'application/json'}  # Return success
-    else:
-        # Si salio mal el proceso se retorna un mensaje de error
-        return json.dumps({'success':False}), 400, {'ContentType':'application/json'}
 
 # Añadir o enlazar un nuevo producto a la base de datos local (archivos JSON)
 @app.route('/add-product', methods=["POST"])
