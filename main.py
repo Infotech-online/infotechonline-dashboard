@@ -6,6 +6,7 @@ from datetime import datetime
 import json
 import os
 import math
+import random
 
 # Se inicializa la App de Flask
 app = Flask(__name__, template_folder='templates', static_folder='static')
@@ -729,6 +730,213 @@ def round_up_prices():
 
             # Se actualiza la información del producto en la tienda
             woo.mconsult().put(f"products/{product['id']}", data).json()  # Product Update
+
+@app.route('/get-increment-list')
+def price_profit_correction():
+
+    """
+    Los precios de la tienda estan con un margen del 13% pero se quieren subir todos
+    al 15%, hay algunas excepciones como que los productos pequeños o accesorios van
+    van a incrementar al 20%, tambien se tiene que tener en cuenta el valor del UVT
+    para portatiles, celulares y tablets (50 UVT y 22 UVT).
+    
+    La nueva formula de ganancia es: precio / (1-13)
+    13 es el porcentaje de ganancia
+    """
+
+    # Se obtienen todos los productos de woocommerce
+    all_products = woo.get_all_prods(1)
+
+    # Por cada producto en la tienda
+    for product in all_products:
+
+        # Si el producto se encuentra publicado en la tienda
+        if product["status"] == "publish":
+
+            """
+            50 UVT = 2.335.250
+            22 UVT = 1.035.430
+            """
+            UVT_rule = False
+            UVT_quantity = 0
+            profit_margin = 0.13
+
+            regular_price = product["regular_price"]
+            sale_price = product["sale_price"]
+
+            product_price = regular_price if sale_price == "" else sale_price
+            product_price = int(product_price)
+
+            # Por cada categoria encontrar las que tienen variaciones en cuanto a reglas de precios
+            for category in product["categories"]:
+
+                if category["name"] == "Accesorios":
+                    # Si el producto es un accesorio y su precio es menor a 500.000
+                    if product_price < 200000:
+                        profit_margin = 0.20
+
+                if category["name"] == "Portatiles":
+                    UVT_rule = True
+                    UVT_quantity = 50
+                if category["name"] == "Celulares" or category["name"] == "Tablets":
+                    UVT_rule = True
+                    UVT_quantity = 22
+
+            if UVT_rule and product_price < (UVT_quantity * UVT):
+
+                base_price = product_price / 1.13 # Se le resta el porcentaje anterior
+                product_price = base_price / (1 - profit_margin)
+
+                # Si con el precio nuevo supera los 22 UVT entonces se le añade IVA
+                product_price = product_price * 1.19 if product_price > (UVT_quantity * UVT) else product_price
+                iva_state = "included" if product_price > (UVT_quantity * UVT) else "excluded"
+
+                # Se redondean los precios 1000 pesos por encima
+                final_price = int(math.ceil(product_price / 1000.0)) * 1000 # (REDONDEADO)
+
+                print(f"{product['sku']} / {final_price} / 1 NO IVA")
+
+            if UVT_rule and product_price > (UVT_quantity * UVT):
+
+                product_price = product_price / 1.19 # Se quita el IVA
+                base_price = product_price / 1.13 # Se le resta el porcentaje con la formula anterior
+                product_price = base_price / (1 - profit_margin) # Se añade el porcentaje con la nueva formula
+
+                product_price = product_price * 1.19 # Se añade el IVA
+
+                iva_state = "included"
+                
+                # Se redondean los precios 1000 pesos por encima
+                final_price = int(math.ceil(product_price / 1000.0)) * 1000 # (REDONDEADO)
+
+                print(f"{product['sku']} / {final_price} / 2 CON IVA")
+
+            if UVT_rule == False:
+
+                product_price = product_price / 1.19 # Se quita el IVA
+                base_price = product_price / 1.13 # Se le resta el porcentaje con la formula anterior
+                product_price = base_price / (1 - profit_margin) # Se añade el porcentaje con la nueva formula
+
+                product_price = product_price * 1.19 # Se añade el IVA
+
+                iva_state = "included"
+                
+                # Se redondean los precios 1000 pesos por encima
+                final_price = int(math.ceil(product_price / 1000.0)) * 1000 # (REDONDEADO)
+
+                print(f"{product['sku']} --- {product['id']} / / {final_price} / 3 SIN REGLA")
+
+            # Definir que tipo de precio es (oferta o precio normal)
+            if sale_price == "": 
+                new_regular_price = final_price
+                new_sale_price = ""
+                discount_rate = 0
+                on_sale = False
+
+                if new_regular_price > 900000:
+                    shipping_class = "b-fee"
+                    shipping_class_id = 1611
+                else:
+                    shipping_class = "a-fee"
+                    shipping_class_id = 1610
+            else:
+
+                # Si el producto esta en oferta
+                on_sale = True
+                sale_price = int(sale_price)                
+
+                # Seleccionar un porcentaje de descuento
+                # Generar un descuento aleatorio entre 10% y 50%
+                opciones = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
+                descuento = random.choice(opciones)
+
+                # Convertir el descuento a porcentaje y redondearlo a dos decimales
+                discount_rate = descuento * 100
+
+                new_sale_price = final_price
+
+                if new_sale_price > 900000:
+                    shipping_class = "b-fee"
+                    shipping_class_id = 1611
+                else:
+                    shipping_class = "a-fee"
+                    shipping_class_id = 1610
+
+                new_regular_price = final_price * (1 + descuento)
+                new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
+
+            # Se guarda el registro dentro de "logs.json"
+            with open('product_prices.json') as f:
+
+                logs_data = json.load(f)
+                logs_data_list = logs_data
+
+                if iva_state == "included":
+                    tax_status = "taxable"
+                if iva_state == "excluded":
+                    tax_status = "shipping"
+
+                # Estructura del Log de tipo "Add"
+                logs_data[product['sku']] = {
+                    "id": product['id'],
+                    "image": product["images"][0]["src"],
+                    "regular_price": int(regular_price),
+                    "sale_price": sale_price,
+                    "new_regular_price": new_regular_price,
+                    "new_sale_price": new_sale_price,
+                    "base_price": int(math.ceil(base_price / 1000.0)) * 1000,
+                    "profit_margin": profit_margin,
+                    "IVA": iva_state,
+                    "on_sale": on_sale,
+                    "discount_rate": discount_rate,
+                    "tax_status": tax_status,
+                    "shipping_class": shipping_class,
+                    "shipping_class_id": shipping_class_id
+                }
+
+                logs_data = logs_data_list
+                log = json.dumps(logs_data, indent=4)
+
+            # Se escribe el nuevo Log
+            with open('product_prices.json', 'w') as file:
+                file.write(log)
+
+    with open('product_prices.json') as f:
+        logs_data = json.load(f)
+
+    return logs_data
+
+@app.route('/update-with-increment-list')
+def update_with_increment_list():
+
+    # Se guarda el registro dentro de "logs.json"
+    with open('product_prices.json') as f:
+
+        logs_data = json.load(f)
+        product_list = logs_data
+
+    # Por cada producto en la tienda
+    for product_sku in product_list:
+        
+        product = product_list[product_sku]
+
+        print(f"{product_sku} - iniciando")
+
+        data = {
+            "regular_price": f"{product['new_regular_price']}", 
+            "sale_price": f"{product['new_sale_price']}",
+            "tax_status": product['tax_status'],
+            "shipping_class": product['shipping_class'],
+            "shipping_class_id": int(product['shipping_class_id'])
+        }
+
+        # Se realiza una consulta de tipo PUT a Woocommerce para actualizar los valores de los productos actualizados
+        woo.mconsult().put(f"products/{product['id']}", data).json()
+
+        print("- finalizado")
+
+    return "finished"
+
 
 """
 Visualización de datos ----------------------------------------------------------------------------------------------------
