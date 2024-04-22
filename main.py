@@ -364,8 +364,8 @@ def intcomex_update():
                         final_price = profit * 1.19
 
                     else:
-
-                        final_price = products_data[category][sku]["price"]
+                        # final_price_with_IVA = products_data[category][sku]["price"]
+                        print(f"Producto no se encuentra en el listado de precios {intcomex_sku}")
 
                     # Se obtiene el estado de stock del producto
                     stock_status = products_data[category][sku]["stock"]
