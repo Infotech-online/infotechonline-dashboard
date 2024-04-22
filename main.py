@@ -155,14 +155,24 @@ def ingram_update():
 
                 # Se calcula el precio final del producto
 
+                base_price = int(prices[ingram_pnumber]) # Precio base del mayorista
+                iva_state = "taxable" # Estado de IVA del producto
+
+                profit_margin = 0.13
+
+                if category == "accesorios":
+
+                    # Si el producto es un accesorio y su precio base es menor a 200.000
+                    if base_price < 200000:
+                        profit_margin = 0.20
+
                 """
                 La formula es: 
-                incremento = Precio del producto (antes de IVA) + 13%
+                incremento = Precio del producto / (1 - margen de ganancia)
                 valor final = incremento * 1.19
                 """
-                cop_price = int(prices[ingram_pnumber])
-                profit = (cop_price * 0.13) + cop_price
-                final_price_with_IVA = profit * 1.19
+                profit = base_price / (1 - profit_margin)
+                final_price = profit * 1.19
 
                 # Se obtiene el stock actual del producto
                 current_stock_quantity = stock[ingram_pnumber]
@@ -176,10 +186,10 @@ def ingram_update():
                 Segun cierto valor estos dispositivos no llevan IVA
                 Entonces el Precio final sera la variable (Profit)
                 """
-                if category == "smartphones" and (profit < (22*UVT)):
-                    final_price_with_IVA = profit
-                if category == "laptop" and (profit < (50*UVT)):
-                    final_price_with_IVA = profit
+                if (category == "smartphones" and (profit < (22*UVT))) or (category == "laptop" and (profit < (50*UVT))):
+
+                    final_price = profit
+                    iva_state = "shipping" # Excluido de IVA
 
                 # El precio final del producto se redondea
                 """
@@ -188,31 +198,49 @@ def ingram_update():
                 esta función lo redondea a 1.301.000
                 (1.000 pesos) sin importar la cantidad de cifras en las centenas
                 """
-                def round_price(precio):
-                    return int(math.ceil(precio / 1000.0)) * 1000
 
-                current_price = final_price_with_IVA  # Precio actual con IVA
-                final_price_with_IVA = round_price(current_price) # Precio actual con IVA (REDONDEADO)
+                final_price = int(math.ceil(final_price / 1000.0)) * 1000  # Precio actual con IVA (REDONDEADO)
 
                 # Si el producto cambio de precio o stock, se actualizaran los valores dentro de la tienda
-                if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status) or (products_data[category][sku]["stock_quantity"] != current_stock_quantity):
+                if (int(final_price) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status) or (products_data[category][sku]["stock_quantity"] != current_stock_quantity):
                     
                     try:
                         # Consulta para obtener el producto de WooCommerce
                         product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
-                        
-                        # Si el producto esta en oferta
+
                         if product[0]["sale_price"] != "":
 
+                            # Si el producto esta en oferta
                             # Se agrega el valor "sale_price"
                             # El valor de "regular_price" debe ser mayor a "sale_price"
+                            sale_price = int(sale_price)
+
+                            # Seleccionar un porcentaje de descuento
+                            # Generar un descuento aleatorio entre 10% y 50%
+                            opciones = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
+                            discount = random.choice(opciones)
+
+                            new_sale_price = final_price
+
+                            if new_sale_price > 900000:
+                                shipping_class = "b-fee"
+                                shipping_class_id = 1611
+                            else:
+                                shipping_class = "a-fee"
+                                shipping_class_id = 1610
+
+                            new_regular_price = final_price * (1 + discount)
+                            new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
 
                             data = {
-                                "regular_price": f"{int(final_price_with_IVA) + 125000}", 
-                                "sale_price": f"{int(final_price_with_IVA)}",
+                                "regular_price": f"{int(new_regular_price)}", 
+                                "sale_price": f"{int(new_sale_price)}",
                                 "stock_status": f"{stock_status}",
                                 "manage_stock": True,
-                                "stock_quantity": current_stock_quantity
+                                "stock_quantity": current_stock_quantity,
+                                "tax_status": iva_state,
+                                "shipping_class": shipping_class,
+                                "shipping_class_id": int(shipping_class_id)
                             }
 
                         else:
@@ -220,11 +248,24 @@ def ingram_update():
                             # Si el producto no esta en oferta
                             # Se cambia unicamente el valor "regular_price"
 
+                            new_regular_price = final_price
+                            new_sale_price = ""
+
+                            if new_regular_price > 900000:
+                                shipping_class = "b-fee"
+                                shipping_class_id = 1611
+                            else:
+                                shipping_class = "a-fee"
+                                shipping_class_id = 1610                            
+
                             data = {
-                                "regular_price": f"{int(final_price_with_IVA)}", 
+                                "regular_price": f"{int(new_regular_price)}", 
                                 "stock_status": f"{stock_status}",
                                 "manage_stock": True,
-                                "stock_quantity": current_stock_quantity
+                                "stock_quantity": current_stock_quantity,
+                                "tax_status": iva_state,
+                                "shipping_class": shipping_class,
+                                "shipping_class_id": int(shipping_class_id)
                             }
 
                         # Se realiza una consulta de tipo PUT a Woocommerce para actualizar los valores de los productos actualizados
@@ -237,7 +278,7 @@ def ingram_update():
                             "ingrampartnumber": ingram_pnumber,
                             "stock": stock_status,
                             "past_price": f"{product[0]['price']}",
-                            "regular_price": f"{int(final_price_with_IVA)}"
+                            "regular_price": f"{int(final_price)}"
                         }
 
                         qty += 1
@@ -246,7 +287,7 @@ def ingram_update():
 
                         # Se cambian los datos del producto dentro de "ingram_products.json"
                         # Para futuras actualizaciones
-                        products_data[category][sku]["price"] = int(final_price_with_IVA)
+                        products_data[category][sku]["price"] = int(final_price)
                         products_data[category][sku]["stock"] = stock_status
                         products_data[category][sku]["stock_quantity"] = current_stock_quantity
                         upd_product = json.dumps(products_data, indent=4)
@@ -330,32 +371,36 @@ def intcomex_update():
 
                 try:
 
-                    # Icrement
-                    increment_percent = 0.13
-
-                    # Hay algunos productos que tienen como margen el 20% en vez del 13%
-                    twenty_percent_products = ["101022", "101023", "101024", "101025", "101026", "101027", "101028", "101029", "101030"]
-                    # Si el producto se encuentra en ese listado se le aumenta el 20%
-                    if sku in twenty_percent_products:
-                        increment_percent = 0.20
-
                     # Se obtiene el numero de parte de Intcomex
                     intcomex_sku = products_data[category][sku]["intcomexSku"]
                     
                     # Se calcula el precio final del producto
 
-                    """
-                    La formula es: 
-                    incremento = Precio del producto (antes de IVA) + 13%
-                    valor final = incremento * 1.19
-                    """
+                    iva_state = "taxable" # Estado de IVA del producto
 
                     if intcomex_sku in prices:
-                        cop_price = prices[intcomex_sku]
-                        profit = (cop_price * increment_percent) + cop_price
-                        final_price_with_IVA = profit * 1.19
+
+                        base_price = int(prices[intcomex_sku]) # Precio base del mayorista
+
+                        profit_margin = 0.13
+
+                        if category == "accesorios":
+
+                            # Si el producto es un accesorio y su precio base es menor a 200.000
+                            if base_price < 200000:
+                                profit_margin = 0.20
+
+                        """
+                        La formula es: 
+                        incremento = Precio del producto / (1 - margen de ganancia)
+                        valor final = incremento * 1.19
+                        """
+                        profit = base_price / (1 - profit_margin)
+                        final_price = profit * 1.19
+
                     else:
-                        final_price_with_IVA = products_data[category][sku]["price"]
+
+                        final_price = products_data[category][sku]["price"]
 
                     # Se obtiene el estado de stock del producto
                     stock_status = products_data[category][sku]["stock"]
@@ -378,10 +423,10 @@ def intcomex_update():
                     Segun cierto valor estos dispositivos no llevan IVA
                     Entonces el Precio final sera la variable (Profit)
                     """
-                    if category == "smartphones" and (profit < (22*UVT)):
-                        final_price_with_IVA = profit
-                    if category == "laptop" and (profit < (50*UVT)):
-                        final_price_with_IVA = profit
+                    if (category == "smartphones" and (profit < (22*UVT))) or (category == "laptop" and (profit < (50*UVT))):
+
+                        final_price = profit
+                        iva_state = "shipping"
 
                     # El precio final del producto se redondea
                     """
@@ -391,12 +436,7 @@ def intcomex_update():
                     (1.000 pesos) sin importar la cantidad de cifras en las centenas
                     """
 
-                    def round_price(precio):
-                        return int(math.ceil(precio / 1000.0)) * 1000
-
-                    current_price = final_price_with_IVA  # Precio actual con IVA
-                    print(current_price)
-                    final_price_with_IVA = round_price(int(current_price)) # Precio actual con IVA (REDONDEADO)
+                    final_price = int(math.ceil(final_price / 1000.0)) * 1000 # Precio actual con IVA (REDONDEADO)
 
                     # Si el producto cambio de precio o stock, se actualizaran los valores dentro de la tienda
 
@@ -410,27 +450,61 @@ def intcomex_update():
                             # Si el producto esta en oferta
                             if product[0]["sale_price"] != "":
 
-                                # Se agrega el valor de "regular_price"
-                                # El valor de "regular_price" debe ser mayor al de "sale_price"
+                                # Si el producto esta en oferta
+                                # Se agrega el valor "sale_price"
+                                # El valor de "regular_price" debe ser mayor a "sale_price"
+
+                                # Seleccionar un porcentaje de descuento
+                                # Generar un descuento aleatorio entre 10% y 50%
+                                opciones = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
+                                discount = random.choice(opciones)
+
+                                new_sale_price = final_price
+
+                                if new_sale_price > 900000:
+                                    shipping_class = "b-fee"
+                                    shipping_class_id = 1611
+                                else:
+                                    shipping_class = "a-fee"
+                                    shipping_class_id = 1610
+
+                                new_regular_price = final_price * (1 + discount)
+                                new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
 
                                 data = {
-                                    "regular_price": f"{int(final_price_with_IVA) + 125000}", 
-                                    "sale_price": f"{int(final_price_with_IVA)}",
+                                    "regular_price": f"{int(new_regular_price)}", 
+                                    "sale_price": f"{int(new_sale_price)}",
                                     "stock_status": f"{stock_status}",
                                     "manage_stock": True,
-                                    "stock_quantity": current_stock_quantity
+                                    "stock_quantity": current_stock_quantity,
+                                    "tax_status": iva_state,
+                                    "shipping_class": shipping_class,
+                                    "shipping_class_id": int(shipping_class_id)
                                 }
 
                             else:
 
                                 # Si el producto no esta en oferta
-                                # Se cambia unicamente el valor de "regular_price"
+                                # Se cambia unicamente el valor "regular_price"
+
+                                new_regular_price = final_price
+                                new_sale_price = ""
+
+                                if new_regular_price > 900000:
+                                    shipping_class = "b-fee"
+                                    shipping_class_id = 1611
+                                else:
+                                    shipping_class = "a-fee"
+                                    shipping_class_id = 1610            
 
                                 data = {
-                                    "regular_price": f"{int(final_price_with_IVA)}", 
+                                    "regular_price": f"{int(new_regular_price)}", 
                                     "stock_status": f"{stock_status}",
                                     "manage_stock": True,
-                                    "stock_quantity": current_stock_quantity
+                                    "stock_quantity": current_stock_quantity,
+                                    "tax_status": iva_state,
+                                    "shipping_class": shipping_class,
+                                    "shipping_class_id": int(shipping_class_id)
                                 }
 
                             # Se actualiza el producto dentro de la tienda
@@ -443,7 +517,7 @@ def intcomex_update():
                                 "intcomexsku": intcomex_sku,
                                 "stock": stock_status,
                                 "past_price": f"{product[0]['price']}",
-                                "regular_price": f"{int(final_price_with_IVA)}"
+                                "regular_price": f"{int(final_price)}"
                             }
 
                             qty += 1
@@ -451,7 +525,7 @@ def intcomex_update():
 
                             # Se cambian los datos del producto dentro de "ingram_products.json"
                             # Para futuras actualizaciones
-                            products_data[category][sku]["price"] = int(final_price_with_IVA)
+                            products_data[category][sku]["price"] = int(final_price)
                             products_data[category][sku]["stock"] = stock_status
                             products_data[category][sku]["stock_quantity"] = current_stock_quantity
                             upd_product = json.dumps(products_data, indent=4)
@@ -848,10 +922,10 @@ def price_profit_correction():
                 # Seleccionar un porcentaje de descuento
                 # Generar un descuento aleatorio entre 10% y 50%
                 opciones = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
-                descuento = random.choice(opciones)
+                discount = random.choice(opciones)
 
                 # Convertir el descuento a porcentaje y redondearlo a dos decimales
-                discount_rate = descuento * 100
+                discount_rate = discount * 100
 
                 new_sale_price = final_price
 
@@ -862,7 +936,7 @@ def price_profit_correction():
                     shipping_class = "a-fee"
                     shipping_class_id = 1610
 
-                new_regular_price = final_price * (1 + descuento)
+                new_regular_price = final_price * (1 + discount)
                 new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
 
             # Se guarda el registro dentro de "logs.json"

@@ -23487,6 +23487,2008 @@
                     "regular_price": "275000"
                 }
             ]
+        },
+        {
+            "date": "2024-04-22 / 09:59:07",
+            "type": "Update",
+            "qty": 98,
+            "products": [
+                {
+                    "id": 1690,
+                    "sku": "101001 - MPNY3AM/A",
+                    "ingrampartnumber": "5624551",
+                    "stock": "instock",
+                    "past_price": "989000",
+                    "regular_price": "989000"
+                },
+                {
+                    "id": 1695,
+                    "sku": "101002 - MV7N2BE/A",
+                    "ingrampartnumber": "4487567",
+                    "stock": "instock",
+                    "past_price": "759000",
+                    "regular_price": "759000"
+                },
+                {
+                    "id": 1701,
+                    "sku": "101003 - 2399-829-109",
+                    "ingrampartnumber": "5686906",
+                    "stock": "outofstock",
+                    "past_price": "594000",
+                    "regular_price": "593000"
+                },
+                {
+                    "id": 1730,
+                    "sku": "101007 - 960-000764",
+                    "ingrampartnumber": "5772230",
+                    "stock": "instock",
+                    "past_price": "295000",
+                    "regular_price": "295000"
+                },
+                {
+                    "id": 1714,
+                    "sku": "101008 - 960-001515",
+                    "ingrampartnumber": "5737009",
+                    "stock": "outofstock",
+                    "past_price": "584000",
+                    "regular_price": "591000"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009 - 960-001401",
+                    "ingrampartnumber": "5736938",
+                    "stock": "outofstock",
+                    "past_price": "343000",
+                    "regular_price": "347000"
+                },
+                {
+                    "id": 3610,
+                    "sku": "101043 - MRE93BE/A",
+                    "ingrampartnumber": "5923215",
+                    "stock": "instock",
+                    "past_price": "1615000",
+                    "regular_price": "1614000"
+                },
+                {
+                    "id": 4401,
+                    "sku": "101088 - 6KY97AA",
+                    "ingrampartnumber": "4546636",
+                    "stock": "instock",
+                    "past_price": "1459000",
+                    "regular_price": "1459000"
+                },
+                {
+                    "id": 4659,
+                    "sku": "101094 - 981-000014",
+                    "ingrampartnumber": "5690675",
+                    "stock": "outofstock",
+                    "past_price": "138000",
+                    "regular_price": "149000"
+                },
+                {
+                    "id": 4659,
+                    "sku": " 101094 - 981-000014",
+                    "ingrampartnumber": "5690675",
+                    "stock": "outofstock",
+                    "past_price": "138000",
+                    "regular_price": "149000"
+                },
+                {
+                    "id": 4667,
+                    "sku": "101095 - 40CLTSCAM1",
+                    "ingrampartnumber": "5733175",
+                    "stock": "outofstock",
+                    "past_price": "1996000",
+                    "regular_price": "2020000"
+                },
+                {
+                    "id": 6256,
+                    "sku": "101111 - 910-005459",
+                    "ingrampartnumber": "5863171",
+                    "stock": "instock",
+                    "past_price": "49000",
+                    "regular_price": "49000"
+                },
+                {
+                    "id": 6297,
+                    "sku": "101112 - MTJV3AM/A",
+                    "ingrampartnumber": "5923989",
+                    "stock": "outofstock",
+                    "past_price": "1397000",
+                    "regular_price": "1396000"
+                },
+                {
+                    "id": 1815,
+                    "sku": "201001 - C11CJ68301",
+                    "ingrampartnumber": "5276303",
+                    "stock": "instock",
+                    "past_price": "955000",
+                    "regular_price": "954000"
+                },
+                {
+                    "id": 1830,
+                    "sku": "201002 - C11CJ88301",
+                    "ingrampartnumber": "5338224",
+                    "stock": "outofstock",
+                    "past_price": "2436000",
+                    "regular_price": "2436000"
+                },
+                {
+                    "id": 1840,
+                    "sku": "201003 - C11CD76303",
+                    "ingrampartnumber": "5276297",
+                    "stock": "instock",
+                    "past_price": "578000",
+                    "regular_price": "578000"
+                },
+                {
+                    "id": 1847,
+                    "sku": "201004 - C11CG07301",
+                    "ingrampartnumber": "4563856",
+                    "stock": "instock",
+                    "past_price": "1567000",
+                    "regular_price": "1567000"
+                },
+                {
+                    "id": 1853,
+                    "sku": "201005 - 4055C002AA",
+                    "ingrampartnumber": "5602147",
+                    "stock": "instock",
+                    "past_price": "21886000",
+                    "regular_price": "21886000"
+                },
+                {
+                    "id": 4677,
+                    "sku": "201006 - C31CA85834",
+                    "ingrampartnumber": "2142023",
+                    "stock": "instock",
+                    "past_price": "1873000",
+                    "regular_price": "1872000"
+                },
+                {
+                    "id": 4684,
+                    "sku": "201007 - B11B251201",
+                    "ingrampartnumber": "4489382",
+                    "stock": "instock",
+                    "past_price": "5130000",
+                    "regular_price": "5130000"
+                },
+                {
+                    "id": 5719,
+                    "sku": "201008 - C11CG04301",
+                    "ingrampartnumber": "4563684",
+                    "stock": "instock",
+                    "past_price": "3363000",
+                    "regular_price": "3363000"
+                },
+                {
+                    "id": 5729,
+                    "sku": "201009 - C11CK23301",
+                    "ingrampartnumber": "5830318",
+                    "stock": "instock",
+                    "past_price": "2555000",
+                    "regular_price": "2554000"
+                },
+                {
+                    "id": 5739,
+                    "sku": "201010 - C11CC24001",
+                    "ingrampartnumber": "4894741",
+                    "stock": "outofstock",
+                    "past_price": "1327000",
+                    "regular_price": "1326000"
+                },
+                {
+                    "id": 1862,
+                    "sku": "301001 - E2222HS",
+                    "ingrampartnumber": "5278923",
+                    "stock": "instock",
+                    "past_price": "646000",
+                    "regular_price": "646000"
+                },
+                {
+                    "id": 1869,
+                    "sku": "301002 - P2222H",
+                    "ingrampartnumber": "5224155",
+                    "stock": "instock",
+                    "past_price": "753000",
+                    "regular_price": "753000"
+                },
+                {
+                    "id": 1898,
+                    "sku": "301005 - LC32R500FHLXZL",
+                    "ingrampartnumber": "4972407",
+                    "stock": "outofstock",
+                    "past_price": "1038000",
+                    "regular_price": "1037000"
+                },
+                {
+                    "id": 2902,
+                    "sku": "301007 - VA2747-MH",
+                    "ingrampartnumber": "5173236",
+                    "stock": "outofstock",
+                    "past_price": "790000",
+                    "regular_price": "799000"
+                },
+                {
+                    "id": 2914,
+                    "sku": "301008 - VX2768-PC-MHD",
+                    "ingrampartnumber": "4996616",
+                    "stock": "outofstock",
+                    "past_price": "1448000",
+                    "regular_price": "1465000"
+                },
+                {
+                    "id": 4690,
+                    "sku": "301009 - E1920H",
+                    "ingrampartnumber": "5049506",
+                    "stock": "outofstock",
+                    "past_price": "801000",
+                    "regular_price": "801000"
+                },
+                {
+                    "id": 4697,
+                    "sku": "301010 - LF24T350FHLXZL",
+                    "ingrampartnumber": "4972409",
+                    "stock": "instock",
+                    "past_price": "539000",
+                    "regular_price": "539000"
+                },
+                {
+                    "id": 4703,
+                    "sku": "301011 - 64V81AA#ABA",
+                    "ingrampartnumber": "5698998",
+                    "stock": "outofstock",
+                    "past_price": "690000",
+                    "regular_price": "690000"
+                },
+                {
+                    "id": 4709,
+                    "sku": "301012 - E2424HS",
+                    "ingrampartnumber": "5735761",
+                    "stock": "instock",
+                    "past_price": "736000",
+                    "regular_price": "735000"
+                },
+                {
+                    "id": 4734,
+                    "sku": "301014 - P2422H",
+                    "ingrampartnumber": "5224156",
+                    "stock": "instock",
+                    "past_price": "899000",
+                    "regular_price": "898000"
+                },
+                {
+                    "id": 4740,
+                    "sku": "301015 - 29WP500-B.AWP",
+                    "ingrampartnumber": "5217101",
+                    "stock": "instock",
+                    "past_price": "917000",
+                    "regular_price": "916000"
+                },
+                {
+                    "id": 4746,
+                    "sku": "301016 - VG2440V",
+                    "ingrampartnumber": "5115211",
+                    "stock": "instock",
+                    "past_price": "939000",
+                    "regular_price": "939000"
+                },
+                {
+                    "id": 4753,
+                    "sku": "301017 - LH50QBBEBGCXGO",
+                    "ingrampartnumber": "5604894",
+                    "stock": "outofstock",
+                    "past_price": "3650000",
+                    "regular_price": "3650000"
+                },
+                {
+                    "id": 4762,
+                    "sku": "301018 - LH55QMBEBGCXGO",
+                    "ingrampartnumber": "5509358",
+                    "stock": "outofstock",
+                    "past_price": "4405000",
+                    "regular_price": "4405000"
+                },
+                {
+                    "id": 5508,
+                    "sku": "301019 - 5RD66AA#ABM",
+                    "ingrampartnumber": "4670022",
+                    "stock": "instock",
+                    "past_price": "538000",
+                    "regular_price": "537000"
+                },
+                {
+                    "id": 5534,
+                    "sku": "301020 - 62F7KAR4LA",
+                    "ingrampartnumber": "5551300",
+                    "stock": "outofstock",
+                    "past_price": "522000",
+                    "regular_price": "546000"
+                },
+                {
+                    "id": 6325,
+                    "sku": "301021 - LH43QBCEBGCXGO",
+                    "ingrampartnumber": "6081024",
+                    "stock": "outofstock",
+                    "past_price": "2395000",
+                    "regular_price": "2394000"
+                },
+                {
+                    "id": 2037,
+                    "sku": "401001 - Z195",
+                    "ingrampartnumber": "6069364",
+                    "stock": "outofstock",
+                    "past_price": "10520000",
+                    "regular_price": "10519000"
+                },
+                {
+                    "id": 2044,
+                    "sku": "401002 - MQRQ3E/A",
+                    "ingrampartnumber": "6048153",
+                    "stock": "outofstock",
+                    "past_price": "8879000",
+                    "regular_price": "8878000"
+                },
+                {
+                    "id": 2055,
+                    "sku": "401003 - MQRD3E/A",
+                    "ingrampartnumber": "6048148",
+                    "stock": "outofstock",
+                    "past_price": "7610000",
+                    "regular_price": "7609000"
+                },
+                {
+                    "id": 2942,
+                    "sku": "401019 - 693D1LA#ABM",
+                    "ingrampartnumber": "5678509",
+                    "stock": "instock",
+                    "past_price": "1762000",
+                    "regular_price": "1761000"
+                },
+                {
+                    "id": 2969,
+                    "sku": "401024 - 11LC0011LS",
+                    "ingrampartnumber": "5087294",
+                    "stock": "outofstock",
+                    "past_price": "6785000",
+                    "regular_price": "6902000"
+                },
+                {
+                    "id": 5502,
+                    "sku": "401044 - WYNX7",
+                    "ingrampartnumber": "5925074",
+                    "stock": "outofstock",
+                    "past_price": "3242000",
+                    "regular_price": "3281000"
+                },
+                {
+                    "id": 4811,
+                    "sku": "401033 - 802W2LT#ABM",
+                    "ingrampartnumber": "5869906",
+                    "stock": "outofstock",
+                    "past_price": "3959000",
+                    "regular_price": "3959000"
+                },
+                {
+                    "id": 4931,
+                    "sku": " 401036 - 12B6001MLS",
+                    "ingrampartnumber": "5790908",
+                    "stock": "outofstock",
+                    "past_price": "3894000",
+                    "regular_price": "5918000"
+                },
+                {
+                    "id": 4939,
+                    "sku": "401037 - TTPPD",
+                    "ingrampartnumber": "5686800",
+                    "stock": "outofstock",
+                    "past_price": "4897000",
+                    "regular_price": "4897000"
+                },
+                {
+                    "id": 4964,
+                    "sku": "401040 - 12B000CULS",
+                    "ingrampartnumber": "5618465",
+                    "stock": "instock",
+                    "past_price": "5054000",
+                    "regular_price": "4844000"
+                },
+                {
+                    "id": 4800,
+                    "sku": "401034 - J200W",
+                    "ingrampartnumber": "5754140",
+                    "stock": "instock",
+                    "past_price": "3678000",
+                    "regular_price": "3700000"
+                },
+                {
+                    "id": 4947,
+                    "sku": "401038 - 3000138667742",
+                    "ingrampartnumber": "5686759",
+                    "stock": "outofstock",
+                    "past_price": "3861000",
+                    "regular_price": "3860000"
+                },
+                {
+                    "id": 4955,
+                    "sku": "401039 - 6Q4H7LT#ABM",
+                    "ingrampartnumber": "5730163",
+                    "stock": "outofstock",
+                    "past_price": "6866000",
+                    "regular_price": "6949000"
+                },
+                {
+                    "id": 5660,
+                    "sku": "401051 - 6K4Z2LA#ABM",
+                    "ingrampartnumber": "5664146",
+                    "stock": "instock",
+                    "past_price": "2248000",
+                    "regular_price": "2248000"
+                },
+                {
+                    "id": 4931,
+                    "sku": "401036 - 12B6001MLS",
+                    "ingrampartnumber": "5929704",
+                    "stock": "outofstock",
+                    "past_price": "3894000",
+                    "regular_price": "3894000"
+                },
+                {
+                    "id": 2070,
+                    "sku": "401004 - MGN63LA/A",
+                    "ingrampartnumber": "5114196",
+                    "stock": "outofstock",
+                    "past_price": "4756000",
+                    "regular_price": "4756000"
+                },
+                {
+                    "id": 2081,
+                    "sku": "401005 - Z16S",
+                    "ingrampartnumber": "5755411",
+                    "stock": "outofstock",
+                    "past_price": "10829000",
+                    "regular_price": "11015000"
+                },
+                {
+                    "id": 2090,
+                    "sku": "401006 - MRX73E/A",
+                    "ingrampartnumber": "6048169",
+                    "stock": "outofstock",
+                    "past_price": "14163000",
+                    "regular_price": "14162000"
+                },
+                {
+                    "id": 2954,
+                    "sku": "401021 - 612C0LA#ABM",
+                    "ingrampartnumber": "5725897",
+                    "stock": "outofstock",
+                    "past_price": "1785000",
+                    "regular_price": "1784000"
+                },
+                {
+                    "id": 4808,
+                    "sku": "401032 - 80C0C",
+                    "ingrampartnumber": "5746316",
+                    "stock": "instock",
+                    "past_price": "3534000",
+                    "regular_price": "3553000"
+                },
+                {
+                    "id": 5519,
+                    "sku": "401045 - 90NX05V1-M02N70",
+                    "ingrampartnumber": "5883884",
+                    "stock": "outofstock",
+                    "past_price": "3762000",
+                    "regular_price": "3762000"
+                },
+                {
+                    "id": 5540,
+                    "sku": " 401046 - 699B5LA#ABM",
+                    "ingrampartnumber": "5537475",
+                    "stock": "outofstock",
+                    "past_price": "1552000",
+                    "regular_price": "1551000"
+                },
+                {
+                    "id": 5555,
+                    "sku": "401047 - 69C91LA#ABM",
+                    "ingrampartnumber": "5537477",
+                    "stock": "outofstock",
+                    "past_price": "1087000",
+                    "regular_price": "1087000"
+                },
+                {
+                    "id": 5627,
+                    "sku": "401048 - L342I7DTGS8256W11D1WXCTO",
+                    "ingrampartnumber": "5369111",
+                    "stock": "outofstock",
+                    "past_price": "6423000",
+                    "regular_price": "6422000"
+                },
+                {
+                    "id": 5637,
+                    "sku": "5901794 - 802L5LA#ABM",
+                    "ingrampartnumber": "5901794",
+                    "stock": "instock",
+                    "past_price": "1544000",
+                    "regular_price": "1543000"
+                },
+                {
+                    "id": 5649,
+                    "sku": "401050 - 8W381LA#ABM",
+                    "ingrampartnumber": "5901672",
+                    "stock": "instock",
+                    "past_price": "1449000",
+                    "regular_price": "1449000"
+                },
+                {
+                    "id": 6141,
+                    "sku": "401052 - 90NX05V1-M02XU0",
+                    "ingrampartnumber": "5883945",
+                    "stock": "outofstock",
+                    "past_price": "4309000",
+                    "regular_price": "9575000"
+                },
+                {
+                    "id": 6156,
+                    "sku": "401053 - W4RJ5",
+                    "ingrampartnumber": "5746323",
+                    "stock": "instock",
+                    "past_price": "4864000",
+                    "regular_price": "4863000"
+                },
+                {
+                    "id": 6245,
+                    "sku": "401054 - 90NX05V1-M03NB0",
+                    "ingrampartnumber": "6142153",
+                    "stock": "outofstock",
+                    "past_price": "3079000",
+                    "regular_price": "3078000"
+                },
+                {
+                    "id": 2437,
+                    "sku": "501001 - V11HA03020",
+                    "ingrampartnumber": "5241198",
+                    "stock": "instock",
+                    "past_price": "3736000",
+                    "regular_price": "3735000"
+                },
+                {
+                    "id": 2504,
+                    "sku": "501002 - V11H981020",
+                    "ingrampartnumber": "4991237",
+                    "stock": "instock",
+                    "past_price": "2408000",
+                    "regular_price": "2201000"
+                },
+                {
+                    "id": 2516,
+                    "sku": "501003 - PF50KS",
+                    "ingrampartnumber": "4525667",
+                    "stock": "outofstock",
+                    "past_price": "2606000",
+                    "regular_price": "2605000"
+                },
+                {
+                    "id": 2714,
+                    "sku": "701002",
+                    "ingrampartnumber": "5323118",
+                    "stock": "outofstock",
+                    "past_price": "4309000",
+                    "regular_price": "4309000"
+                },
+                {
+                    "id": 3043,
+                    "sku": "701013",
+                    "ingrampartnumber": "5744022",
+                    "stock": "outofstock",
+                    "past_price": "1659000",
+                    "regular_price": "1687000"
+                },
+                {
+                    "id": 3049,
+                    "sku": "701014",
+                    "ingrampartnumber": "5754597",
+                    "stock": "outofstock",
+                    "past_price": "802000",
+                    "regular_price": "815000"
+                },
+                {
+                    "id": 3079,
+                    "sku": "701016",
+                    "ingrampartnumber": "5624420",
+                    "stock": "outofstock",
+                    "past_price": "4636000",
+                    "regular_price": "4716000"
+                },
+                {
+                    "id": 2706,
+                    "sku": "701001 - MGJA3LZ/A",
+                    "ingrampartnumber": "5046091",
+                    "stock": "outofstock",
+                    "past_price": "3317000",
+                    "regular_price": "3316000"
+                },
+                {
+                    "id": 2721,
+                    "sku": "701003 - MQ183BE/A",
+                    "ingrampartnumber": "5626076",
+                    "stock": "instock",
+                    "past_price": "7013000",
+                    "regular_price": "7012000"
+                },
+                {
+                    "id": 3056,
+                    "sku": "701015 - SM-S916BZKJLTC",
+                    "ingrampartnumber": "5726319",
+                    "stock": "outofstock",
+                    "past_price": "5286000",
+                    "regular_price": "5285000"
+                },
+                {
+                    "id": 4573,
+                    "sku": "701019 - MTP63BE/A",
+                    "ingrampartnumber": "5923996",
+                    "stock": "instock",
+                    "past_price": "5448000",
+                    "regular_price": "5447000"
+                },
+                {
+                    "id": 5020,
+                    "sku": "701021 - SM-A057MZSGLTC",
+                    "ingrampartnumber": "6156769",
+                    "stock": "outofstock",
+                    "past_price": "570000",
+                    "regular_price": "569000"
+                },
+                {
+                    "id": 5027,
+                    "sku": "701022 - SM-A155MZKGLTC",
+                    "ingrampartnumber": "6156766",
+                    "stock": "instock",
+                    "past_price": "683000",
+                    "regular_price": "683000"
+                },
+                {
+                    "id": 5250,
+                    "sku": "701023 - MPUF3BE/A",
+                    "ingrampartnumber": "5625720",
+                    "stock": "outofstock",
+                    "past_price": "4205000",
+                    "regular_price": "4204000"
+                },
+                {
+                    "id": 5259,
+                    "sku": "701024 - MTP03BE/A",
+                    "ingrampartnumber": "5923991",
+                    "stock": "instock",
+                    "past_price": "4849000",
+                    "regular_price": "4848000"
+                },
+                {
+                    "id": 5269,
+                    "sku": "701025 - MTP73BE/A",
+                    "ingrampartnumber": "5923997",
+                    "stock": "instock",
+                    "past_price": "5448000",
+                    "regular_price": "5447000"
+                },
+                {
+                    "id": 5376,
+                    "sku": "701026 - SM-A042MZKDLTC",
+                    "ingrampartnumber": "5706964",
+                    "stock": "instock",
+                    "past_price": "365000",
+                    "regular_price": "365000"
+                },
+                {
+                    "id": 5390,
+                    "sku": " 701027 - SM-A042MLBDLTC",
+                    "ingrampartnumber": "5706962",
+                    "stock": "instock",
+                    "past_price": "365000",
+                    "regular_price": "365000"
+                },
+                {
+                    "id": 5397,
+                    "sku": "701028 - SM-A346MLGALTC",
+                    "ingrampartnumber": "5744020",
+                    "stock": "outofstock",
+                    "past_price": "1319000",
+                    "regular_price": "1318000"
+                },
+                {
+                    "id": 5442,
+                    "sku": "701029 - PAXU0061CO",
+                    "ingrampartnumber": "5737505",
+                    "stock": "instock",
+                    "past_price": "361000",
+                    "regular_price": "360000"
+                },
+                {
+                    "id": 5476,
+                    "sku": "701031 - SM-A035MZKGLTC",
+                    "ingrampartnumber": "5258699",
+                    "stock": "outofstock",
+                    "past_price": "569000",
+                    "regular_price": "568000"
+                },
+                {
+                    "id": 3144,
+                    "sku": "801010 - UN32T4300AKXZL",
+                    "ingrampartnumber": "4882629",
+                    "stock": "outofstock",
+                    "past_price": "881000",
+                    "regular_price": "881000"
+                },
+                {
+                    "id": 3152,
+                    "sku": "801011 - UN43CU7000KXZL",
+                    "ingrampartnumber": "5786068",
+                    "stock": "instock",
+                    "past_price": "1606000",
+                    "regular_price": "1605000"
+                },
+                {
+                    "id": 5142,
+                    "sku": "801023 - UN50CU7000KXZL",
+                    "ingrampartnumber": "5786069",
+                    "stock": "instock",
+                    "past_price": "1828000",
+                    "regular_price": "1827000"
+                },
+                {
+                    "id": 5412,
+                    "sku": "801024 - UN85CU8000KXZL",
+                    "ingrampartnumber": "5786074",
+                    "stock": "instock",
+                    "past_price": "7362000",
+                    "regular_price": "7362000"
+                },
+                {
+                    "id": 5426,
+                    "sku": "801025 - UN55CU7000KXZL",
+                    "ingrampartnumber": "5874501",
+                    "stock": "instock",
+                    "past_price": "2440000",
+                    "regular_price": "2045000"
+                },
+                {
+                    "id": 5439,
+                    "sku": "801026 - 43UR781C0SB",
+                    "ingrampartnumber": "5941473",
+                    "stock": "instock",
+                    "past_price": "1614000",
+                    "regular_price": "1613000"
+                },
+                {
+                    "id": 5479,
+                    "sku": "801028 - UN40T5290AKXZL",
+                    "ingrampartnumber": "5188858",
+                    "stock": "instock",
+                    "past_price": "1077000",
+                    "regular_price": "1076000"
+                },
+                {
+                    "id": 5161,
+                    "sku": "1001003 - KCP548SS8-16",
+                    "ingrampartnumber": "5751604",
+                    "stock": "outofstock",
+                    "past_price": "280000",
+                    "regular_price": "280000"
+                }
+            ]
+        },
+        {
+            "date": "2024-04-22 / 10:59:06",
+            "type": "Update",
+            "qty": 98,
+            "products": [
+                {
+                    "id": 1690,
+                    "sku": "101001 - MPNY3AM/A",
+                    "ingrampartnumber": "5624551",
+                    "stock": "instock",
+                    "past_price": "989000",
+                    "regular_price": "989000"
+                },
+                {
+                    "id": 1695,
+                    "sku": "101002 - MV7N2BE/A",
+                    "ingrampartnumber": "4487567",
+                    "stock": "instock",
+                    "past_price": "759000",
+                    "regular_price": "759000"
+                },
+                {
+                    "id": 1701,
+                    "sku": "101003 - 2399-829-109",
+                    "ingrampartnumber": "5686906",
+                    "stock": "outofstock",
+                    "past_price": "594000",
+                    "regular_price": "593000"
+                },
+                {
+                    "id": 1730,
+                    "sku": "101007 - 960-000764",
+                    "ingrampartnumber": "5772230",
+                    "stock": "instock",
+                    "past_price": "295000",
+                    "regular_price": "295000"
+                },
+                {
+                    "id": 1714,
+                    "sku": "101008 - 960-001515",
+                    "ingrampartnumber": "5737009",
+                    "stock": "outofstock",
+                    "past_price": "584000",
+                    "regular_price": "591000"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009 - 960-001401",
+                    "ingrampartnumber": "5736938",
+                    "stock": "outofstock",
+                    "past_price": "343000",
+                    "regular_price": "347000"
+                },
+                {
+                    "id": 3610,
+                    "sku": "101043 - MRE93BE/A",
+                    "ingrampartnumber": "5923215",
+                    "stock": "instock",
+                    "past_price": "1615000",
+                    "regular_price": "1614000"
+                },
+                {
+                    "id": 4401,
+                    "sku": "101088 - 6KY97AA",
+                    "ingrampartnumber": "4546636",
+                    "stock": "instock",
+                    "past_price": "1459000",
+                    "regular_price": "1459000"
+                },
+                {
+                    "id": 4659,
+                    "sku": "101094 - 981-000014",
+                    "ingrampartnumber": "5690675",
+                    "stock": "outofstock",
+                    "past_price": "138000",
+                    "regular_price": "149000"
+                },
+                {
+                    "id": 4659,
+                    "sku": " 101094 - 981-000014",
+                    "ingrampartnumber": "5690675",
+                    "stock": "outofstock",
+                    "past_price": "149000",
+                    "regular_price": "149000"
+                },
+                {
+                    "id": 4667,
+                    "sku": "101095 - 40CLTSCAM1",
+                    "ingrampartnumber": "5733175",
+                    "stock": "outofstock",
+                    "past_price": "1996000",
+                    "regular_price": "2020000"
+                },
+                {
+                    "id": 6256,
+                    "sku": "101111 - 910-005459",
+                    "ingrampartnumber": "5863171",
+                    "stock": "instock",
+                    "past_price": "49000",
+                    "regular_price": "49000"
+                },
+                {
+                    "id": 6297,
+                    "sku": "101112 - MTJV3AM/A",
+                    "ingrampartnumber": "5923989",
+                    "stock": "outofstock",
+                    "past_price": "1397000",
+                    "regular_price": "1396000"
+                },
+                {
+                    "id": 1815,
+                    "sku": "201001 - C11CJ68301",
+                    "ingrampartnumber": "5276303",
+                    "stock": "instock",
+                    "past_price": "955000",
+                    "regular_price": "954000"
+                },
+                {
+                    "id": 1830,
+                    "sku": "201002 - C11CJ88301",
+                    "ingrampartnumber": "5338224",
+                    "stock": "outofstock",
+                    "past_price": "2436000",
+                    "regular_price": "2436000"
+                },
+                {
+                    "id": 1840,
+                    "sku": "201003 - C11CD76303",
+                    "ingrampartnumber": "5276297",
+                    "stock": "instock",
+                    "past_price": "578000",
+                    "regular_price": "578000"
+                },
+                {
+                    "id": 1847,
+                    "sku": "201004 - C11CG07301",
+                    "ingrampartnumber": "4563856",
+                    "stock": "instock",
+                    "past_price": "1567000",
+                    "regular_price": "1567000"
+                },
+                {
+                    "id": 1853,
+                    "sku": "201005 - 4055C002AA",
+                    "ingrampartnumber": "5602147",
+                    "stock": "instock",
+                    "past_price": "21886000",
+                    "regular_price": "21886000"
+                },
+                {
+                    "id": 4677,
+                    "sku": "201006 - C31CA85834",
+                    "ingrampartnumber": "2142023",
+                    "stock": "instock",
+                    "past_price": "1873000",
+                    "regular_price": "1872000"
+                },
+                {
+                    "id": 4684,
+                    "sku": "201007 - B11B251201",
+                    "ingrampartnumber": "4489382",
+                    "stock": "instock",
+                    "past_price": "5130000",
+                    "regular_price": "5130000"
+                },
+                {
+                    "id": 5719,
+                    "sku": "201008 - C11CG04301",
+                    "ingrampartnumber": "4563684",
+                    "stock": "instock",
+                    "past_price": "3363000",
+                    "regular_price": "3363000"
+                },
+                {
+                    "id": 5729,
+                    "sku": "201009 - C11CK23301",
+                    "ingrampartnumber": "5830318",
+                    "stock": "instock",
+                    "past_price": "2555000",
+                    "regular_price": "2554000"
+                },
+                {
+                    "id": 5739,
+                    "sku": "201010 - C11CC24001",
+                    "ingrampartnumber": "4894741",
+                    "stock": "outofstock",
+                    "past_price": "1327000",
+                    "regular_price": "1326000"
+                },
+                {
+                    "id": 1862,
+                    "sku": "301001 - E2222HS",
+                    "ingrampartnumber": "5278923",
+                    "stock": "instock",
+                    "past_price": "646000",
+                    "regular_price": "646000"
+                },
+                {
+                    "id": 1869,
+                    "sku": "301002 - P2222H",
+                    "ingrampartnumber": "5224155",
+                    "stock": "instock",
+                    "past_price": "753000",
+                    "regular_price": "753000"
+                },
+                {
+                    "id": 1898,
+                    "sku": "301005 - LC32R500FHLXZL",
+                    "ingrampartnumber": "4972407",
+                    "stock": "outofstock",
+                    "past_price": "1038000",
+                    "regular_price": "1037000"
+                },
+                {
+                    "id": 2902,
+                    "sku": "301007 - VA2747-MH",
+                    "ingrampartnumber": "5173236",
+                    "stock": "outofstock",
+                    "past_price": "790000",
+                    "regular_price": "799000"
+                },
+                {
+                    "id": 2914,
+                    "sku": "301008 - VX2768-PC-MHD",
+                    "ingrampartnumber": "4996616",
+                    "stock": "outofstock",
+                    "past_price": "1448000",
+                    "regular_price": "1465000"
+                },
+                {
+                    "id": 4690,
+                    "sku": "301009 - E1920H",
+                    "ingrampartnumber": "5049506",
+                    "stock": "outofstock",
+                    "past_price": "801000",
+                    "regular_price": "801000"
+                },
+                {
+                    "id": 4697,
+                    "sku": "301010 - LF24T350FHLXZL",
+                    "ingrampartnumber": "4972409",
+                    "stock": "instock",
+                    "past_price": "539000",
+                    "regular_price": "539000"
+                },
+                {
+                    "id": 4703,
+                    "sku": "301011 - 64V81AA#ABA",
+                    "ingrampartnumber": "5698998",
+                    "stock": "outofstock",
+                    "past_price": "690000",
+                    "regular_price": "690000"
+                },
+                {
+                    "id": 4709,
+                    "sku": "301012 - E2424HS",
+                    "ingrampartnumber": "5735761",
+                    "stock": "instock",
+                    "past_price": "736000",
+                    "regular_price": "735000"
+                },
+                {
+                    "id": 4734,
+                    "sku": "301014 - P2422H",
+                    "ingrampartnumber": "5224156",
+                    "stock": "instock",
+                    "past_price": "899000",
+                    "regular_price": "898000"
+                },
+                {
+                    "id": 4740,
+                    "sku": "301015 - 29WP500-B.AWP",
+                    "ingrampartnumber": "5217101",
+                    "stock": "instock",
+                    "past_price": "917000",
+                    "regular_price": "916000"
+                },
+                {
+                    "id": 4746,
+                    "sku": "301016 - VG2440V",
+                    "ingrampartnumber": "5115211",
+                    "stock": "instock",
+                    "past_price": "939000",
+                    "regular_price": "939000"
+                },
+                {
+                    "id": 4753,
+                    "sku": "301017 - LH50QBBEBGCXGO",
+                    "ingrampartnumber": "5604894",
+                    "stock": "outofstock",
+                    "past_price": "3650000",
+                    "regular_price": "3650000"
+                },
+                {
+                    "id": 4762,
+                    "sku": "301018 - LH55QMBEBGCXGO",
+                    "ingrampartnumber": "5509358",
+                    "stock": "outofstock",
+                    "past_price": "4405000",
+                    "regular_price": "4405000"
+                },
+                {
+                    "id": 5508,
+                    "sku": "301019 - 5RD66AA#ABM",
+                    "ingrampartnumber": "4670022",
+                    "stock": "instock",
+                    "past_price": "538000",
+                    "regular_price": "537000"
+                },
+                {
+                    "id": 5534,
+                    "sku": "301020 - 62F7KAR4LA",
+                    "ingrampartnumber": "5551300",
+                    "stock": "outofstock",
+                    "past_price": "522000",
+                    "regular_price": "546000"
+                },
+                {
+                    "id": 6325,
+                    "sku": "301021 - LH43QBCEBGCXGO",
+                    "ingrampartnumber": "6081024",
+                    "stock": "outofstock",
+                    "past_price": "2395000",
+                    "regular_price": "2394000"
+                },
+                {
+                    "id": 2037,
+                    "sku": "401001 - Z195",
+                    "ingrampartnumber": "6069364",
+                    "stock": "outofstock",
+                    "past_price": "10520000",
+                    "regular_price": "10519000"
+                },
+                {
+                    "id": 2044,
+                    "sku": "401002 - MQRQ3E/A",
+                    "ingrampartnumber": "6048153",
+                    "stock": "outofstock",
+                    "past_price": "8879000",
+                    "regular_price": "8878000"
+                },
+                {
+                    "id": 2055,
+                    "sku": "401003 - MQRD3E/A",
+                    "ingrampartnumber": "6048148",
+                    "stock": "outofstock",
+                    "past_price": "7610000",
+                    "regular_price": "7609000"
+                },
+                {
+                    "id": 2942,
+                    "sku": "401019 - 693D1LA#ABM",
+                    "ingrampartnumber": "5678509",
+                    "stock": "instock",
+                    "past_price": "1762000",
+                    "regular_price": "1761000"
+                },
+                {
+                    "id": 2969,
+                    "sku": "401024 - 11LC0011LS",
+                    "ingrampartnumber": "5087294",
+                    "stock": "outofstock",
+                    "past_price": "6785000",
+                    "regular_price": "6902000"
+                },
+                {
+                    "id": 5502,
+                    "sku": "401044 - WYNX7",
+                    "ingrampartnumber": "5925074",
+                    "stock": "outofstock",
+                    "past_price": "3242000",
+                    "regular_price": "3281000"
+                },
+                {
+                    "id": 4811,
+                    "sku": "401033 - 802W2LT#ABM",
+                    "ingrampartnumber": "5869906",
+                    "stock": "outofstock",
+                    "past_price": "3959000",
+                    "regular_price": "3959000"
+                },
+                {
+                    "id": 4931,
+                    "sku": " 401036 - 12B6001MLS",
+                    "ingrampartnumber": "5790908",
+                    "stock": "outofstock",
+                    "past_price": "3894000",
+                    "regular_price": "5918000"
+                },
+                {
+                    "id": 4939,
+                    "sku": "401037 - TTPPD",
+                    "ingrampartnumber": "5686800",
+                    "stock": "outofstock",
+                    "past_price": "4897000",
+                    "regular_price": "4897000"
+                },
+                {
+                    "id": 4964,
+                    "sku": "401040 - 12B000CULS",
+                    "ingrampartnumber": "5618465",
+                    "stock": "outofstock",
+                    "past_price": "5054000",
+                    "regular_price": "4844000"
+                },
+                {
+                    "id": 4800,
+                    "sku": "401034 - J200W",
+                    "ingrampartnumber": "5754140",
+                    "stock": "instock",
+                    "past_price": "3678000",
+                    "regular_price": "3700000"
+                },
+                {
+                    "id": 4947,
+                    "sku": "401038 - 3000138667742",
+                    "ingrampartnumber": "5686759",
+                    "stock": "outofstock",
+                    "past_price": "3861000",
+                    "regular_price": "3860000"
+                },
+                {
+                    "id": 4955,
+                    "sku": "401039 - 6Q4H7LT#ABM",
+                    "ingrampartnumber": "5730163",
+                    "stock": "outofstock",
+                    "past_price": "6866000",
+                    "regular_price": "6949000"
+                },
+                {
+                    "id": 5660,
+                    "sku": "401051 - 6K4Z2LA#ABM",
+                    "ingrampartnumber": "5664146",
+                    "stock": "instock",
+                    "past_price": "2248000",
+                    "regular_price": "2248000"
+                },
+                {
+                    "id": 4931,
+                    "sku": "401036 - 12B6001MLS",
+                    "ingrampartnumber": "5929704",
+                    "stock": "outofstock",
+                    "past_price": "5918000",
+                    "regular_price": "3894000"
+                },
+                {
+                    "id": 2070,
+                    "sku": "401004 - MGN63LA/A",
+                    "ingrampartnumber": "5114196",
+                    "stock": "outofstock",
+                    "past_price": "4756000",
+                    "regular_price": "4756000"
+                },
+                {
+                    "id": 2081,
+                    "sku": "401005 - Z16S",
+                    "ingrampartnumber": "5755411",
+                    "stock": "outofstock",
+                    "past_price": "10829000",
+                    "regular_price": "11015000"
+                },
+                {
+                    "id": 2090,
+                    "sku": "401006 - MRX73E/A",
+                    "ingrampartnumber": "6048169",
+                    "stock": "outofstock",
+                    "past_price": "14163000",
+                    "regular_price": "14162000"
+                },
+                {
+                    "id": 2954,
+                    "sku": "401021 - 612C0LA#ABM",
+                    "ingrampartnumber": "5725897",
+                    "stock": "outofstock",
+                    "past_price": "1785000",
+                    "regular_price": "1784000"
+                },
+                {
+                    "id": 4808,
+                    "sku": "401032 - 80C0C",
+                    "ingrampartnumber": "5746316",
+                    "stock": "instock",
+                    "past_price": "3534000",
+                    "regular_price": "3553000"
+                },
+                {
+                    "id": 5519,
+                    "sku": "401045 - 90NX05V1-M02N70",
+                    "ingrampartnumber": "5883884",
+                    "stock": "outofstock",
+                    "past_price": "3762000",
+                    "regular_price": "3762000"
+                },
+                {
+                    "id": 5540,
+                    "sku": " 401046 - 699B5LA#ABM",
+                    "ingrampartnumber": "5537475",
+                    "stock": "outofstock",
+                    "past_price": "1552000",
+                    "regular_price": "1551000"
+                },
+                {
+                    "id": 5555,
+                    "sku": "401047 - 69C91LA#ABM",
+                    "ingrampartnumber": "5537477",
+                    "stock": "outofstock",
+                    "past_price": "1087000",
+                    "regular_price": "1087000"
+                },
+                {
+                    "id": 5627,
+                    "sku": "401048 - L342I7DTGS8256W11D1WXCTO",
+                    "ingrampartnumber": "5369111",
+                    "stock": "outofstock",
+                    "past_price": "6423000",
+                    "regular_price": "6422000"
+                },
+                {
+                    "id": 5637,
+                    "sku": "5901794 - 802L5LA#ABM",
+                    "ingrampartnumber": "5901794",
+                    "stock": "instock",
+                    "past_price": "1544000",
+                    "regular_price": "1543000"
+                },
+                {
+                    "id": 5649,
+                    "sku": "401050 - 8W381LA#ABM",
+                    "ingrampartnumber": "5901672",
+                    "stock": "instock",
+                    "past_price": "1449000",
+                    "regular_price": "1449000"
+                },
+                {
+                    "id": 6141,
+                    "sku": "401052 - 90NX05V1-M02XU0",
+                    "ingrampartnumber": "5883945",
+                    "stock": "outofstock",
+                    "past_price": "4309000",
+                    "regular_price": "9575000"
+                },
+                {
+                    "id": 6156,
+                    "sku": "401053 - W4RJ5",
+                    "ingrampartnumber": "5746323",
+                    "stock": "instock",
+                    "past_price": "4864000",
+                    "regular_price": "4863000"
+                },
+                {
+                    "id": 6245,
+                    "sku": "401054 - 90NX05V1-M03NB0",
+                    "ingrampartnumber": "6142153",
+                    "stock": "outofstock",
+                    "past_price": "3079000",
+                    "regular_price": "3078000"
+                },
+                {
+                    "id": 2437,
+                    "sku": "501001 - V11HA03020",
+                    "ingrampartnumber": "5241198",
+                    "stock": "instock",
+                    "past_price": "3736000",
+                    "regular_price": "3735000"
+                },
+                {
+                    "id": 2504,
+                    "sku": "501002 - V11H981020",
+                    "ingrampartnumber": "4991237",
+                    "stock": "instock",
+                    "past_price": "2408000",
+                    "regular_price": "2201000"
+                },
+                {
+                    "id": 2516,
+                    "sku": "501003 - PF50KS",
+                    "ingrampartnumber": "4525667",
+                    "stock": "outofstock",
+                    "past_price": "2606000",
+                    "regular_price": "2605000"
+                },
+                {
+                    "id": 2714,
+                    "sku": "701002",
+                    "ingrampartnumber": "5323118",
+                    "stock": "outofstock",
+                    "past_price": "4309000",
+                    "regular_price": "4309000"
+                },
+                {
+                    "id": 3043,
+                    "sku": "701013",
+                    "ingrampartnumber": "5744022",
+                    "stock": "outofstock",
+                    "past_price": "1659000",
+                    "regular_price": "1687000"
+                },
+                {
+                    "id": 3049,
+                    "sku": "701014",
+                    "ingrampartnumber": "5754597",
+                    "stock": "outofstock",
+                    "past_price": "802000",
+                    "regular_price": "815000"
+                },
+                {
+                    "id": 3079,
+                    "sku": "701016",
+                    "ingrampartnumber": "5624420",
+                    "stock": "outofstock",
+                    "past_price": "4636000",
+                    "regular_price": "4716000"
+                },
+                {
+                    "id": 2706,
+                    "sku": "701001 - MGJA3LZ/A",
+                    "ingrampartnumber": "5046091",
+                    "stock": "outofstock",
+                    "past_price": "3317000",
+                    "regular_price": "3316000"
+                },
+                {
+                    "id": 2721,
+                    "sku": "701003 - MQ183BE/A",
+                    "ingrampartnumber": "5626076",
+                    "stock": "instock",
+                    "past_price": "7013000",
+                    "regular_price": "7012000"
+                },
+                {
+                    "id": 3056,
+                    "sku": "701015 - SM-S916BZKJLTC",
+                    "ingrampartnumber": "5726319",
+                    "stock": "outofstock",
+                    "past_price": "5286000",
+                    "regular_price": "5285000"
+                },
+                {
+                    "id": 4573,
+                    "sku": "701019 - MTP63BE/A",
+                    "ingrampartnumber": "5923996",
+                    "stock": "instock",
+                    "past_price": "5448000",
+                    "regular_price": "5447000"
+                },
+                {
+                    "id": 5020,
+                    "sku": "701021 - SM-A057MZSGLTC",
+                    "ingrampartnumber": "6156769",
+                    "stock": "outofstock",
+                    "past_price": "570000",
+                    "regular_price": "569000"
+                },
+                {
+                    "id": 5027,
+                    "sku": "701022 - SM-A155MZKGLTC",
+                    "ingrampartnumber": "6156766",
+                    "stock": "instock",
+                    "past_price": "683000",
+                    "regular_price": "683000"
+                },
+                {
+                    "id": 5250,
+                    "sku": "701023 - MPUF3BE/A",
+                    "ingrampartnumber": "5625720",
+                    "stock": "outofstock",
+                    "past_price": "4205000",
+                    "regular_price": "4204000"
+                },
+                {
+                    "id": 5259,
+                    "sku": "701024 - MTP03BE/A",
+                    "ingrampartnumber": "5923991",
+                    "stock": "instock",
+                    "past_price": "4849000",
+                    "regular_price": "4848000"
+                },
+                {
+                    "id": 5269,
+                    "sku": "701025 - MTP73BE/A",
+                    "ingrampartnumber": "5923997",
+                    "stock": "instock",
+                    "past_price": "5448000",
+                    "regular_price": "5447000"
+                },
+                {
+                    "id": 5376,
+                    "sku": "701026 - SM-A042MZKDLTC",
+                    "ingrampartnumber": "5706964",
+                    "stock": "instock",
+                    "past_price": "365000",
+                    "regular_price": "365000"
+                },
+                {
+                    "id": 5390,
+                    "sku": " 701027 - SM-A042MLBDLTC",
+                    "ingrampartnumber": "5706962",
+                    "stock": "instock",
+                    "past_price": "365000",
+                    "regular_price": "365000"
+                },
+                {
+                    "id": 5397,
+                    "sku": "701028 - SM-A346MLGALTC",
+                    "ingrampartnumber": "5744020",
+                    "stock": "outofstock",
+                    "past_price": "1319000",
+                    "regular_price": "1318000"
+                },
+                {
+                    "id": 5442,
+                    "sku": "701029 - PAXU0061CO",
+                    "ingrampartnumber": "5737505",
+                    "stock": "instock",
+                    "past_price": "361000",
+                    "regular_price": "360000"
+                },
+                {
+                    "id": 5476,
+                    "sku": "701031 - SM-A035MZKGLTC",
+                    "ingrampartnumber": "5258699",
+                    "stock": "outofstock",
+                    "past_price": "569000",
+                    "regular_price": "568000"
+                },
+                {
+                    "id": 3144,
+                    "sku": "801010 - UN32T4300AKXZL",
+                    "ingrampartnumber": "4882629",
+                    "stock": "outofstock",
+                    "past_price": "881000",
+                    "regular_price": "881000"
+                },
+                {
+                    "id": 3152,
+                    "sku": "801011 - UN43CU7000KXZL",
+                    "ingrampartnumber": "5786068",
+                    "stock": "instock",
+                    "past_price": "1606000",
+                    "regular_price": "1605000"
+                },
+                {
+                    "id": 5142,
+                    "sku": "801023 - UN50CU7000KXZL",
+                    "ingrampartnumber": "5786069",
+                    "stock": "instock",
+                    "past_price": "1828000",
+                    "regular_price": "1827000"
+                },
+                {
+                    "id": 5412,
+                    "sku": "801024 - UN85CU8000KXZL",
+                    "ingrampartnumber": "5786074",
+                    "stock": "instock",
+                    "past_price": "7362000",
+                    "regular_price": "7362000"
+                },
+                {
+                    "id": 5426,
+                    "sku": "801025 - UN55CU7000KXZL",
+                    "ingrampartnumber": "5874501",
+                    "stock": "instock",
+                    "past_price": "2440000",
+                    "regular_price": "2045000"
+                },
+                {
+                    "id": 5439,
+                    "sku": "801026 - 43UR781C0SB",
+                    "ingrampartnumber": "5941473",
+                    "stock": "instock",
+                    "past_price": "1614000",
+                    "regular_price": "1613000"
+                },
+                {
+                    "id": 5479,
+                    "sku": "801028 - UN40T5290AKXZL",
+                    "ingrampartnumber": "5188858",
+                    "stock": "instock",
+                    "past_price": "1077000",
+                    "regular_price": "1076000"
+                },
+                {
+                    "id": 5161,
+                    "sku": "1001003 - KCP548SS8-16",
+                    "ingrampartnumber": "5751604",
+                    "stock": "outofstock",
+                    "past_price": "280000",
+                    "regular_price": "280000"
+                }
+            ]
+        },
+        {
+            "date": "2024-04-22 / 11:36:22",
+            "type": "Update",
+            "qty": 0,
+            "products": []
+        },
+        {
+            "date": "2024-04-22 / 11:39:26",
+            "type": "Update",
+            "qty": 19,
+            "products": [
+                {
+                    "id": 2875,
+                    "sku": "101024 - ID011XTK24",
+                    "intcomexsku": "ID011XTK24",
+                    "stock": "instock",
+                    "past_price": "32092",
+                    "regular_price": "71000"
+                },
+                {
+                    "id": 2883,
+                    "sku": "101025 - MM221XTK11",
+                    "intcomexsku": "MM221XTK11",
+                    "stock": "instock",
+                    "past_price": "44000",
+                    "regular_price": "71000"
+                },
+                {
+                    "id": 4254,
+                    "sku": "101085 - U7Z-00062",
+                    "intcomexsku": "U7Z-00062",
+                    "stock": "instock",
+                    "past_price": "89000",
+                    "regular_price": "67000"
+                },
+                {
+                    "id": 4264,
+                    "sku": "101086 - U7Z-00011",
+                    "intcomexsku": "U7Z-00011",
+                    "stock": "instock",
+                    "past_price": "88001",
+                    "regular_price": "67000"
+                },
+                {
+                    "id": 5670,
+                    "sku": "101102 - PCH-102BK",
+                    "intcomexsku": "AM160PGL09",
+                    "stock": "outofstock",
+                    "past_price": "910935",
+                    "regular_price": "49000"
+                },
+                {
+                    "id": 5763,
+                    "sku": "101103 - XTH-700",
+                    "intcomexsku": "MM221XTK15",
+                    "stock": "instock",
+                    "past_price": "76000",
+                    "regular_price": "49000"
+                },
+                {
+                    "id": 6047,
+                    "sku": "101105 - KMO-505",
+                    "intcomexsku": "ID011KLX15",
+                    "stock": "instock",
+                    "past_price": "44000",
+                    "regular_price": "49000"
+                },
+                {
+                    "id": 5840,
+                    "sku": "101106 - JBLGO3BLUAM",
+                    "intcomexsku": "MM902JBL74",
+                    "stock": "instock",
+                    "past_price": "157000",
+                    "regular_price": "49000"
+                },
+                {
+                    "id": 5849,
+                    "sku": "101107 - JBLCLIP4BLKAM",
+                    "intcomexsku": "MM903JBL01",
+                    "stock": "instock",
+                    "past_price": "278000",
+                    "regular_price": "49000"
+                },
+                {
+                    "id": 5857,
+                    "sku": " 101108 - JBLFLIP6BLUAM",
+                    "intcomexsku": "MM903JBL63-B1",
+                    "stock": "instock",
+                    "past_price": "278000",
+                    "regular_price": "384000"
+                },
+                {
+                    "id": 5873,
+                    "sku": "101109 - JBLT500WHTAM",
+                    "intcomexsku": "MM901JBL38",
+                    "stock": "instock",
+                    "past_price": "114000",
+                    "regular_price": "384000"
+                },
+                {
+                    "id": 6335,
+                    "sku": "101113 - XTH-545",
+                    "intcomexsku": "MM221XTK35",
+                    "stock": "instock",
+                    "past_price": "64000",
+                    "regular_price": "384000"
+                },
+                {
+                    "id": 2662,
+                    "sku": "601009",
+                    "intcomexsku": "MM106NXT46",
+                    "stock": "instock",
+                    "past_price": "80000",
+                    "regular_price": "59000"
+                },
+                {
+                    "id": 2673,
+                    "sku": "601010",
+                    "intcomexsku": "MM106NXT32",
+                    "stock": "instock",
+                    "past_price": "290000",
+                    "regular_price": "59000"
+                },
+                {
+                    "id": 5342,
+                    "sku": "601021 - NHC-P710",
+                    "intcomexsku": "NHC-P710",
+                    "stock": "outofstock",
+                    "past_price": "104000",
+                    "regular_price": "102000"
+                },
+                {
+                    "id": 5350,
+                    "sku": "601022 - NHC-O610",
+                    "intcomexsku": "MM106NXT51",
+                    "stock": "instock",
+                    "past_price": "198000",
+                    "regular_price": "194000"
+                },
+                {
+                    "id": 5360,
+                    "sku": "601023 - NHC-O612",
+                    "intcomexsku": "MM106NXT65",
+                    "stock": "instock",
+                    "past_price": "234000",
+                    "regular_price": "230000"
+                },
+                {
+                    "id": 5368,
+                    "sku": "601024 - NHC-I7102PK",
+                    "intcomexsku": "MM106NXT47",
+                    "stock": "outofstock",
+                    "past_price": "212000",
+                    "regular_price": "230000"
+                },
+                {
+                    "id": 5888,
+                    "sku": "601025 - NHC-B100",
+                    "intcomexsku": "MM106NXT67",
+                    "stock": "instock",
+                    "past_price": "181000",
+                    "regular_price": "230000"
+                }
+            ]
+        },
+        {
+            "date": "2024-04-22 / 11:46:58",
+            "type": "Update",
+            "qty": 31,
+            "products": [
+                {
+                    "id": 2859,
+                    "sku": "101022 - MM221XTK91",
+                    "intcomexsku": "MM221XTK91",
+                    "stock": "instock",
+                    "past_price": "79000",
+                    "regular_price": "71000"
+                },
+                {
+                    "id": 2867,
+                    "sku": "101023 - MM221XTK73",
+                    "intcomexsku": "MM221XTK73",
+                    "stock": "instock",
+                    "past_price": "40000",
+                    "regular_price": "39000"
+                },
+                {
+                    "id": 2875,
+                    "sku": "101024 - ID011XTK24",
+                    "intcomexsku": "ID011XTK24",
+                    "stock": "instock",
+                    "past_price": "33000",
+                    "regular_price": "33000"
+                },
+                {
+                    "id": 2883,
+                    "sku": "101025 - MM221XTK11",
+                    "intcomexsku": "MM221XTK11",
+                    "stock": "instock",
+                    "past_price": "44000",
+                    "regular_price": "44000"
+                },
+                {
+                    "id": 2893,
+                    "sku": "101026 - ID223XTK05",
+                    "intcomexsku": "ID223XTK05",
+                    "stock": "outofstock",
+                    "past_price": "98000",
+                    "regular_price": "88000"
+                },
+                {
+                    "id": 3176,
+                    "sku": "101027 - MM221XTK99",
+                    "intcomexsku": "MM221XTK99",
+                    "stock": "instock",
+                    "past_price": "112000",
+                    "regular_price": "111000"
+                },
+                {
+                    "id": 3182,
+                    "sku": "101028 - ID011XTK07",
+                    "intcomexsku": "ID011XTK07",
+                    "stock": "instock",
+                    "past_price": "52000",
+                    "regular_price": "52000"
+                },
+                {
+                    "id": 3194,
+                    "sku": "101029 - MM111KLX28",
+                    "intcomexsku": "MM111KLX28",
+                    "stock": "outofstock",
+                    "past_price": "49000",
+                    "regular_price": "44000"
+                },
+                {
+                    "id": 3201,
+                    "sku": "101030 - MM221XTK97",
+                    "intcomexsku": "MM221XTK97",
+                    "stock": "instock",
+                    "past_price": "89000",
+                    "regular_price": "89000"
+                },
+                {
+                    "id": 3257,
+                    "sku": "101031 - ID011KLX11",
+                    "intcomexsku": "ID011KLX11",
+                    "stock": "instock",
+                    "past_price": "74000",
+                    "regular_price": "66000"
+                },
+                {
+                    "id": 4254,
+                    "sku": "101085 - U7Z-00062",
+                    "intcomexsku": "U7Z-00062",
+                    "stock": "instock",
+                    "past_price": "89000",
+                    "regular_price": "67000"
+                },
+                {
+                    "id": 4264,
+                    "sku": "101086 - U7Z-00011",
+                    "intcomexsku": "U7Z-00011",
+                    "stock": "instock",
+                    "past_price": "89000",
+                    "regular_price": "67000"
+                },
+                {
+                    "id": 4411,
+                    "sku": "101089 - MM111KLX58",
+                    "intcomexsku": "MM111KLX58",
+                    "stock": "outofstock",
+                    "past_price": "55000",
+                    "regular_price": "49000"
+                },
+                {
+                    "id": 5085,
+                    "sku": "101099 - XTK-540S",
+                    "intcomexsku": "ID223XTK11",
+                    "stock": "instock",
+                    "past_price": "87000",
+                    "regular_price": "87000"
+                },
+                {
+                    "id": 5670,
+                    "sku": "101102 - PCH-102BK",
+                    "intcomexsku": "AM160PGL09",
+                    "stock": "outofstock",
+                    "past_price": "911000",
+                    "regular_price": "911000"
+                },
+                {
+                    "id": 5763,
+                    "sku": "101103 - XTH-700",
+                    "intcomexsku": "MM221XTK15",
+                    "stock": "instock",
+                    "past_price": "76000",
+                    "regular_price": "76000"
+                },
+                {
+                    "id": 6047,
+                    "sku": "101105 - KMO-505",
+                    "intcomexsku": "ID011KLX15",
+                    "stock": "instock",
+                    "past_price": "44000",
+                    "regular_price": "44000"
+                },
+                {
+                    "id": 5840,
+                    "sku": "101106 - JBLGO3BLUAM",
+                    "intcomexsku": "MM902JBL74",
+                    "stock": "instock",
+                    "past_price": "157000",
+                    "regular_price": "157000"
+                },
+                {
+                    "id": 5849,
+                    "sku": "101107 - JBLCLIP4BLKAM",
+                    "intcomexsku": "MM903JBL01",
+                    "stock": "instock",
+                    "past_price": "278000",
+                    "regular_price": "278000"
+                },
+                {
+                    "id": 5857,
+                    "sku": " 101108 - JBLFLIP6BLUAM",
+                    "intcomexsku": "MM903JBL63-B1",
+                    "stock": "instock",
+                    "past_price": "278000",
+                    "regular_price": "384000"
+                },
+                {
+                    "id": 5873,
+                    "sku": "101109 - JBLT500WHTAM",
+                    "intcomexsku": "MM901JBL38",
+                    "stock": "instock",
+                    "past_price": "114000",
+                    "regular_price": "114000"
+                },
+                {
+                    "id": 6335,
+                    "sku": "101113 - XTH-545",
+                    "intcomexsku": "MM221XTK35",
+                    "stock": "instock",
+                    "past_price": "64000",
+                    "regular_price": "64000"
+                },
+                {
+                    "id": 2645,
+                    "sku": "601008 - NHB-C110",
+                    "intcomexsku": "MM106NXT71",
+                    "stock": "instock",
+                    "past_price": "36000",
+                    "regular_price": "59000"
+                },
+                {
+                    "id": 2662,
+                    "sku": "601009",
+                    "intcomexsku": "MM106NXT46",
+                    "stock": "instock",
+                    "past_price": "90000",
+                    "regular_price": "90000"
+                },
+                {
+                    "id": 2673,
+                    "sku": "601010",
+                    "intcomexsku": "MM106NXT32",
+                    "stock": "instock",
+                    "past_price": "257000",
+                    "regular_price": "257000"
+                },
+                {
+                    "id": 5342,
+                    "sku": "601021 - NHC-P710",
+                    "intcomexsku": "NHC-P710",
+                    "stock": "outofstock",
+                    "past_price": "257000",
+                    "regular_price": "102000"
+                },
+                {
+                    "id": 5350,
+                    "sku": "601022 - NHC-O610",
+                    "intcomexsku": "MM106NXT51",
+                    "stock": "instock",
+                    "past_price": "257000",
+                    "regular_price": "194000"
+                },
+                {
+                    "id": 3535,
+                    "sku": "601015 - NHB-C1104PK",
+                    "intcomexsku": "MM106NXT72",
+                    "stock": "instock",
+                    "past_price": "204000",
+                    "regular_price": "200000"
+                },
+                {
+                    "id": 5360,
+                    "sku": "601023 - NHC-O612",
+                    "intcomexsku": "MM106NXT65",
+                    "stock": "instock",
+                    "past_price": "257000",
+                    "regular_price": "230000"
+                },
+                {
+                    "id": 5368,
+                    "sku": "601024 - NHC-I7102PK",
+                    "intcomexsku": "MM106NXT47",
+                    "stock": "outofstock",
+                    "past_price": "143000",
+                    "regular_price": "143000"
+                },
+                {
+                    "id": 5888,
+                    "sku": "601025 - NHC-B100",
+                    "intcomexsku": "MM106NXT67",
+                    "stock": "instock",
+                    "past_price": "155000",
+                    "regular_price": "155000"
+                }
+            ]
         }
     ]
 }

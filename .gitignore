@@ -20,9 +20,13 @@ docs/_build/
 
 # Python files
 test_file.py
+listado.py
 
 # Coverage reports
 htmlcov/
 .coverage
 .coverage.*
 *,cover
+
+# Data files
+product_prices-1.json
