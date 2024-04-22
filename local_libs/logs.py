@@ -61,11 +61,11 @@ class logRecorder():
 
         return logs_quantity
     
-    def add_product_to_update_log(self, product_id, sku, part_number, stock_status, product_price, final_price, type):
+    def add_product_to_update_log(self, product_id, sku, part_number, stock_status, last_stock_quantity, current_stock_quantity, product_price, final_price, provider, type):
 
-        if type == "ingram":
+        if provider == "ingram":
             part_number_key = "ingrampartnumber"
-        if type == "intcomex":
+        if provider == "intcomex":
             part_number_key = "intcomexsku"
 
         # Se realiza la estructura del nuevo registro o Log
@@ -74,8 +74,11 @@ class logRecorder():
             "sku": f"{sku}",
             f"{part_number_key}": part_number,
             "stock": stock_status,
+            "last_stock_quantity": last_stock_quantity,
+            "current_stock_quantity": current_stock_quantity,
             "past_price": f"{product_price}",
-            "regular_price": f"{int(final_price)}"
+            "regular_price": f"{final_price}",
+            "type": type
         }
 
         self.stagging_product_logs.append(product_log)

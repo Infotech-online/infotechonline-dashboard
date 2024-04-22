@@ -113,8 +113,8 @@
         "101105 - KMO-505": {
             "intcomexSku": "ID011KLX15",
             "price": 44000,
-            "stock": "instock",
-            "stock_quantity": 1
+            "stock": "outofstock",
+            "stock_quantity": 0
         },
         "101106 - JBLGO3BLUAM": {
             "intcomexSku": "MM902JBL74",

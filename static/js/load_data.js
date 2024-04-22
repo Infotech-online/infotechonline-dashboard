@@ -130,14 +130,20 @@ function update_data(page, type) {
                         // Se obtiene la información del producto
                         product_info = result["logs"][row]["products"][product];
 
+                        if (product_info["last_stock_quantity"] != product_info["current_stock_quantity"]) {
+                            stock_status_element = `<e class="last-price_qty">${product_info["last_stock_quantity"]}</e> / ${product_info["current_stock_quantity"]}`
+                        } else {
+                            stock_status_element =  `${product_info["current_stock_quantity"]}`
+                        }
+
                         // Estructura del producto dentro del DOM
                         let log_product = `
-                        <div class="log-product">
+                        <div class="log-product ${product_info["type"]}-type_product">
                             <div class="image-container"><img src="${result["imgs"][product_info["id"]]}"></div>
                             <div class="product-info-container">
                                 <span class="product-sku">${product_info["sku"]} - ${product_info["id"]}</span>
                                 <div class="price-container">
-                                    <div><span class="stock-status">${product_info["stock"]}</span></div>
+                                    <div><span class="stock-status">${product_info["stock"]} - ${stock_status_element}</span></div>
                                     <div><span class="last-price_title">Last price:</span> <e class="last-price_qty">${currency(product_info["past_price"])}</e></div>
                                     <div><span class="curr-price_title">Current price:</span> <e class="curr-price_qty">${currency(product_info["regular_price"])}</e></div>
                                 </div>

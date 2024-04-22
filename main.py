@@ -199,6 +199,8 @@ def ingram_update():
                         # Consulta para obtener el producto de WooCommerce
                         product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
 
+                        last_stock_quantity = product[0]["stock_quantity"]
+
                         if product[0]["sale_price"] != "":
 
                             # Si el producto esta en oferta
@@ -263,7 +265,7 @@ def ingram_update():
                         woo.mconsult().put(f"products/{product[0]['id']}", data).json()
 
                         # Se añade un nuevo producto al nuevo registro
-                        logs.add_product_to_update_log(product[0]["id"], sku, ingram_pnumber, stock_status, product[0]['price'], final_price, "ingram")
+                        logs.add_product_to_update_log(product[0]["id"], sku, ingram_pnumber, stock_status, last_stock_quantity, current_stock_quantity, product[0]['price'], final_price, "ingram", "success")
 
                         # Se cambian los datos del producto dentro de "ingram_products.json"
                         # Para futuras actualizaciones
@@ -276,6 +278,13 @@ def ingram_update():
                         with open('ingram_products.json', 'w') as file:
                             file.write(upd_product)
                     except:
+
+                        print(sku)
+                        product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
+                        last_stock_quantity = product[0]["stock_quantity"]
+
+                        # Se añade un nuevo producto al nuevo registro
+                        logs.add_product_to_update_log(product[0]["id"], sku, ingram_pnumber, stock_status, last_stock_quantity, current_stock_quantity, product[0]['price'], final_price, "ingram", "error")
                         # Si no se pudo realizar la actualización
                         print("ERROR: Update Ingram Product prices") 
 
@@ -334,54 +343,43 @@ def intcomex_update():
             # Por cada SKU dentro de la categoría
             for sku in products_data[category]:  # Sku and Prices
 
-                try:
+                # Se obtiene el numero de parte de Intcomex
+                intcomex_sku = products_data[category][sku]["intcomexSku"]
+                
+                # Se calcula el precio final del producto
 
-                    # Se obtiene el numero de parte de Intcomex
-                    intcomex_sku = products_data[category][sku]["intcomexSku"]
-                    
-                    # Se calcula el precio final del producto
+                iva_state = "taxable" # Estado de IVA del producto
 
-                    iva_state = "taxable" # Estado de IVA del producto
+                if intcomex_sku in prices and intcomex_sku in stock:
 
-                    if intcomex_sku in prices:
+                    base_price = int(prices[intcomex_sku]) # Precio base del mayorista
 
-                        base_price = int(prices[intcomex_sku]) # Precio base del mayorista
+                    profit_margin = 0.13
 
-                        profit_margin = 0.13
+                    if category == "accesorios":
 
-                        if category == "accesorios":
+                        # Si el producto es un accesorio y su precio base es menor a 200.000
+                        if base_price < 200000:
+                            profit_margin = 0.20
 
-                            # Si el producto es un accesorio y su precio base es menor a 200.000
-                            if base_price < 200000:
-                                profit_margin = 0.20
+                    """
+                    La formula es: 
+                    incremento = Precio del producto / (1 - margen de ganancia)
+                    valor final = incremento * 1.19
+                    """
+                    profit = base_price / (1 - profit_margin)
+                    final_price = profit * 1.19
 
-                        """
-                        La formula es: 
-                        incremento = Precio del producto / (1 - margen de ganancia)
-                        valor final = incremento * 1.19
-                        """
-                        profit = base_price / (1 - profit_margin)
-                        final_price = profit * 1.19
-
-                    else:
-                        # final_price_with_IVA = products_data[category][sku]["price"]
-                        print(f"Producto no se encuentra en el listado de precios {intcomex_sku}")
-
-                    # Se obtiene el estado de stock del producto
                     stock_status = products_data[category][sku]["stock"]
-                    # Si el producto se encuentra en el listado de stock de Intcomex
-                    if intcomex_sku in stock:
-                        # La catidad de stock se almacenara en "current_stock_quantity"
-                        current_stock_quantity = stock[intcomex_sku]
 
-                        # Si el stock es mayor a 0 el estado sera "instock"
-                        if stock[intcomex_sku] > 0:
-                            stock_status = "instock"
-                        else:
-                            stock_status = "outofstock"
+                    # La catidad de stock se almacenara en "current_stock_quantity"
+                    current_stock_quantity = stock[intcomex_sku]
+
+                    # Si el stock es mayor a 0 el estado sera "instock"
+                    if stock[intcomex_sku] > 0:
+                        stock_status = "instock"
                     else:
-                        # "current_stock_quantity" sera igual a 0
-                        current_stock_quantity = 0
+                        stock_status = "outofstock"
 
                     """
                     Teniendo el cuenta la regla de UVT para Celulares y Portatiles
@@ -403,50 +401,69 @@ def intcomex_update():
 
                     final_price = int(math.ceil(final_price / 1000.0)) * 1000 # Precio actual con IVA (REDONDEADO)
 
-                    # Si el producto cambio de precio o stock, se actualizaran los valores dentro de la tienda
+                else:
 
-                    # if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status) or (products_data[category][sku]["stock_quantity"] != current_stock_quantity):
-                    if True:
-                        print(sku)
-                        # Consulta para obtener el producto de WooCommerce
-                        product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
-                        print(product)
-                        # Si el producto esta en oferta
-                        if product[0]["sale_price"] != "":
+                    # final_price_with_IVA = products_data[category][sku]["price"]
+                    print(f"Producto no se encuentra en el listado de precios {intcomex_sku}")
 
-                                # Si el producto esta en oferta
-                                # Se agrega el valor "sale_price"
-                                # El valor de "regular_price" debe ser mayor a "sale_price"
+                # if (int(final_price_with_IVA) != int(products_data[category][sku]["price"])) or (products_data[category][sku]["stock"] != stock_status) or (products_data[category][sku]["stock_quantity"] != current_stock_quantity):
+                if intcomex_sku in prices and intcomex_sku in stock:
+                    
+                    # Consulta para obtener el producto de WooCommerce
+                    product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
 
-                                # Seleccionar un porcentaje de descuento
-                                # Generar un descuento aleatorio entre 10% y 50%
-                                opciones = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
-                                discount = random.choice(opciones)
+                    # Obtener el stock del producto actual en la tienda
+                    last_stock_quantity = product[0]["stock_quantity"]
 
-                                new_sale_price = final_price
+                    # Si el producto esta en oferta
+                    if product[0]["sale_price"] != "":
 
-                                if new_sale_price > 900000:
-                                    shipping_class = "b-fee"
-                                    shipping_class_id = 1611
-                                else:
-                                    shipping_class = "a-fee"
-                                    shipping_class_id = 1610
+                            # Si el producto esta en oferta
+                            # Se agrega el valor "sale_price"
+                            # El valor de "regular_price" debe ser mayor a "sale_price"
 
-                                new_regular_price = final_price * (1 + discount)
-                                new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
+                            # Seleccionar un porcentaje de descuento
+                            # Generar un descuento aleatorio entre 10% y 40%
+                            opciones = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
+                            discount = random.choice(opciones)
 
-                                data = {
-                                    "regular_price": f"{int(new_regular_price)}", 
-                                    "sale_price": f"{int(new_sale_price)}",
-                                    "stock_status": f"{stock_status}",
-                                    "manage_stock": True,
-                                    "stock_quantity": current_stock_quantity,
-                                    "tax_status": iva_state,
-                                    "shipping_class": shipping_class,
-                                    "shipping_class_id": int(shipping_class_id)
-                                }
+                            new_sale_price = final_price
 
+                            if new_sale_price > 900000:
+                                shipping_class = "b-fee"
+                                shipping_class_id = 1611
+                            else:
+                                shipping_class = "a-fee"
+                                shipping_class_id = 1610
+
+                            new_regular_price = final_price * (1 + discount)
+                            new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
+
+                            data = {
+                                "regular_price": f"{int(new_regular_price)}", 
+                                "sale_price": f"{int(new_sale_price)}",
+                                "stock_status": f"{stock_status}",
+                                "manage_stock": True,
+                                "stock_quantity": current_stock_quantity,
+                                "tax_status": iva_state,
+                                "shipping_class": shipping_class,
+                                "shipping_class_id": int(shipping_class_id)
+                            }
+
+                    else:
+
+                        # Si el producto no esta en oferta
+                        # Se cambia unicamente el valor "regular_price"
+
+                        new_regular_price = final_price
+                        new_sale_price = ""
+
+                        if new_regular_price > 900000:
+                            shipping_class = "b-fee"
+                            shipping_class_id = 1611
                         else:
+                            shipping_class = "a-fee"
+                            shipping_class_id = 1610            
 
                             # Si el producto no esta en oferta
                             # Se cambia unicamente el valor "regular_price"
@@ -461,69 +478,45 @@ def intcomex_update():
                                 shipping_class = "a-fee"
                                 shipping_class_id = 1610            
 
-                                # Si el producto no esta en oferta
-                                # Se cambia unicamente el valor "regular_price"
-
-                                new_regular_price = final_price
-                                new_sale_price = ""
-
-                                if new_regular_price > 900000:
-                                    shipping_class = "b-fee"
-                                    shipping_class_id = 1611
-                                else:
-                                    shipping_class = "a-fee"
-                                    shipping_class_id = 1610            
-
-                                data = {
-                                    "regular_price": f"{int(new_regular_price)}", 
-                                    "stock_status": f"{stock_status}",
-                                    "manage_stock": True,
-                                    "stock_quantity": current_stock_quantity,
-                                    "tax_status": iva_state,
-                                    "shipping_class": shipping_class,
-                                    "shipping_class_id": int(shipping_class_id)
-                                }
-
-                            # Se actualiza el producto dentro de la tienda
-                            woo.mconsult().put(f"products/{product[0]['id']}", data).json()
-
-                            # Se realiza la estructura del nuevo registro o Log
-                            data_log = {
-                                "id": product[0]["id"],
-                                "sku": f"{sku}",
-                                "intcomexsku": intcomex_sku,
-                                "stock": stock_status,
-                                "past_price": f"{product[0]['price']}",
-                                "regular_price": f"{int(final_price)}"
+                            data = {
+                                "regular_price": f"{int(new_regular_price)}", 
+                                "stock_status": f"{stock_status}",
+                                "manage_stock": True,
+                                "stock_quantity": current_stock_quantity,
+                                "tax_status": iva_state,
+                                "shipping_class": shipping_class,
+                                "shipping_class_id": int(shipping_class_id)
                             }
 
-                        # Se actualiza el producto dentro de la tienda
-                        woo.mconsult().put(f"products/{product[0]['id']}", data).json()
+                    # Se actualiza el producto dentro de la tienda
+                    woo.mconsult().put(f"products/{product[0]['id']}", data).json()
 
-                        # Se añade un nuevo producto al nuevo registro
-                        logs.add_product_to_update_log(product[0]["id"], sku, intcomex_sku, stock_status, product[0]['price'], final_price, "intcomex")
+                    # Se añade un nuevo producto al nuevo registro
+                    logs.add_product_to_update_log(product[0]["id"], sku, intcomex_sku, stock_status, last_stock_quantity, current_stock_quantity, product[0]['price'], final_price, "intcomex", "success")
 
-                        # Se cambian los datos del producto dentro de "ingram_products.json"
-                        # Para futuras actualizaciones
-                        products_data[category][sku]["price"] = int(final_price)
-                        products_data[category][sku]["stock"] = stock_status
-                        products_data[category][sku]["stock_quantity"] = current_stock_quantity
-                        upd_product = json.dumps(products_data, indent=4)
+                    # Se cambian los datos del producto dentro de "ingram_products.json"
+                    # Para futuras actualizaciones
+                    products_data[category][sku]["price"] = int(final_price)
+                    products_data[category][sku]["stock"] = stock_status
+                    products_data[category][sku]["stock_quantity"] = current_stock_quantity
+                    upd_product = json.dumps(products_data, indent=4)
 
-                        # Se escriben los cambios dentro de "intcomex_products.json"
-                        with open('intcomex_products.json', 'w') as file:
-                            file.write(upd_product)
-                            
-                except:
+                    # Se escriben los cambios dentro de "intcomex_products.json"
+                    with open('intcomex_products.json', 'w') as file:
+                        file.write(upd_product)
+
+                else:
 
                     # Si no se pudo realizar la actualización
 
                     # Obtener los detalles del producto de Woocommerce
                     product = woo.mconsult().get("products", params={'sku': sku, 'per_page': 1}).json()
 
-                    print(product)
+                    # Obtener la cantidad actual de stock del producto en la tienda
+                    last_stock_quantity = product[0]["stock_quantity"]
 
-                    print(f"Ocurrio un error con el producto {product[0]['id']}")
+                    # Registrar el producto con error
+                    logs.add_product_to_update_log(product[0]["id"], sku, intcomex_sku, "outofstock", last_stock_quantity, 0, product[0]['price'], None, "intcomex", "error")                    
 
                     # Se establece el producto con stock en 0
                     data = {
@@ -533,6 +526,8 @@ def intcomex_update():
 
                     # Se actualiza el producto dentro de la tienda
                     woo.mconsult().put(f"products/{product[0]['id']}", data).json()  # Product Update
+
+                    print(f"Ocurrio un error con el producto {product[0]['id']}")
 
         # Se guardan los registros dentro de "logs.json"
         logs.add_new_update_log()

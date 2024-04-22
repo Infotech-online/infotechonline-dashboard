@@ -747,6 +747,14 @@ header {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.error-type_product {
+    box-shadow: rgba(224, 67, 67, 0.959) 0px 1px 3px 0px, rgb(218, 85, 85) 0px 0px 0px 1px;
+}
+
+.error-type_product:hover {
+    box-shadow: rgb(206, 62, 62) 0px 3px 8px;
+}
+
 .log-product .image-container {
     display: flex;
     justify-content: center;
