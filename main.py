@@ -461,42 +461,41 @@ def intcomex_update():
                                 shipping_class = "a-fee"
                                 shipping_class_id = 1610            
 
-                            data = {
-                                "regular_price": f"{int(new_regular_price)}", 
-                                "stock_status": f"{stock_status}",
-                                "manage_stock": True,
-                                "stock_quantity": current_stock_quantity,
-                                "tax_status": iva_state,
-                                "shipping_class": shipping_class,
-                                "shipping_class_id": int(shipping_class_id)
+                                # Si el producto no esta en oferta
+                                # Se cambia unicamente el valor "regular_price"
+
+                                new_regular_price = final_price
+                                new_sale_price = ""
+
+                                if new_regular_price > 900000:
+                                    shipping_class = "b-fee"
+                                    shipping_class_id = 1611
+                                else:
+                                    shipping_class = "a-fee"
+                                    shipping_class_id = 1610            
+
+                                data = {
+                                    "regular_price": f"{int(new_regular_price)}", 
+                                    "stock_status": f"{stock_status}",
+                                    "manage_stock": True,
+                                    "stock_quantity": current_stock_quantity,
+                                    "tax_status": iva_state,
+                                    "shipping_class": shipping_class,
+                                    "shipping_class_id": int(shipping_class_id)
+                                }
+
+                            # Se actualiza el producto dentro de la tienda
+                            woo.mconsult().put(f"products/{product[0]['id']}", data).json()
+
+                            # Se realiza la estructura del nuevo registro o Log
+                            data_log = {
+                                "id": product[0]["id"],
+                                "sku": f"{sku}",
+                                "intcomexsku": intcomex_sku,
+                                "stock": stock_status,
+                                "past_price": f"{product[0]['price']}",
+                                "regular_price": f"{int(final_price)}"
                             }
-
-                        # Se actualiza el producto dentro de la tienda
-                        woo.mconsult().put(f"products/{product[0]['id']}", data).json()
-
-                        # Se realiza la estructura del nuevo registro o Log
-                        data_log = {
-                            "id": product[0]["id"],
-                            "sku": f"{sku}",
-                            "intcomexsku": intcomex_sku,
-                            "stock": stock_status,
-                            "past_price": f"{product[0]['price']}",
-                            "regular_price": f"{int(final_price)}"
-                        }
-
-                        # Se cambian los datos del producto dentro de "ingram_products.json"
-                        # Para futuras actualizaciones
-                        products_data[category][sku]["price"] = int(final_price)
-                        products_data[category][sku]["stock"] = stock_status
-                        products_data[category][sku]["stock_quantity"] = current_stock_quantity
-                        upd_product = json.dumps(products_data, indent=4)
-
-                        data = {
-                            "regular_price": f"{int(final_price)}", 
-                            "stock_status": f"{stock_status}",
-                            "manage_stock": True,
-                            "stock_quantity": current_stock_quantity
-                        }
 
                         # Se actualiza el producto dentro de la tienda
                         woo.mconsult().put(f"products/{product[0]['id']}", data).json()
