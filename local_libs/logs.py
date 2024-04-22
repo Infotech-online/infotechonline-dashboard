@@ -10,9 +10,8 @@ class logRecorder():
 
         # Variables necesarias para crear un nuevo registro
         
-        self.stagging_product_logs = {} # Almacena todos los productos de un nuevo registro
+        self.stagging_product_logs = [] # Almacena todos los productos de un nuevo registro
         self.stagging_log_quantity = 0 # Almacena la cantidad de productos de un nuevo registro
-        self.stagging_log = {} # Almacena el registro total
 
     def get_all_logs(self):
 
@@ -103,7 +102,7 @@ class logRecorder():
             log = json.dumps(logs_data, indent=4)
         
         # Se escriben los datos dentro del archivo
-        with open('logs.json', 'w') as file:
+        with open('data/logs.json', 'w') as file:
             file.write(log)
 
     def add_new_product_log(self, woo_product_id, product_sku, part_number, stock, price):
