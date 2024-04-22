@@ -105,7 +105,7 @@
             "price": 954000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 510
+            "stock_quantity": 490
         },
         "201002 - C11CJ88301": {
             "ingramSku": "5338224",
@@ -184,7 +184,7 @@
             "price": 753000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 246
+            "stock_quantity": 250
         },
         "301003 - 64W30AA#ABA": {
             "ingramSku": "5698999",
@@ -233,7 +233,7 @@
             "price": 539000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 1322
+            "stock_quantity": 1319
         },
         "301011 - 64V81AA#ABA": {
             "ingramSku": "5698998",
@@ -247,7 +247,7 @@
             "price": 735000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 211
+            "stock_quantity": 207
         },
         "301014 - P2422H": {
             "ingramSku": "5224156",
@@ -575,11 +575,11 @@
             "price": 3735000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 15
+            "stock_quantity": 14
         },
         "501002 - V11H981020": {
             "ingramSku": "4991237",
-            "price": 2201000,
+            "price": 2381000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 143

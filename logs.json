@@ -25489,6 +25489,61 @@
                     "regular_price": "155000"
                 }
             ]
+        },
+        {
+            "date": "2024-04-22 / 11:54:02",
+            "type": "Update",
+            "qty": 6,
+            "products": [
+                {
+                    "id": 1815,
+                    "sku": "201001 - C11CJ68301",
+                    "ingrampartnumber": "5276303",
+                    "stock": "instock",
+                    "past_price": "954000",
+                    "regular_price": "954000"
+                },
+                {
+                    "id": 1869,
+                    "sku": "301002 - P2222H",
+                    "ingrampartnumber": "5224155",
+                    "stock": "instock",
+                    "past_price": "753000",
+                    "regular_price": "753000"
+                },
+                {
+                    "id": 4697,
+                    "sku": "301010 - LF24T350FHLXZL",
+                    "ingrampartnumber": "4972409",
+                    "stock": "instock",
+                    "past_price": "539000",
+                    "regular_price": "539000"
+                },
+                {
+                    "id": 4709,
+                    "sku": "301012 - E2424HS",
+                    "ingrampartnumber": "5735761",
+                    "stock": "instock",
+                    "past_price": "735000",
+                    "regular_price": "735000"
+                },
+                {
+                    "id": 2437,
+                    "sku": "501001 - V11HA03020",
+                    "ingrampartnumber": "5241198",
+                    "stock": "instock",
+                    "past_price": "3735000",
+                    "regular_price": "3735000"
+                },
+                {
+                    "id": 2504,
+                    "sku": "501002 - V11H981020",
+                    "ingrampartnumber": "4991237",
+                    "stock": "instock",
+                    "past_price": "2201000",
+                    "regular_price": "2381000"
+                }
+            ]
         }
     ]
 }
