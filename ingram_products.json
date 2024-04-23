@@ -30,14 +30,14 @@
         },
         "101008 - 960-001515": {
             "ingramSku": "5737009",
-            "price": 591000,
+            "price": 589000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
         },
         "101009 - 960-001401": {
             "ingramSku": "5736938",
-            "price": 347000,
+            "price": 346000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
@@ -102,21 +102,21 @@
     "impresoras": {
         "201001 - C11CJ68301": {
             "ingramSku": "5276303",
-            "price": 954000,
+            "price": 973000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 486
         },
         "201002 - C11CJ88301": {
             "ingramSku": "5338224",
-            "price": 2436000,
+            "price": 2440000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
         },
         "201003 - C11CD76303": {
             "ingramSku": "5276297",
-            "price": 578000,
+            "price": 579000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 140
@@ -209,14 +209,14 @@
         },
         "301007 - VA2747-MH": {
             "ingramSku": "5173236",
-            "price": 799000,
+            "price": 796000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
         },
         "301008 - VX2768-PC-MHD": {
             "ingramSku": "4996616",
-            "price": 1465000,
+            "price": 1460000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
@@ -351,7 +351,7 @@
         },
         "401044 - WYNX7": {
             "ingramSku": "5925074",
-            "price": 3281000,
+            "price": 3271000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0

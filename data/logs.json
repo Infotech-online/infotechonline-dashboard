@@ -532,6 +532,212 @@
                 }
             ],
             "error_quantity": 31
+        },
+        {
+            "date": "2024-04-23 / 00:34:29",
+            "type": "Update",
+            "qty": 18,
+            "products": [
+                {
+                    "id": 1714,
+                    "sku": "101008 - 960-001515",
+                    "ingrampartnumber": "5737009",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "591000",
+                    "regular_price": "589000",
+                    "type": "success"
+                },
+                {
+                    "id": 1721,
+                    "sku": "101009 - 960-001401",
+                    "ingrampartnumber": "5736938",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "347000",
+                    "regular_price": "346000",
+                    "type": "success"
+                },
+                {
+                    "id": 4858,
+                    "sku": "101097 - 580-AKCU",
+                    "ingrampartnumber": "5644701",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "81000",
+                    "regular_price": "77000",
+                    "type": "error"
+                },
+                {
+                    "id": 1815,
+                    "sku": "201001 - C11CJ68301",
+                    "ingrampartnumber": "5276303",
+                    "stock": "instock",
+                    "last_stock_quantity": 486,
+                    "current_stock_quantity": 486,
+                    "past_price": "954000",
+                    "regular_price": "973000",
+                    "type": "success"
+                },
+                {
+                    "id": 1830,
+                    "sku": "201002 - C11CJ88301",
+                    "ingrampartnumber": "5338224",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "2436000",
+                    "regular_price": "2440000",
+                    "type": "success"
+                },
+                {
+                    "id": 1840,
+                    "sku": "201003 - C11CD76303",
+                    "ingrampartnumber": "5276297",
+                    "stock": "instock",
+                    "last_stock_quantity": 140,
+                    "current_stock_quantity": 140,
+                    "past_price": "578000",
+                    "regular_price": "579000",
+                    "type": "success"
+                },
+                {
+                    "id": 1905,
+                    "sku": "301006 - LF24T452FQNXGO",
+                    "ingrampartnumber": "5187194",
+                    "stock": "instock",
+                    "last_stock_quantity": 293,
+                    "current_stock_quantity": 274,
+                    "past_price": "696000",
+                    "regular_price": "696000",
+                    "type": "error"
+                },
+                {
+                    "id": 2902,
+                    "sku": "301007 - VA2747-MH",
+                    "ingrampartnumber": "5173236",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "799000",
+                    "regular_price": "796000",
+                    "type": "success"
+                },
+                {
+                    "id": 2914,
+                    "sku": "301008 - VX2768-PC-MHD",
+                    "ingrampartnumber": "4996616",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "1465000",
+                    "regular_price": "1460000",
+                    "type": "success"
+                },
+                {
+                    "id": 5502,
+                    "sku": "401044 - WYNX7",
+                    "ingrampartnumber": "5925074",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "3281000",
+                    "regular_price": "3271000",
+                    "type": "success"
+                },
+                {
+                    "id": 2915,
+                    "sku": "401010 - 90NB0TY1-M04BM0",
+                    "ingrampartnumber": "5890934",
+                    "stock": "instock",
+                    "last_stock_quantity": 38,
+                    "current_stock_quantity": 210,
+                    "past_price": "1536000",
+                    "regular_price": "1536000",
+                    "type": "error"
+                },
+                {
+                    "id": 2933,
+                    "sku": "401018 - WYCT7",
+                    "ingrampartnumber": "5620754",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "4864000",
+                    "regular_price": "4863000",
+                    "type": "error"
+                },
+                {
+                    "id": 2948,
+                    "sku": "401020 - 673Z9LT#ABM",
+                    "ingrampartnumber": "5718401",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "1924000",
+                    "regular_price": "1947000",
+                    "type": "error"
+                },
+                {
+                    "id": 2961,
+                    "sku": "401022 - 692X3LT#ABM",
+                    "ingrampartnumber": "5730160",
+                    "stock": "instock",
+                    "last_stock_quantity": 3,
+                    "current_stock_quantity": 3,
+                    "past_price": "6986000",
+                    "regular_price": "6985000",
+                    "type": "error"
+                },
+                {
+                    "id": 2992,
+                    "sku": "401025 - 21AJ004LLM",
+                    "ingrampartnumber": "5620751",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "8547000",
+                    "regular_price": "8694000",
+                    "type": "error"
+                },
+                {
+                    "id": 2999,
+                    "sku": "401026 - 21E4S1TU00",
+                    "ingrampartnumber": "5741475",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "5142000",
+                    "regular_price": "4838000",
+                    "type": "error"
+                },
+                {
+                    "id": 3009,
+                    "sku": "401027 - 21CCS9NW00",
+                    "ingrampartnumber": "5739000",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "9704000",
+                    "regular_price": "9022000",
+                    "type": "error"
+                },
+                {
+                    "id": 3785,
+                    "sku": "401028 - 6C609LT#ABM",
+                    "ingrampartnumber": "5621066",
+                    "stock": "outofstock",
+                    "last_stock_quantity": 0,
+                    "current_stock_quantity": 0,
+                    "past_price": "6140000",
+                    "regular_price": "6140000",
+                    "type": "error"
+                }
+            ],
+            "error_quantity": 10
         }
     ]
 }
