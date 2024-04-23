@@ -135,6 +135,8 @@ class intcomexConnection():
             # Se realiza el request de la petición
             intcomex_stock = requests.get(get_stock_url).json()
 
+            print(intcomex_stock)
+
             # Obtener solo los productos con el mismo SKU
             products = {product["Sku"]: product["InStock"] for product in intcomex_stock if product["Sku"] in sku_list}
 

@@ -33,17 +33,23 @@ class logRecorder():
         logs_qty = 0
         today_log_qty = 0
 
-        # Por cada registro dentro del archivo "logs.json"
-        for log in logs_data["logs"]:
+        if len(logs_data["logs"]) > 0:
 
-            # Si la fecha es Hoy
-            if log["date"].find(f"{datetime.now().strftime('%Y-%m-%d')}") != -1:
-                
-                today_log_qty+=1
-                # Se almacena dentro de las actualizaciones del día
-                logs_data_today.append(log)
+            # Por cada registro dentro del archivo "logs.json"
+            for log in logs_data["logs"]:
 
-        last_log_date = logs_data["logs"][logs_qty-1]["date"]
+                # Si la fecha es Hoy
+                if log["date"].find(f"{datetime.now().strftime('%Y-%m-%d')}") != -1:
+                    
+                    today_log_qty+=1
+                    # Se almacena dentro de las actualizaciones del día
+                    logs_data_today.append(log)
+
+            last_log_date = logs_data["logs"][logs_qty-1]["date"]
+        
+        else:
+
+            last_log_date = None
 
         return logs_data_today, today_log_qty, last_log_date
     
@@ -92,12 +98,18 @@ class logRecorder():
             logs_data = json.load(f)
             logs_data_list = logs_data["logs"]
 
+            error_quantity = 0
+            for product in self.stagging_product_logs:
+                if product["type"] == "error":
+                    error_quantity += 1
+
             # Se realiza la estructura del log con la fecha de actualización, cantidad de productos y el detalle de cada producto actualizado
             new_log = {
                 "date": f"{datetime.now().strftime('%Y-%m-%d')} / {datetime.now().time().strftime('%H:%M:%S')}",
                 "type": "Update",
                 "qty": self.stagging_log_quantity,
-                "products": self.stagging_product_logs
+                "products": self.stagging_product_logs,
+                "error_quantity": error_quantity
             }
 
             logs_data_list.append(new_log)

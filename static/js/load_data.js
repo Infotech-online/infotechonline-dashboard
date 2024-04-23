@@ -170,6 +170,12 @@ function update_data(page, type) {
                         log_type = "<span class='log-type_message log-type_message_update'>Update</span>";
                     }
 
+                    if (result["logs"][row]["error_quantity"] > 0) {
+                        notify = `<e class='notify-message_container'>Se registraron ${result["logs"][row]["error_quantity"]} errores.</e>`
+                    } else {
+                        notify = `<e class='notify-message_container'>No se registraron errores.</e>`
+                    }
+
                     // Se crea una nueva fila dentro para la tabla de registros
                     let new_row = `
                     <tr>
@@ -180,7 +186,7 @@ function update_data(page, type) {
                         <td class="show-products_action-btn" style="text-decoration: underline;">
                             <span class="show-products_modal_btn">Ver productos</span>
                             <div class="upd-prod-container display-none">
-                                <div class="buttons-container"><span class="close-modal_button"><ion-icon name="close-outline"></ion-icon></span></div>
+                                <div class="buttons-container">${notify}<span class="close-modal_button"><ion-icon name="close-outline"></ion-icon></span></div>
                                 <div class="upd-prod-content">
                                     ${log_products}
                                 </div>

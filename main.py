@@ -418,37 +418,37 @@ def intcomex_update():
                     # Si el producto esta en oferta
                     if product[0]["sale_price"] != "":
 
-                            # Si el producto esta en oferta
-                            # Se agrega el valor "sale_price"
-                            # El valor de "regular_price" debe ser mayor a "sale_price"
+                        # Si el producto esta en oferta
+                        # Se agrega el valor "sale_price"
+                        # El valor de "regular_price" debe ser mayor a "sale_price"
 
-                            # Seleccionar un porcentaje de descuento
-                            # Generar un descuento aleatorio entre 10% y 40%
-                            opciones = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
-                            discount = random.choice(opciones)
+                        # Seleccionar un porcentaje de descuento
+                        # Generar un descuento aleatorio entre 10% y 40%
+                        opciones = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
+                        discount = random.choice(opciones)
 
-                            new_sale_price = final_price
+                        new_sale_price = final_price
 
-                            if new_sale_price > 900000:
-                                shipping_class = "b-fee"
-                                shipping_class_id = 1611
-                            else:
-                                shipping_class = "a-fee"
-                                shipping_class_id = 1610
+                        if new_sale_price > 900000:
+                            shipping_class = "b-fee"
+                            shipping_class_id = 1611
+                        else:
+                            shipping_class = "a-fee"
+                            shipping_class_id = 1610
 
-                            new_regular_price = final_price * (1 + discount)
-                            new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
+                        new_regular_price = final_price * (1 + discount)
+                        new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
 
-                            data = {
-                                "regular_price": f"{int(new_regular_price)}", 
-                                "sale_price": f"{int(new_sale_price)}",
-                                "stock_status": f"{stock_status}",
-                                "manage_stock": True,
-                                "stock_quantity": current_stock_quantity,
-                                "tax_status": iva_state,
-                                "shipping_class": shipping_class,
-                                "shipping_class_id": int(shipping_class_id)
-                            }
+                        data = {
+                            "regular_price": f"{int(new_regular_price)}", 
+                            "sale_price": f"{int(new_sale_price)}",
+                            "stock_status": f"{stock_status}",
+                            "manage_stock": True,
+                            "stock_quantity": current_stock_quantity,
+                            "tax_status": iva_state,
+                            "shipping_class": shipping_class,
+                            "shipping_class_id": int(shipping_class_id)
+                        }
 
                     else:
 

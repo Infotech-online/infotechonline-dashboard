@@ -711,7 +711,7 @@ header {
     background-color: #fff;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -719,6 +719,12 @@ header {
     font-size: 25px;
     padding-right: 10px;
     cursor: pointer;
+}
+
+.notify-message_container {
+    font-size: 18px;
+    padding-left: 10px;
+    cursor: text;
 }
 
 .upd-prod-content, .add-prod-content {

@@ -5,7 +5,7 @@
             "price": 989000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 47
+            "stock_quantity": 46
         },
         "101002 - MV7N2BE/A": {
             "ingramSku": "4487567",
@@ -105,7 +105,7 @@
             "price": 954000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 488
+            "stock_quantity": 486
         },
         "201002 - C11CJ88301": {
             "ingramSku": "5338224",
@@ -389,7 +389,7 @@
             "price": 3700000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 155
+            "stock_quantity": 198
         },
         "401038 - 3000138667742": {
             "ingramSku": "5686759",
@@ -582,7 +582,7 @@
             "price": 3735000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 14
+            "stock_quantity": 13
         },
         "501002 - V11H981020": {
             "ingramSku": "4991237",
@@ -620,7 +620,7 @@
             "price": 564000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 848
+            "stock_quantity": 847
         },
         "701009 - PAUT0006CO": {
             "ingramSku": "5677034",
@@ -776,7 +776,7 @@
             "price": 5953000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 5
+            "stock_quantity": 4
         },
         "801025 - UN55CU7000KXZL": {
             "ingramSku": "5874501",
