@@ -15,7 +15,7 @@ class ingramConnection():
     def __init__(self):
 
         # Archivos
-        self.ingram_products_file = 'ingram_products.json'
+        self.ingram_products_file = 'data/ingram_products.json'
         self.logs_file = 'data/logs.json'
         self.tokens_file = 'data/tokens.json'
 
@@ -102,7 +102,7 @@ class ingramConnection():
         sku_list = []
 
         # Se abre el archivo "ingram_products.json"
-        with open('ingram_products.json') as f:
+        with open('data/ingram_products.json') as f:
             products_data = json.load(f)
 
         # Por cada categoría dentro del archivo "ingram_products.json"
