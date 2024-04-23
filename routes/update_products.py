@@ -136,7 +136,7 @@ def ingram_update():
         print(init_time)
 
         # Se abre el archivo "ingram_products.json"
-        with open('ingram_products.json') as f:
+        with open('data/ingram_products.json') as f:
             products_data = json.load(f)
 
         # Datos del nuevo Log o registro de la actualización
@@ -292,7 +292,7 @@ def ingram_update():
                         upd_product = json.dumps(products_data, indent=4)
 
                         # Se escriben los cambios dentro de "ingram_products.json"
-                        with open('ingram_products.json', 'w') as file:
+                        with open('data/ingram_products.json', 'w') as file:
                             file.write(upd_product)
                     except:
 
@@ -336,7 +336,7 @@ def intcomex_update():
         print(init_time)
 
         # Se abre el archivo "intcomex_products.json"
-        with open('intcomex_products.json') as f:
+        with open('data/intcomex_products.json') as f:
             products_data = json.load(f)
 
         # Se inicializan las variables que almacenaran los datos de los registros o Logs
@@ -519,7 +519,7 @@ def intcomex_update():
                     upd_product = json.dumps(products_data, indent=4)
 
                     # Se escriben los cambios dentro de "intcomex_products.json"
-                    with open('intcomex_products.json', 'w') as file:
+                    with open('data/intcomex_products.json', 'w') as file:
                         file.write(upd_product)
 
                 else:

@@ -16,8 +16,8 @@ class ingramConnection():
 
         # Archivos
         self.ingram_products_file = 'ingram_products.json'
-        self.logs_file = 'logs.json'
-        self.tokens_file = 'tokens.json'
+        self.logs_file = 'data/logs.json'
+        self.tokens_file = 'data/tokens.json'
 
         # Credenciales
         self.client_id = env["INGRAM_CLIENT_ID"]

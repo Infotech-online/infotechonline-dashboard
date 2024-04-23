@@ -15,8 +15,8 @@ class intcomexConnection():
 
         # Archivos utilizados para almacenar datos
         self.intcomex_products_file = "intcomex_products.json"
-        self.logs_file = "logs.json"
-        self.tokens_file = "tokens.json"
+        self.logs_file = "data/logs.json"
+        self.tokens_file = "data/tokens.json"
 
         # Modo de funcionamiento la API
         self.mode = "Prod" # Variable que define el modo de la API

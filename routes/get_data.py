@@ -48,7 +48,7 @@ def infotech_data():
         products = woo.get_all_prods(int(page))
 
         # Obtener las imagenes de los productos almacenadas en "products_imgs.json"
-        with open('products_imgs.json') as f:
+        with open('data/products_imgs.json') as f:
             imgs = json.load(f)
 
         # Obtener datos de registros de actualizaciónes
