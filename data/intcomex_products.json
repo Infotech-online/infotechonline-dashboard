@@ -16,7 +16,7 @@
         },
         "101024 - ID011XTK24": {
             "intcomexSku": "ID011XTK24",
-            "price": 33000,
+            "price": 32000,
             "stock": "instock",
             "stock_quantity": 20,
             "availability": true
@@ -58,7 +58,7 @@
         },
         "101030 - MM221XTK97": {
             "intcomexSku": "MM221XTK97",
-            "price": 89000,
+            "price": 88000,
             "stock": "instock",
             "stock_quantity": 20,
             "availability": true
@@ -93,16 +93,16 @@
         },
         "101099 - XTK-540S": {
             "intcomexSku": "ID223XTK11",
-            "price": 87000,
+            "price": 86000,
             "stock": "instock",
             "stock_quantity": 20,
             "availability": true
         },
         "101102 - PCH-102BK": {
             "intcomexSku": "AM160PGL09",
-            "price": 911000,
-            "stock": "outofstock",
-            "stock_quantity": 0
+            "price": 909000,
+            "stock": "instock",
+            "stock_quantity": 4
         },
         "101103 - XTH-700": {
             "intcomexSku": "MM221XTK15",
@@ -112,19 +112,19 @@
         },
         "101105 - KMO-505": {
             "intcomexSku": "ID011KLX15",
-            "price": 44000,
+            "price": 43000,
             "stock": "outofstock",
             "stock_quantity": 0
         },
         "101106 - JBLGO3BLUAM": {
             "intcomexSku": "MM902JBL74",
-            "price": 157000,
+            "price": 161000,
             "stock": "instock",
             "stock_quantity": 20
         },
         "101107 - JBLCLIP4BLKAM": {
             "intcomexSku": "MM903JBL01",
-            "price": 278000,
+            "price": 277000,
             "stock": "instock",
             "stock_quantity": 20
         },
@@ -142,7 +142,7 @@
         },
         "101113 - XTH-545": {
             "intcomexSku": "MM221XTK35",
-            "price": 64000,
+            "price": 63000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 20
@@ -205,10 +205,10 @@
         },
         "601024 - NHC-I7102PK": {
             "intcomexSku": "MM106NXT47",
-            "price": 143000,
-            "stock": "outofstock",
+            "price": 142000,
+            "stock": "instock",
             "availability": true,
-            "stock_quantity": 0
+            "stock_quantity": 20
         },
         "601025 - NHC-B100": {
             "intcomexSku": "MM106NXT67",

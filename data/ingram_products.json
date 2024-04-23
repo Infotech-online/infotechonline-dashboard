@@ -79,7 +79,7 @@
         },
         "101095 - 40CLTSCAM1": {
             "ingramSku": "5733175",
-            "price": 2020000,
+            "price": 2014000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
@@ -233,7 +233,7 @@
             "price": 539000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 1308
+            "stock_quantity": 1304
         },
         "301011 - 64V81AA#ABA": {
             "ingramSku": "5698998",
@@ -254,7 +254,7 @@
             "price": 898000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 78
+            "stock_quantity": 77
         },
         "301015 - 29WP500-B.AWP": {
             "ingramSku": "5217101",
@@ -400,7 +400,7 @@
         },
         "401039 - 6Q4H7LT#ABM": {
             "ingramSku": "5730163",
-            "price": 6949000,
+            "price": 6927000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0

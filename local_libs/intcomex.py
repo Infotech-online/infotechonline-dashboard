@@ -51,7 +51,7 @@ class intcomexConnection():
     
     def get_sku_list(self):
 
-        with open('intcomex_products.json') as f:
+        with open('data/intcomex_products.json') as f:
             products_data = json.load(f)
 
         sku_list = []
