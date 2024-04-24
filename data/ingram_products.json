@@ -5,7 +5,7 @@
             "price": 989000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 46
+            "stock_quantity": 45
         },
         "101002 - MV7N2BE/A": {
             "ingramSku": "4487567",
@@ -26,18 +26,18 @@
             "price": 295000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 129
+            "stock_quantity": 122
         },
         "101008 - 960-001515": {
             "ingramSku": "5737009",
-            "price": 589000,
+            "price": 587000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
         },
         "101009 - 960-001401": {
             "ingramSku": "5736938",
-            "price": 346000,
+            "price": 345000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
@@ -79,7 +79,7 @@
         },
         "101095 - 40CLTSCAM1": {
             "ingramSku": "5733175",
-            "price": 2014000,
+            "price": 2006000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
@@ -89,7 +89,7 @@
             "price": 49000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 155
+            "stock_quantity": 159
         },
         "101112 - MTJV3AM/A": {
             "ingramSku": "5923989",
@@ -102,21 +102,21 @@
     "impresoras": {
         "201001 - C11CJ68301": {
             "ingramSku": "5276303",
-            "price": 973000,
+            "price": 954000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 486
         },
         "201002 - C11CJ88301": {
             "ingramSku": "5338224",
-            "price": 2440000,
+            "price": 2436000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
         },
         "201003 - C11CD76303": {
             "ingramSku": "5276297",
-            "price": 579000,
+            "price": 578000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 140
@@ -126,7 +126,7 @@
             "price": 1567000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 3
+            "stock_quantity": 2
         },
         "201005 - 4055C002AA": {
             "ingramSku": "5602147",
@@ -154,7 +154,7 @@
             "price": 3363000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 7
+            "stock_quantity": 6
         },
         "201009 - C11CK23301": {
             "ingramSku": "5830318",
@@ -177,14 +177,14 @@
             "price": 646000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 217
+            "stock_quantity": 216
         },
         "301002 - P2222H": {
             "ingramSku": "5224155",
             "price": 753000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 246
+            "stock_quantity": 243
         },
         "301003": {
             "ingramSku": "5698999",
@@ -209,14 +209,14 @@
         },
         "301007 - VA2747-MH": {
             "ingramSku": "5173236",
-            "price": 796000,
+            "price": 793000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
         },
         "301008 - VX2768-PC-MHD": {
             "ingramSku": "4996616",
-            "price": 1460000,
+            "price": 1455000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
@@ -233,7 +233,7 @@
             "price": 539000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 1304
+            "stock_quantity": 1279
         },
         "301011 - 64V81AA#ABA": {
             "ingramSku": "5698998",
@@ -247,21 +247,21 @@
             "price": 735000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 207
+            "stock_quantity": 178
         },
         "301014 - P2422H": {
             "ingramSku": "5224156",
             "price": 898000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 77
+            "stock_quantity": 71
         },
         "301015 - 29WP500-B.AWP": {
             "ingramSku": "5217101",
             "price": 916000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 23
+            "stock_quantity": 16
         },
         "301016 - VG2440V": {
             "ingramSku": "5115211",
@@ -289,7 +289,7 @@
             "price": 537000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 1205
+            "stock_quantity": 1193
         },
         "301020 - 62F7KAR4LA": {
             "ingramSku": "5551300",
@@ -340,7 +340,7 @@
             "price": 1761000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 112
+            "stock_quantity": 110
         },
         "401024 - 11LC0011LS": {
             "ingramSku": "5087294",
@@ -351,7 +351,7 @@
         },
         "401044 - WYNX7": {
             "ingramSku": "5925074",
-            "price": 3271000,
+            "price": 3259000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
@@ -389,7 +389,7 @@
             "price": 3700000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 198
+            "stock_quantity": 196
         },
         "401038 - 3000138667742": {
             "ingramSku": "5686759",
@@ -400,7 +400,7 @@
         },
         "401039 - 6Q4H7LT#ABM": {
             "ingramSku": "5730163",
-            "price": 6927000,
+            "price": 6901000,
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
@@ -410,7 +410,7 @@
             "price": 2248000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 42
+            "stock_quantity": 41
         },
         "401036 - 12B6001MLS": {
             "ingramSku": "5929704",
@@ -510,7 +510,7 @@
             "price": 3553000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 578
+            "stock_quantity": 567
         },
         "401045 - 90NX05V1-M02N70": {
             "ingramSku": "5883884",
@@ -552,7 +552,7 @@
             "price": 1449000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 204
+            "stock_quantity": 194
         },
         "401052 - 90NX05V1-M02XU0": {
             "ingramSku": "5883945",
@@ -582,7 +582,7 @@
             "price": 3735000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 13
+            "stock_quantity": 11
         },
         "501002 - V11H981020": {
             "ingramSku": "4991237",
@@ -617,7 +617,7 @@
         },
         "701008 - PAU60045CO": {
             "ingramSku": "5567506",
-            "price": 564000,
+            "price": 551000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 847
@@ -669,7 +669,7 @@
             "price": 683000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 186
+            "stock_quantity": 184
         },
         "701023 - MPUF3BE/A": {
             "ingramSku": "5625720",
@@ -694,14 +694,14 @@
         },
         "701026 - SM-A042MZKDLTC": {
             "ingramSku": "5706964",
-            "price": 365000,
+            "price": 317000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 4633
         },
         " 701027 - SM-A042MLBDLTC": {
             "ingramSku": "5706962",
-            "price": 365000,
+            "price": 317000,
             "stock": "instock",
             "availability": true,
             "stock_quantity": 2545
@@ -762,7 +762,7 @@
             "price": 1488000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 338
+            "stock_quantity": 332
         },
         "801023 - UN50CU7000KXZL": {
             "ingramSku": "5786069",
@@ -783,7 +783,7 @@
             "price": 2067000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 150
+            "stock_quantity": 149
         },
         "801026 - 43UR781C0SB": {
             "ingramSku": "5941473",

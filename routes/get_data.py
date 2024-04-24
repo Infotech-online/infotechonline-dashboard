@@ -19,17 +19,17 @@ intcomex = intcomexConnection() # Intcomex Connection
 woo = wooConnection() # Woocommerce connection
 
 # Blueprint
-get_data_bp = Blueprint('get_data', __name__)
+get_data_blueprint = Blueprint('get_data_blueprint', __name__)
 
 # Ruta principal
-@get_data_bp.route('/')
+@get_data_blueprint.route('/')
 def dashboard():
 
     # Se retorna el template del dashboard
     return render_template("dashboard.html")
 
 # Obtener datos locales mediante POST
-@get_data_bp.route('/local-data', methods=["POST"])
+@get_data_blueprint.route('/local-data', methods=["POST"])
 def infotech_data():
     
     """

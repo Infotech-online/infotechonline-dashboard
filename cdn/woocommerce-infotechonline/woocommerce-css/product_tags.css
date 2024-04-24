@@ -1,0 +1,90 @@
+
+/* Fix product image size */
+/*
+@media only screen and (min-width: 1024px) {
+    .attachment-woocommerce_thumbnail {
+        width: 228.8px !important;
+        height: 228.8px !important;
+    }
+}*/
+
+@media only screen and (max-width: 782px) {
+
+    /* For mobile phones: */
+    .shop-filter-content_container {
+        display: none;
+    }
+}
+
+.product {
+    overflow: hidden;
+}
+
+
+/* Tags */
+.offer-tag {
+    border-radius: 8px;
+    background-color: #F6EC42;
+    color: #000000;
+    top: 20px;
+    left: 20px;
+    position: absolute !important;
+    padding: 5px 8px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    width: 45px;
+    height: 20px;
+    max-height: 29.2px;
+}
+
+.brand-tag {
+    top: -30px; /* This is for the animation */
+    position: absolute;
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 8px;
+    border: 2px solid #DEDEDE;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    max-width: 75px;
+    height: calc(20px - 4px);
+    overflow: hidden;
+}
+
+.brand-tag {
+    white-space: nowrap;
+}
+
+.inches-tag {
+    top: 20px;
+    position: absolute;
+    padding: 5px 8px;
+    font-size: 13px;
+    border-radius: 8px;
+    border: 2px solid #DEDEDE;
+    background-color: white;
+    color: #00162A;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(20px - 4px);
+}
+
+.first-tag {
+    left: 20px;
+}
+
+.second-tag {
+    left: 90px;
+}
+
+.third-tag {
+    left: 160px;
+}
+
+
+
+

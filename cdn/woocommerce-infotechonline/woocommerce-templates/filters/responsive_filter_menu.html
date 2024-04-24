@@ -1,0 +1,79 @@
+<style>
+/* Filter menu button */
+.filter-menu_button {
+color: rgb(255, 255, 255);
+display: none;
+align-items: center;
+justify-content: space-between;
+width: 70px;
+background-color: #60af48;
+border-radius: 8px;
+padding: 10px;
+font-weight: bold;
+cursor: pointer;
+margin-bottom: 20px;
+transition-duration: 0.3s;
+}
+.filter-menu_button:hover {
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.filter-icon_ionicon {
+color: white;
+font-size: 17px;
+}
+@media only screen and (max-width: 768px) {
+/* For mobile phones: */
+.filter-menu_button {
+display: flex;
+}
+}
+/* Hidden menu */
+.hidden-menu-content_container {
+display: none;
+flex-direction: column;
+top: 0;
+height: 100vh;
+z-index: 10;
+margin: 0;
+position: fixed;
+padding: 20px;
+background-color: #F7F7F7;
+width: calc(100vw - 40px);
+overflow: auto;
+}
+.hidden-menu-header_container {
+width: 100%;
+display: flex;
+justify-content: end;
+font-size: 30px;
+}
+@media only screen and (max-width: 768px) {
+/* For mobile phones: */
+.hidden-menu-content_container {
+display: flex;
+}
+.hidden-menu-content_container {
+display: flex;
+}
+}
+</style>
+<div class="content">
+    <span class="filter-menu_button"><ion-icon class="filter-icon_ionicon" name="filter-outline"></ion-icon>Filtros</span>
+</div>
+<div class="hidden-menu-content_container">
+    <div class="hidden-menu-header_container">
+        <div class="close_button">
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
+    </div>
+    <div class="hidden-menu_content">
+        <!-- Filter Content -->
+    </div>
+</div>
+<div style="display: none">
+<!-- Scripts -->
+<script src="https://jgallego.pythonanywhere.com/cdn/woocommerce-infotechonline/woocommerce-js/anime-js/anime.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://jgallego.pythonanywhere.com/cdn/woocommerce-infotechonline/woocommerce-js/filters/hidden_filter_menu.js"></script>
+</div>

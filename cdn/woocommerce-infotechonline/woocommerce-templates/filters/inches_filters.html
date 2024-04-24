@@ -1,0 +1,121 @@
+<style>
+/* Filter content container */
+.min-max-filter_container {
+border-radius: 8px;
+background-color: #f0f0f0;
+padding: 10px;
+transition-duration: 0.3s;
+}
+.min-max-filter_container:hover {
+box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+.min-max-filter_container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.min-max-filter_container input {
+border-radius: 8px;
+outline: none;
+border: 2px solid rgb(230, 230, 230);
+padding: 5px;
+max-width: 60px;
+transition-duration: 0.3s;
+outline: none;
+&:focus {
+outline: none;
+border: 2px solid #60af48;
+}
+&:active {
+outline: none;
+border: 2px solid #60af48;
+}
+}
+.min-max-filter_container input:hover {
+border: 2px solid #60af48;
+}
+.min-filter_container,
+.max-filter_container {
+display: flex;
+flex-direction: column;
+}
+.min-filter_container {
+margin-right: 10px;
+}
+.max-filter_container {
+margin-left: 10px;
+}
+.min-filter_container label,
+.max-filter_container label {
+font-size: 12px;
+color: #6b6b6b;
+}
+.inches-filter_container {
+display: none;
+flex-direction: column;
+max-width: 200px;
+}
+.inches_title {
+display: none;
+}
+.inches-filter_container br {
+display: none;
+}
+.inches-tag-filter_container {
+display: grid;
+grid-gap: 5px;
+grid-template-columns: 40px 40px 40px 40px;
+}
+.inches-tag-filter_container span {
+border: 2px solid #DEDEDE;
+border-radius: 8px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 14px;
+transition-duration: 0.3s;
+cursor: pointer;
+color: #5F5F5F;
+}
+.inches-tag-filter_container span:hover {
+border: 2px solid #60af48;
+color: black;
+}
+.inches-tag-filter_container .onrange {
+border: 2px solid #9CE087;
+}
+.inches-tag-filter_container .selected {
+border: 2px solid #60af48;
+}
+.inches-tag-filter_title {
+padding-top: 15px;
+margin-bottom: 10px;
+color: #6b6b6b;
+}
+</style>
+
+<h3 class="filter-template_title inches_title">Pulgadas</h3>
+<div class="inches-filter_container">
+    <div class="min-max-filter_container">
+
+        <div class="min-filter_container">
+            <label for="" class="min-inches_label">Mínimo</label>
+            <input type="number" class="min-inches_input" placeholder="Min">
+        </div>
+        <span>-</span>
+        <div class="max-filter_container">
+            <label for="" class="max-inches_label">Máximo</label>
+            <input type="number" class="max-inches_input" placeholder="Max">
+        </div>
+
+    </div>
+
+    <div class='inches-tag-filter_title'><span>Seleccionar rango</span></div>
+    <div class='inches-tag-filter_container'>
+        <!--<span>32"</span>-->
+    </div>
+
+
+
+
+</div>

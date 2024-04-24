@@ -1,0 +1,62 @@
+<style>
+.category_list {
+margin: 0;
+}
+.category_list__item {
+list-style-type: none;
+margin: 15px 0px 5px;
+cursor: pointer;
+color: black;
+transition-duration: 0.2s;
+width: 200px;
+}
+.category_list__item:hover .nav__link {
+color: #60af48;
+}
+.category_list__button {
+display: flex;
+height: 22.5px;
+justify-content: space-between;
+align-content: center;
+}
+.list__show {
+border-left: 3px solid #60af48;
+margin-left: 20px;
+margin-top: 15px;
+height: 0;
+transition: height .3s;
+overflow: hidden;
+}
+.arrow .list_arrow {
+transform: rotate(90deg);
+}
+.list_arrow {
+transition: transform .3s;
+}
+.list__inside {
+padding: 15px 0 5px 0;
+}
+.list__inside span {
+padding-left: 10px;
+}
+.list__inside:hover {
+color: #60af48;
+}
+.category_title {
+display: flex;
+}
+</style>
+
+<div style='margin-top: 40px'>
+
+    <h3 class='filter-template_title'>Categorias</h3>
+
+    <div class='category_nav'>
+        <div class='category_list' style='margin-top: 40px'>
+
+        </div>
+    </div>
+</div>
+
+<script src='https://jgallego.pythonanywhere.com/cdn/woocommerce-infotechonline/woocommerce-js/filters/animations.js'></script>
+<script src='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js'></script>

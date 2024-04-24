@@ -19,7 +19,7 @@ intcomex = intcomexConnection() # Intcomex Connection
 woo = wooConnection() # Woocommerce connection
 
 # Blueprint
-update_products_bp = Blueprint('update_products', __name__)
+update_products_blueprint = Blueprint('update_products_blueprint', __name__)
 
 # Variables de reglas contables
 
@@ -34,7 +34,7 @@ proximo año.
 UVT = 47065 # Valor del UVT (Año 2024)
 
 # Añadir o enlazar un nuevo producto a la base de datos local (archivos JSON)
-@update_products_bp.route('/add-product', methods=["POST"])
+@update_products_blueprint.route('/add-product', methods=["POST"])
 def add_product():
 
     """
@@ -121,7 +121,7 @@ def add_product():
             return json.dumps({'success':False}), 400, {'ContentType':'application/json'}
 
 # Actualizar los precios de los productos de Ingram
-@update_products_bp.route('/ingram-update', methods=["POST"])
+@update_products_blueprint.route('/ingram-update', methods=["POST"])
 def ingram_update():
 
     """
@@ -321,7 +321,7 @@ def ingram_update():
         return json.dumps({'success':False}), 400, {'ContentType':'application/json'}
 
 # Actualizar los precios de los productos de Ingram
-@update_products_bp.route('/intcomex-update', methods=["POST"])
+@update_products_blueprint.route('/intcomex-update', methods=["POST"])
 def intcomex_update():
 
     """
@@ -557,7 +557,7 @@ def intcomex_update():
         # Se retorna un mensaje de Success
         return json.dumps({'success':True}), 200, {'ContentType':'application/json'}  # Return success
     
-@update_products_bp.route('/get-increment-list')
+@update_products_blueprint.route('/get-increment-list')
 def price_profit_correction():
 
     """
@@ -732,7 +732,7 @@ def price_profit_correction():
 
     return logs_data
 
-@update_products_bp.route('/update-with-increment-list')
+@update_products_blueprint.route('/update-with-increment-list')
 def update_with_increment_list():
 
     # Se guarda el registro dentro de "logs.json"
@@ -764,7 +764,7 @@ def update_with_increment_list():
     return "finished"
 
 # Redondear precios de los productos
-@update_products_bp.route("/round-up-prices")
+@update_products_blueprint.route("/round-up-prices")
 def round_up_prices():
 
     """

@@ -13,14 +13,14 @@ intcomex = intcomexConnection() # Intcomex Connection
 woo = wooConnection() # Woocommerce connection
 
 # Blueprint
-debugging_bp = Blueprint('debugging', __name__)
+debugging_blueprint = Blueprint('debugging', __name__)
 
 """
 Visualización de datos ----------------------------------------------------------------------------------------------------
 Estas peticiones se utilizan para hacer Debugging y observar datos en formato JSON
 """
 
-@debugging_bp.route('/logs')
+@debugging_blueprint.route('/logs')
 def logs():
 
     with open('logs.json') as f:
@@ -28,12 +28,12 @@ def logs():
 
     return logs_data
 
-@debugging_bp.route('/producto/<id>')
+@debugging_blueprint.route('/producto/<id>')
 def inspeccionar_producto(id):
 
     return woo.mconsult().get(f"products/{id}").json()  # WooCommerce Product
 
-@debugging_bp.route('/get-categories')
+@debugging_blueprint.route('/get-categories')
 def get_categories():
 
     categories = woo.mconsult().get(f"products/categories", params={'per_page': 100}).json()
@@ -44,7 +44,7 @@ def get_categories():
         
     return cats_short  # WooCommerce Product
 
-@debugging_bp.route("/intcomex-products")
+@debugging_blueprint.route("/intcomex-products")
 def intcomex_products():
 
     # return intcomex.get_current_products()
@@ -52,12 +52,12 @@ def intcomex_products():
     # return intcomex.get_single_product("MM106NXT69")
     return intcomex.get_current_products()[1]
 
-@debugging_bp.route("/ingram-products")
+@debugging_blueprint.route("/ingram-products")
 def ingram_products():
 
     return ingram.get_products()[0]
 
-@debugging_bp.route("/woo-products")
+@debugging_blueprint.route("/woo-products")
 def wordpress_products():
 
     # return woo.get_all_prods()
@@ -65,17 +65,17 @@ def wordpress_products():
     product = woo.mconsult().get("products", params={'sku': "601009", 'per_page': 1}).json()
     return product
 
-@debugging_bp.route("/woo-imgs")
+@debugging_blueprint.route("/woo-imgs")
 def wordpress_imgs():
 
     return woo.get_all_imgs()
 
-@debugging_bp.route("/woocommerce-templates")
+@debugging_blueprint.route("/woocommerce-templates")
 def woocommerce_templates():
 
     return render_template("woocommerce.html")
 
-@debugging_bp.route('/prices')
+@debugging_blueprint.route('/prices')
 def prices():
 
     return ingram.return_all_prices()

@@ -1,17 +1,32 @@
 from flask import Flask
+from flask_mail import Mail, Message
+from flask_cors import CORS
+from routes import create_routes_blueprint
+from config import config
 
-# Se inicializa la App de Flask
-app = Flask(__name__, template_folder='templates', static_folder='static')
+def create_app(env):
 
-# Se importan las Blueprints
-from routes.get_data import get_data_bp
-from routes.update_products import update_products_bp
-from routes.debugging import debugging_bp
+    # Se inicializa la App de Flask
+    app = Flask(__name__, template_folder='templates', static_folder='static')
+    
+    # Session vars
+    app.secret_key = "super secret key"
 
-# Se cargan los Blueprints
-app.register_blueprint(get_data_bp)
-app.register_blueprint(update_products_bp)
-app.register_blueprint(debugging_bp)
+    # CORS
+    CORS(app, resources={r"/*": {"origins": "https://infotechonline.co"}})
+
+    # Config Data
+    app.config.from_object(config[env])
+    
+    # Configuracion del SMTP
+    mail = Mail(app)
+
+    # Registra el Blueprint de rutas en la aplicación
+    app.register_blueprint(create_routes_blueprint(mail))
+
+    return app
+
+app = create_app('development')
 
 # Se inicializa el programa
 if __name__ == '__main__':
