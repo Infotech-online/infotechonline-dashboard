@@ -7,7 +7,6 @@ env/
 venv/
 .venv/
 env*
-dist/
 build/
 *.egg
 *.egg-info/
