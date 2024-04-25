@@ -105,7 +105,7 @@ class ingramConnection():
         sku_list = []
 
         # Se abre el archivo "ingram_products.json"
-        with open('data/ingram_products.json') as f:
+        with open(f'{project_folder}/data/ingram_products.json') as f:
             products_data = json.load(f)
 
         # Por cada categoría dentro del archivo "ingram_products.json"
