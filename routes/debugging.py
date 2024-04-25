@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
 import json
+import os
 
 # Librerias locales
 from local_libs.ingram import ingramConnection
@@ -15,6 +16,9 @@ woo = wooConnection() # Woocommerce connection
 # Blueprint
 debugging_blueprint = Blueprint('debugging', __name__)
 
+# Ruta de la carpeta principal
+project_folder = os.path.abspath(os.getcwd())
+
 """
 Visualización de datos ----------------------------------------------------------------------------------------------------
 Estas peticiones se utilizan para hacer Debugging y observar datos en formato JSON
@@ -23,7 +27,7 @@ Estas peticiones se utilizan para hacer Debugging y observar datos en formato JS
 @debugging_blueprint.route('/logs')
 def logs():
 
-    with open('logs.json') as f:
+    with open(f'{project_folder}/data/logs.json') as f:
         logs_data = json.load(f)
 
     return logs_data

@@ -233,7 +233,7 @@
             "price": 539000,
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 1272
+            "stock_quantity": 1268
         },
         "301011 - 64V81AA#ABA": {
             "ingramSku": "5698998",
@@ -805,7 +805,7 @@
     "memorias-ram": {
         "1001003 - KCP548SS8-16": {
             "ingramSku": "5751604",
-            "price": 280000,
+            "price": "280000",
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0

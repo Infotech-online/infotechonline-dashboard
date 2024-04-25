@@ -1,9 +1,10 @@
 from woocommerce import API
-from dotenv import dotenv_values
-import json
+from dotenv import load_dotenv
+import os
 
 # Variables de entorno
-env = dotenv_values(".env")
+project_folder = os.path.abspath(os.getcwd())
+load_dotenv(os.path.join(project_folder, '.env'))
 
 class wooConnection():
 
@@ -11,10 +12,10 @@ class wooConnection():
 
         # Credenciales de la API de Woocommerce
         self.wc = API(
-            url=env["URL"],
-            consumer_key=env['CONSUMER_KEY'],
-            consumer_secret=env['CONSUMER_SECRET'],
-            version="wc/v3"
+            url = os.getenv("URL"),
+            consumer_key = os.getenv('CONSUMER_KEY'),
+            consumer_secret = os.getenv('CONSUMER_SECRET'),
+            version = "wc/v3"
         )
 
     # Obtener un producto con el SKU de la tienda en formato JSON

@@ -1,16 +1,18 @@
-from dotenv import dotenv_values
+from dotenv import load_dotenv
+import os
 
 # Variables de entorno
-env = dotenv_values(".env")
+project_folder = os.path.expanduser('~/infotechonline-dashboard')
+load_dotenv(os.path.join(project_folder, '.env'))
 
 class Config:
     DEBUG = False
     TESTING = False
-    MAIL_SERVER = env["MAIL_SERVER"]
+    MAIL_SERVER = os.getenv("MAIL_SERVER")
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = env["MAIL_USERNAME"] # Tu dirección de correo electrónico
-    MAIL_PASSWORD =  env["MAIL_PASSWORD"] # Tu contraseña de aplicación generada para acceso desde apps externas
+    MAIL_USERNAME = os.getenv("MAIL_USERNAME") # Tu dirección de correo electrónico
+    MAIL_PASSWORD =  os.getenv("MAIL_PASSWORD") # Tu contraseña de aplicación generada para acceso desde apps externas
 
 class DevelopmentConfig(Config):
     DEBUG = True

@@ -125,8 +125,8 @@
         "101107 - JBLCLIP4BLKAM": {
             "intcomexSku": "MM903JBL01",
             "price": 276000,
-            "stock": "instock",
-            "stock_quantity": 12
+            "stock": "outofstock",
+            "stock_quantity": 0
         },
         " 101108 - JBLFLIP6BLUAM": {
             "intcomexSku": "MM903JBL63-B1",

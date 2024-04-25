@@ -1,9 +1,14 @@
 import json
 from datetime import datetime
+import os
 
 class logRecorder():
 
     def __init__(self):
+
+        # Ubicacion de archivos de Logs
+        project_folder = os.path.abspath(os.getcwd())
+        self.logs_file = f"{project_folder}/data/logs.json"
 
         # Se inicializa la funcion get_all_logs
         self.logs_data = self.get_all_logs()
@@ -16,7 +21,7 @@ class logRecorder():
     def get_all_logs(self):
 
         # Obtener datos de registros de actualizaciónes
-        with open('data/logs.json') as f:
+        with open(self.logs_file) as f:
             logs_data = json.load(f)
 
         return logs_data
@@ -93,7 +98,7 @@ class logRecorder():
     def add_new_update_log(self):
 
         # Se guardan los registros dentro de "logs.json"
-        with open('data/logs.json') as f:
+        with open(self.logs_file) as f:
 
             logs_data = json.load(f)
             logs_data_list = logs_data["logs"]
@@ -117,13 +122,13 @@ class logRecorder():
             log = json.dumps(logs_data, indent=4)
         
         # Se escriben los datos dentro del archivo
-        with open('data/logs.json', 'w') as file:
+        with open(self.logs_file, 'w') as file:
             file.write(log)
 
     def add_new_product_log(self, woo_product_id, product_sku, part_number, stock, price):
 
         # Se guarda el registro dentro de "logs.json"
-        with open('data/logs.json') as f:
+        with open(self.logs_file) as f:
 
             logs_data = json.load(f)
             logs_data_list = logs_data["logs"]
@@ -148,7 +153,7 @@ class logRecorder():
             log = json.dumps(logs_data, indent=4)
 
         # Se escribe el nuevo Log
-        with open('data/logs.json', 'w') as file:
+        with open(self.logs_file, 'w') as file:
             file.write(log)
 
 

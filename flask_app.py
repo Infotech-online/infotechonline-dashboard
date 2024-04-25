@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_mail import Mail, Message
+from flask_mail import Mail
 from flask_cors import CORS
 from routes import create_routes_blueprint
 from config import config

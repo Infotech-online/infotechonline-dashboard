@@ -1,12 +1,7 @@
 from flask import request, Blueprint, jsonify, current_app
 import base64
 import os
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.mime.base import MIMEBase
-from email import encoders
-from flask_mail import Mail, Message
+from flask_mail import Message
 
 # Blueprint
 email_blueprint = Blueprint('email_blueprint', __name__)

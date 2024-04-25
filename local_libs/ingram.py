@@ -1,10 +1,12 @@
 import requests
 import json
-from dotenv import dotenv_values
 import time
+from dotenv import load_dotenv
+import os
 
-# Env Vars
-env = dotenv_values(".env")
+# Variables de entorno
+project_folder = os.path.abspath(os.getcwd())
+load_dotenv(os.path.join(project_folder, '.env'))
 
 class ingramConnection():
 
@@ -15,14 +17,14 @@ class ingramConnection():
     def __init__(self):
 
         # Archivos
-        self.ingram_products_file = 'data/ingram_products.json'
-        self.logs_file = 'data/logs.json'
-        self.tokens_file = 'data/tokens.json'
+        self.ingram_products_file = f'{project_folder}/data/ingram_products.json'
+        self.logs_file = f'{project_folder}/data/logs.json'
+        self.tokens_file = f'{project_folder}/data/tokens.json'
 
         # Credenciales
-        self.client_id = env["INGRAM_CLIENT_ID"]
-        self.client_secret = env["INGRAM_CLIENT_SECRET"]
-        self.customer_number = env["INGRAM_CUSTOMER_NUMBER"]
+        self.client_id = os.getenv("INGRAM_CLIENT_ID")
+        self.client_secret = os.getenv("INGRAM_CLIENT_SECRET")
+        self.customer_number = os.getenv("INGRAM_CUSTOMER_NUMBER")
 
         # URL de las APIs
         self.token_url = f'https://api.ingrammicro.com:443/oauth/oauth20/token?grant_type=client_credentials&client_id={self.client_id}&client_secret={self.client_secret}'

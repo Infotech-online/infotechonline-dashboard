@@ -1,22 +1,24 @@
 import requests
 import json
-from dotenv import dotenv_values
-import time
 import hashlib
 import datetime
 import traceback
 
+from dotenv import load_dotenv
+import os
+
 # Variables de entorno
-env = dotenv_values(".env")
+project_folder = os.path.abspath(os.getcwd())
+load_dotenv(os.path.join(project_folder, '.env'))
 
 class intcomexConnection():
 
     def __init__(self):
 
         # Archivos utilizados para almacenar datos
-        self.intcomex_products_file = "intcomex_products.json"
-        self.logs_file = "data/logs.json"
-        self.tokens_file = "data/tokens.json"
+        self.intcomex_products_file = f"{project_folder}/data/intcomex_products.json"
+        self.logs_file = f"{project_folder}/data/logs.json"
+        self.tokens_file = f"{project_folder}/data/tokens.json"
 
         # Modo de funcionamiento la API
         self.mode = "Prod" # Variable que define el modo de la API
@@ -25,15 +27,15 @@ class intcomexConnection():
 
         if self.mode == "Prod":
             # Credenciales de la API (MODO PRODUCCIÓN)
-            self.url = env["INTCOMEX_PROD_URL"]
-            self.api_key = env["INTCOMEX_PROD_API_KEY"]
-            self.access_key = env["INTCOMEX_PROD_ACCESS_KEY"]
+            self.url = os.getenv("INTCOMEX_PROD_URL")
+            self.api_key = os.getenv("INTCOMEX_PROD_API_KEY")
+            self.access_key = os.getenv("INTCOMEX_PROD_ACCESS_KEY")
 
         elif self.mode == "Test":
             # Credenciales de la API (MODO TEST)
-            self.url = env["INTCOMEX_TEST_URL"]
-            self.api_key = env["INTCOMEX_TEST_API_KEY"]
-            self.access_key = env["INTCOMEX_TEST_ACCESS_KEY"]
+            self.url = os.getenv("INTCOMEX_TEST_URL")
+            self.api_key = os.getenv("INTCOMEX_TEST_API_KEY")
+            self.access_key = os.getenv("INTCOMEX_TEST_ACCESS_KEY")
 
     def generate_signature(self):
         
@@ -51,7 +53,7 @@ class intcomexConnection():
     
     def get_sku_list(self):
 
-        with open('data/intcomex_products.json') as f:
+        with open(self.intcomex_products_file) as f:
             products_data = json.load(f)
 
         sku_list = []

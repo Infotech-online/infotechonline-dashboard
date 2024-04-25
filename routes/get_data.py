@@ -1,11 +1,6 @@
-from flask import Flask, Blueprint, request, render_template, session, url_for, redirect, send_file
-from dotenv import dotenv_values
-import time
-from datetime import datetime
+from flask import Blueprint, request, render_template
 import json
 import os
-import math
-import random
 
 # Librerias locales
 from local_libs.ingram import ingramConnection
@@ -20,6 +15,9 @@ woo = wooConnection() # Woocommerce connection
 
 # Blueprint
 get_data_blueprint = Blueprint('get_data_blueprint', __name__)
+
+# Ruta de la carpeta principal
+project_folder = os.path.abspath(os.getcwd())
 
 # Ruta principal
 @get_data_blueprint.route('/')
@@ -48,7 +46,7 @@ def infotech_data():
         products = woo.get_all_prods(int(page))
 
         # Obtener las imagenes de los productos almacenadas en "products_imgs.json"
-        with open('data/products_imgs.json') as f:
+        with open(f'{project_folder}/data/products_imgs.json') as f:
             imgs = json.load(f)
 
         # Obtener datos de registros de actualizaciónes

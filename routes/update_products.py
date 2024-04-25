@@ -1,7 +1,5 @@
-from flask import Flask, Blueprint, request, render_template, session, url_for, redirect, send_file
-from dotenv import dotenv_values
+from flask import Blueprint, request
 import time
-from datetime import datetime
 import json
 import os
 import math
@@ -33,6 +31,9 @@ proximo año.
 """
 UVT = 47065 # Valor del UVT (Año 2024)
 
+# Ruta de la carpeta principal
+project_folder = os.path.abspath(os.getcwd())
+
 # Añadir o enlazar un nuevo producto a la base de datos local (archivos JSON)
 @update_products_blueprint.route('/add-product', methods=["POST"])
 def add_product():
@@ -58,7 +59,7 @@ def add_product():
         try:
 
             # Se abre el archivo de los productos del proveedor
-            with open(f'{provider}_products.json') as f:
+            with open(f'{project_folder}/data/{provider}_products.json') as f:
                 products_data = json.load(f)
 
             # Se obtiene el producto de Woocommerce
@@ -100,7 +101,7 @@ def add_product():
             product = json.dumps(products_data, indent=4)
 
             # Se escriben los cambios
-            with open(f'{provider}_products.json', 'w') as f:
+            with open(f'{project_folder}/data/{provider}_products.json', 'w') as f:
                 f.write(product)
 
             # Se guarda el registro dentro de "logs.json"
@@ -136,7 +137,7 @@ def ingram_update():
         print(init_time)
 
         # Se abre el archivo "ingram_products.json"
-        with open('data/ingram_products.json') as f:
+        with open(f'{project_folder}/data/ingram_products.json') as f:
             products_data = json.load(f)
 
         # Datos del nuevo Log o registro de la actualización
@@ -292,7 +293,7 @@ def ingram_update():
                         upd_product = json.dumps(products_data, indent=4)
 
                         # Se escriben los cambios dentro de "ingram_products.json"
-                        with open('data/ingram_products.json', 'w') as file:
+                        with open(f'{project_folder}/data/ingram_products.json', 'w') as file:
                             file.write(upd_product)
                     except:
 
@@ -336,7 +337,7 @@ def intcomex_update():
         print(init_time)
 
         # Se abre el archivo "intcomex_products.json"
-        with open('data/intcomex_products.json') as f:
+        with open(f'{project_folder}/data/intcomex_products.json') as f:
             products_data = json.load(f)
 
         # Se inicializan las variables que almacenaran los datos de los registros o Logs
@@ -519,7 +520,7 @@ def intcomex_update():
                     upd_product = json.dumps(products_data, indent=4)
 
                     # Se escriben los cambios dentro de "intcomex_products.json"
-                    with open('data/intcomex_products.json', 'w') as file:
+                    with open(f'{project_folder}/data/intcomex_products.json', 'w') as file:
                         file.write(upd_product)
 
                 else:
@@ -692,7 +693,7 @@ def price_profit_correction():
                 new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
 
             # Se guarda el registro dentro de "logs.json"
-            with open('product_prices.json') as f:
+            with open(f'{project_folder}/data/product_prices.json') as f:
 
                 logs_data = json.load(f)
                 logs_data_list = logs_data
@@ -724,10 +725,10 @@ def price_profit_correction():
                 log = json.dumps(logs_data, indent=4)
 
             # Se escribe el nuevo Log
-            with open('product_prices.json', 'w') as file:
+            with open(f'{project_folder}/data/product_prices.json', 'w') as file:
                 file.write(log)
 
-    with open('product_prices.json') as f:
+    with open(f'{project_folder}/data/product_prices.json') as f:
         logs_data = json.load(f)
 
     return logs_data
@@ -736,7 +737,7 @@ def price_profit_correction():
 def update_with_increment_list():
 
     # Se guarda el registro dentro de "logs.json"
-    with open('product_prices.json') as f:
+    with open(f'{project_folder}/data/product_prices.json') as f:
 
         logs_data = json.load(f)
         product_list = logs_data
