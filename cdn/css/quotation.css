@@ -1,0 +1,64 @@
+
+/* CONTENT */
+
+body {
+    background-color: #494949;
+    margin: 0;
+}
+
+.quotation-header {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quotation-header p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    font-size: 13px;
+}
+
+.address-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.quotation_page {
+    width: calc(827px - 70px);
+    /* max-height: calc(1054px - 20px); */
+    background-color: rgb(255, 255, 255);
+    padding: 10px 35px;
+    margin-bottom: 20px;
+}
+
+.content {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0 20px 0;
+}
+
+.quotation-details_table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: calc(827px - 70px);
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 13px;
+}
+
+.quotation-details_table td#item-title {
+    text-align: left;
+}
+
+.quotation-details_table td {
+    padding: 3px;
+    text-align: justify;
+    border: 1px solid gray;
+    text-align: center;
+}
