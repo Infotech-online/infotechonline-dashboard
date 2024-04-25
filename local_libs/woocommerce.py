@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 import os
 
 # Variables de entorno
-project_folder = os.path.abspath(os.getcwd())
+project_folder = os.path.abspath(os.getcwd()) # Desarrollo
+# project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
 load_dotenv(os.path.join(project_folder, '.env'))
 
 class wooConnection():

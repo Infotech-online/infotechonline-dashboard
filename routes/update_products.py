@@ -33,6 +33,7 @@ UVT = 47065 # Valor del UVT (Año 2024)
 
 # Ruta de la carpeta principal
 project_folder = os.path.abspath(os.getcwd())
+# project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
 
 # Añadir o enlazar un nuevo producto a la base de datos local (archivos JSON)
 @update_products_blueprint.route('/add-product', methods=["POST"])

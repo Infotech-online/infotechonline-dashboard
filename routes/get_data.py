@@ -17,7 +17,8 @@ woo = wooConnection() # Woocommerce connection
 get_data_blueprint = Blueprint('get_data_blueprint', __name__)
 
 # Ruta de la carpeta principal
-project_folder = os.path.abspath(os.getcwd())
+project_folder = os.path.abspath(os.getcwd()) # Desarrollo
+# project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
 
 # Ruta principal
 @get_data_blueprint.route('/')

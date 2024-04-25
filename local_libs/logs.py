@@ -7,7 +7,8 @@ class logRecorder():
     def __init__(self):
 
         # Ubicacion de archivos de Logs
-        project_folder = os.path.abspath(os.getcwd())
+        project_folder = os.path.abspath(os.getcwd()) # Desarrollo
+        # project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
         self.logs_file = f"{project_folder}/data/logs.json"
 
         # Se inicializa la funcion get_all_logs

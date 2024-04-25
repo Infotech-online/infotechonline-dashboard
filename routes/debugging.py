@@ -17,7 +17,8 @@ woo = wooConnection() # Woocommerce connection
 debugging_blueprint = Blueprint('debugging', __name__)
 
 # Ruta de la carpeta principal
-project_folder = os.path.abspath(os.getcwd())
+project_folder = os.path.abspath(os.getcwd()) # Desarrollo
+# project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
 
 """
 Visualización de datos ----------------------------------------------------------------------------------------------------
