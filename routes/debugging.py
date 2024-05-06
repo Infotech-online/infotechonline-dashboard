@@ -67,7 +67,7 @@ def wordpress_products():
 
     # return woo.get_all_prods()
 
-    product = woo.mconsult().get("products", params={'sku': "601009", 'per_page': 1}).json()
+    product = woo.get_all_prods()
     return product
 
 @debugging_blueprint.route("/woo-imgs")
