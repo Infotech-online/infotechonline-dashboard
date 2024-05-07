@@ -50,6 +50,10 @@ def increment_with_shipping_fee():
     del precio final del producto
     """
 
+    # Se guarda el registro dentro de "logs.json"
+    with open(f'{project_folder}/data/product_prices_02.json') as f:
+        last_products_data = json.load(f)
+
     # Se obtienen todos los productos de woocommerce
     all_products = woo.get_all_prods(1)
 
@@ -61,7 +65,7 @@ def increment_with_shipping_fee():
 
             UVT_rule = False
             UVT_quantity = 0
-            profit_margin = 0.20
+            profit_margin = 0.15
             decrease = 0.87
 
             regular_price = product["regular_price"]
@@ -73,12 +77,6 @@ def increment_with_shipping_fee():
             # Por cada categoria encontrar las que tienen variaciones en cuanto a reglas de precios
             for category in product["categories"]:
 
-                if category["name"] == "Accesorios":
-                    # Si el producto es un accesorio y su precio es menor a 500.000
-                    if (product_price) < 200000:
-                        profit_margin = 0.20
-                        decrease = 0.8
-
                 if category["name"] == "Portatiles":
                     UVT_rule = True
                     UVT_quantity = 50
@@ -87,10 +85,26 @@ def increment_with_shipping_fee():
                     UVT_rule = True
                     UVT_quantity = 22
 
+                """if category["name"] == "Celulares" or category["name"] == "Hogar Inteligente":
+                    profit_margin = 0.15"""
+
             if UVT_rule and product_price < (UVT_quantity * UVT):
-                if product["sku"] == "401047 - 69C91LA#ABM":
-                    print("\n", product_price, UVT_quantity, (UVT_quantity * UVT), "\n")
-                base_price = product_price * decrease # Se le resta el porcentaje anterior
+
+                if last_products_data[product["sku"]]["shipping_type"] == "A: 15.000":
+                    product_price_base = product_price - 15000
+                if last_products_data[product["sku"]]["shipping_type"] == "B: 1%":
+                    print("encontrado", product_price)
+                    product_price_base = product_price * 0.99
+
+                if product_price_base <= 1500000:
+                    decrease = 0.8
+                if product_price_base > 1500000:
+                    decrease = 0.87
+
+                base_price = product_price_base * decrease # Se le resta el porcentaje anterior
+                
+                if product["sku"] == "401043 - C3VHY":
+                    print("\n", product_price_base, base_price)
 
                 profit_margin = 0.13 if product_price > 1500000 else profit_margin
                 product_price = base_price / (1 - profit_margin)
@@ -113,9 +127,20 @@ def increment_with_shipping_fee():
 
                 print(f"{product['sku']} / {final_price} / 1 NO IVA")
 
-            if UVT_rule and product_price > (UVT_quantity * UVT):
+            if (UVT_rule and product_price > (UVT_quantity * UVT)) or UVT_rule == False:
 
                 product_price_base = product_price / 1.19 # Se quita el IVA
+
+                if last_products_data[product["sku"]]["shipping_type"] == "A: 15.000":
+                    product_price_base -= 15000
+                if last_products_data[product["sku"]]["shipping_type"] == "B: 1%":
+                    product_price_base = product_price_base * 0.99
+
+                if product_price_base <= 1500000:
+                    decrease = 0.8
+                if product_price_base > 1500000:
+                    decrease = 0.87
+
                 base_price = product_price_base * decrease # Se le resta el porcentaje con la formula anterior
 
                 profit_margin = 0.13 if product_price_base > 1500000 else profit_margin
@@ -138,34 +163,6 @@ def increment_with_shipping_fee():
                 final_price = int(math.ceil(product_price / 1000.0)) * 1000 # (REDONDEADO)
 
                 print(f"{product['sku']} / {final_price} / 2 CON IVA")
-
-            if UVT_rule == False:
-
-                product_price_base = product_price / 1.19 # Se quita el IVA
-                base_price = product_price_base * decrease # Se le resta el porcentaje con la formula anterior
-
-                profit_margin = 0.13 if product_price_base > 1500000 else profit_margin
-                product_price = base_price / (1 - profit_margin) # Se añade el porcentaje con la nueva formula
-
-                # Se añade el valor del envio antes de IVA
-                if product_price <= 1500000:
-                    shipping_type = "A: 15.000"
-                    product_price += 15000
-
-                if product_price > 1500000:
-                    shipping_type = "B: 1%"
-                    product_price = product_price / (1 - 0.01)
-
-                product_price = product_price * 1.19 # Se añade el IVA
-
-                iva_state = "included"
-
-                print(product_price)
-
-                # Se redondean los precios 1000 pesos por encima
-                final_price = int(math.ceil(product_price / 1000.0)) * 1000 # (REDONDEADO)
-
-                print(f"{product['sku']} --- {product['id']} / / {final_price} / 3 SIN REGLA")
 
             # Definir que tipo de precio es (oferta o precio normal)
             if sale_price == "": 
@@ -203,7 +200,7 @@ def increment_with_shipping_fee():
                 new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
 
             # Se guarda el registro dentro de "logs.json"
-            with open(f'{project_folder}/data/product_prices_02.json') as f:
+            with open(f'{project_folder}/data/product_prices_05.json') as f:
 
                 logs_data = json.load(f)
                 logs_data_list = logs_data
@@ -229,17 +226,18 @@ def increment_with_shipping_fee():
                     "tax_status": tax_status,
                     "shipping_class": shipping_class,
                     "shipping_class_id": shipping_class_id,
-                    "shipping_type": shipping_type
+                    "shipping_type": shipping_type,
+                    "categories": product["categories"]
                 }
 
                 logs_data = logs_data_list
                 log = json.dumps(logs_data, indent=4)
 
             # Se escribe el nuevo Log
-            with open(f'{project_folder}/data/product_prices_02.json', 'w') as file:
+            with open(f'{project_folder}/data/product_prices_05.json', 'w') as file:
                 file.write(log)
 
-    with open(f'{project_folder}/data/product_prices_02.json') as f:
+    with open(f'{project_folder}/data/product_prices_05.json') as f:
         logs_data = json.load(f)
 
     return logs_data
@@ -423,7 +421,7 @@ def price_profit_correction():
 def update_with_increment_list():
 
     # Se guarda el registro dentro de "logs.json"
-    with open(f'{project_folder}/data/product_prices_02.json') as f:
+    with open(f'{project_folder}/data/product_prices_05.json') as f:
 
         logs_data = json.load(f)
         product_list = logs_data

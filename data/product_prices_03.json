@@ -14,7 +14,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101002 - MV7N2BE/A": {
         "id": 1695,
@@ -31,7 +32,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101003 - 2399-829-109": {
         "id": 1701,
@@ -48,7 +50,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101008 - 960-001515": {
         "id": 1714,
@@ -65,7 +68,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101009 - 960-001401": {
         "id": 1721,
@@ -82,7 +86,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101007 - 960-000764": {
         "id": 1730,
@@ -99,7 +104,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101012 - H120": {
         "id": 1753,
@@ -116,7 +122,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101014 - H320W-RGB": {
         "id": 1776,
@@ -133,7 +140,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101015 - M601WL-BA": {
         "id": 1778,
@@ -150,7 +158,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101017 - Horus TKL K622": {
         "id": 1783,
@@ -167,7 +176,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101018 - SHIVA K512": {
         "id": 1789,
@@ -184,7 +194,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101019 - YAMA K550": {
         "id": 1803,
@@ -201,7 +212,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "201001 - C11CJ68301": {
         "id": 1815,
@@ -524,7 +536,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601002": {
         "id": 2609,
@@ -541,7 +554,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601003": {
         "id": 2615,
@@ -558,7 +572,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601004": {
         "id": 2621,
@@ -575,7 +590,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601007": {
         "id": 2633,
@@ -592,7 +608,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601008 - NHB-C110": {
         "id": 2645,
@@ -609,7 +626,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601009": {
         "id": 2662,
@@ -626,7 +644,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601010": {
         "id": 2673,
@@ -643,7 +662,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "701001 - MGJA3LZ/A": {
         "id": 2706,
@@ -660,7 +680,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Celulares"
     },
     "701002": {
         "id": 2714,
@@ -677,7 +698,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Celulares"
     },
     "701003 - MQ183BE/A": {
         "id": 2721,
@@ -694,7 +716,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Celulares"
     },
     "701007 - PAWU0028CO": {
         "id": 2728,
@@ -711,7 +734,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "101021 - MOV-039": {
         "id": 2734,
@@ -728,7 +752,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "701008 - PAU60045CO": {
         "id": 2817,
@@ -745,7 +770,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "701009 - PAUT0006CO": {
         "id": 2822,
@@ -762,7 +788,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "101020 - SMART WATCH-300": {
         "id": 2847,
@@ -779,7 +806,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101022 - MM221XTK91": {
         "id": 2859,
@@ -796,7 +824,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101023 - MM221XTK73": {
         "id": 2867,
@@ -813,7 +842,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101024 - ID011XTK24": {
         "id": 2875,
@@ -830,7 +860,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101025 - MM221XTK11": {
         "id": 2883,
@@ -847,7 +878,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101026 - ID223XTK05": {
         "id": 2893,
@@ -864,7 +896,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "301007 - VA2747-MH": {
         "id": 2902,
@@ -1051,7 +1084,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Celulares"
     },
     "801001": {
         "id": 3085,
@@ -1170,7 +1204,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101028 - ID011XTK07": {
         "id": 3182,
@@ -1187,7 +1222,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101029 - MM111KLX28": {
         "id": 3194,
@@ -1204,7 +1240,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101030 - MM221XTK97": {
         "id": 3201,
@@ -1221,7 +1258,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101031 - ID011KLX11": {
         "id": 3257,
@@ -1238,7 +1276,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "601005": {
         "id": 3272,
@@ -1255,7 +1294,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601013": {
         "id": 3355,
@@ -1272,7 +1312,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601014": {
         "id": 3366,
@@ -1289,7 +1330,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "101032 - K552RGB-BA-SP": {
         "id": 3376,
@@ -1357,7 +1399,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "101042 -MP6K3BE/A": {
         "id": 3597,
@@ -1374,7 +1417,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Accesorios"
     },
     "101043 - MRE93BE/A": {
         "id": 3610,
@@ -1391,7 +1435,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "601016": {
         "id": 3695,
@@ -1408,7 +1453,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "101056 - KUMARA K552": {
         "id": 3739,
@@ -1425,7 +1471,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "901002 - RRT-00004": {
         "id": 3766,
@@ -1493,7 +1540,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "101057 - IRE H848": {
         "id": 3833,
@@ -1510,7 +1558,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101058 - H848B": {
         "id": 3842,
@@ -1527,7 +1576,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101059 - DRAGONBORN K630": {
         "id": 3850,
@@ -1544,7 +1594,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101060 - Redragon Horus FS K619": {
         "id": 3893,
@@ -1561,7 +1612,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101061- Redragon Kumara K552": {
         "id": 3902,
@@ -1578,7 +1630,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101062 - Redragon Shiva K512": {
         "id": 3910,
@@ -1595,7 +1648,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "801012": {
         "id": 3917,
@@ -1646,7 +1700,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101064 - AWS600BT": {
         "id": 4011,
@@ -1663,7 +1718,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "AWPOC10L": {
         "id": 4017,
@@ -1697,7 +1753,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101069 - SMART WATCH-200": {
         "id": 4029,
@@ -1714,7 +1771,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101070 - SHOME-127": {
         "id": 4038,
@@ -1731,7 +1789,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101067 - AWS500BT": {
         "id": 4056,
@@ -1748,7 +1807,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101068 - AWSP08TWL": {
         "id": 4064,
@@ -1850,7 +1910,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101072": {
         "id": 4101,
@@ -1867,7 +1928,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "501008": {
         "id": 4110,
@@ -1969,7 +2031,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101086 - U7Z-00011": {
         "id": 4264,
@@ -1986,7 +2049,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101088 - 6KY97AA": {
         "id": 4401,
@@ -2003,7 +2067,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101089 - MM111KLX58": {
         "id": 4411,
@@ -2020,7 +2085,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "601017": {
         "id": 4421,
@@ -2037,7 +2103,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "101090 - COMBO: H120 - DRAGONBORN K630 - M601WL-BA": {
         "id": 4476,
@@ -2054,7 +2121,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "601018": {
         "id": 4540,
@@ -2071,7 +2139,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "701019 - MTP63BE/A": {
         "id": 4573,
@@ -2088,7 +2157,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Celulares"
     },
     "401031": {
         "id": 4599,
@@ -2122,7 +2192,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101092 - 920-004430": {
         "id": 4653,
@@ -2139,7 +2210,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101094 - 981-000014": {
         "id": 4659,
@@ -2173,7 +2245,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Accesorios"
     },
     "101096 - 11RTZ9C8US": {
         "id": 4672,
@@ -2496,7 +2569,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "101097 - 580-AKCU": {
         "id": 4858,
@@ -2513,7 +2587,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "801015 - LED43LO68": {
         "id": 4899,
@@ -2649,7 +2724,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "701020 - SM-A055MZKDLTC": {
         "id": 5013,
@@ -2666,7 +2742,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "701021 - SM-A057MZSGLTC": {
         "id": 5020,
@@ -2683,7 +2760,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "701022 - SM-A155MZKGLTC": {
         "id": 5027,
@@ -2700,7 +2778,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "101099 - XTK-540S": {
         "id": 5085,
@@ -2717,7 +2796,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101100 - U7Z-00021": {
         "id": 5126,
@@ -2734,7 +2814,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101101 - KBS-300RD": {
         "id": 5134,
@@ -2921,7 +3002,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Celulares"
     },
     "701024 - MTP03BE/A": {
         "id": 5259,
@@ -2938,7 +3020,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Celulares"
     },
     "701025 - MTP73BE/A": {
         "id": 5269,
@@ -2955,7 +3038,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Celulares"
     },
     "601021 - NHC-P710": {
         "id": 5342,
@@ -2972,7 +3056,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601022 - NHC-O610": {
         "id": 5350,
@@ -2989,7 +3074,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601023 - NHC-O612": {
         "id": 5360,
@@ -3006,7 +3092,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601024 - NHC-I7102PK": {
         "id": 5368,
@@ -3023,7 +3110,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "701026 - SM-A042MZKDLTC": {
         "id": 5376,
@@ -3040,7 +3128,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "701027 - SM-A042MLBDLTC": {
         "id": 5390,
@@ -3057,7 +3146,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "701028 - SM-A346MLGALTC": {
         "id": 5397,
@@ -3074,7 +3164,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "801024 - UN85CU8000KXZL": {
         "id": 5412,
@@ -3125,7 +3216,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "801026 - 43UR781C0SB": {
         "id": 5439,
@@ -3176,7 +3268,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "401043 - C3VHY": {
         "id": 5494,
@@ -3397,7 +3490,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "201008 - C11CG04301": {
         "id": 5719,
@@ -3465,7 +3559,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "701032 - MQ1F3BE/A": {
         "id": 5787,
@@ -3482,7 +3577,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Celulares"
     },
     "101106 - JBLGO3BLUAM": {
         "id": 5840,
@@ -3550,7 +3646,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "601025 - NHC-B100": {
         "id": 5888,
@@ -3567,7 +3664,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "1201003 - SNV2S/1000G": {
         "id": 5900,
@@ -3669,7 +3767,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "401052 - 90NX05V1-M02XU0": {
         "id": 6141,
@@ -3720,7 +3819,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "401054 - 90NX05V1-M03NB0": {
         "id": 6245,
@@ -3754,7 +3854,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101112 - MTJV3AM/A": {
         "id": 6297,
@@ -3771,7 +3872,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "1001004 - KVR32S22S8/16": {
         "id": 6314,
@@ -3822,7 +3924,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "301022 - 27GQ50F-B": {
         "id": 6351,
@@ -3924,7 +4027,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "301023": {
         "id": 6571,
@@ -3992,7 +4096,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101115 - KMW-500BK": {
         "id": 6608,
@@ -4009,7 +4114,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101116 - KMW-390": {
         "id": 6615,
@@ -4026,7 +4132,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101117 - 920-009792": {
         "id": 6626,
@@ -4043,7 +4150,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "101118 - KTE-050BK": {
         "id": 6636,
@@ -4060,7 +4168,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "601027 - NHA-B100": {
         "id": 6653,
@@ -4077,7 +4186,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Hogar Inteligente"
     },
     "601028 - 41721": {
         "id": 6665,
@@ -4094,7 +4204,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "B: 1%"
+        "shipping_type": "B: 1%",
+        "category": "Hogar Inteligente"
     },
     "701033 - MZB0FT6US": {
         "id": 6687,
@@ -4111,7 +4222,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "701034 - MZB0FYMUS": {
         "id": 6704,
@@ -4128,7 +4240,8 @@
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "701035 - MZB0FX0US": {
         "id": 6719,
@@ -4145,7 +4258,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Celulares"
     },
     "301024 - 34WP500-B.AWP": {
         "id": 6728,
@@ -4247,7 +4361,8 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     },
     "201011 - 3882C002BA": {
         "id": 6820,
@@ -4298,23 +4413,7 @@
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
-    },
-    "601029 - NHB-S614": {
-        "id": 6898,
-        "image": "https://infotechonline.co/wp-content/uploads/2024/05/Carrusel-NHB-S614-1.jpg",
-        "regular_price": 154000,
-        "sale_price": 0,
-        "new_regular_price": 163000,
-        "new_sale_price": 0,
-        "base_price": 98000,
-        "profit_margin": 0.2,
-        "IVA": "included",
-        "on_sale": false,
-        "discount_rate": 0,
-        "tax_status": "taxable",
-        "shipping_class": "free-fee",
-        "shipping_class_id": 1781,
-        "shipping_type": "A: 15.000"
+        "shipping_type": "A: 15.000",
+        "category": "Accesorios"
     }
 }
