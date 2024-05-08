@@ -2,8 +2,22 @@ import mysql.connector
 import json
 from datetime import datetime, timedelta
 import secrets
+from dotenv import load_dotenv
+import os
 from flask import Flask, Blueprint, request, jsonify
 
+from flask_mail import Mail, Message
+
+load_dotenv()
+
+app = Flask(__name__)
+app.config['MAIL_SERVER']= os.getenv('MAIL_SERVER')
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
 class mysqlConnection_wallet():
 
     def __init__(self):
@@ -633,7 +647,7 @@ class mysqlConnection_wallet():
             return "Saldo actualizado correctamente."
         except mysql.connector.Error as e:
             return f"Error al actualizar el saldo del usuario: {e}"
-        
+    
     
     # Métodos CRUD para la tabla Codigo_verificacion
 
@@ -658,7 +672,16 @@ class mysqlConnection_wallet():
             self.mycursor.execute(sql, (codigo, current_time_str, fecha_final_str, usuario_cedula))
             # Confirmar los cambios en la base de datos
             self.mydb.commit()
-
+            usuario = self.Get_Usuario_id(usuario_cedula)[0]
+            correo = usuario['Correo']
+            nombre = usuario['Nombre']
+            print(correo)
+            #Enviar el correo electronico al usuario con el codigo de verificacion
+            msg = Message('Codigo de verificacion Infotechonline', sender='noreply@demo.com', recipients=[correo])
+            msg.body =  f"Hola señor {nombre}, muchas gracias por estar interesado en comprar con InfotechOnline." \
+                        f"\nTu código de verificación para poder comprar es: {codigo} y expirará en 15 minutos." \
+                        f"\nMuchas gracias por elegirnos."
+            mail.send(msg)
             return "Código de verificación creado exitosamente, revisa tu correo para poder utilizarlo en tu compra"
 
         except mysql.connector.Error as e:

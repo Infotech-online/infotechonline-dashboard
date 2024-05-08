@@ -2,6 +2,7 @@ from flask import Flask, Blueprint, request, jsonify
 from databases.wallet_mysql import mysqlConnection_wallet
 import json
 
+
 # Blueprint
 wallet_blueprint = Blueprint('wallet_BluePrint', __name__)
 mysql = mysqlConnection_wallet()
