@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import secrets
 from dotenv import load_dotenv
 import os
-from flask import Flask, Blueprint, request, jsonify
+from flask import Flask
 
 from flask_mail import Mail, Message
 
@@ -26,18 +26,26 @@ class mysqlConnection_wallet():
         
         try:
 
-            # Conexión a la base de datos MySQL a través del túnel SSH
+            # Conexión a la base de datos MySQL (Test)
             self.mydb = mysql.connector.connect(
-                host="localhost",
-                user="root",
-                password="Mifamilia42024",
-                database="JGallego$Fondos"
+                host=os.getenv('DatabaseTestHost'),
+                user=os.getenv('DatabaseTestUser'),
+                password= os.getenv('DatabaseTestPassword'),
+                database=os.getenv('DatabaseTestName')
             )   
-
+            
+            # Conexión a la base de datos MySQL (Production)
+            """
+            self.mydb = mysql.connector.connect(
+                host= os.getenv('DatabaseProductionHost'),
+                user= os.getenv('DatabaseProductionUser'),
+                password= os.getenv('DatabaseProductionPassword'),
+                database= os.getenv('DatabaseProductionName')
+            )  
+            """
             self.mycursor = self.mydb.cursor()
             if self.mydb is not None:
                 print("Conexión Exitosa")
-
         except mysql.connector.Error as e:
             print("Error al conectar a la base de datos:", e)
 
