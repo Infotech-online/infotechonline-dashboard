@@ -175,35 +175,28 @@ class mysqlConnection_wallet():
 
     """
     #Traer fondo por NIT
-    def Get_fondo_id(self, ID):
+    def Get_Bono_id(self, idBono):
         try:
-            self.mycursor.execute(f"SELECT NIT, Direccion, Nombre_legal, Envio_Gratuito, Margen_beneficio, Contacto_principal FROM Fondo WHERE NIT = {ID}")
+            self.mycursor.execute(f"SELECT * FROM Bono WHERE idBono = '{idBono}'")
             results = self.mycursor.fetchall()
             if results:
+                # Definir el nombre de las columnas
+                column_names = ['idBono', 'Saldo', 'Fecha_Publicacion', 'Fecha_vencimiento', 'Info_Bono', 'Fecha_actualizacion']
+                # Crear una lista para almacenar los resultados en formato JSON con el nombre de la columna
                 formatted_results = []
                 for row in results:
-                    # Convertir la cadena JSON en un diccionario Python
-                    contacto_principal_dict = json.loads(row[5])  # La sexta columna es Contacto_principal
-                    
-                    # Convertir el valor de Envio_Gratuito de 1 o 0 a True o False
-                    envio_gratuito = bool(row[3])
-                    
-                    # Crear un nuevo resultado con el orden de las columnas de la tabla
-                    formatted_result = {
-                        'NIT': row[0],
-                        'Direccion': row[1],
-                        'Nombre_legal': row[2],
-                        'Envio_Gratuito': envio_gratuito,
-                        'Margen_beneficio': row[4],
-                        'Contacto_principal': contacto_principal_dict
-                    }
-                    formatted_results.append(formatted_result)
-                return formatted_results  # Devolver los resultados encontrados
+                    # Crear un diccionario para almacenar cada fila con el nombre de la columna
+                    row_dict = {}
+                    for i, value in enumerate(row):
+                        row_dict[column_names[i]] = value
+                    # Agregar el diccionario a la lista de resultados formateados
+                    formatted_results.append(row_dict)
+                return column_names, formatted_results
             else:
-                return f"No se encontró ningún registro con el NIT {ID}"
+                return None, f"No se encontró ningún registro con el ID de bono {idBono}."
         except mysql.connector.Error as e:
-            return f"Error al Mostrar el registro {e}"
-    
+            return None, f"Error al mostrar el registro: {e}"
+
     """
         Creates a new record in the Fondo table of the database.
 
@@ -261,7 +254,7 @@ class mysqlConnection_wallet():
             sql = f"DELETE FROM Fondo WHERE NIT = {ID}"
             self.mycursor.execute(sql)
             self.mydb.commit()
-            return f"Registro con id:{ID} Fue eliminado correctamente"
+            return f"Fondo con NIT {ID} Fue eliminado correctamente"
         except mysql.connector.Error as e:
             return f"Error al eliminar el registro: {e}"
 
@@ -283,13 +276,13 @@ class mysqlConnection_wallet():
             str: A message indicating the success or failure of the operation.
         """
     #Crear Bono
-    def create_Bono(self, idBono, saldo, Fecha_vencimiento, Info_Bono, Saldo_eliminado):
+    def create_Bono(self, idBono, saldo, Fecha_vencimiento, Info_Bono):
         try:
             Fecha_Publicacion = datetime.now()
             # Construct the SQL insertion query
-            sql = "INSERT INTO Bono (idBono, Saldo, Fecha_Publicacion, Fecha_vencimiento, Info_Bono, Saldo_eliminado) VALUES (%s, %s, %s, %s, %s, %s)"
+            sql = "INSERT INTO Bono (idBono, Saldo, Fecha_Publicacion, Fecha_vencimiento, Info_Bono) VALUES (%s, %s, %s, %s, %s)"
             saldo = float(saldo)
-            values = (idBono, saldo, Fecha_Publicacion, Fecha_vencimiento, Info_Bono, Saldo_eliminado)
+            values = (idBono, saldo, Fecha_Publicacion, Fecha_vencimiento, Info_Bono)
             # Execute the SQL query
             self.mycursor.execute(sql, values)
             # Commit the changes to the database
@@ -318,28 +311,29 @@ class mysqlConnection_wallet():
     def Get_Bono_id(self, idBono):
         try:
             self.mycursor.execute(f"SELECT * FROM Bono WHERE idBono = '{idBono}'")
-            results = self.mycursor.fetchall()
-            if results:
-                # Definir el nombre de las columnas
-                column_names = ['idBono', 'Saldo', 'Fecha_Publicacion', 'Fecha_vencimiento', 'Info_Bono', 'Saldo_eliminado', 'Fecha_actualizacion']
-                # Crear una lista para almacenar los resultados en formato JSON con el nombre de la columna
-                formatted_results = []
-                for row in results:
-                    # Crear un diccionario para almacenar cada fila con el nombre de la columna
-                    row_dict = {}
-                    for i, value in enumerate(row):
-                        # Si la columna es 'Saldo_eliminado', convertir el valor a True o False
-                        if column_names[i] == 'Saldo_eliminado':
-                            row_dict[column_names[i]] = bool(value)
-                        else:
-                            row_dict[column_names[i]] = value
-                    # Agregar el diccionario a la lista de resultados formateados
-                    formatted_results.append(row_dict)
-                return formatted_results
-            else:
-                return f"No se encontró ningún registro con el ID de bono {idBono}."
+            myresult = self.mycursor.fetchall()
+            
+            # Obtener los nombres de las columnas
+            column_names = [desc[0] for desc in self.mycursor.description]
+
+            # Formatear los resultados en formato JSON
+            formatted_results = []
+            for row in myresult:
+                row_dict = {}
+                for i, value in enumerate(row):
+                    # Convertir cadenas JSON a objetos Python si es necesario
+                    if isinstance(value, str):
+                        try:
+                            value = json.loads(value)
+                        except json.JSONDecodeError:
+                            pass  # Si no se puede decodificar como JSON, mantener el valor original
+                    row_dict[column_names[i]] = value
+                formatted_results.append(row_dict)
+
+            return formatted_results
         except mysql.connector.Error as e:
-            return f"Error al mostrar el registro: {e}"
+            return f"Error al obtener el Bono {idBono} {e}"
+
 
     """
         Update a record in the 'Bono' table with the provided ID.
@@ -540,10 +534,19 @@ class mysqlConnection_wallet():
     # Eliminar un registro de la tabla Usuario
     def delete_usuario_data(self, cedula):
         try:
+            # Consultar si hay registros que referencian al usuario que se desea eliminar
+            self.mycursor.execute(f"SELECT * FROM registro_movimiento WHERE Usuario_Cedula = {cedula}")
+            referencing_records = self.mycursor.fetchall()
+
+            # Si hay registros que hacen referencia al usuario, eliminarlos primero
+            if referencing_records:
+                # Eliminar los registros referenciados en la tabla registro_movimiento
+                self.mycursor.execute(f"DELETE FROM registro_movimiento WHERE Usuario_Cedula = {cedula}")
+
             # Construir la consulta SQL para eliminar el usuario con la cédula especificada
             sql = f"DELETE FROM Usuario WHERE Cedula = {cedula}"
 
-            # Ejecutar la consulta SQL
+            # Ejecutar la consulta SQL para eliminar al usuario
             self.mycursor.execute(sql)
 
             # Confirmar los cambios en la base de datos
@@ -689,9 +692,9 @@ class mysqlConnection_wallet():
             return f"Error al crear el código de verificación: {e}"
 
     # Mostrar un registro de Codigo de Verificación por ID
-    def Get_Codigo_verificacion_id(self, codigo):
+    def Get_Codigo_verificacion_id(self, cedula):
         try:
-            self.mycursor.execute(f"SELECT * FROM codigo_verificacion WHERE Codigo = {codigo}")
+            self.mycursor.execute(f"SELECT * FROM codigo_verificacion WHERE Usuario_Cedula = {cedula}")
             results = self.mycursor.fetchall()
             if results:
                 # Definir el nombre de las columnas
@@ -707,7 +710,7 @@ class mysqlConnection_wallet():
                     formatted_results.append(row_dict)
                 return formatted_results
             else:
-                return f"No se encontró ningún registro con el código {codigo}."
+                return f"El usuario con cedula {cedula} no tiene un codigo de verificacion."
         except mysql.connector.Error as e:
             return f"Error al mostrar el registro: {e}"
         
@@ -800,24 +803,6 @@ class mysqlConnection_wallet():
     
     #Metodos CRUD para la tabla registro_bono
 
-    #Verificar estado del registro bono
-    def verificar_estado_registro_bono(self, bono_idBono):
-        try:
-            # Consulta SQL para obtener el estado del bono
-            sql = "SELECT Estado FROM Registro_bono WHERE Bono_idBono = %s"
-
-            # Ejecutar la consulta
-            self.cursor.execute(sql, (bono_idBono,))
-
-            # Obtener el resultado de la consulta
-            estado = self.cursor.fetchone()
-
-            if estado:
-                return estado[0]  # Retorna el estado del bono
-            else:
-                return None  # Retorna None si no se encuentra el bono
-        except mysql.connector.Error as e:
-            print("Error al verificar el estado del bono:", e)
 
     #Crear Registro_Bono
     def create_registro_bono(self, usuario_cedula, bono_idBono):
@@ -857,57 +842,28 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la inserción
             return f"Error al crear el registro de bono: {e}"
-
-    #Verificar estado actual del bono
-    def verificar_estado_bono(self, bono_idBono):
+    
+    def Get_registro_bono_id(self, usuario_cedula):
         try:
-            # Consulta SQL para obtener el estado del bono
-            sql = "SELECT Estado FROM Registro_bono WHERE Bono_idBono = %s"
-            # Ejecutar la consulta
-            self.mycursor.execute(sql, (bono_idBono,))
-            # Obtener el resultado de la consulta
-            estado = self.mycursor.fetchone()
-            if estado:
-                return estado[0]  # Retorna el estado del bono
+            self.mycursor.execute(f"SELECT * FROM Registro_bono WHERE Usuario_Cedula = {usuario_cedula}")
+            results = self.mycursor.fetchall()
+            if results:
+                # Definir el nombre de las columnas
+                column_names = ['Usuario_Cedula', 'Bono_idBono', 'Estado', 'Fecha_Registro', 'Fecha_Uso']
+                # Crear una lista para almacenar los resultados en formato JSON con el nombre de la columna
+                formatted_results = []
+                for row in results:
+                    # Crear un diccionario para almacenar cada fila con el nombre de la columna
+                    row_dict = {}
+                    for i, value in enumerate(row):
+                        row_dict[column_names[i]] = value
+                    # Agregar el diccionario a la lista de resultados formateados
+                    formatted_results.append(row_dict)
+                return formatted_results
             else:
-                return None  # Retorna None si no se encuentra el bono
+                return f"No se encontró ningún registro con la cedula {usuario_cedula}."
         except mysql.connector.Error as e:
-            return f"Error al verificar el estado del bono: {e}"
-    
-    #Actualizar estado Bono a usado
-    def update_estado_registro_bono(self, usuario_cedula, bono_idBono):
-        try:
-            # Construir la consulta SQL para actualizar el estado del registro de bono a 'Usado'
-            sql = "UPDATE Registro_bono SET Estado = 'Usado' WHERE Usuario_Cedula = %s AND Bono_idBono = %s"
-
-            # Ejecutar la consulta SQL con los valores proporcionados
-            self.mycursor.execute(sql, (usuario_cedula, bono_idBono))
-
-            # Confirmar los cambios en la base de datos
-            self.mydb.commit()
-
-            return "Estado del registro de bono actualizado a 'Usado' correctamente."
-        except mysql.connector.Error as e:
-            # Manejar cualquier error que pueda ocurrir durante la actualización
-            return f"Error al actualizar el estado del registro de bono: {e}"
-        
-    
-    # Verificar si el bono se ha utilizado para el cliente actual
-    def verificar_bono_utilizado_por_cliente(self, usuario_cedula, bono_idBono):
-        try:
-            # Consultar el estado del bono para el cliente actual
-            sql = "SELECT Estado FROM Registro_bono WHERE Usuario_Cedula = %s AND Bono_idBono = %s"
-            self.mycursor.execute(sql, (usuario_cedula, bono_idBono))
-            estado_bono = self.mycursor.fetchone()
-
-            if estado_bono:
-                # Si el bono se ha utilizado, devuelve True
-                if estado_bono[0] == "Usado":
-                    return True
-            return False
-        except mysql.connector.Error as e:
-            print("Error al verificar el estado del bono para el cliente:", e)
-            return False
+            return f"Error al mostrar el registro"
 
     
     #Metodos CRUD para la tabla Transaccion:

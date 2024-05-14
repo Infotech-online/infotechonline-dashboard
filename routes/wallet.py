@@ -37,7 +37,6 @@ def create_Fondo():
     # Retornar la respuesta
     return jsonify({'message': resultado})
 
-
 @wallet_blueprint.route('/fondo/<int:id>', methods=['PUT'])
 def update_fondo(id):
     data = request.json
@@ -61,6 +60,43 @@ def delete_fondo(id):
     return jsonify({'message': resultado})
 
 
+@wallet_blueprint.route('/bono/create', methods=['POST'])
+def bono_create():
+    data = request.json
+    idBono = data.get("idBono")
+    Saldo = data.get("Saldo")
+    Fecha_vencimiento = data.get("Fecha_vencimiento")
+    Info_Bono = data.get("Info_Bono")
+    
+    resultado = mysql.create_Bono(
+        idBono,  
+        Saldo,   
+        Fecha_vencimiento,  
+        Info_Bono
+    )
+    return jsonify({'message': resultado})
+
+@wallet_blueprint.route('/bono/<string:id>', methods=['PUT'])
+def bono_update(id):
+    data = request.json  
+    resultado = mysql.update_bono(id, data)  
+    return jsonify({'message': resultado})
+
+@wallet_blueprint.route('/bono/', methods=['GET'])
+def all_bonos():
+    resultado = mysql.Get_Table("Bono")
+    # Retornar la respuesta
+    return jsonify({'message': resultado})
+
+@wallet_blueprint.route('/bono/<string:id>', methods=['GET'])
+def bono_id(id):
+    resultado = mysql.Get_Bono_id(id)
+    return jsonify({'message': resultado})
+
+@wallet_blueprint.route('/bono/<string:id>', methods=['DELETE'])
+def delete_bono_id(id):
+    resultado = mysql.delete_Bono(id)
+    return jsonify({'message': resultado})
 
 
 @wallet_blueprint.route('/usuario/create', methods=['POST'])
@@ -138,49 +174,6 @@ def codigos_verificacion_id(id):
 
 
 
-
-@wallet_blueprint.route('/bono/create', methods=['POST'])
-def bono_create():
-    data = request.json
-    idBono = data.get("idBono")
-    Saldo = data.get("Saldo")
-    Fecha_vencimiento = data.get("Fecha_vencimiento")
-    Info_Bono = data.get("Info_Bono")
-    Saldo_eliminado = data.get("Saldo_eliminado", True)
-    
-    resultado = mysql.create_Bono(
-        idBono,  
-        Saldo,   
-        Fecha_vencimiento,  
-        Info_Bono,
-        Saldo_eliminado
-    )
-    return jsonify({'message': resultado})
-
-@wallet_blueprint.route('/bono/<string:id>', methods=['PUT'])
-def bono_update(id):
-    data = request.json  
-    resultado = mysql.update_bono(id, data)  
-    return jsonify({'message': resultado})
-
-@wallet_blueprint.route('/bono/', methods=['GET'])
-def all_bonos():
-    resultado = mysql.Get_Table("Bono")
-    # Retornar la respuesta
-    return jsonify({'message': resultado})
-
-@wallet_blueprint.route('/bono/<string:id>', methods=['GET'])
-def bono_id(id):
-    resultado = mysql.Get_Bono_id(id)
-    return jsonify({'message': resultado})
-
-@wallet_blueprint.route('/bono/<string:id>', methods=['DELETE'])
-def delete_bono_id(id):
-    resultado = mysql.delete_Bono(id)
-    return jsonify({'message': resultado})
-
-
-
 @wallet_blueprint.route('/registro_bono/create', methods=['POST'])
 def registro_bono_create():
     data = request.json
@@ -192,23 +185,16 @@ def registro_bono_create():
     )
     return jsonify({'message': resultado})
 
+@wallet_blueprint.route('/registro_bono/<int:id>', methods=['GET'])
+def registro_bono_id(id):
+    resultado = mysql.Get_registro_bono_id(id)
+    return jsonify({'message': resultado})
+
 @wallet_blueprint.route('/registro_bono/', methods=['GET'])
 def all_registro_bono():
     resultado = mysql.Get_Table("Registro_bono")
     # Retornar la respuesta
     return jsonify({'message': resultado})
-
-@wallet_blueprint.route('/registro_bono/', methods=['PUT'])
-def registro_bono_update():
-    data = request.json
-    usuario_cedula= data.get("Cedula")
-    bono_idBono= data.get("idBono")
-    resultado = mysql.Update_estado_registro_bono(
-        usuario_cedula,
-        bono_idBono
-    )
-    return jsonify({'message': resultado})
-    
 
 
 @wallet_blueprint.route('/transaccion/create', methods=['POST'])
@@ -242,6 +228,7 @@ def transaccion_id(id):
 
 
 @wallet_blueprint.route('/registro_movimiento/<int:id>', methods=['GET'])
-def registro_bono_id(id):
+def registro_movimiento_id(id):
     resultado = mysql.obtener_movimientos_usuario(id)
     return jsonify({'message': resultado})
+
