@@ -7,8 +7,16 @@ class logRecorder():
     def __init__(self):
 
         # Ubicacion de archivos de Logs
-        project_folder = os.path.abspath(os.getcwd()) # Desarrollo
-        # project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
+        
+        # Lee la variable de entorno que indica el entorno actual
+        environment = os.getenv('ENVIRONMENT', 'development')  # Por defecto es 'development' si no está configurada
+
+        # Define el project_folder basado en el entorno
+        if environment == 'production':
+            project_folder = os.path.expanduser('~/infotechonline-dashboard')
+        else:
+            project_folder = os.path.abspath(os.getcwd())
+
         self.logs_file = f"{project_folder}/data/logs.json"
 
         # Se inicializa la funcion get_all_logs
