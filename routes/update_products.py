@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, current_app
 import time
 import json
 import os
@@ -19,22 +19,6 @@ woo = wooConnection() # Woocommerce connection
 # Blueprint
 update_products_blueprint = Blueprint('update_products_blueprint', __name__)
 
-# Variables de reglas contables
-
-"""
-Esta variable define el valor de los UVTs manejados en Colombia.
-Algunos productos estan excentos de IVA como los Portatiles y Celulares.
-
-Este tipo de productos estan excentos de IVA hasta cierto valor de UVT por
-eso este valor es una constante hasta que se registre un nuevo valor el
-proximo año.
-"""
-UVT = 47065 # Valor del UVT (Año 2024)
-
-# Ruta de la carpeta principal
-project_folder = os.path.abspath(os.getcwd())
-# project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
-
 # Añadir o enlazar un nuevo producto a la base de datos local (archivos JSON)
 @update_products_blueprint.route('/add-product', methods=["POST"])
 def add_product():
@@ -44,6 +28,24 @@ def add_product():
     "ingram_products.json" e "intcomex_products.json"
     Tambien se crea un nuevo registro de tipo "Add"
     """
+
+    # Se carga el contexto de la aplicación de Flask
+    with current_app.app_context():
+
+        # Variables de reglas contables
+
+        """
+        Esta variable define el valor de los UVTs manejados en Colombia.
+        Algunos productos estan excentos de IVA como los Portatiles y Celulares.
+
+        Este tipo de productos estan excentos de IVA hasta cierto valor de UVT por
+        eso este valor es una constante hasta que se registre un nuevo valor el
+        proximo año.
+        """
+
+        # Código que utiliza current_app
+        UVT = current_app.config["UVT"]
+        project_folder = current_app.config["PROJECT_FOLDER"]
 
     # Si la petición es de tipo POST
     if request.method == "POST":
@@ -130,6 +132,24 @@ def ingram_update():
     Se actualizan todos los productos enlazados que tengan como proveedor a Ingram
     """
 
+    # Se carga el contexto de la aplicación de Flask
+    with current_app.app_context():
+
+        # Variables de reglas contables
+
+        """
+        Esta variable define el valor de los UVTs manejados en Colombia.
+        Algunos productos estan excentos de IVA como los Portatiles y Celulares.
+
+        Este tipo de productos estan excentos de IVA hasta cierto valor de UVT por
+        eso este valor es una constante hasta que se registre un nuevo valor el
+        proximo año.
+        """
+
+        # Código que utiliza current_app
+        UVT = current_app.config["UVT"]
+        project_folder = current_app.config["PROJECT_FOLDER"]
+
     # Si la petición es de tipo POST
     if request.method == "POST":
         
@@ -176,7 +196,7 @@ def ingram_update():
                 if category == "laptop":
                     UVT_rule = True
                     UVT_quantity = 50
-
+                    
                 if category == "smartphones" or category == "tablets":
                     UVT_rule = True
                     UVT_quantity = 22
@@ -200,7 +220,7 @@ def ingram_update():
                 final_price = profit * 1.19
 
                 # Se obtiene el stock actual del producto
-                current_stock_quantity = stock[ingram_pnumber]
+                current_stock_quantity = stock[ingram_pnumber]        
                 if stock[ingram_pnumber] > 0:
                     stock_status = "instock"
                 else:
@@ -347,6 +367,24 @@ def intcomex_update():
     """
     Se actualizan todos los productos enlazados que tengan como proveedor a Intcomex
     """
+
+    # Se carga el contexto de la aplicación de Flask
+    with current_app.app_context():
+
+        # Variables de reglas contables
+
+        """
+        Esta variable define el valor de los UVTs manejados en Colombia.
+        Algunos productos estan excentos de IVA como los Portatiles y Celulares.
+
+        Este tipo de productos estan excentos de IVA hasta cierto valor de UVT por
+        eso este valor es una constante hasta que se registre un nuevo valor el
+        proximo año.
+        """
+
+        # Código que utiliza current_app
+        UVT = current_app.config["UVT"]
+        project_folder = current_app.config["PROJECT_FOLDER"]
 
     # Si la petición es de tipo POST
     if request.method == "POST":

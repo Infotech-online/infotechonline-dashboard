@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, current_app
 import json
 import os
 
@@ -16,10 +16,6 @@ woo = wooConnection() # Woocommerce connection
 # Blueprint
 debugging_blueprint = Blueprint('debugging', __name__)
 
-# Ruta de la carpeta principal
-project_folder = os.path.abspath(os.getcwd()) # Desarrollo
-# project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
-
 """
 Visualización de datos ----------------------------------------------------------------------------------------------------
 Estas peticiones se utilizan para hacer Debugging y observar datos en formato JSON
@@ -27,6 +23,11 @@ Estas peticiones se utilizan para hacer Debugging y observar datos en formato JS
 
 @debugging_blueprint.route('/logs')
 def logs():
+
+    # Se carga el contexto de la aplicación de Flask
+    with current_app.app_context():
+
+        project_folder = current_app.config["PROJECT_FOLDER"]
 
     with open(f'{project_folder}/data/logs.json') as f:
         logs_data = json.load(f)

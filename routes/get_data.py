@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request, render_template, current_app
 import json
 import os
 
@@ -16,10 +16,6 @@ woo = wooConnection() # Woocommerce connection
 # Blueprint
 get_data_blueprint = Blueprint('get_data_blueprint', __name__)
 
-# Ruta de la carpeta principal
-project_folder = os.path.abspath(os.getcwd()) # Desarrollo
-# project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
-
 # Ruta principal
 @get_data_blueprint.route('/')
 def dashboard():
@@ -36,6 +32,11 @@ def infotech_data():
     retornarlos en una petición post dentro de una misma variable nombrada
     "data" un diccionario de variables.
     """
+
+    # Se carga el contexto de la aplicación de Flask
+    with current_app.app_context():
+
+        project_folder = current_app.config["PROJECT_FOLDER"]
 
     # Si el metodo de petición es POST
     if request.method == "POST":

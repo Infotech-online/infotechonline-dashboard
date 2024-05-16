@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, current_app
 import time
 import json
 import os
@@ -19,23 +19,6 @@ woo = wooConnection() # Woocommerce connection
 # Blueprint
 price_increase_blueprint = Blueprint('price_increase_blueprint', __name__)
 
-# Variables de reglas contables
-
-"""
-Esta variable define el valor de los UVTs manejados en Colombia.
-Algunos productos estan excentos de IVA como los Portatiles y Celulares.
-
-Este tipo de productos estan excentos de IVA hasta cierto valor de UVT por
-eso este valor es una constante hasta que se registre un nuevo valor el
-proximo año.
-"""
-UVT = 47065 # Valor del UVT (Año 2024)
-
-# Ruta de la carpeta principal
-project_folder = os.path.abspath(os.getcwd())
-# project_folder = os.path.expanduser('~/infotechonline-dashboard') # Producción
-
-
 @price_increase_blueprint.route('/increment-list')
 def increment_with_shipping_fee():
 
@@ -49,6 +32,24 @@ def increment_with_shipping_fee():
     Productos mayores a 1.500.000 tendram el 13% y 1% de valor del envio incluidos dentro
     del precio final del producto
     """
+
+    # Se carga el contexto de la aplicación de Flask
+    with current_app.app_context():
+
+        # Variables de reglas contables
+
+        """
+        Esta variable define el valor de los UVTs manejados en Colombia.
+        Algunos productos estan excentos de IVA como los Portatiles y Celulares.
+
+        Este tipo de productos estan excentos de IVA hasta cierto valor de UVT por
+        eso este valor es una constante hasta que se registre un nuevo valor el
+        proximo año.
+        """
+
+        # Código que utiliza current_app
+        UVT = current_app.config["UVT"]
+        project_folder = current_app.config["PROJECT_FOLDER"]
 
     # Se guarda el registro dentro de "logs.json"
     with open(f'{project_folder}/data/product_prices_02.json') as f:
@@ -94,6 +95,7 @@ def increment_with_shipping_fee():
                     product_price_base = product_price - 15000
 
                 if last_products_data[product["sku"]]["shipping_type"] == "B: 1%":
+                    print("encontrado", product_price)
                     product_price_base = product_price * 0.99
 
                 if product_price_base <= 1500000:
@@ -254,6 +256,24 @@ def price_profit_correction():
     La nueva formula de ganancia es: precio / (1-13)
     13 es el porcentaje de ganancia
     """
+
+    # Se carga el contexto de la aplicación de Flask
+    with current_app.app_context():
+
+        # Variables de reglas contables
+
+        """
+        Esta variable define el valor de los UVTs manejados en Colombia.
+        Algunos productos estan excentos de IVA como los Portatiles y Celulares.
+
+        Este tipo de productos estan excentos de IVA hasta cierto valor de UVT por
+        eso este valor es una constante hasta que se registre un nuevo valor el
+        proximo año.
+        """
+
+        # Código que utiliza current_app
+        UVT = current_app.config["UVT"]
+        project_folder = current_app.config["PROJECT_FOLDER"]
 
     # Se obtienen todos los productos de woocommerce
     all_products = woo.get_all_prods(1)
@@ -419,6 +439,11 @@ def price_profit_correction():
 
 @price_increase_blueprint.route('/update-with-increment-list')
 def update_with_increment_list():
+
+    # Se carga el contexto de la aplicación de Flask
+    with current_app.app_context():
+
+        project_folder = current_app.config["PROJECT_FOLDER"]
 
     # Se guarda el registro dentro de "logs.json"
     with open(f'{project_folder}/data/product_prices_05.json') as f:

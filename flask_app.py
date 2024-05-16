@@ -22,10 +22,11 @@ def create_app(env):
     mail = Mail(app)
 
     # Registra el Blueprint de rutas en la aplicación
-    app.register_blueprint(create_routes_blueprint(mail))
+    app.register_blueprint(create_routes_blueprint(mail, config[env]))
 
     return app
 
+enviroment = 'development' # Entorno actual
 app = create_app('development')
 
 # Se inicializa el programa

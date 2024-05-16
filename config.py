@@ -14,14 +14,15 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.getenv("MAIL_USERNAME") # Tu dirección de correo electrónico
     MAIL_PASSWORD =  os.getenv("MAIL_PASSWORD") # Tu contraseña de aplicación generada para acceso desde apps externas
+    UVT = 47065 # Valor del UVT (Año 2024)
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    PROJECT_FOLDER = os.path.abspath(os.getcwd())
 
 class ProductionConfig(Config):
     DEBUG = False
-    MAIL_USE_TLS = True
-    MAIL_PORT = 587
+    PROJECT_FOLDER = os.path.expanduser('~/infotechonline-dashboard')
 
 config = {
     'development': DevelopmentConfig,
