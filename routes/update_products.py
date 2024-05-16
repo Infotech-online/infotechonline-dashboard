@@ -110,7 +110,7 @@ def add_product():
 
             # Se retorna un mensaje de tipo Success
             return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
-        
+
         except Exception as ex:
 
             # Si no se pudo realizar el proceso
@@ -168,25 +168,40 @@ def ingram_update():
                 base_price = int(prices[ingram_pnumber]) # Precio base del mayorista
                 iva_state = "taxable" # Estado de IVA del producto
 
-                profit_margin = 0.13
+                profit_margin_A = 0.15
+                profit_margin_B = 0.13
 
-                if category == "accesorios":
+                # Si la categoria de UVT esta activa devolver la cantidad de UVT para la categoría
+                UVT_rule = False
+                if category == "laptop":
+                    UVT_rule = True
+                    UVT_quantity = 50
 
-                    # Si el producto es un accesorio y su precio base es menor a 200.000
-                    if base_price < 200000:
-                        profit_margin = 0.20
+                if category == "smartphones" or category == "tablets":
+                    UVT_rule = True
+                    UVT_quantity = 22
 
                 """
                 La formula es: 
                 incremento = Precio del producto / (1 - margen de ganancia)
                 valor final = incremento * 1.19
                 """
+                # Si el precio base del producto supera el 1.500.000 el margen sera de 13%
+                profit_margin = profit_margin_B if base_price > 1500000 else profit_margin_A
                 profit = base_price / (1 - profit_margin)
+
+                # Se añade el valor del envio antes de IVA
+                if profit <= 1500000:
+                    profit += 15000
+
+                if profit > 1500000:
+                    profit = profit / (1 - 0.01)
+
                 final_price = profit * 1.19
 
                 # Se obtiene el stock actual del producto
                 current_stock_quantity = stock[ingram_pnumber]
-                if stock[ingram_pnumber] > 0:                    
+                if stock[ingram_pnumber] > 0:
                     stock_status = "instock"
                 else:
                     stock_status = "outofstock"
@@ -196,7 +211,7 @@ def ingram_update():
                 Segun cierto valor estos dispositivos no llevan IVA
                 Entonces el Precio final sera la variable (Profit)
                 """
-                if (category == "smartphones" and (profit < (22*UVT))) or (category == "laptop" and (profit < (50*UVT))):
+                if UVT_rule and final_price < (UVT_quantity * UVT):
 
                     final_price = profit
                     iva_state = "shipping" # Excluido de IVA
@@ -234,12 +249,18 @@ def ingram_update():
 
                             new_sale_price = final_price
 
+                            """
                             if new_sale_price > 900000:
                                 shipping_class = "b-fee"
                                 shipping_class_id = 1611
                             else:
                                 shipping_class = "a-fee"
                                 shipping_class_id = 1610
+                            """
+
+                            # Totos los productos tendran envio gratuito
+                            shipping_class = "free-fee"
+                            shipping_class_id = 1781
 
                             new_regular_price = final_price * (1 + discount)
                             new_regular_price = int(math.ceil(new_regular_price / 1000.0)) * 1000
@@ -263,12 +284,9 @@ def ingram_update():
                             new_regular_price = final_price
                             new_sale_price = ""
 
-                            if new_regular_price > 900000:
-                                shipping_class = "b-fee"
-                                shipping_class_id = 1611
-                            else:
-                                shipping_class = "a-fee"
-                                shipping_class_id = 1610                            
+                            # Totos los productos tendran envio gratuito
+                            shipping_class = "free-fee"
+                            shipping_class_id = 1781
 
                             data = {
                                 "regular_price": f"{int(new_regular_price)}", 

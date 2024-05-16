@@ -235,14 +235,14 @@
                 "slug": "accesorios"
             },
             {
-                "id": 2319,
-                "name": "Diademas",
-                "slug": "diademas-gaming"
-            },
-            {
                 "id": 1454,
                 "name": "Diademas",
                 "slug": "diademas"
+            },
+            {
+                "id": 2319,
+                "name": "Diademas",
+                "slug": "diademas-gaming"
             },
             {
                 "id": 1400,
@@ -279,14 +279,14 @@
                 "slug": "gaming"
             },
             {
-                "id": 1457,
-                "name": "Mouse",
-                "slug": "mouse"
-            },
-            {
                 "id": 2317,
                 "name": "Mouse",
                 "slug": "mouse-gaming"
+            },
+            {
+                "id": 1457,
+                "name": "Mouse",
+                "slug": "mouse"
             }
         ]
     },
@@ -318,14 +318,14 @@
                 "slug": "gaming"
             },
             {
-                "id": 2318,
-                "name": "Teclados",
-                "slug": "teclados-gaming"
-            },
-            {
                 "id": 1458,
                 "name": "Teclados",
                 "slug": "teclados"
+            },
+            {
+                "id": 2318,
+                "name": "Teclados",
+                "slug": "teclados-gaming"
             }
         ]
     },
@@ -509,10 +509,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/08/wf-m5299_hero-optional-tray_690x460.jpg",
         "regular_price": 1826000,
         "sale_price": "",
-        "new_regular_price": 1826000,
+        "new_regular_price": 1869000,
         "new_sale_price": "",
         "base_price": 1322000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": false,
         "discount_rate": 0,
@@ -688,13 +688,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/08/7-9-768x768-1.jpg",
         "regular_price": 969000,
         "sale_price": 775000,
-        "new_regular_price": 1024000,
+        "new_regular_price": 951000,
         "new_sale_price": 731000,
         "base_price": 510000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 40.0,
+        "discount_rate": 30.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -964,13 +964,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/ALTAVOZ-INTELIGENTE-AMAZON-ECHO-DOT-5TA-GENERACION-lateral.png",
         "regular_price": 357000,
         "sale_price": 264000,
-        "new_regular_price": 275000,
+        "new_regular_price": 313000,
         "new_sale_price": 250000,
         "base_price": 166000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 10.0,
+        "discount_rate": 25.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -1084,13 +1084,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/gsc_120754076_2790170_1.jpeg",
         "regular_price": 71000,
         "sale_price": 59000,
-        "new_regular_price": 77000,
+        "new_regular_price": 75000,
         "new_sale_price": 57000,
         "base_price": 28000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 35.0,
+        "discount_rate": 30.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -1373,13 +1373,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/Auriculares-Xtech-INSOLENCE-Audifonos-estereo-para-videojuegos.Factor-de-forma-Supraaural-XTH-560-1.png",
         "regular_price": 112000,
         "sale_price": 89000,
-        "new_regular_price": 107000,
+        "new_regular_price": 98000,
         "new_sale_price": 85000,
         "base_price": 48000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 25.0,
+        "discount_rate": 15.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -1391,6 +1391,11 @@
                 "slug": "accesorios"
             },
             {
+                "id": 2319,
+                "name": "Diademas",
+                "slug": "diademas-gaming"
+            },
+            {
                 "id": 2300,
                 "name": "Diademas",
                 "slug": "diademas-ofertas"
@@ -1399,11 +1404,6 @@
                 "id": 1454,
                 "name": "Diademas",
                 "slug": "diademas"
-            },
-            {
-                "id": 2319,
-                "name": "Diademas",
-                "slug": "diademas-gaming"
             },
             {
                 "id": 1400,
@@ -1422,13 +1422,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/Diadema-Xtech-Voracis-Audifonos-estero-XTH-500-Factor-1.png",
         "regular_price": 80000,
         "sale_price": 57000,
-        "new_regular_price": 72000,
+        "new_regular_price": 64000,
         "new_sale_price": 55000,
         "base_price": 27000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 30.0,
+        "discount_rate": 15.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -1494,14 +1494,14 @@
                 "slug": "gaming"
             },
             {
-                "id": 1457,
-                "name": "Mouse",
-                "slug": "mouse"
-            },
-            {
                 "id": 2317,
                 "name": "Mouse",
                 "slug": "mouse-gaming"
+            },
+            {
+                "id": 1457,
+                "name": "Mouse",
+                "slug": "mouse"
             }
         ]
     },
@@ -1562,11 +1562,6 @@
                 "slug": "gaming"
             },
             {
-                "id": 2317,
-                "name": "Mouse",
-                "slug": "mouse-gaming"
-            },
-            {
                 "id": 2296,
                 "name": "Mouse",
                 "slug": "mouse-ofertas"
@@ -1577,14 +1572,14 @@
                 "slug": "mouse"
             },
             {
+                "id": 2317,
+                "name": "Mouse",
+                "slug": "mouse-gaming"
+            },
+            {
                 "id": 1399,
                 "name": "Ofertas",
                 "slug": "ofertas"
-            },
-            {
-                "id": 2318,
-                "name": "Teclados",
-                "slug": "teclados-gaming"
             },
             {
                 "id": 2295,
@@ -1595,6 +1590,11 @@
                 "id": 1458,
                 "name": "Teclados",
                 "slug": "teclados"
+            },
+            {
+                "id": 2318,
+                "name": "Teclados",
+                "slug": "teclados-gaming"
             }
         ]
     },
@@ -1642,13 +1642,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/Pc-Portatil-ASUS-156-Pulgadas-X515EA-Intel-Core-i3-RAM-8GB-Disco-SSD-512-GB-Frontal.png",
         "regular_price": 1785000,
         "sale_price": 1552000,
-        "new_regular_price": 2018000,
-        "new_sale_price": 1552000,
+        "new_regular_price": 1828000,
+        "new_sale_price": 1589000,
         "base_price": 1337000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "excluded",
         "on_sale": true,
-        "discount_rate": 30.0,
+        "discount_rate": 15.0,
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -1720,13 +1720,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/Portatil-Latitude-3420-Disco-duro-256GB-Memoria-ram-8GB-interl-core-i5-frontal.png",
         "regular_price": 6880000,
         "sale_price": 4914000,
-        "new_regular_price": 6143000,
+        "new_regular_price": 6389000,
         "new_sale_price": 4914000,
         "base_price": 3557000,
         "profit_margin": 0.13,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 25.0,
+        "discount_rate": 30.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -1749,10 +1749,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/hpppppppp.jpg",
         "regular_price": 1935000,
         "sale_price": "",
-        "new_regular_price": 1935000,
+        "new_regular_price": 1981000,
         "new_sale_price": "",
         "base_price": 1401000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": false,
         "discount_rate": 0,
@@ -1778,13 +1778,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/Pc-Portatil-HP-AMD-Ryzen-5-5500U-8-GB-256-GB-frontal.png",
         "regular_price": 2722000,
         "sale_price": 1944000,
-        "new_regular_price": 2139000,
+        "new_regular_price": 2430000,
         "new_sale_price": 1944000,
         "base_price": 1675000,
         "profit_margin": 0.13,
         "IVA": "excluded",
         "on_sale": true,
-        "discount_rate": 10.0,
+        "discount_rate": 25.0,
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -1865,13 +1865,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/e14.jpg",
         "regular_price": 5714000,
         "sale_price": 5194000,
-        "new_regular_price": 6753000,
+        "new_regular_price": 7272000,
         "new_sale_price": 5194000,
         "base_price": 3760000,
         "profit_margin": 0.13,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 30.0,
+        "discount_rate": 40.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -1947,13 +1947,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/Televisor-CAIXUN-65-Pulgadas-LED-Uhd4K-Smart-TV-C65VAUG-1.jpg",
         "regular_price": 3238000,
         "sale_price": 2590000,
-        "new_regular_price": 3239000,
+        "new_regular_price": 2851000,
         "new_sale_price": 2591000,
         "base_price": 1875000,
         "profit_margin": 0.13,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 25.0,
+        "discount_rate": 10.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2131,13 +2131,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/Yurei-Soporte-doble-para-Auriculares-con-Luz-RGB-y-2-Puertos-USB-XTH-690-3.png",
         "regular_price": 149000,
         "sale_price": 129000,
-        "new_regular_price": 142000,
+        "new_regular_price": 160000,
         "new_sale_price": 123000,
         "base_price": 75000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 15.0,
+        "discount_rate": 30.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2175,13 +2175,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/descarga-1.png",
         "regular_price": 84000,
         "sale_price": 70000,
-        "new_regular_price": 74000,
+        "new_regular_price": 84000,
         "new_sale_price": 67000,
         "base_price": 36000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 10.0,
+        "discount_rate": 25.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2198,6 +2198,11 @@
                 "slug": "gaming"
             },
             {
+                "id": 2317,
+                "name": "Mouse",
+                "slug": "mouse-gaming"
+            },
+            {
                 "id": 2296,
                 "name": "Mouse",
                 "slug": "mouse-ofertas"
@@ -2206,11 +2211,6 @@
                 "id": 1457,
                 "name": "Mouse",
                 "slug": "mouse"
-            },
-            {
-                "id": 2317,
-                "name": "Mouse",
-                "slug": "mouse-gaming"
             },
             {
                 "id": 1399,
@@ -2224,13 +2224,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/S4-2-600x600-1.png",
         "regular_price": 78000,
         "sale_price": 62000,
-        "new_regular_price": 81000,
+        "new_regular_price": 72000,
         "new_sale_price": 60000,
         "base_price": 30000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 35.0,
+        "discount_rate": 20.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2242,14 +2242,14 @@
                 "slug": "accesorios"
             },
             {
-                "id": 1454,
-                "name": "Diademas",
-                "slug": "diademas"
-            },
-            {
                 "id": 2300,
                 "name": "Diademas",
                 "slug": "diademas-ofertas"
+            },
+            {
+                "id": 1454,
+                "name": "Diademas",
+                "slug": "diademas"
             },
             {
                 "id": 1399,
@@ -2263,13 +2263,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/XTH-650_tienda_maitek.png",
         "regular_price": 144000,
         "sale_price": 106000,
-        "new_regular_price": 112000,
+        "new_regular_price": 142000,
         "new_sale_price": 101000,
         "base_price": 60000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 10.0,
+        "discount_rate": 40.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2312,13 +2312,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/KMW-750-land.jpg",
         "regular_price": 110000,
         "sale_price": 84000,
-        "new_regular_price": 110000,
+        "new_regular_price": 106000,
         "new_sale_price": 81000,
         "base_price": 45000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 35.0,
+        "discount_rate": 30.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2351,13 +2351,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/5610624-800-auto.webp",
         "regular_price": 296000,
         "sale_price": 211000,
-        "new_regular_price": 240000,
+        "new_regular_price": 221000,
         "new_sale_price": 200000,
         "base_price": 130000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 20.0,
+        "discount_rate": 10.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2395,13 +2395,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/Kit-de-Automatizacion_Mesa-de-trabajo-1.png",
         "regular_price": 308000,
         "sale_price": 280000,
-        "new_regular_price": 371000,
+        "new_regular_price": 318000,
         "new_sale_price": 265000,
         "base_price": 177000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 40.0,
+        "discount_rate": 20.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2433,14 +2433,14 @@
                 "slug": "hogar-inteligente"
             },
             {
-                "id": 1641,
-                "name": "Iluminaci\u00f3n",
-                "slug": "iluminacion"
-            },
-            {
                 "id": 2305,
                 "name": "Iluminaci\u00f3n",
                 "slug": "iluminacion-ofertas"
+            },
+            {
+                "id": 1641,
+                "name": "Iluminaci\u00f3n",
+                "slug": "iluminacion"
             },
             {
                 "id": 1399,
@@ -2454,27 +2454,27 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/banners-carrusel-ahiwpso4u1-1-1.png",
         "regular_price": 73000,
         "sale_price": 63000,
-        "new_regular_price": 86000,
+        "new_regular_price": 68000,
         "new_sale_price": 61000,
         "base_price": 31000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 40.0,
+        "discount_rate": 10.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
         "shipping_type": "A: 15.000",
         "categories": [
             {
-                "id": 2304,
-                "name": "Enchufes WiFi",
-                "slug": "enchufes-wifi-ofertas"
-            },
-            {
                 "id": 2303,
                 "name": "Enchufes WiFi",
                 "slug": "enchufes-wifi"
+            },
+            {
+                "id": 2304,
+                "name": "Enchufes WiFi",
+                "slug": "enchufes-wifi-ofertas"
             },
             {
                 "id": 1613,
@@ -2493,13 +2493,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/122129577_1.png",
         "regular_price": 271000,
         "sale_price": 208000,
-        "new_regular_price": 247000,
+        "new_regular_price": 266000,
         "new_sale_price": 197000,
         "base_price": 128000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 25.0,
+        "discount_rate": 35.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2511,6 +2511,11 @@
                 "slug": "gaming"
             },
             {
+                "id": 1457,
+                "name": "Mouse",
+                "slug": "mouse"
+            },
+            {
                 "id": 2317,
                 "name": "Mouse",
                 "slug": "mouse-gaming"
@@ -2519,11 +2524,6 @@
                 "id": 2296,
                 "name": "Mouse",
                 "slug": "mouse-ofertas"
-            },
-            {
-                "id": 1457,
-                "name": "Mouse",
-                "slug": "mouse"
             },
             {
                 "id": 1399,
@@ -2552,13 +2552,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/Televisor-55-Lg-55UR7300PSA-Smart-TV-4K-UHD-Bluetooth-1.png",
         "regular_price": 3414000,
         "sale_price": 2438000,
-        "new_regular_price": 3292000,
+        "new_regular_price": 2682000,
         "new_sale_price": 2438000,
         "base_price": 1765000,
         "profit_margin": 0.13,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 35.0,
+        "discount_rate": 10.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2630,13 +2630,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/banners_carrusel_NHB-C110-4PK_V2.jpg",
         "regular_price": 295000,
         "sale_price": 236000,
-        "new_regular_price": 280000,
+        "new_regular_price": 258000,
         "new_sale_price": 224000,
         "base_price": 147000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 25.0,
+        "discount_rate": 15.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2664,13 +2664,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/09/194253250012-001-750Wx750H.png",
         "regular_price": 2777000,
         "sale_price": 2221000,
-        "new_regular_price": 2444000,
+        "new_regular_price": 3110000,
         "new_sale_price": 2221000,
         "base_price": 1608000,
         "profit_margin": 0.13,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 10.0,
+        "discount_rate": 40.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2779,14 +2779,14 @@
                 "slug": "gaming"
             },
             {
-                "id": 1458,
-                "name": "Teclados",
-                "slug": "teclados"
-            },
-            {
                 "id": 2318,
                 "name": "Teclados",
                 "slug": "teclados-gaming"
+            },
+            {
+                "id": 1458,
+                "name": "Teclados",
+                "slug": "teclados"
             }
         ]
     },
@@ -2795,13 +2795,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/10/gsc_119629958_2052296_1.jpg",
         "regular_price": 3330000,
         "sale_price": 2895000,
-        "new_regular_price": 4053000,
+        "new_regular_price": 3185000,
         "new_sale_price": 2895000,
         "base_price": 2096000,
         "profit_margin": 0.13,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 40.0,
+        "discount_rate": 10.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2819,10 +2819,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/10/431063-800-auto.webp",
         "regular_price": 1882000,
         "sale_price": "",
-        "new_regular_price": 1882000,
+        "new_regular_price": 1927000,
         "new_sale_price": "",
         "base_price": 1363000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": false,
         "discount_rate": 0,
@@ -2843,13 +2843,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/10/1-7ee936d4ba-nbhp-630g9-i516256.webp",
         "regular_price": 7545000,
         "sale_price": 5389000,
-        "new_regular_price": 5928000,
+        "new_regular_price": 6467000,
         "new_sale_price": 5389000,
         "base_price": 3901000,
         "profit_margin": 0.13,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 10.0,
+        "discount_rate": 20.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2906,13 +2906,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/10/DIADEMA-GAMER-INALAMBRICA-REDRAGON-IRE-H848-NEGRO.png",
         "regular_price": 392000,
         "sale_price": 280000,
-        "new_regular_price": 345000,
+        "new_regular_price": 292000,
         "new_sale_price": 265000,
         "base_price": 177000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 30.0,
+        "discount_rate": 10.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -2945,13 +2945,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/10/DIADEMA-GAMER-INALAMBRICA-REDRAGON-IRE-H848-AZUL-BLANCO-1-3.png",
         "regular_price": 336000,
         "sale_price": 280000,
-        "new_regular_price": 292000,
+        "new_regular_price": 332000,
         "new_sale_price": 265000,
         "base_price": 177000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 10.0,
+        "discount_rate": 25.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -3124,14 +3124,14 @@
                 "slug": "gaming"
             },
             {
-                "id": 1458,
-                "name": "Teclados",
-                "slug": "teclados"
-            },
-            {
                 "id": 2318,
                 "name": "Teclados",
                 "slug": "teclados-gaming"
+            },
+            {
+                "id": 1458,
+                "name": "Teclados",
+                "slug": "teclados"
             }
         ]
     },
@@ -3309,13 +3309,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/10/smart-watch-bluetooth-con-pantalla-full-touch.webp",
         "regular_price": 223000,
         "sale_price": 202000,
-        "new_regular_price": 221000,
+        "new_regular_price": 260000,
         "new_sale_price": 192000,
         "base_price": 124000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 15.0,
+        "discount_rate": 35.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -3348,13 +3348,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/10/179231-1200-auto-1.webp",
         "regular_price": 168000,
         "sale_price": 140000,
-        "new_regular_price": 153000,
+        "new_regular_price": 167000,
         "new_sale_price": 133000,
         "base_price": 83000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 15.0,
+        "discount_rate": 25.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -3575,13 +3575,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/11/184779-1200-auto.webp",
         "regular_price": 308000,
         "sale_price": 228000,
-        "new_regular_price": 249000,
+        "new_regular_price": 281000,
         "new_sale_price": 216000,
         "base_price": 142000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 15.0,
+        "discount_rate": 30.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -3672,13 +3672,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/11/750Wx750H-master-hotfolder-transfer-incoming-deposit-hybris-interfaces-IN-media-product-196802801911-001.jpg",
         "regular_price": 2673000,
         "sale_price": 2056000,
-        "new_regular_price": 2673000,
+        "new_regular_price": 2570000,
         "new_sale_price": 2056000,
         "base_price": 1771000,
         "profit_margin": 0.13,
         "IVA": "excluded",
         "on_sale": true,
-        "discount_rate": 30.0,
+        "discount_rate": 25.0,
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -3851,13 +3851,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/11/635fda625e69a11797a00b81.webp",
         "regular_price": 74000,
         "sale_price": 67000,
-        "new_regular_price": 72000,
+        "new_regular_price": 78000,
         "new_sale_price": 65000,
         "base_price": 34000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 10.0,
+        "discount_rate": 20.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -4046,10 +4046,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/12/COMBO-PC-1.png",
         "regular_price": 1696000,
         "sale_price": "",
-        "new_regular_price": 1696000,
+        "new_regular_price": 1736000,
         "new_sale_price": "",
         "base_price": 1461000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "excluded",
         "on_sale": false,
         "discount_rate": 0,
@@ -4172,10 +4172,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/12/Lenovo-ThinkSmart-199039535-Video-Conference-Camera-User-Guide-Featured-image-1568x1108-1.webp",
         "regular_price": 2021000,
         "sale_price": "",
-        "new_regular_price": 2021000,
+        "new_regular_price": 2069000,
         "new_sale_price": "",
         "base_price": 1463000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": false,
         "discount_rate": 0,
@@ -4225,10 +4225,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2023/12/Impresora-Epson-TM-T88V-para-recibos-de-puntos-de-venta-1.jpg",
         "regular_price": 1891000,
         "sale_price": "",
-        "new_regular_price": 1891000,
+        "new_regular_price": 1936000,
         "new_sale_price": "",
         "base_price": 1369000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": false,
         "discount_rate": 0,
@@ -4728,13 +4728,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/01/Altavoz-Inteligente-Google-Home-MINI-NEST-2-Negro-1.webp",
         "regular_price": 243000,
         "sale_price": 211000,
-        "new_regular_price": 270000,
+        "new_regular_price": 221000,
         "new_sale_price": 200000,
         "base_price": 130000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 35.0,
+        "discount_rate": 10.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -4775,14 +4775,14 @@
                 "slug": "accesorios"
             },
             {
-                "id": 2296,
-                "name": "Mouse",
-                "slug": "mouse-ofertas"
-            },
-            {
                 "id": 1457,
                 "name": "Mouse",
                 "slug": "mouse"
+            },
+            {
+                "id": 2296,
+                "name": "Mouse",
+                "slug": "mouse-ofertas"
             },
             {
                 "id": 1399,
@@ -5004,13 +5004,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/Combo-teclado-y-mouse-dell-10-unidades.png",
         "regular_price": 111000,
         "sale_price": 96000,
-        "new_regular_price": 129000,
+        "new_regular_price": 115000,
         "new_sale_price": 92000,
         "base_price": 53000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 40.0,
+        "discount_rate": 25.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -5053,13 +5053,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/8806095296050-001-750Wx750H.webp",
         "regular_price": 531000,
         "sale_price": 442000,
-        "new_regular_price": 501000,
+        "new_regular_price": 563000,
         "new_sale_price": 417000,
         "base_price": 342000,
         "profit_margin": 0.15,
         "IVA": "excluded",
         "on_sale": true,
-        "discount_rate": 20.0,
+        "discount_rate": 35.0,
         "tax_status": "shipping",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -5125,13 +5125,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/descarga-1.png",
         "regular_price": 137000,
         "sale_price": 105000,
-        "new_regular_price": 115000,
+        "new_regular_price": 120000,
         "new_sale_price": 100000,
         "base_price": 59000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 15.0,
+        "discount_rate": 20.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -5148,11 +5148,6 @@
                 "slug": "gaming"
             },
             {
-                "id": 2317,
-                "name": "Mouse",
-                "slug": "mouse-gaming"
-            },
-            {
                 "id": 2296,
                 "name": "Mouse",
                 "slug": "mouse-ofertas"
@@ -5163,14 +5158,14 @@
                 "slug": "mouse"
             },
             {
+                "id": 2317,
+                "name": "Mouse",
+                "slug": "mouse-gaming"
+            },
+            {
                 "id": 1399,
                 "name": "Ofertas",
                 "slug": "ofertas"
-            },
-            {
-                "id": 2318,
-                "name": "Teclados",
-                "slug": "teclados-gaming"
             },
             {
                 "id": 2295,
@@ -5181,6 +5176,11 @@
                 "id": 1458,
                 "name": "Teclados",
                 "slug": "teclados"
+            },
+            {
+                "id": 2318,
+                "name": "Teclados",
+                "slug": "teclados-gaming"
             }
         ]
     },
@@ -5242,10 +5242,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/TV-Samsung-LED-50-4K-Smart-TV-1.jpg",
         "regular_price": 1867000,
         "sale_price": "",
-        "new_regular_price": 1867000,
+        "new_regular_price": 1911000,
         "new_sale_price": "",
         "base_price": 1352000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": false,
         "discount_rate": 0,
@@ -5570,13 +5570,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/camara-1.jpg",
         "regular_price": 243000,
         "sale_price": 173000,
-        "new_regular_price": 197000,
+        "new_regular_price": 205000,
         "new_sale_price": 164000,
         "base_price": 105000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 20.0,
+        "discount_rate": 25.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -5869,10 +5869,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/50UR8750PSA_Mesa-de-trabajo-1-scaled-1.jpg",
         "regular_price": 1935000,
         "sale_price": "",
-        "new_regular_price": 1935000,
+        "new_regular_price": 1981000,
         "new_sale_price": "",
         "base_price": 1401000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": false,
         "discount_rate": 0,
@@ -6062,10 +6062,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/HP1.jpg",
         "regular_price": 1567000,
         "sale_price": "",
-        "new_regular_price": 1567000,
+        "new_regular_price": 1604000,
         "new_sale_price": "",
         "base_price": 1350000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "excluded",
         "on_sale": false,
         "discount_rate": 0,
@@ -6178,10 +6178,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/hep1.jpg",
         "regular_price": 1559000,
         "sale_price": "",
-        "new_regular_price": 1559000,
+        "new_regular_price": 1596000,
         "new_sale_price": "",
         "base_price": 1343000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "excluded",
         "on_sale": false,
         "discount_rate": 0,
@@ -6207,10 +6207,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/linux1.jpg",
         "regular_price": 1592000,
         "sale_price": "",
-        "new_regular_price": 1592000,
+        "new_regular_price": 1630000,
         "new_sale_price": "",
         "base_price": 1372000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "excluded",
         "on_sale": false,
         "discount_rate": 0,
@@ -6265,13 +6265,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/02/111.webp",
         "regular_price": 1262000,
         "sale_price": 1009000,
-        "new_regular_price": 1047000,
+        "new_regular_price": 1094000,
         "new_sale_price": 951000,
         "base_price": 667000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 10.0,
+        "discount_rate": 15.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,
@@ -6854,14 +6854,14 @@
                 "slug": "gaming"
             },
             {
-                "id": 1457,
-                "name": "Mouse",
-                "slug": "mouse"
-            },
-            {
                 "id": 2317,
                 "name": "Mouse",
                 "slug": "mouse-gaming"
+            },
+            {
+                "id": 1457,
+                "name": "Mouse",
+                "slug": "mouse"
             }
         ]
     },
@@ -7072,14 +7072,14 @@
                 "slug": "gaming"
             },
             {
-                "id": 1503,
-                "name": "Monitores",
-                "slug": "monitores"
-            },
-            {
                 "id": 2320,
                 "name": "Monitores",
                 "slug": "monitores-gaming-2"
+            },
+            {
+                "id": 1503,
+                "name": "Monitores",
+                "slug": "monitores"
             },
             {
                 "id": 2308,
@@ -7494,10 +7494,10 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/04/124779525_1.png",
         "regular_price": 1879000,
         "sale_price": "",
-        "new_regular_price": 1879000,
+        "new_regular_price": 1924000,
         "new_sale_price": "",
         "base_price": 1360000,
-        "profit_margin": 0.13,
+        "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": false,
         "discount_rate": 0,
@@ -7862,14 +7862,14 @@
                 "slug": "impresoras-laser"
             },
             {
-                "id": 2362,
-                "name": "Multifunci\u00f3n",
-                "slug": "multifuncion"
-            },
-            {
                 "id": 1480,
                 "name": "Multifunci\u00f3n",
                 "slug": "impresoras-multifuncion"
+            },
+            {
+                "id": 2362,
+                "name": "Multifunci\u00f3n",
+                "slug": "multifuncion"
             }
         ]
     },
@@ -7907,13 +7907,13 @@
         "image": "https://infotechonline.co/wp-content/uploads/2024/05/1.webp",
         "regular_price": 150000,
         "sale_price": 111000,
-        "new_regular_price": 128000,
+        "new_regular_price": 144000,
         "new_sale_price": 106000,
         "base_price": 63000,
         "profit_margin": 0.15,
         "IVA": "included",
         "on_sale": true,
-        "discount_rate": 20.0,
+        "discount_rate": 35.0,
         "tax_status": "taxable",
         "shipping_class": "free-fee",
         "shipping_class_id": 1781,

@@ -92,8 +92,8 @@ def increment_with_shipping_fee():
 
                 if last_products_data[product["sku"]]["shipping_type"] == "A: 15.000":
                     product_price_base = product_price - 15000
+
                 if last_products_data[product["sku"]]["shipping_type"] == "B: 1%":
-                    print("encontrado", product_price)
                     product_price_base = product_price * 0.99
 
                 if product_price_base <= 1500000:
@@ -106,7 +106,7 @@ def increment_with_shipping_fee():
                 if product["sku"] == "401043 - C3VHY":
                     print("\n", product_price_base, base_price)
 
-                profit_margin = 0.13 if product_price > 1500000 else profit_margin
+                profit_margin = 0.13 if base_price > 1500000 else profit_margin
                 product_price = base_price / (1 - profit_margin)
 
                 # Se añade el valor del envio antes de IVA
@@ -118,7 +118,7 @@ def increment_with_shipping_fee():
                     shipping_type = "B: 1%"
                     product_price = product_price / (1 - 0.01)
 
-                # Si con el precio nuevo supera los 22 UVT entonces se le añade IVA
+                # Si con el precio nuevo supera los UVT entonces se le añade IVA
                 product_price = product_price * 1.19 if product_price > (UVT_quantity * UVT) else product_price
                 iva_state = "included" if product_price > (UVT_quantity * UVT) else "excluded"
 
@@ -143,7 +143,7 @@ def increment_with_shipping_fee():
 
                 base_price = product_price_base * decrease # Se le resta el porcentaje con la formula anterior
 
-                profit_margin = 0.13 if product_price_base > 1500000 else profit_margin
+                profit_margin = 0.13 if base_price > 1500000 else profit_margin
                 product_price = base_price / (1 - profit_margin) # Se añade el porcentaje con la nueva formula
 
                 # Se añade el valor del envio antes de IVA
