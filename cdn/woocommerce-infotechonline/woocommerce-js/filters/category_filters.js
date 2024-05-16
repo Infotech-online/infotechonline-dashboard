@@ -163,11 +163,16 @@ function change_current_category() {
 
             load_subcategory($(this).attr('id'))
             update_brands()
-            if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'monitores-industriales') {
+            if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'monitores-industriales' || localStorage.getItem('category_') == 'monitores-de-escritorio' || localStorage.getItem('category_') == 'pantallas-corporativo') {
                 set_default_inches_filter_values('set_values')
             } else {
                 load_products()
             }
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Para un desplazamiento suave
+            });
 
 
         })
@@ -195,11 +200,16 @@ function change_current_category() {
 
             load_subcategory($(this).attr('id'))
             update_brands()
-            if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'monitores-industriales') {
+            if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'pantallas-corporativo' || localStorage.getItem('category_') == 'monitores-de-escritorio' || localStorage.getItem('category_') == 'monitores-industriales') {
                 set_default_inches_filter_values('set_values')
             } else {
                 load_products()
             }
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Para un desplazamiento suave
+            });
 
         })
     });
@@ -226,77 +236,181 @@ function load_subcategory(current_category, type) {
 
             }).done(function(response) {
 
-                let categories = response;
-                let current_category_title = "";
-                let current_subcategory_title = "";
+                if (corporate_shop == true) {
 
-                for (category in categories) {
+                    console.log(current_category, " 241")
 
-                    if (categories[category]['slug'] == current_category) {
+                    // Si es el apartado corporativo
 
-                        current_category_title = category;
+                    let categories = response;
+                    let current_category_title = "";
+                    let current_subcategory_title = "";
 
-                        $('.page-title').html(current_category_title);
+                    if (current_category != "corporativo") {
+                        categories = categories["Corporativo"]["subcategories"]
                     }
-                }
 
-                if (current_category_title == "") {
-
+                    // Por cada categoria dentro de las categorias
                     for (category in categories) {
 
-                        for (subcategory in categories[category]['subcategories']) {
+                        console.log(category)
+                        console.log(categories)
 
-                            if (categories[category]['subcategories'][subcategory] == current_category) {
+                        if (categories[category]['slug'] == current_category) {
 
-                                current_category_title = category;
-                                current_subcategory_title = subcategory
+                            current_category_title = category;
 
-                                $('.page-title').html(current_subcategory_title);
+                            $('.page-title').html(current_category_title);
+                        }
+                    }
 
+                    // Si el titulo de la categoria esta vacia entonces se busca la categoria de la subcategoria
+                    // Es decir si no fue seleccionada una categoria entonce significa que fue una subcategoria
+                    // Por ende se busca la categoria de la subcategoria para mostrar toda la categoria completa
+                    if (current_category_title == "") {
+
+                        for (category in categories) {
+
+                            for (subcategory in categories[category]["subcategories"]) {
+
+                                if (categories[category]["subcategories"][subcategory] == current_category) {
+
+                                    current_category_title = category;
+                                    current_subcategory_title = subcategory
+
+                                    $('.page-title').html(current_subcategory_title);
+
+                                }
                             }
                         }
                     }
-                }
 
-                let subcategories = categories[current_category_title]['subcategories']
-                let list_show_subitems = "";
+                    if (current_category_title == "" && current_subcategory_title) {}
 
-                if(subcategories != null){
-                	// array has elements
-                	for (subcategory in subcategories) {
+                    console.log(categories, current_category_title, current_subcategory_title)
+                    let subcategories = categories[current_category_title]['subcategories']
+                    let list_show_subitems = "";
 
-                	    list_show_subitems += `
-        	            <div class='list__inside' id='${subcategories[subcategory]}' category-title='${subcategory}'>
-                            <span>${subcategory}</span>
-                        </div>
-        		        `;
-                	}
-                }
+                    if(subcategories != null) {
+                    	// array has elements
+                    	for (subcategory in subcategories) {
 
-                let list_type_class = ""
+                    	    if (current_category != "corporativo") {
+                    	        slug = subcategories[subcategory]
+                    	    } else {
+                    	        slug = subcategories[subcategory]["slug"]
+                    	    }
 
-                let list_item = `
-                <div class='current_category_list' style='margin-top: 40px; margin-bottom: 40px'>
-                    <div class='category_list__item ${list_type_class}'>
+                    	    list_show_subitems += `
+            	            <div class='list__inside' id='${slug}' category-title='${subcategory}'>
+                                <span>${subcategory}</span>
+                            </div>
+            		        `;
+                    	}
+                    }
 
-                        <div class='category_list__button' id='${current_category}' category-title='${current_category_title}'>
-                            <div class='category_title'>
-                                <span class='nav__link'>${current_category_title}</span>
+                    let list_type_class = ""
+
+                    let list_item = `
+                    <div class='current_category_list' style='margin-top: 40px; margin-bottom: 40px'>
+                        <div class='category_list__item ${list_type_class}'>
+
+                            <div class='category_list__button' id='${current_category}' category-title='${current_category_title}'>
+                                <div class='category_title'>
+                                    <span class='nav__link'>${current_category_title}</span>
+                                </div>
+
                             </div>
 
-                        </div>
-
-                        <div class='current_list__show'>
-                            ${list_show_subitems}
+                            <div class='current_list__show'>
+                                ${list_show_subitems}
+                            </div>
                         </div>
                     </div>
-                </div>
-                `;
+                    `;
 
-                $('.current_category_nav').html('');
-                $('.current_category_nav').append(list_item);
+                    $('.current_category_nav').html('');
+                    $('.current_category_nav').append(list_item);
 
-                change_current_category();
+                    change_current_category();
+
+
+                } else if (corporate_shop == false) {
+
+                    let categories = response;
+                    let current_category_title = "";
+                    let current_subcategory_title = "";
+
+                    for (category in categories) {
+
+                        if (categories[category]['slug'] == current_category) {
+
+                            current_category_title = category;
+
+                            $('.page-title').html(current_category_title);
+                        }
+                    }
+
+                    if (current_category_title == "") {
+
+                        for (category in categories) {
+
+                            for (subcategory in categories[category]['subcategories']) {
+
+                                if (categories[category]['subcategories'][subcategory] == current_category) {
+
+                                    current_category_title = category;
+                                    current_subcategory_title = subcategory
+
+                                    $('.page-title').html(current_subcategory_title);
+
+                                }
+                            }
+                        }
+                    }
+
+                    let subcategories = categories[current_category_title]['subcategories']
+                    let list_show_subitems = "";
+
+                    if(subcategories != null){
+                    	// array has elements
+                    	for (subcategory in subcategories) {
+
+                    	    list_show_subitems += `
+            	            <div class='list__inside' id='${subcategories[subcategory]}' category-title='${subcategory}'>
+                                <span>${subcategory}</span>
+                            </div>
+            		        `;
+                    	}
+                    }
+
+                    let list_type_class = ""
+
+                    let list_item = `
+                    <div class='current_category_list' style='margin-top: 40px; margin-bottom: 40px'>
+                        <div class='category_list__item ${list_type_class}'>
+
+                            <div class='category_list__button' id='${current_category}' category-title='${current_category_title}'>
+                                <div class='category_title'>
+                                    <span class='nav__link'>${current_category_title}</span>
+                                </div>
+
+                            </div>
+
+                            <div class='current_list__show'>
+                                ${list_show_subitems}
+                            </div>
+                        </div>
+                    </div>
+                    `;
+
+                    $('.current_category_nav').html('');
+                    $('.current_category_nav').append(list_item);
+
+                    change_current_category();
+
+                }
+
             })
 
         } else { // If the category is empty print "Sin categoria seleccionada"
@@ -318,7 +432,7 @@ function load_categories() {
 
 		var ajaxurl = ajax_object.ajax_url;
 
-		let business_categories = ["Memorias RAM", "UPS", "Redes", "Almacenamiento", "Proyectores", "Impresoras de Oficina", "Monitores industriales"] // Business categories
+		let business_categories = ["Corporativo"] // Business categories
 
 		$.post(ajaxurl, data, function(response) {
 
@@ -326,60 +440,66 @@ function load_categories() {
 
 		    let categories = response;
 
+		    console.log(categories)
+
             let all_category_items = '';
-		    for (category in categories) {
 
-		        // Si es el catalogo corporativo
-		        if (corporate_shop == true) {
+            // Si es el catalogo corporativo
+	        if (corporate_shop == true) {
 
-                    if (business_categories.includes(category)) {
-
-                        let subcategories = categories[category]['subcategories'];
-                        let list_show_subitems = "";
-                        let arrow_defined = "";
-                        let list_type_class = "";
-
-                        if(subcategories != null){
-
-                            arrow_defined = "<img src='https://jgallego.pythonanywhere.com/cdn/woocommerce-infotechonline/woocommerce-resources/bx-chevron-right.svg' class='list_arrow'>";
-                            list_type_class = "category_list__click";
-
-                        	// array has elements
-
-                        	for (subcategory in subcategories) {
-
-                        	    list_show_subitems += `
-                	            <div class='list__inside' id='${subcategories[subcategory]}' category-title='${subcategory}'>
-                                    <span>${subcategory}</span>
-                                </div>
-                		        `;
-                        	}
-                        }
+                for (category in categories["Corporativo"]["subcategories"]) {
 
 
-        		        let list_item = `
-            		    <div class='category_list__item ${list_type_class}'>
-                            <div class='category_list__button' id='${categories[category]['slug']}' category-title='${category}'>
-                                <div class='category_title'>
-                                    <!--<img src="${categories[category]['image']}" class='category_list__image'>-->
-                                    <span class='nav__link'>${category}</span>
-                                </div>
-                                ${arrow_defined}
+                    let subcategories = categories["Corporativo"]["subcategories"][category]["subcategories"];
+                    let list_show_subitems = "";
+                    let arrow_defined = "";
+                    let list_type_class = "";
+
+                    console.log(subcategories)
+
+                    if(subcategories != null){
+
+                        arrow_defined = "<img src='https://jgallego.pythonanywhere.com/cdn/woocommerce-infotechonline/woocommerce-resources/bx-chevron-right.svg' class='list_arrow'>";
+                        list_type_class = "category_list__click";
+
+                    	// array has elements
+
+                    	for (subcategory in subcategories) {
+
+                    	    list_show_subitems += `
+            	            <div class='list__inside' id='${subcategories[subcategory]}' category-title='${subcategory}'>
+                                <span>${subcategory}</span>
                             </div>
-
-                            <div class='list__show'>
-                                ${list_show_subitems}
-                            </div>
-
-                        </div>`;
-
-                        all_category_items += list_item
-
+            		        `;
+                    	}
                     }
 
-		        } else {
 
-		            if (!business_categories.includes(category) && category != "Corporativo") {
+    		        let list_item = `
+        		    <div class='category_list__item ${list_type_class}'>
+                        <div class='category_list__button' id='${categories["Corporativo"]["subcategories"][category]["slug"]}' category-title='${category}'>
+                            <div class='category_title'>
+                                <!--<img src="" class='category_list__image'>-->
+                                <span class='nav__link'>${category}</span>
+                            </div>
+                            ${arrow_defined}
+                        </div>
+
+                        <div class='list__show'>
+                            ${list_show_subitems}
+                        </div>
+
+                    </div>`;
+
+                    all_category_items += list_item
+
+                }
+
+	        } else {
+
+                for (category in categories) {
+
+    		        if (!business_categories.includes(category) && category != "Corporativo") {
 
                         let subcategories = categories[category]['subcategories'];
                         let list_show_subitems = "";
@@ -424,9 +544,8 @@ function load_categories() {
 
     		        }
 
-		        }
-
-		    }
+    		    }
+	        }
 
             $('.category_list').append(all_category_items);
 
@@ -471,7 +590,7 @@ function load_subfilters_fields() {
 
     jQuery(document).ready(function($) {
 
-        if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'monitores-industriales') {
+        if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'monitores-industriales' || localStorage.getItem('category_') == 'monitores-de-escritorio' || localStorage.getItem('category_') == 'pantallas-corporativo') {
 
             $('.inches-filter_container').css('display', 'flex');
             $('.inches_title').css('display', 'flex');

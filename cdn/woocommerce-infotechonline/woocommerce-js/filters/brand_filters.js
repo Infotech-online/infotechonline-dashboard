@@ -231,7 +231,7 @@ function load_products(action, input_id) {
 
 		// Test
 		let inches_filter = null
-		if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'monitores-industriales') {
+		if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'monitores-industriales' || localStorage.getItem('category_') == 'monitores-de-escritorio' || localStorage.getItem('category_') == 'pantallas-corporativo') {
 
             inches_filter = [parseInt(localStorage.getItem('min-inches_')), parseInt(localStorage.getItem('max-inches_'))]; // 0 pos = min, 1 pos = max
 

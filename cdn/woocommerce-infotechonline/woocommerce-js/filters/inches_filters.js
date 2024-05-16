@@ -5,7 +5,7 @@ function set_default_inches_filter_values(action) {
 
     jQuery(document).ready(function($) {
 
-        if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'monitores-industriales') {
+        if (localStorage.getItem('category_') == 'pantallas' || localStorage.getItem('category_') == 'televisores' || localStorage.getItem('category_') == 'monitores' || localStorage.getItem('category_') == 'pantallas-corporativo' || localStorage.getItem('category_') == 'monitores-de-escritorio' || localStorage.getItem('category_') == 'monitores-industriales') {
 
             let selected_brands = [];
             let brands_  = localStorage.getItem('brands_') // Se obtienen las marcas de local storage
