@@ -16,6 +16,8 @@ if environment == 'production':
 else:
     project_folder = os.path.abspath(os.getcwd())
 
+load_dotenv(os.path.join(project_folder, '.env'))
+
 class intcomexConnection():
 
     def __init__(self):
