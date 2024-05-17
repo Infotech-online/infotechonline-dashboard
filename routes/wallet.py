@@ -1,11 +1,13 @@
 from flask import Flask, Blueprint, request, jsonify
-from databases.wallet_mysql import mysqlConnection_wallet
-import json
+from wallet.local_libs.wallet_mysql import mysqlConnection_wallet
+
+
 
 
 # Blueprint
 wallet_blueprint = Blueprint('wallet_BluePrint', __name__)
 mysql = mysqlConnection_wallet()
+
 
 @wallet_blueprint.route('/fondo/create', methods=['POST'])
 def create_Fondo():
@@ -155,10 +157,7 @@ def update_saldo_usuario_admin(id):
     return jsonify({'message': resultado})
 
 
-@wallet_blueprint.route('/codigo_verificacion/<int:id>', methods=['POST'])
-def codigo_verificacion_create(id):
-    resultado = mysql.create_codigo_verificacion(id)
-    return jsonify({'message': resultado})
+
 
 @wallet_blueprint.route('/codigo_verificacion/', methods=['GET'])
 def all_codigos_verificacion():

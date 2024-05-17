@@ -2,6 +2,8 @@ from flask import request, Blueprint, jsonify, current_app
 import base64
 import os
 from flask_mail import Message
+from wallet.local_libs.correo import mysqlConnection_wallet_correo
+correo =mysqlConnection_wallet_correo()
 
 # Blueprint
 email_blueprint = Blueprint('email_blueprint', __name__)
@@ -67,3 +69,13 @@ def guardar_pdf():
         
         except Exception as e:
             return str(e)
+
+@email_blueprint.route('/codigo_verificacion/<int:id>', methods=['POST'])
+def send_code_verification(id):
+    with current_app.app_context():
+    # Código que utiliza current_app
+        app = current_app.extensions['mail']
+    
+    resultado = correo.create_codigo_verificacion(id,app)
+    # Retornar la respuesta
+    return jsonify({'message': resultado})

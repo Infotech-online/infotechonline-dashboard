@@ -5,19 +5,11 @@ import secrets
 from dotenv import load_dotenv
 import os
 from flask import Flask
-
 from flask_mail import Mail, Message
 
 load_dotenv()
 
-app = Flask(__name__)
-app.config['MAIL_SERVER']= os.getenv('MAIL_SERVER')
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-mail = Mail(app)
+
 class mysqlConnection_wallet():
 
     def __init__(self):
@@ -662,43 +654,7 @@ class mysqlConnection_wallet():
     
     # Métodos CRUD para la tabla Codigo_verificacion
 
-    #Crear codigo de verificacion
-    def create_codigo_verificacion(self, usuario_cedula):
-        try:
-            # Generar un código aleatorio
-            codigo = secrets.randbelow(999999999 - 100000000 + 1) + 100000000
-            # Obtener la hora actual
-            current_time = datetime.now()
-
-            # Calcular la fecha final sumando 15 minutos a la fecha de inicio
-            fecha_final = current_time + timedelta(minutes=15)
-
-            # Convertir las fechas al formato deseado (sin el prefijo 'datetime.datetime')
-            current_time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
-            fecha_final_str = fecha_final.strftime("%Y-%m-%d %H:%M:%S")
-
-            # Construir la consulta SQL de inserción
-            sql = "INSERT INTO Codigo_verificacion (Codigo, Fecha_inicio, Fecha_Final, Usuario_Cedula) VALUES (%s, %s, %s, %s)"
-            # Ejecutar la consulta SQL con el código generado
-            self.mycursor.execute(sql, (codigo, current_time_str, fecha_final_str, usuario_cedula))
-            # Confirmar los cambios en la base de datos
-            self.mydb.commit()
-            usuario = self.Get_Usuario_id(usuario_cedula)[0]
-            correo = usuario['Correo']
-            nombre = usuario['Nombre']
-            print(correo)
-            #Enviar el correo electronico al usuario con el codigo de verificacion
-            msg = Message('Codigo de verificacion Infotechonline', sender='noreply@demo.com', recipients=[correo])
-            msg.body =  f"Hola señor {nombre}, muchas gracias por estar interesado en comprar con InfotechOnline." \
-                        f"\nTu código de verificación para poder comprar es: {codigo} y expirará en 15 minutos." \
-                        f"\nMuchas gracias por elegirnos."
-            mail.send(msg)
-            return "Código de verificación creado exitosamente, revisa tu correo para poder utilizarlo en tu compra"
-
-        except mysql.connector.Error as e:
-            # Manejar cualquier error que pueda ocurrir durante la inserción
-            return f"Error al crear el código de verificación: {e}"
-
+    
     # Mostrar un registro de Codigo de Verificación por ID
     def Get_Codigo_verificacion_id(self, cedula):
         try:
