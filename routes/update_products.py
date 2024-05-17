@@ -8,7 +8,7 @@ import random
 # Librerias locales
 from local_libs.ingram import ingramConnection
 from local_libs.intcomex import intcomexConnection
-from local_libs.woocommerce import wooConnection
+from local_libs.woocommerce_api import wooConnection
 from local_libs.logs import logRecorder
 
 # Se inicializan las conexiones a las APIs externas (librerias)
