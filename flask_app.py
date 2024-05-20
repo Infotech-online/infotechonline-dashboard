@@ -27,7 +27,7 @@ def create_app(env):
     return app
 
 enviroment = 'development' # Entorno actual
-app = create_app('development')
+app = create_app(enviroment)
 
 # Se inicializa el programa
 if __name__ == '__main__':

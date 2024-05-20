@@ -1,13 +1,9 @@
 from flask import Flask, Blueprint, request, jsonify
-from wallet.local_libs.wallet_mysql import mysqlConnection_wallet
-
-
-
+from local_libs.wallet_mysql import mysqlConnection_wallet
 
 # Blueprint
 wallet_blueprint = Blueprint('wallet_BluePrint', __name__)
 mysql = mysqlConnection_wallet()
-
 
 @wallet_blueprint.route('/fondo/create', methods=['POST'])
 def create_Fondo():

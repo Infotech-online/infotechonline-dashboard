@@ -2,8 +2,9 @@ from flask import request, Blueprint, jsonify, current_app
 import base64
 import os
 from flask_mail import Message
-from wallet.local_libs.correo import mysqlConnection_wallet_correo
-correo =mysqlConnection_wallet_correo()
+from local_libs.wallet_email import mysqlConnection_wallet_correo
+
+correo = mysqlConnection_wallet_correo()
 
 # Blueprint
 email_blueprint = Blueprint('email_blueprint', __name__)

@@ -10,7 +10,7 @@ def create_routes_blueprint(mail, config):
     from .cdn import cdn_blueprint
     from .price_increase import price_increase_blueprint
 
-    from .wallet import wallet_blueprint
+    from .wallet_api import wallet_blueprint
     # Crea un Blueprint para las rutas
     routes_blueprint = Blueprint('routes', __name__)
 

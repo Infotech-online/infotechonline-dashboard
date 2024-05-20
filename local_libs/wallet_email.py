@@ -7,39 +7,55 @@ import os
 from flask import Flask
 from flask_mail import Mail, Message
 
-from wallet.local_libs.wallet_mysql import mysqlConnection_wallet
+from local_libs.wallet_mysql import mysqlConnection_wallet
 wallet = mysqlConnection_wallet()
-load_dotenv()
 
+# Lee la variable de entorno que indica el entorno actual
+environment = os.getenv('ENVIRONMENT', 'development')  # Por defecto es 'development' si no está configurada
+
+# Define el project_folder basado en el entorno
+if environment == 'production':
+    project_folder = os.path.expanduser('~/infotechonline-dashboard')
+else:
+    project_folder = os.path.abspath(os.getcwd())
+
+load_dotenv(os.path.join(project_folder, '.env'))
 
 class mysqlConnection_wallet_correo():
 
     def __init__(self):
         
         print("Utilizando Conexión a MySQL en PythonAnywhere")
-        
-        try:
 
-            # Conexión a la base de datos MySQL (Test)
-            self.mydb = mysql.connector.connect(
-                host=os.getenv('DatabaseTestHost'),
-                user=os.getenv('DatabaseTestUser'),
-                password= os.getenv('DatabaseTestPassword'),
-                database=os.getenv('DatabaseTestName')
-            )   
+        try:
+            if environment == "production":
             
-            # Conexión a la base de datos MySQL (Production)
-            """
-            self.mydb = mysql.connector.connect(
-                host= os.getenv('DatabaseProductionHost'),
-                user= os.getenv('DatabaseProductionUser'),
-                password= os.getenv('DatabaseProductionPassword'),
-                database= os.getenv('DatabaseProductionName')
-            )  
-            """
-            self.mycursor = self.mydb.cursor()
-            if self.mydb is not None:
-                print("Conexión Exitosa")
+                self.mydb = mysql.connector.connect(
+                    host=os.getenv('DatabaseProductionHost'),
+                    port=3306,
+                    user=os.getenv('DatabaseProductionUser'),
+                    password=os.getenv('DatabaseProductionPassword'),
+                    database=os.getenv('DatabaseProductionName')
+                )
+
+                self.mycursor = self.mydb.cursor()
+                if self.mydb is not None:
+                    print("Conexión Exitosa")
+
+            else:
+
+                # Conexión a la base de datos MySQL (Test)
+                self.mydb = mysql.connector.connect(
+                    host=os.getenv('DatabaseTestHost'),
+                    user=os.getenv('DatabaseTestUser'),
+                    password=os.getenv('DatabaseTestPassword'),
+                    database=os.getenv('DatabaseTestName')
+                )
+
+                self.mycursor = self.mydb.cursor()
+                if self.mydb is not None:
+                    print("Conexión Exitosa")
+
         except mysql.connector.Error as e:
             print("Error al conectar a la base de datos:", e)
     
