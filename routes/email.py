@@ -71,12 +71,12 @@ def guardar_pdf():
         except Exception as e:
             return str(e)
 
-@email_blueprint.route('/codigo_verificacion/<int:id>', methods=['POST'])
+@email_blueprint.route('/api/wallet/codigo_verificacion/<int:id>', methods=['POST'])
 def send_code_verification(id):
     with current_app.app_context():
     # Código que utiliza current_app
         app = current_app.extensions['mail']
     
-    resultado = correo.create_codigo_verificacion(id,app)
+    resultado = correo.create_codigo_verificacion(id, app)
     # Retornar la respuesta
     return jsonify({'message': resultado})

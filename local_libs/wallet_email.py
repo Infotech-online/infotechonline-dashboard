@@ -82,7 +82,7 @@ class mysqlConnection_wallet_correo():
         except mysql.connector.Error as e:
             return f"Error al Mostrar el registro {e}"
         
-    def create_codigo_verificacion(self, usuario_cedula,email):
+    def create_codigo_verificacion(self, usuario_cedula, email):
         try:
             # Generar un código aleatorio
             codigo = secrets.randbelow(999999 - 100000 + 1) + 100000
@@ -112,7 +112,7 @@ class mysqlConnection_wallet_correo():
             nombre = usuario['Nombre']
 
             # Enviar el correo electrónico al usuario con el código de verificación
-            msg = Message('Código de verificación Infotechonline', sender='noreply@demo.com', recipients=[correo])
+            msg = Message('Código de verificación Infotechonline', sender='infotechonline@infotech.com.co', recipients=[correo])
             msg.html = f"""
             <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
 
