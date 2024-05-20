@@ -1,8 +1,16 @@
 from dotenv import load_dotenv
 import os
 
+"""
+La variable de entorno ENVIRONMENT se cambia segun el entorno
+"""
+
+# Establece una variable de entorno
+# os.environ['ENVIRONMENT'] = 'production'
+os.environ['ENVIRONMENT'] = 'development'
+
 # Lee la variable de entorno que indica el entorno actual
-environment = os.getenv('ENVIRONMENT', 'development')  # Por defecto es 'development' si no está configurada
+environment = os.getenv('ENVIRONMENT')  # Por defecto es 'development' si no está configurada
 
 # Define el project_folder basado en el entorno
 if environment == 'production':
