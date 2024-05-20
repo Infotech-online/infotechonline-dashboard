@@ -4,7 +4,7 @@ from flask_cors import CORS
 from routes import create_routes_blueprint
 from config import config
 
-def create_app(env):
+def create_app():
 
     # Se inicializa la App de Flask
     app = Flask(__name__, template_folder='templates', static_folder='static')
@@ -16,18 +16,17 @@ def create_app(env):
     CORS(app, resources={r"/*": {"origins": "https://infotechonline.co"}})
 
     # Config Data
-    app.config.from_object(config[env])
+    app.config.from_object(config)
     
     # Configuracion del SMTP
     mail = Mail(app)
 
     # Registra el Blueprint de rutas en la aplicación
-    app.register_blueprint(create_routes_blueprint(mail, config[env]))
+    app.register_blueprint(create_routes_blueprint(mail, config))
 
     return app
 
-enviroment = 'development' # Entorno actual
-app = create_app(enviroment)
+app = create_app()
 
 # Se inicializa el programa
 if __name__ == '__main__':

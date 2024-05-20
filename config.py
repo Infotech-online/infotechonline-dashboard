@@ -38,7 +38,8 @@ class ProductionConfig(Config):
     DEBUG = False
     PROJECT_FOLDER = os.path.expanduser('~/infotechonline-dashboard')
 
-config = {
-    'development': DevelopmentConfig,
-    'production': ProductionConfig
-}
+# Se devuelve la configuración segun el entorno configurado en ENVIRONMENT
+if environment == "production":
+    config = ProductionConfig
+else:
+    config = DevelopmentConfig
