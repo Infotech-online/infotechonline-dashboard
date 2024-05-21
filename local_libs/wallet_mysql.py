@@ -56,6 +56,13 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             print("Error al conectar a la base de datos:", e)
 
+    def close_connection(self):
+        if self.mycursor:
+            self.mycursor.close()
+        if self.mydb:
+            self.mydb.close()
+        print("Conexión cerrada")
+
     #Operaciones Globales:
 
     """
@@ -97,6 +104,8 @@ class mysqlConnection_wallet():
             return formatted_results
         except mysql.connector.Error as e:
             return f"Error al obtener los datos de la tabla {table}: {e}"
+        finally:
+            self.close_connection()
 
     """
         Deletes all records from the specified table.
@@ -116,9 +125,12 @@ class mysqlConnection_wallet():
 
         # Check if the deletion was successful
         if self.mycursor.rowcount > 0:
+            self.close_connection()
             return "Todos los registros de la tabla fueron eliminados correctamente."
         else:
+            self.close_connection()
             return "No se eliminaron registros."
+        
 
 
     # Parte dededicada a metodos CRUD Basicos de la tabla Fondo
@@ -169,6 +181,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la actualización
             return f"Error al actualizar el registro: {e}"
+        finally:
+            self.close_connection()
 
     """
         Retrieves the fondo information based on the given ID.
@@ -211,6 +225,8 @@ class mysqlConnection_wallet():
                 return None, f"No se encontró ningún registro con el ID de bono {idBono}."
         except mysql.connector.Error as e:
             return None, f"Error al mostrar el registro: {e}"
+        finally:
+            self.close_connection()
 
     """
         Creates a new record in the Fondo table of the database.
@@ -247,6 +263,8 @@ class mysqlConnection_wallet():
         self.mycursor.execute(sql, (NIT, Direccion, Nombre_legal,Envio_gratuito,Margen_beneficio,contacto_principal_json))
         self.mydb.commit()
 
+        self.close_connection()
+
         # Comprobar si la inserción fue exitosa
         if self.mycursor.rowcount > 0:
             return "Datos enviados correctamente."
@@ -272,6 +290,8 @@ class mysqlConnection_wallet():
             return f"Fondo con NIT {ID} Fue eliminado correctamente"
         except mysql.connector.Error as e:
             return f"Error al eliminar el registro: {e}"
+        finally:
+            self.close_connection()
 
 
 
@@ -306,6 +326,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Handle any errors that may occur during the insertion
             return f"Error al crear el registro de usuario: {e}"
+        finally:
+            self.close_connection()
     
     """
         Retrieves the details of a Bono record based on the provided idBono.
@@ -348,6 +370,8 @@ class mysqlConnection_wallet():
             return formatted_results
         except mysql.connector.Error as e:
             return f"Error al obtener el Bono {idBono} {e}"
+        finally:
+            self.close_connection()
 
 
     """
@@ -387,6 +411,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la actualización
             return f"Error al actualizar el registro: {e}"
+        finally:
+            self.close_connection()
 
     """
         Deletes a Bono from the database based on the specified ID.
@@ -420,6 +446,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la eliminación
             return f"Error al eliminar el bono: {e}"
+        finally:
+            self.close_connection()
     
     
     
@@ -461,6 +489,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la inserción
             return f"Error al crear el registro de usuario: {e}"
+        finally:
+            self.close_connection()
 
     """
         Retrieves user information based on the provided cedula.
@@ -497,6 +527,8 @@ class mysqlConnection_wallet():
                 return f"No se encontró ningún registro con la cedula {cedula}."
         except mysql.connector.Error as e:
             return f"Error al Mostrar el registro {e}"
+        finally:
+            self.close_connection()
 
     """
         Update the information of a user in the 'Usuario' table.
@@ -545,6 +577,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la actualización
             return f"Error al actualizar el registro: {e}"
+        finally:
+            self.close_connection()
 
     # Eliminar un registro de la tabla Usuario
     def delete_usuario_data(self, cedula):
@@ -571,6 +605,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la eliminación
             return f"Error al eliminar el usuario: {e}"
+        finally:
+            self.close_connection()
 
     #Obtener saldo de un usuario
     def obtener_saldo_usuario(self, cedula):
@@ -592,6 +628,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la consulta
             return f"Error al obtener el saldo del usuario: {e}"
+        finally:
+            self.close_connection()
     
     #Obtener cedula de un usuario
     def obtener_cedula_usuario(self, codigo_verificacion_codigo):
@@ -604,6 +642,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             print("Error al obtener la cédula del usuario:", e)
             return None
+        finally:
+            self.close_connection()
     
     # Obtener envio_gratuito de un usuario
     def obtener_envio_gratuito_usuario(self, cedula):
@@ -628,6 +668,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             print("Error al obtener el valor de Envio_Gratuito del usuario:", e)
             return None
+        finally:
+            self.close_connection()
 
     #Obtener el porcentaje de margen de beneficio de un usuario
     def obtener_margen_beneficio_usuario(self, cedula):
@@ -653,6 +695,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             print("Error al obtener el valor de Envio_Gratuito del usuario:", e)
             return None
+        finally:
+            self.close_connection()
     
     def actualizar_saldo_usuario_admin(self, cedula, saldo, descripcion):
         try:
@@ -665,6 +709,8 @@ class mysqlConnection_wallet():
             return "Saldo actualizado correctamente."
         except mysql.connector.Error as e:
             return f"Error al actualizar el saldo del usuario: {e}"
+        finally:
+            self.close_connection()
     
     
     # Métodos CRUD para la tabla Codigo_verificacion
@@ -692,6 +738,8 @@ class mysqlConnection_wallet():
                 return f"El usuario con cedula {cedula} no tiene un codigo de verificacion."
         except mysql.connector.Error as e:
             return f"Error al mostrar el registro: {e}"
+        finally:
+            self.close_connection()
         
     # Cambia el estado del codigo de verificacion a usado
     def actualizar_estado_codigo_verificacion_a_usado(self, codigo_verificacion_codigo):
@@ -702,6 +750,8 @@ class mysqlConnection_wallet():
             self.mydb.commit()
         except mysql.connector.Error as e:
             return f"Error al actualizar el estado del código de verificación a 'Usado': {e}"
+        finally:
+            self.close_connection()
 
     # Verifica si ya se venció el código de verificación
     def actualizar_estado_codigo_verificacion_a_vencido(self, codigo_verificacion_codigo):  
@@ -733,6 +783,8 @@ class mysqlConnection_wallet():
                 return "No se encontró el código de verificación en la base de datos."
         except mysql.connector.Error as e:
             return f"Error al actualizar el estado del código de verificación a 'Vencido': {e}"
+        finally:
+            self.close_connection()
 
     #Esta funcion verifica y trae el estado del codigo de verificacion
     def obtener_estado_codigo_verificacion(self, codigo_verificacion_codigo):
@@ -755,6 +807,8 @@ class mysqlConnection_wallet():
             # Manejar cualquier error que pueda ocurrir durante la consulta
             print("Error al obtener el estado del código de verificación:", e)
             return None
+        finally:
+            self.close_connection()
 
     def verificar_existencia_codigo(self, codigo_verificacion_codigo):
         try:
@@ -776,6 +830,8 @@ class mysqlConnection_wallet():
             # Manejar cualquier error que pueda ocurrir durante la verificación
             print(f"Error al verificar la existencia del código de verificación: {e}")
             return False
+        finally:
+            self.close_connection()
     
     
     
@@ -821,6 +877,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la inserción
             return f"Error al crear el registro de bono: {e}"
+        finally:
+            self.close_connection()
     
     def Get_registro_bono_id(self, usuario_cedula):
         try:
@@ -843,6 +901,8 @@ class mysqlConnection_wallet():
                 return f"No se encontró ningún registro con la cedula {usuario_cedula}."
         except mysql.connector.Error as e:
             return f"Error al mostrar el registro"
+        finally:
+            self.close_connection()
 
     
     #Metodos CRUD para la tabla Transaccion:
@@ -886,6 +946,8 @@ class mysqlConnection_wallet():
             
         except Exception as e:
             return "Error al Calcular la compra"  # Retorno que indica un error en el cálculo del total de la compra
+        finally:
+            self.close_connection()
 
     #Crear Transaccion
     def create_transaccion(self, productos, forma_pago, ciudad_envio, direccion_envio, codigo_verificacion_codigo):
@@ -940,6 +1002,8 @@ class mysqlConnection_wallet():
                 return "Código de verificación incorrecto. No se puede realizar la transacción."
         except mysql.connector.Error as e:
             return f"Error al crear el registro de transacción {e}"
+        finally:
+            self.close_connection()
         
     #obtener compras de usuario por cedula
     def obtener_compras_usuario(self, usuario_cedula):
@@ -978,6 +1042,8 @@ class mysqlConnection_wallet():
                 return f"No se encontraron compras para el usuario con cédula {usuario_cedula}"
         except mysql.connector.Error as e:
             return f"Error al obtener las compras del usuario: {e}"
+        finally:
+            self.close_connection()
 
 
     #Metodos CRUD para la tabla Registro_Movimiento
@@ -998,6 +1064,8 @@ class mysqlConnection_wallet():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la inserción
             return f"Error al crear el registro de movimiento: {e}"
+        finally:
+            self.close_connection()
 
     def obtener_movimientos_usuario(self, usuario_cedula):
         try:
@@ -1025,4 +1093,6 @@ class mysqlConnection_wallet():
                 return f"No se encontraron movimientos para el usuario con cédula {usuario_cedula}"
         except mysql.connector.Error as e:
             return f"Error al obtener los movimientos del usuario: {e}"
-    
+        finally:
+            self.close_connection()
+        

@@ -3,11 +3,14 @@ from local_libs.wallet_mysql import mysqlConnection_wallet
 
 # Blueprint
 wallet_blueprint = Blueprint('wallet_BluePrint', __name__)
-mysql = mysqlConnection_wallet()
+# mysql = mysqlConnection_wallet()
 
 @wallet_blueprint.route('/api/wallet/fondo/create', methods=['POST'])
 def create_Fondo():
-# Obtener los datos del cuerpo de la solicitud
+
+    mysql = mysqlConnection_wallet()
+ 
+    # Obtener los datos del cuerpo de la solicitud
     data = request.json
     NIT = data.get('NIT')
     Direccion = data.get('Direccion')
@@ -37,29 +40,44 @@ def create_Fondo():
 
 @wallet_blueprint.route('/api/wallet/fondo/<int:id>', methods=['PUT'])
 def update_fondo(id):
+
+    mysql = mysqlConnection_wallet()
+
     data = request.json
     resultado = mysql.update_fondo_id(id, data)
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/fondo/', methods=['GET'])
 def all_fondos():
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_Table("Fondo")
     # Retornar la respuesta
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/fondo/<int:id>', methods=['GET'])
 def fondo_id(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_fondo_id(id) 
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/fondo/<int:id>', methods=['DELETE'])
 def delete_fondo(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Delete_fondo_id(id)
     return jsonify({'message': resultado})
 
 
 @wallet_blueprint.route('/api/wallet/bono/create', methods=['POST'])
 def bono_create():
+
+    mysql = mysqlConnection_wallet()
+
     data = request.json
     idBono = data.get("idBono")
     Saldo = data.get("Saldo")
@@ -76,29 +94,44 @@ def bono_create():
 
 @wallet_blueprint.route('/api/wallet/bono/<string:id>', methods=['PUT'])
 def bono_update(id):
+
+    mysql = mysqlConnection_wallet()
+
     data = request.json  
     resultado = mysql.update_bono(id, data)  
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/bono/', methods=['GET'])
 def all_bonos():
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_Table("Bono")
     # Retornar la respuesta
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/bono/<string:id>', methods=['GET'])
 def bono_id(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_Bono_id(id)
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/bono/<string:id>', methods=['DELETE'])
 def delete_bono_id(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.delete_Bono(id)
     return jsonify({'message': resultado})
 
 
 @wallet_blueprint.route('/api/wallet/usuario/create', methods=['POST'])
 def usuario_create():
+
+    mysql = mysqlConnection_wallet()
+
     data = request.json
     cedula = data.get("Cedula")
     nombre = data.get("Nombre")
@@ -119,33 +152,51 @@ def usuario_create():
 
 @wallet_blueprint.route('/api/wallet/usuario/<int:id>', methods=['PUT'])
 def update_usuario(id):
+
+    mysql = mysqlConnection_wallet()
+
     data = request.json
     resultado = mysql.update_usuario(id,data)
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/', methods=['GET'])
 def all_usuarios():
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_Table("Usuario")
     # Retornar la respuesta
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/<int:id>',methods=['GET'])
 def usuario_id(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_Usuario_id(id)
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/<int:id>', methods=['DELETE'])
 def delete_usuario(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.delete_usuario_data(id)
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/saldo/<int:id>', methods=["GET"])
 def saldo_usuario(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.obtener_saldo_usuario(id)
     return jsonify({'Saldo': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/saldoAdmin/<int:id>', methods=["PUT"]) 
 def update_saldo_usuario_admin(id):
+
+    mysql = mysqlConnection_wallet()
+
     data = request.json
     saldo = data.get("Saldo")
     descripcion = data.get("Descripcion")
@@ -156,6 +207,9 @@ def update_saldo_usuario_admin(id):
 
 @wallet_blueprint.route('/api/wallet/codigo_verificacion/', methods=['GET'])
 def all_codigos_verificacion():
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_Table("Codigo_verificacion")
     # Retornar la respuesta
     return jsonify({'message': resultado})
@@ -163,6 +217,9 @@ def all_codigos_verificacion():
 """
 @wallet_blueprint.route('/api/wallet/codigo_verificacion/<int:id>', methods=['GET'])
 def codigos_verificacion_id(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_Codigo_verificacion_id(id)
     # Retornar la respuesta
     return jsonify({'message': resultado})
@@ -171,6 +228,9 @@ def codigos_verificacion_id(id):
 
 @wallet_blueprint.route('/api/wallet/registro_bono/create', methods=['POST'])
 def registro_bono_create():
+
+    mysql = mysqlConnection_wallet()
+
     data = request.json
     usuario_cedula= data.get("Cedula")
     bono_idBono= data.get("idBono")
@@ -182,11 +242,17 @@ def registro_bono_create():
 
 @wallet_blueprint.route('/api/wallet/registro_bono/<int:id>', methods=['GET'])
 def registro_bono_id(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_registro_bono_id(id)
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/registro_bono/', methods=['GET'])
 def all_registro_bono():
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_Table("Registro_bono")
     # Retornar la respuesta
     return jsonify({'message': resultado})
@@ -194,6 +260,9 @@ def all_registro_bono():
 
 @wallet_blueprint.route('/api/wallet/transaccion/create', methods=['POST'])
 def transaccion_create():
+
+    mysql = mysqlConnection_wallet()
+
     data = request.json
     productos = data.get("Productos")
     forma_pago = data.get("Forma_pago")
@@ -212,18 +281,27 @@ def transaccion_create():
 
 @wallet_blueprint.route('/api/wallet/transaccion/', methods=['GET'])
 def all_transacciones():
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.Get_Table("Transaccion")
     # Retornar la respuesta
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/transaccion/<int:id>', methods=['GET'])
 def transaccion_id(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.obtener_compras_usuario(id)
     return jsonify({'message': resultado})
 
 
 @wallet_blueprint.route('/api/wallet/registro_movimiento/<int:id>', methods=['GET'])
 def registro_movimiento_id(id):
+
+    mysql = mysqlConnection_wallet()
+
     resultado = mysql.obtener_movimientos_usuario(id)
     return jsonify({'message': resultado})
 
