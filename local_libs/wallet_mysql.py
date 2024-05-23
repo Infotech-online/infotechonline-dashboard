@@ -698,15 +698,18 @@ class mysqlConnection_wallet():
         finally:
             self.close_connection()
     
-    def actualizar_saldo_usuario_admin(self, cedula, saldo, descripcion):
+    def actualizar_saldo_usuario_admin(self, cedula, saldo, descripcion, monto):
         try:
             # Actualizar el saldo del usuario
             sql_update = "UPDATE Usuario SET Saldo = Saldo + %s WHERE Cedula = %s"
             self.mycursor.execute(sql_update, (saldo, cedula))
             self.mydb.commit()
             tipo_accion = "Recarga"
-            self.create_registro_movimiento(tipo_accion,descripcion,cedula)
+
+            self.create_registro_movimiento(tipo_accion, descripcion, cedula, monto)
+
             return "Saldo actualizado correctamente."
+        
         except mysql.connector.Error as e:
             return f"Error al actualizar el saldo del usuario: {e}"
         finally:
@@ -871,7 +874,7 @@ class mysqlConnection_wallet():
             descripcion = f" Se Registro el bono con el codigo {bono_idBono} con un saldo a favor de {saldo_bono}$"
             
             # Llamar a la función para crear el registro de movimiento
-            resultado = self.create_registro_movimiento(tipo_accion, descripcion, usuario_cedula)
+            resultado = self.create_registro_movimiento(tipo_accion, descripcion, usuario_cedula, saldo_bono)
 
             return resultado
         except mysql.connector.Error as e:
@@ -992,7 +995,7 @@ class mysqlConnection_wallet():
                     descripcion = f" Se creó el registro de transaccion {id_transaccion} con un pago de {total_compra}"
                     
                     # Llamar a la función para crear el registro de movimiento
-                    self.create_registro_movimiento(tipo_accion, descripcion, usuario_cedula)
+                    self.create_registro_movimiento(tipo_accion, descripcion, usuario_cedula, total_compra)
                     
                     # Actualizar estado del código de verificación a 'Usado'
                     self.actualizar_estado_codigo_verificacion_a_usado(codigo_verificacion_codigo)
@@ -1047,12 +1050,12 @@ class mysqlConnection_wallet():
 
 
     #Metodos CRUD para la tabla Registro_Movimiento
-    def create_registro_movimiento(self, tipo_accion, descripcion, usuario_cedula):
+    def create_registro_movimiento(self, tipo_accion, descripcion, usuario_cedula, monto):
         try:
             # Construir la consulta SQL de inserción
             fecha = datetime.now()
-            sql = "INSERT INTO Registro_Movimiento (Tipo_Accion, Descripcion, Fecha, Usuario_Cedula) VALUES (%s, %s, %s, %s)"
-            values = (tipo_accion, descripcion, fecha, usuario_cedula)
+            sql = "INSERT INTO Registro_Movimiento (Tipo_Accion, Descripcion, Fecha, Usuario_Cedula, Monto) VALUES (%s, %s, %s, %s, %s)"
+            values = (tipo_accion, descripcion, fecha, usuario_cedula, monto)
 
             # Ejecutar la consulta SQL
             self.mycursor.execute(sql, values)
@@ -1085,7 +1088,8 @@ class mysqlConnection_wallet():
                         'Tipo_Accion': row[1],
                         'Descripcion': row[2],
                         'Fecha': row[3],
-                        'Usuario_Cedula': row[4]
+                        'Usuario_Cedula': row[4],
+                        'Monto': row[5]
                     }
                     formatted_results.append(formatted_result)
                 return formatted_results  # Devolver los resultados encontrados

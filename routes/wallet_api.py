@@ -200,7 +200,9 @@ def update_saldo_usuario_admin(id):
     data = request.json
     saldo = data.get("Saldo")
     descripcion = data.get("Descripcion")
-    resultado = mysql.actualizar_saldo_usuario_admin(id, saldo,descripcion)
+    monto = data.get("Monto")
+
+    resultado = mysql.actualizar_saldo_usuario_admin(id, saldo, descripcion, monto)
     return jsonify({'message': resultado})
 
 
