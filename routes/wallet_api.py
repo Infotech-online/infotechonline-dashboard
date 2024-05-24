@@ -61,7 +61,7 @@ def fondo_id(id):
 
     mysql = mysqlConnection_wallet()
 
-    resultado = mysql.Get_fondo_id(id) 
+    resultado = mysql.Get_fondo_id(id)
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/fondo/<int:id>', methods=['DELETE'])

@@ -204,25 +204,29 @@ class mysqlConnection_wallet():
 
     """
     #Traer fondo por NIT
-    def Get_Bono_id(self, idBono):
+    def Get_fondo_id(self, NIT):
         try:
-            self.mycursor.execute(f"SELECT * FROM Bono WHERE idBono = '{idBono}'")
+            self.mycursor.execute(f"SELECT * FROM Fondo WHERE NIT = '{NIT}'")
             results = self.mycursor.fetchall()
+
             if results:
                 # Definir el nombre de las columnas
-                column_names = ['idBono', 'Saldo', 'Fecha_Publicacion', 'Fecha_vencimiento', 'Info_Bono', 'Fecha_actualizacion']
+                column_names = ['NIT', 'Direccion', 'Nombre_legal', 'Envio_Gratuito', 'Margen_beneficio', 'Contacto_principal']
                 # Crear una lista para almacenar los resultados en formato JSON con el nombre de la columna
                 formatted_results = []
                 for row in results:
+
                     # Crear un diccionario para almacenar cada fila con el nombre de la columna
                     row_dict = {}
                     for i, value in enumerate(row):
                         row_dict[column_names[i]] = value
+
                     # Agregar el diccionario a la lista de resultados formateados
                     formatted_results.append(row_dict)
                 return column_names, formatted_results
+            
             else:
-                return None, f"No se encontró ningún registro con el ID de bono {idBono}."
+                return None, f"No se encontró ningún registro con el ID de bono {NIT}."
         except mysql.connector.Error as e:
             return None, f"Error al mostrar el registro: {e}"
         finally:
@@ -246,7 +250,7 @@ class mysqlConnection_wallet():
             str: A message indicating whether the data was successfully sent or an error occurred.
     """
     #Crear un registro de Fondo
-    def create_Fondo(self,NIT, Direccion,Envio_gratuito,Margen_beneficio, Nombre_legal,Nombre_Representante,Telefono_Representante,Cedula_Representante,Puesto_Representante):
+    def create_Fondo(self, NIT, Direccion, Envio_gratuito, Margen_beneficio, Nombre_legal, Nombre_Representante, Telefono_Representante, Cedula_Representante, Puesto_Representante):
         # Crear un diccionario con las claves requeridas y los valores de la tupla
         contacto_principal_data = {
             "Nombre": Nombre_Representante,
