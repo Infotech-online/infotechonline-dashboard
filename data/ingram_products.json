@@ -672,6 +672,13 @@
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
+        },
+        "401061 - 8W383LA#ABM": {
+            "ingramSku": "6214361",
+            "price": "1900000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
         }
     },
     "proyectores": {
@@ -693,6 +700,13 @@
             "ingramSku": "4525667",
             "price": 2631000,
             "stock": "outofstock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "501009 - LS500WH": {
+            "ingramSku": "5515089",
+            "price": "3160000",
+            "stock": "instock",
             "availability": true,
             "stock_quantity": 0
         }

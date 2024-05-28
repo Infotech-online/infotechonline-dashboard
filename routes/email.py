@@ -43,7 +43,7 @@ def guardar_pdf():
         try:
             
             # Crear un mensaje
-            message = Message(subject=f'Infotechonline Cotización Numero {quotation_number}', sender=('Infotech', 'mercadeodigital@infotech.com.co'), recipients=[email_recipent])
+            message = Message(subject=f'Infotechonline Cotización Numero {quotation_number}', sender=('Infotech', 'infotechonline@infotech.com.co'), recipients=[email_recipent])
             message.html = f"""
             <html>
             <head></head>

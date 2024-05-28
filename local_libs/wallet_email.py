@@ -135,7 +135,7 @@ class mysqlConnection_wallet_correo():
             nombre = usuario['Nombre']
 
             # Enviar el correo electrónico al usuario con el código de verificación
-            msg = Message('Código de verificación Infotechonline', sender='infotechonline@infotech.com.co', recipients=[correo])
+            msg = Message('Código de verificación Infotechonline', sender=('Infotech', 'infotechonline@infotech.com.co'), recipients=[correo])
             msg.html = f"""
             <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
 
