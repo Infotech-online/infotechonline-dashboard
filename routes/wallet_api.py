@@ -216,16 +216,12 @@ def all_codigos_verificacion():
     # Retornar la respuesta
     return jsonify({'message': resultado})
 
-"""
 @wallet_blueprint.route('/api/wallet/codigo_verificacion/<int:id>', methods=['GET'])
-def codigos_verificacion_id(id):
-
+def codigo_verificacion(id):
     mysql = mysqlConnection_wallet()
-
     resultado = mysql.Get_Codigo_verificacion_id(id)
     # Retornar la respuesta
     return jsonify({'message': resultado})
-"""
 
 
 @wallet_blueprint.route('/api/wallet/registro_bono/create', methods=['POST'])

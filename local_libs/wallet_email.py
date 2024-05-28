@@ -58,9 +58,10 @@ class mysqlConnection_wallet_correo():
 
         except mysql.connector.Error as e:
             print("Error al conectar a la base de datos:", e)
+
     
-    def Get_Usuario_id(self, cedula):
-        
+    #Mostrar un registro de Usuario Por ID
+    def Get_Usuario_id(self, cedula): 
         try:
             self.mycursor.execute(f"SELECT * FROM Usuario WHERE Cedula = {cedula}")
             results = self.mycursor.fetchall()
@@ -81,11 +82,33 @@ class mysqlConnection_wallet_correo():
                 return f"No se encontró ningún registro con la cedula {cedula}."
         except mysql.connector.Error as e:
             return f"Error al Mostrar el registro {e}"
-        
+            
+    # Verifica si ya se venció el código de verificación
+    def actualizar_estado_codigos_verificacion_a_vencidos(self, usuario_cedula):
+        try:
+            # Construir la consulta SQL para actualizar el estado a 'Vencido'
+            sql = "UPDATE Codigo_verificacion SET Estado = 'Vencido' WHERE Usuario_cedula = %s"
+            
+            # Ejecutar la consulta SQL
+            self.mycursor.execute(sql, (usuario_cedula,))
+            self.mydb.commit()
+            
+            return "Estado de códigos de verificación actualizado a 'Vencido' para todos los registros con la cédula proporcionada."
+        except mysql.connector.Error as e:
+            # Manejar cualquier error que pueda ocurrir durante la actualización
+            return f"Error al actualizar el estado del código de verificación: {e}"
+            
+            
     def create_codigo_verificacion(self, usuario_cedula, email):
         try:
+            self.actualizar_estado_codigos_verificacion_a_vencidos(usuario_cedula)
             # Generar un código aleatorio
             codigo = secrets.randbelow(999999 - 100000 + 1) + 100000
+            
+            # Verificar si el código ya existe en la base de datos
+            while wallet.verificar_existencia_codigo(codigo):
+                codigo = secrets.randbelow(999999 - 100000 + 1) + 100000
+            
             # Obtener la hora actual
             current_time = datetime.now()
 
@@ -104,8 +127,8 @@ class mysqlConnection_wallet_correo():
             self.mycursor.execute(sql, (codigo, current_time_str, fecha_final_str, usuario_cedula))
             # Confirmar los cambios en la base de datos
             self.mydb.commit()
-            usuario = wallet.Get_Usuario_id(usuario_cedula)[0]
-            
+            usuario = self.Get_Usuario_id(usuario_cedula)[0]
+            print(f"Info de usuario {usuario}")
             # Enviar el código de verificación al usuario por correo electrónico
             # Renderizar la plantilla con los datos dinámicos
             correo = usuario['Correo']
@@ -350,7 +373,7 @@ class mysqlConnection_wallet_correo():
             """
             email.send(msg)
 
-            return "Código de verificación creado exitosamente, revisa tu correo para poder utilizarlo en tu compra"
+            return "succes"
 
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la inserción

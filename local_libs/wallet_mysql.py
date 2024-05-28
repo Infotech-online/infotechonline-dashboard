@@ -65,18 +65,7 @@ class mysqlConnection_wallet():
 
     #Operaciones Globales:
 
-    """
-        Retrieves all the data from the specified table in the database.
 
-        Args:
-            table (str): The name of the table to retrieve data from.
-
-        Returns:
-            list: A list of dictionaries representing the retrieved data. Each dictionary represents a row in the table, with column names as keys and corresponding values.
-
-        Raises:
-            mysql.connector.Error: If there is an error while retrieving the data from the table.
-    """
     # Mostrar todos los datos de cualquier tabla
     def Get_Table(self, table):
         
@@ -107,15 +96,7 @@ class mysqlConnection_wallet():
         finally:
             self.close_connection()
 
-    """
-        Deletes all records from the specified table.
 
-        Args:
-            table (str): The name of the table to delete records from.
-
-        Returns:
-            str: A message indicating whether the deletion was successful or not.
-    """
     #ELiminar todos los registros de cualquier tabla
     def Eliminar_data(self, table):
         
@@ -135,20 +116,6 @@ class mysqlConnection_wallet():
 
     # Parte dededicada a metodos CRUD Basicos de la tabla Fondo
 
-
-    """
-        Update the information of a Fondo record in the database.
-
-        Args:
-            NIT (int): The NIT (identification number) of the Fondo record to update.
-            info (dict): A dictionary containing the updated information for the Fondo record.
-
-        Returns:
-            str: A message indicating whether the update was successful or an error occurred.
-
-        Raises:
-            mysql.connector.Error: If an error occurs during the update process.
-    """
     # Actualizar un registro de Fondo
     def update_fondo_id(self, NIT, info):
         
@@ -184,25 +151,7 @@ class mysqlConnection_wallet():
         finally:
             self.close_connection()
 
-    """
-        Retrieves the fondo information based on the given ID.
 
-        Args:
-            ID (int): The NIT (identification number) of the fondo.
-
-        Returns:
-            list: A list of dictionaries containing the formatted results. Each dictionary represents a row in the Fondo table with the following keys:
-                - 'NIT': The NIT of the fondo.
-                - 'Direccion': The address of the fondo.
-                - 'Nombre_legal': The legal name of the fondo.
-                - 'Envio_Gratuito': A boolean value indicating whether the fondo offers free shipping.
-                - 'Margen_beneficio': The profit margin of the fondo.
-                - 'Contacto_principal': A dictionary representing the principal contact of the fondo.
-
-        Raises:
-            str: If there is an error while executing the SQL query, an error message is returned.
-
-    """
     #Traer fondo por NIT
     def Get_fondo_id(self, NIT):
         try:
@@ -232,23 +181,7 @@ class mysqlConnection_wallet():
         finally:
             self.close_connection()
 
-    """
-        Creates a new record in the Fondo table of the database.
 
-        Args:
-            NIT (str): The NIT value for the record.
-            Direccion (str): The Direccion value for the record.
-            Envio_gratuito (bool): The Envio_gratuito value for the record.
-            Margen_beneficio (float): The Margen_beneficio value for the record.
-            Nombre_legal (str): The Nombre_legal value for the record.
-            Nombre_Representante (str): The Nombre_Representante value for the record.
-            Telefono_Representante (str): The Telefono_Representante value for the record.
-            Cedula_Representante (str): The Cedula_Representante value for the record.
-            Puesto_Representante (str): The Puesto_Representante value for the record.
-
-        Returns:
-            str: A message indicating whether the data was successfully sent or an error occurred.
-    """
     #Crear un registro de Fondo
     def create_Fondo(self, NIT, Direccion, Envio_gratuito, Margen_beneficio, Nombre_legal, Nombre_Representante, Telefono_Representante, Cedula_Representante, Puesto_Representante):
         # Crear un diccionario con las claves requeridas y los valores de la tupla
@@ -275,15 +208,6 @@ class mysqlConnection_wallet():
         else:
             return "Error al enviar los datos."
 
-    """
-        Deletes a record from the 'Fondo' table based on the given ID.
-
-        Args:
-            ID (int): The ID of the record to be deleted.
-
-        Returns:
-            str: A message indicating whether the record was deleted successfully or an error occurred.
-    """
     #Eliminar Registro fondo
     def Delete_fondo_id(self, ID):
         
@@ -301,19 +225,7 @@ class mysqlConnection_wallet():
 
     #Métodos CRUD para la tabla Bono
 
-    """
-        Create a new Bono record in the database.
 
-        Args:
-            idBono (int): The ID of the Bono.
-            saldo (float): The saldo of the Bono.
-            Fecha_vencimiento (datetime): The expiration date of the Bono.
-            Info_Bono (str): Additional information about the Bono.
-            Saldo_eliminado (bool): Indicates if the saldo has been eliminated.
-
-        Returns:
-            str: A message indicating the success or failure of the operation.
-        """
     #Crear Bono
     def create_Bono(self, idBono, saldo, Fecha_vencimiento, Info_Bono):
         try:
@@ -333,22 +245,7 @@ class mysqlConnection_wallet():
         finally:
             self.close_connection()
     
-    """
-        Retrieves the details of a Bono record based on the provided idBono.
 
-        Args:
-            idBono (int): The idBono of the Bono record to retrieve.
-
-        Returns:
-            list: A list of dictionaries containing the details of the Bono record.
-                  Each dictionary represents a row in the Bono table, with column names as keys.
-
-            If no record is found with the given idBono, returns a string indicating the absence of a matching record.
-
-        Raises:
-            mysql.connector.Error: If there is an error executing the SQL query.
-
-        """
     def Get_Bono_id(self, idBono):
         try:
             self.mycursor.execute(f"SELECT * FROM Bono WHERE idBono = '{idBono}'")
@@ -457,30 +354,12 @@ class mysqlConnection_wallet():
     
     #Parte dededicada a metodos CRUD Basicos de la tabla Usuario
 
-    """
-        Creates a new user record in the database.
-
-        Args:
-            cedula (str): The user's identification number.
-            nombre (str): The user's name.
-            correo (str): The user's email address.
-            numero_telefono (str): The user's phone number.
-            Tipo_usuario (str): The user's type.
-            fondo_nit (str): The user's fund NIT.
-
-        Returns:
-            str: A message indicating the success or failure of the user creation.
-
-        Raises:
-            mysql.connector.Error: If an error occurs during the user creation.
-
-        """
     #Crear un registro de Usuario:
     def create_usuario(self, cedula, nombre, correo, numero_telefono, Tipo_usuario, fondo_nit):
         
         try:
             # Construir la consulta SQL de inserción
-            sql = "INSERT INTO Usuario (Cedula, Nombre, Correo, Numero_telefono, Estado, Tipo_usuario, Fondo_NIT) VALUES (%s, %s, %s, %s, 'Activo', %s, %s)"
+            sql = "INSERT INTO Usuario (Cedula, Nombre, Correo, Numero_telefono, Estado, Tipo_usuario, Fondo_NIT) VALUES (%s, %s, %s, %s, %s, %s, %s)"
             values = (cedula, nombre, correo, numero_telefono, Tipo_usuario, fondo_nit)
 
             # Ejecutar la consulta SQL
@@ -496,18 +375,6 @@ class mysqlConnection_wallet():
         finally:
             self.close_connection()
 
-    """
-        Retrieves user information based on the provided cedula.
-
-        Args:
-            cedula (int): The cedula of the user.
-
-        Returns:
-            list: A list of dictionaries containing the user information in JSON format, with column names as keys.
-                  If no records are found, returns a string indicating that no record was found.
-                  If an error occurs, returns a string indicating the error.
-
-        """
     #Mostrar un registro de Usuario Por ID
     def Get_Usuario_id(self, cedula):
         
@@ -534,19 +401,7 @@ class mysqlConnection_wallet():
         finally:
             self.close_connection()
 
-    """
-        Update the information of a user in the 'Usuario' table.
 
-        Args:
-            cedula (str): The cedula (identification number) of the user to update.
-            info (dict): A dictionary containing the updated information for the user.
-
-        Returns:
-            str: A message indicating the result of the update operation.
-
-        Raises:
-            mysql.connector.Error: If an error occurs during the update operation.
-        """
     #Actualizar informacion de usuario
     def update_usuario(self, cedula, info):
         
@@ -721,12 +576,11 @@ class mysqlConnection_wallet():
     
     
     # Métodos CRUD para la tabla Codigo_verificacion
-
     
     # Mostrar un registro de Codigo de Verificación por ID
     def Get_Codigo_verificacion_id(self, cedula):
         try:
-            self.mycursor.execute(f"SELECT * FROM codigo_verificacion WHERE Usuario_Cedula = {cedula}")
+            self.mycursor.execute(f"SELECT * FROM codigo_verificacion WHERE Usuario_Cedula = {cedula} AND Estado = 'Activo'")
             results = self.mycursor.fetchall()
             if results:
                 # Definir el nombre de las columnas
