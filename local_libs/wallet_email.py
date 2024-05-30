@@ -59,6 +59,15 @@ class mysqlConnection_wallet_correo():
         except mysql.connector.Error as e:
             print("Error al conectar a la base de datos:", e)
 
+    def close_connection(self):
+
+        """
+        if self.mycursor:
+            self.mycursor.close()
+        if self.mydb:
+            self.mydb.close()
+        print("Conexión cerrada")"""
+
     
     #Mostrar un registro de Usuario Por ID
     def Get_Usuario_id(self, cedula): 
@@ -82,6 +91,8 @@ class mysqlConnection_wallet_correo():
                 return f"No se encontró ningún registro con la cedula {cedula}."
         except mysql.connector.Error as e:
             return f"Error al Mostrar el registro {e}"
+        finally:
+            self.close_connection()
             
     # Verifica si ya se venció el código de verificación
     def actualizar_estado_codigos_verificacion_a_vencidos(self, usuario_cedula):
@@ -97,6 +108,8 @@ class mysqlConnection_wallet_correo():
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la actualización
             return f"Error al actualizar el estado del código de verificación: {e}"
+        finally:
+            self.close_connection()
             
             
     def create_codigo_verificacion(self, usuario_cedula, email):
@@ -373,8 +386,10 @@ class mysqlConnection_wallet_correo():
             """
             email.send(msg)
 
-            return "succes"
+            return "success"
 
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la inserción
             return f"Error al crear el código de verificación: {e}"
+        finally:
+            self.close_connection()
