@@ -98,7 +98,7 @@ class mysqlConnection_wallet_correo():
     def actualizar_estado_codigos_verificacion_a_vencidos(self, usuario_cedula):
         try:
             # Construir la consulta SQL para actualizar el estado a 'Vencido'
-            sql = "UPDATE Codigo_verificacion SET Estado = 'Vencido' WHERE Usuario_cedula = %s"
+            sql = "UPDATE Codigo_verificacion SET Estado = 'Vencido' WHERE Usuario_cedula = %s AND Estado = 'Activo'"
             
             # Ejecutar la consulta SQL
             self.mycursor.execute(sql, (usuario_cedula,))

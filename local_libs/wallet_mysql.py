@@ -596,7 +596,7 @@ class mysqlConnection_wallet():
                     formatted_results.append(row_dict)
                 return formatted_results
             else:
-                return f"El usuario con cedula {cedula} no tiene un codigo de verificacion."
+                return f"empty"
         except mysql.connector.Error as e:
             return f"Error al mostrar el registro: {e}"
         finally:

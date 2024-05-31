@@ -1,9 +1,14 @@
 from flask import Flask, Blueprint, request, jsonify
 from local_libs.wallet_mysql import mysqlConnection_wallet
+import datetime
+import requests
 
 # Blueprint
 wallet_blueprint = Blueprint('wallet_BluePrint', __name__)
 # mysql = mysqlConnection_wallet()
+
+
+# FONDOS -------------------------------------------------------------------------------------------
 
 @wallet_blueprint.route('/api/wallet/fondo/create', methods=['POST'])
 def create_Fondo():
@@ -73,6 +78,9 @@ def delete_fondo(id):
     return jsonify({'message': resultado})
 
 
+# BONOS -----------------------------------------------------------------------------------------
+
+
 @wallet_blueprint.route('/api/wallet/bono/create', methods=['POST'])
 def bono_create():
 
@@ -125,6 +133,8 @@ def delete_bono_id(id):
 
     resultado = mysql.delete_Bono(id)
     return jsonify({'message': resultado})
+
+# USUARIOS ----------------------------------------------------------------------------------
 
 
 @wallet_blueprint.route('/api/wallet/usuario/create', methods=['POST'])
@@ -206,6 +216,7 @@ def update_saldo_usuario_admin(id):
     return jsonify({'message': resultado})
 
 
+# CODIGO DE VERIFICACIÓN ---------------------------------------------------------------------------------
 
 @wallet_blueprint.route('/api/wallet/codigo_verificacion/', methods=['GET'])
 def all_codigos_verificacion():
@@ -218,11 +229,66 @@ def all_codigos_verificacion():
 
 @wallet_blueprint.route('/api/wallet/codigo_verificacion/<int:id>', methods=['GET'])
 def codigo_verificacion(id):
+
     mysql = mysqlConnection_wallet()
     resultado = mysql.Get_Codigo_verificacion_id(id)
+
     # Retornar la respuesta
     return jsonify({'message': resultado})
 
+@wallet_blueprint.route('/api/wallet/codigo_verificacion/verificar', methods=['GET'])
+def verificar_codigo_verificacion():
+
+    mysql = mysqlConnection_wallet()
+
+    # Obtener los parámetros de la solicitud
+    user_id = request.args.get('user_id')
+    code = request.args.get('verification_code')
+
+    # Código generado en la base de datos
+    current_code = mysql.Get_Codigo_verificacion_id(user_id)
+
+    if current_code == "empty":
+
+        # Se genera un nuevo código de verificación
+        url = 'http://127.0.0.1:1010/api/wallet/codigo_verificacion/' + user_id # URL DE PRUEBAS
+        # url = 'https://jgallego.pythonanywhere.com/api/wallet/codigo_verificacion/' + user_id
+
+        response = requests.post(url)
+        message = response.json()
+
+        if message["message"] == "success":
+            return jsonify({'error': "Se ha generado un nuevo codigo de verificaciónn."}), 400
+        else:
+            return jsonify({'error': "Error al generar el código de verificación"}), 500
+
+    # Si el usuario no tiene códigos o esta vencido se genera uno nuevo
+    if current_code[0]['Fecha_Final'] < datetime.datetime.now():
+
+        # Se genera un nuevo código de verificación
+        url = 'http://127.0.0.1:1010/api/wallet/codigo_verificacion/' + user_id # URL DE PRUEBAS
+        # url = 'https://jgallego.pythonanywhere.com/api/wallet/codigo_verificacion/' + user_id
+
+        response = requests.post(url)
+        message = response.json()
+
+        if message["message"] == "success":
+            return jsonify({'error': "El código de verificación ha expirado, se ha generado uno nuevo."}), 400
+        else:
+            return jsonify({'error': "Error al generar el código de verificación"}), 500
+
+    # Si el código de verificacón proporcionado por el usuario es igual al código generado
+    if current_code[0]['Codigo'] == int(code):
+        
+        # Se establece el codigo como usado
+        mysql = mysqlConnection_wallet()
+        result = mysql.actualizar_estado_codigo_verificacion_a_usado(code)
+
+        return jsonify({'success': "Se ha verificado correctamente"}), 200
+    else:
+        return jsonify({'error': "Código de verificación incorrecto"}), 400
+
+# REGISTRO DE BONOS  --------------------------------------------------------------------------------------
 
 @wallet_blueprint.route('/api/wallet/registro_bono/create', methods=['POST'])
 def registro_bono_create():
@@ -232,6 +298,7 @@ def registro_bono_create():
     data = request.json
     usuario_cedula= data.get("Cedula")
     bono_idBono= data.get("idBono")
+
     resultado = mysql.create_registro_bono(
         usuario_cedula,
         bono_idBono
@@ -256,6 +323,9 @@ def all_registro_bono():
     return jsonify({'message': resultado})
 
 
+# TRANSACCIONES ----------------------------------------------------------------------------------
+
+
 @wallet_blueprint.route('/api/wallet/transaccion/create', methods=['POST'])
 def transaccion_create():
 
@@ -267,6 +337,7 @@ def transaccion_create():
     ciudad_envio = data.get("Ciudad_envio")
     direccion_envio = data.get("Direccion_envio")
     codigo_verificacion_codigo = data.get("Codigo_verificacion")
+
     resultado = mysql.create_transaccion(
         productos,
         forma_pago,
