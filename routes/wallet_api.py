@@ -1,5 +1,6 @@
 from flask import Flask, Blueprint, request, jsonify
 from local_libs.wallet_mysql import mysqlConnection_wallet
+from functools import wraps
 import datetime
 import requests
 
@@ -7,10 +8,30 @@ import requests
 wallet_blueprint = Blueprint('wallet_BluePrint', __name__)
 # mysql = mysqlConnection_wallet()
 
+STATIC_TOKEN = 'nHJGQ8&nYw4FYBzM8i4Xje%VEKpgo$zH25B3oTJu6n2WdUqvtyz#whFX!w$&w6iy997w#UHrnRa@7bDosML#7CrGP%3#PE9iMWaS'
+
+# Función para verificar el token
+def token_verification(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # Obtener el token de la solicitud
+        token = request.headers.get('Authorization')
+
+        # Verificar que el token sea válido
+        if token == f'Bearer {STATIC_TOKEN}':
+            # La autenticación es exitosa, continuar con la lógica de la ruta
+            return f(*args, **kwargs)
+        else:
+            # El token no es válido, devolver un error de autenticación
+            return jsonify(message="Error de autenticación"), 401
+
+    return decorated_function
+
 
 # FONDOS -------------------------------------------------------------------------------------------
 
 @wallet_blueprint.route('/api/wallet/fondo/create', methods=['POST'])
+@token_verification
 def create_Fondo():
 
     mysql = mysqlConnection_wallet()
@@ -44,6 +65,7 @@ def create_Fondo():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/fondo/<int:id>', methods=['PUT'])
+@token_verification
 def update_fondo(id):
 
     mysql = mysqlConnection_wallet()
@@ -53,6 +75,7 @@ def update_fondo(id):
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/fondo/', methods=['GET'])
+@token_verification
 def all_fondos():
 
     mysql = mysqlConnection_wallet()
@@ -62,6 +85,7 @@ def all_fondos():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/fondo/<int:id>', methods=['GET'])
+@token_verification
 def fondo_id(id):
 
     mysql = mysqlConnection_wallet()
@@ -70,6 +94,7 @@ def fondo_id(id):
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/fondo/<int:id>', methods=['DELETE'])
+@token_verification
 def delete_fondo(id):
 
     mysql = mysqlConnection_wallet()
@@ -82,6 +107,7 @@ def delete_fondo(id):
 
 
 @wallet_blueprint.route('/api/wallet/bono/create', methods=['POST'])
+@token_verification
 def bono_create():
 
     mysql = mysqlConnection_wallet()
@@ -101,6 +127,7 @@ def bono_create():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/bono/<string:id>', methods=['PUT'])
+@token_verification
 def bono_update(id):
 
     mysql = mysqlConnection_wallet()
@@ -110,6 +137,7 @@ def bono_update(id):
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/bono/', methods=['GET'])
+@token_verification
 def all_bonos():
 
     mysql = mysqlConnection_wallet()
@@ -119,6 +147,7 @@ def all_bonos():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/bono/<string:id>', methods=['GET'])
+@token_verification
 def bono_id(id):
 
     mysql = mysqlConnection_wallet()
@@ -127,6 +156,7 @@ def bono_id(id):
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/bono/<string:id>', methods=['DELETE'])
+@token_verification
 def delete_bono_id(id):
 
     mysql = mysqlConnection_wallet()
@@ -138,6 +168,7 @@ def delete_bono_id(id):
 
 
 @wallet_blueprint.route('/api/wallet/usuario/create', methods=['POST'])
+@token_verification
 def usuario_create():
 
     mysql = mysqlConnection_wallet()
@@ -161,6 +192,7 @@ def usuario_create():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/<int:id>', methods=['PUT'])
+@token_verification
 def update_usuario(id):
 
     mysql = mysqlConnection_wallet()
@@ -170,6 +202,7 @@ def update_usuario(id):
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/', methods=['GET'])
+@token_verification
 def all_usuarios():
 
     mysql = mysqlConnection_wallet()
@@ -179,6 +212,7 @@ def all_usuarios():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/<int:id>',methods=['GET'])
+@token_verification
 def usuario_id(id):
 
     mysql = mysqlConnection_wallet()
@@ -187,6 +221,7 @@ def usuario_id(id):
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/<int:id>', methods=['DELETE'])
+@token_verification
 def delete_usuario(id):
 
     mysql = mysqlConnection_wallet()
@@ -195,6 +230,7 @@ def delete_usuario(id):
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/usuario/saldo/<int:id>', methods=["GET"])
+@token_verification
 def saldo_usuario(id):
 
     mysql = mysqlConnection_wallet()
@@ -202,7 +238,8 @@ def saldo_usuario(id):
     resultado = mysql.obtener_saldo_usuario(id)
     return jsonify({'Saldo': resultado})
 
-@wallet_blueprint.route('/api/wallet/usuario/saldoAdmin/<int:id>', methods=["PUT"]) 
+@wallet_blueprint.route('/api/wallet/usuario/saldoAdmin/<int:id>', methods=["PUT"])
+@token_verification
 def update_saldo_usuario_admin(id):
 
     mysql = mysqlConnection_wallet()
@@ -219,6 +256,7 @@ def update_saldo_usuario_admin(id):
 # CODIGO DE VERIFICACIÓN ---------------------------------------------------------------------------------
 
 @wallet_blueprint.route('/api/wallet/codigo_verificacion/', methods=['GET'])
+@token_verification
 def all_codigos_verificacion():
 
     mysql = mysqlConnection_wallet()
@@ -228,6 +266,7 @@ def all_codigos_verificacion():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/codigo_verificacion/<int:id>', methods=['GET'])
+@token_verification
 def codigo_verificacion(id):
 
     mysql = mysqlConnection_wallet()
@@ -237,6 +276,7 @@ def codigo_verificacion(id):
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/codigo_verificacion/verificar', methods=['GET'])
+@token_verification
 def verificar_codigo_verificacion():
 
     mysql = mysqlConnection_wallet()
@@ -258,7 +298,7 @@ def verificar_codigo_verificacion():
         message = response.json()
 
         if message["message"] == "success":
-            return jsonify({'error': "Se ha generado un nuevo codigo de verificaciónn."}), 400
+            return jsonify({'error': "Se ha generado un nuevo codigo de verificación."}), 400
         else:
             return jsonify({'error': "Error al generar el código de verificación"}), 500
 
@@ -291,6 +331,7 @@ def verificar_codigo_verificacion():
 # REGISTRO DE BONOS  --------------------------------------------------------------------------------------
 
 @wallet_blueprint.route('/api/wallet/registro_bono/create', methods=['POST'])
+@token_verification
 def registro_bono_create():
 
     mysql = mysqlConnection_wallet()
@@ -306,6 +347,7 @@ def registro_bono_create():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/registro_bono/<int:id>', methods=['GET'])
+@token_verification
 def registro_bono_id(id):
 
     mysql = mysqlConnection_wallet()
@@ -314,6 +356,7 @@ def registro_bono_id(id):
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/registro_bono/', methods=['GET'])
+@token_verification
 def all_registro_bono():
 
     mysql = mysqlConnection_wallet()
@@ -327,6 +370,7 @@ def all_registro_bono():
 
 
 @wallet_blueprint.route('/api/wallet/transaccion/create', methods=['POST'])
+@token_verification
 def transaccion_create():
 
     mysql = mysqlConnection_wallet()
@@ -349,6 +393,7 @@ def transaccion_create():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/transaccion/', methods=['GET'])
+@token_verification
 def all_transacciones():
 
     mysql = mysqlConnection_wallet()
@@ -358,6 +403,7 @@ def all_transacciones():
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/transaccion/<int:id>', methods=['GET'])
+@token_verification
 def transaccion_id(id):
 
     mysql = mysqlConnection_wallet()
@@ -367,6 +413,7 @@ def transaccion_id(id):
 
 
 @wallet_blueprint.route('/api/wallet/registro_movimiento/<int:id>', methods=['GET'])
+@token_verification
 def registro_movimiento_id(id):
 
     mysql = mysqlConnection_wallet()

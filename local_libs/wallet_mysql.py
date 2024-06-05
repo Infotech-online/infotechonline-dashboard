@@ -21,12 +21,12 @@ load_dotenv(os.path.join(project_folder, '.env'))
 class mysqlConnection_wallet():
 
     def __init__(self):
-        
+
         print("Utilizando Conexión a MySQL en PythonAnywhere")
-        
+
         try:
             if environment == "production":
-            
+
                 self.mydb = mysql.connector.connect(
                     host=os.getenv('DatabaseProductionHost'),
                     port=3306,
@@ -68,11 +68,11 @@ class mysqlConnection_wallet():
 
     # Mostrar todos los datos de cualquier tabla
     def Get_Table(self, table):
-        
+
         try:
             self.mycursor.execute(f"SELECT * FROM {table}")
             myresult = self.mycursor.fetchall()
-            
+
             # Obtener los nombres de las columnas
             column_names = [desc[0] for desc in self.mycursor.description]
 
@@ -99,7 +99,7 @@ class mysqlConnection_wallet():
 
     #ELiminar todos los registros de cualquier tabla
     def Eliminar_data(self, table):
-        
+
         sql = f"DELETE FROM {table}"
         self.mycursor.execute(sql)
         self.mydb.commit()
@@ -111,14 +111,14 @@ class mysqlConnection_wallet():
         else:
             self.close_connection()
             return "No se eliminaron registros."
-        
+
 
 
     # Parte dededicada a metodos CRUD Basicos de la tabla Fondo
 
     # Actualizar un registro de Fondo
     def update_fondo_id(self, NIT, info):
-        
+
         # Construir la consulta SQL dinámicamente
         sql = f"UPDATE Fondo SET "
         values = []
@@ -173,7 +173,7 @@ class mysqlConnection_wallet():
                     # Agregar el diccionario a la lista de resultados formateados
                     formatted_results.append(row_dict)
                 return column_names, formatted_results
-            
+
             else:
                 return None, f"No se encontró ningún registro con el ID de bono {NIT}."
         except mysql.connector.Error as e:
@@ -210,7 +210,7 @@ class mysqlConnection_wallet():
 
     #Eliminar Registro fondo
     def Delete_fondo_id(self, ID):
-        
+
         try:
             sql = f"DELETE FROM Fondo WHERE NIT = {ID}"
             self.mycursor.execute(sql)
@@ -244,13 +244,13 @@ class mysqlConnection_wallet():
             return f"Error al crear el registro de usuario: {e}"
         finally:
             self.close_connection()
-    
+
 
     def Get_Bono_id(self, idBono):
         try:
             self.mycursor.execute(f"SELECT * FROM Bono WHERE idBono = '{idBono}'")
             myresult = self.mycursor.fetchall()
-            
+
             # Obtener los nombres de las columnas
             column_names = [desc[0] for desc in self.mycursor.description]
 
@@ -349,14 +349,14 @@ class mysqlConnection_wallet():
             return f"Error al eliminar el bono: {e}"
         finally:
             self.close_connection()
-    
-    
-    
+
+
+
     #Parte dededicada a metodos CRUD Basicos de la tabla Usuario
 
     #Crear un registro de Usuario:
     def create_usuario(self, cedula, nombre, correo, numero_telefono, Tipo_usuario, fondo_nit):
-        
+
         try:
             # Construir la consulta SQL de inserción
             sql = "INSERT INTO Usuario (Cedula, Nombre, Correo, Numero_telefono, Estado, Tipo_usuario, Fondo_NIT) VALUES (%s, %s, %s, %s, %s, %s, %s)"
@@ -377,7 +377,7 @@ class mysqlConnection_wallet():
 
     #Mostrar un registro de Usuario Por ID
     def Get_Usuario_id(self, cedula):
-        
+
         try:
             self.mycursor.execute(f"SELECT * FROM Usuario WHERE Cedula = {cedula}")
             results = self.mycursor.fetchall()
@@ -404,7 +404,7 @@ class mysqlConnection_wallet():
 
     #Actualizar informacion de usuario
     def update_usuario(self, cedula, info):
-        
+
         # Construir la consulta SQL dinámicamente
         sql = "UPDATE Usuario SET "
         values = []
@@ -472,13 +472,13 @@ class mysqlConnection_wallet():
         try:
             # Construir la consulta SQL para obtener el saldo del usuario
             sql = "SELECT Saldo FROM Usuario WHERE Cedula = %s"
-            
+
             # Ejecutar la consulta SQL
             self.mycursor.execute(sql, (cedula,))
-            
+
             # Obtener el resultado de la consulta
             saldo_usuario = self.mycursor.fetchone()
-            
+
             # Verificar si se obtuvo un resultado
             if saldo_usuario is not None:
                 return saldo_usuario[0]  # Devolver el saldo del usuario
@@ -489,7 +489,7 @@ class mysqlConnection_wallet():
             return f"Error al obtener el saldo del usuario: {e}"
         finally:
             self.close_connection()
-    
+
     #Obtener cedula de un usuario
     def obtener_cedula_usuario(self, codigo_verificacion_codigo):
         try:
@@ -503,7 +503,7 @@ class mysqlConnection_wallet():
             return None
         finally:
             self.close_connection()
-    
+
     # Obtener envio_gratuito de un usuario
     def obtener_envio_gratuito_usuario(self, cedula):
         try:
@@ -545,7 +545,7 @@ class mysqlConnection_wallet():
                 margen_beneficio = self.mycursor.fetchone()
 
                 if margen_beneficio is not None:
-                    
+
                     return margen_beneficio[0] / 100 # Retornar el valor de Envio_Gratuito
                 else:
                     return "No se encontró información de envío gratuito para este fondo."
@@ -556,7 +556,7 @@ class mysqlConnection_wallet():
             return None
         finally:
             self.close_connection()
-    
+
     def actualizar_saldo_usuario_admin(self, cedula, saldo, descripcion, monto):
         try:
             # Actualizar el saldo del usuario
@@ -568,19 +568,19 @@ class mysqlConnection_wallet():
             self.create_registro_movimiento(tipo_accion, descripcion, cedula, monto)
 
             return "Saldo actualizado correctamente."
-        
+
         except mysql.connector.Error as e:
             return f"Error al actualizar el saldo del usuario: {e}"
         finally:
             self.close_connection()
-    
-    
-    # Métodos CRUD para la tabla Codigo_verificacion
-    
+
+
+    # Métodos CRUD para la tabla codigo_verificacion
+
     # Mostrar un registro de Codigo de Verificación por ID
     def Get_Codigo_verificacion_id(self, cedula):
         try:
-            self.mycursor.execute(f"SELECT * FROM codigo_verificacion WHERE Usuario_Cedula = {cedula} AND Estado = 'Activo'")
+            self.mycursor.execute(f"SELECT * FROM Codigo_verificacion WHERE Usuario_Cedula = {cedula} AND Estado = 'Activo'")
             results = self.mycursor.fetchall()
             if results:
                 # Definir el nombre de las columnas
@@ -601,7 +601,7 @@ class mysqlConnection_wallet():
             return f"Error al mostrar el registro: {e}"
         finally:
             self.close_connection()
-        
+
     # Cambia el estado del codigo de verificacion a usado
     def actualizar_estado_codigo_verificacion_a_usado(self, codigo_verificacion_codigo):
         try:
@@ -615,7 +615,7 @@ class mysqlConnection_wallet():
             self.close_connection()
 
     # Verifica si ya se venció el código de verificación
-    def actualizar_estado_codigo_verificacion_a_vencido(self, codigo_verificacion_codigo):  
+    def actualizar_estado_codigo_verificacion_a_vencido(self, codigo_verificacion_codigo):
         try:
             # Consultar la fecha final completa del código de verificación
             sql = "SELECT Fecha_Final FROM Codigo_verificacion WHERE Codigo = %s"
@@ -675,13 +675,13 @@ class mysqlConnection_wallet():
         try:
             # Construir la consulta SQL para verificar la existencia del código de verificación
             sql = "SELECT COUNT(*) FROM Codigo_verificacion WHERE Codigo = %s"
-            
+
             # Ejecutar la consulta SQL
             self.mycursor.execute(sql, (codigo_verificacion_codigo,))
-            
+
             # Obtener el resultado de la consulta
             resultado = self.mycursor.fetchone()
-            
+
             # Verificar si el código existe en la base de datos
             if resultado[0] > 0:
                 return True
@@ -693,10 +693,10 @@ class mysqlConnection_wallet():
             return False
         finally:
             self.close_connection()
-    
-    
-    
-    
+
+
+
+
     #Metodos CRUD para la tabla registro_bono
 
 
@@ -730,7 +730,7 @@ class mysqlConnection_wallet():
             # Crear el registro de movimiento en la tabla Registro_Movimiento
             tipo_accion = "Bono"
             descripcion = f" Se Registro el bono con el codigo {bono_idBono} con un saldo a favor de {saldo_bono}$"
-            
+
             # Llamar a la función para crear el registro de movimiento
             resultado = self.create_registro_movimiento(tipo_accion, descripcion, usuario_cedula, saldo_bono)
 
@@ -740,7 +740,7 @@ class mysqlConnection_wallet():
             return f"Error al crear el registro de bono: {e}"
         finally:
             self.close_connection()
-    
+
     def Get_registro_bono_id(self, usuario_cedula):
         try:
             self.mycursor.execute(f"SELECT * FROM Registro_bono WHERE Usuario_Cedula = {usuario_cedula}")
@@ -765,7 +765,7 @@ class mysqlConnection_wallet():
         finally:
             self.close_connection()
 
-    
+
     #Metodos CRUD para la tabla Transaccion:
 
     #Calcular total de la compra
@@ -773,38 +773,38 @@ class mysqlConnection_wallet():
         try:
             # Convertir la cadena JSON de productos a un diccionario
             productos_dict = json.loads(productos)
-            
+
             # Inicializar el total de la compra
             total_compra = 0
-            
+
             # Iterar sobre cada producto en el diccionario
             for producto, detalles in productos_dict.items():
                 precio = detalles['precio']
                 cantidad = detalles['cantidad']
-                
+
                 # Calcular el costo total del producto (precio * cantidad) y sumarlo al total de la compra
                 total_compra += precio * cantidad
-                
+
             # Convertir el margen de beneficio a float antes de restarlo
             margen_beneficio = float(margen_beneficio  *total_compra)
-            
+
             # Restar el margen de beneficio
             total_compra -= margen_beneficio
-            
+
             # Convertir el saldo a float antes de restarlo
             saldo = float(saldo)
-            
+
             # Restar el saldo del usuario
             total_compra -= saldo
             # Verificar si el total de la compra es negativo
             if total_compra < 0:
-                saldo_afavor = abs(total_compra) 
+                saldo_afavor = abs(total_compra)
                 self.update_usuario(cedula, {"Saldo": saldo_afavor})
                 return 0  # El total de la compra es menor que cero, por lo tanto, no se realizará ningún cargo
             else:
                 self.update_usuario(cedula, {"Saldo": 0})
                 return total_compra  # Devolver el total de la compra
-            
+
         except Exception as e:
             return "Error al Calcular la compra"  # Retorno que indica un error en el cálculo del total de la compra
         finally:
@@ -815,7 +815,7 @@ class mysqlConnection_wallet():
         try:
             self.actualizar_estado_codigo_verificacion_a_vencido(codigo_verificacion_codigo)
             usuario_cedula = self.obtener_cedula_usuario(codigo_verificacion_codigo)
-            
+
             # Verificar la existencia del código de verificación
             if self.verificar_existencia_codigo(codigo_verificacion_codigo):
                 # Obtener el estado del código de verificación
@@ -851,13 +851,13 @@ class mysqlConnection_wallet():
                     # Crear el registro de movimiento en la tabla Registro_Movimiento
                     tipo_accion = "Transaccion"
                     descripcion = f" Se creó el registro de transaccion {id_transaccion} con un pago de {total_compra}"
-                    
+
                     # Llamar a la función para crear el registro de movimiento
                     self.create_registro_movimiento(tipo_accion, descripcion, usuario_cedula, total_compra)
-                    
+
                     # Actualizar estado del código de verificación a 'Usado'
                     self.actualizar_estado_codigo_verificacion_a_usado(codigo_verificacion_codigo)
-                    
+
                     return "Transacción realizada con éxito."
             else:
                 return "Código de verificación incorrecto. No se puede realizar la transacción."
@@ -865,7 +865,7 @@ class mysqlConnection_wallet():
             return f"Error al crear el registro de transacción {e}"
         finally:
             self.close_connection()
-        
+
     #obtener compras de usuario por cedula
     def obtener_compras_usuario(self, usuario_cedula):
         try:
@@ -957,4 +957,3 @@ class mysqlConnection_wallet():
             return f"Error al obtener los movimientos del usuario: {e}"
         finally:
             self.close_connection()
-        

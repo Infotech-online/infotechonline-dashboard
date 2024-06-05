@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 from flask import Flask
 from flask_mail import Mail, Message
+import pytz
 
 from local_libs.wallet_mysql import mysqlConnection_wallet
 wallet = mysqlConnection_wallet()
@@ -24,12 +25,12 @@ load_dotenv(os.path.join(project_folder, '.env'))
 class mysqlConnection_wallet_correo():
 
     def __init__(self):
-        
+
         print("Utilizando Conexión a MySQL en PythonAnywhere")
 
         try:
             if environment == "production":
-            
+
                 self.mydb = mysql.connector.connect(
                     host=os.getenv('DatabaseProductionHost'),
                     port=3306,
@@ -68,9 +69,9 @@ class mysqlConnection_wallet_correo():
             self.mydb.close()
         print("Conexión cerrada")"""
 
-    
+
     #Mostrar un registro de Usuario Por ID
-    def Get_Usuario_id(self, cedula): 
+    def Get_Usuario_id(self, cedula):
         try:
             self.mycursor.execute(f"SELECT * FROM Usuario WHERE Cedula = {cedula}")
             results = self.mycursor.fetchall()
@@ -93,44 +94,53 @@ class mysqlConnection_wallet_correo():
             return f"Error al Mostrar el registro {e}"
         finally:
             self.close_connection()
-            
+
     # Verifica si ya se venció el código de verificación
     def actualizar_estado_codigos_verificacion_a_vencidos(self, usuario_cedula):
         try:
             # Construir la consulta SQL para actualizar el estado a 'Vencido'
             sql = "UPDATE Codigo_verificacion SET Estado = 'Vencido' WHERE Usuario_cedula = %s AND Estado = 'Activo'"
-            
+
             # Ejecutar la consulta SQL
             self.mycursor.execute(sql, (usuario_cedula,))
             self.mydb.commit()
-            
+
             return "Estado de códigos de verificación actualizado a 'Vencido' para todos los registros con la cédula proporcionada."
         except mysql.connector.Error as e:
             # Manejar cualquier error que pueda ocurrir durante la actualización
             return f"Error al actualizar el estado del código de verificación: {e}"
         finally:
             self.close_connection()
-            
-            
+
+
     def create_codigo_verificacion(self, usuario_cedula, email):
         try:
             self.actualizar_estado_codigos_verificacion_a_vencidos(usuario_cedula)
             # Generar un código aleatorio
             codigo = secrets.randbelow(999999 - 100000 + 1) + 100000
-            
+
             # Verificar si el código ya existe en la base de datos
             while wallet.verificar_existencia_codigo(codigo):
                 codigo = secrets.randbelow(999999 - 100000 + 1) + 100000
-            
+
+            # Definir la zona horaria de Colombia
+            timezone = pytz.timezone('America/Bogota')
+
             # Obtener la hora actual
-            current_time = datetime.now()
+            current_time = datetime.now(timezone)
+
+            # Current server date 
+            current_server_time = datetime.now()
+
+            # Final server date
+            final_server_date = current_server_time + timedelta(minutes=15)
 
             # Calcular la fecha final sumando 15 minutos a la fecha de inicio
             fecha_final = current_time + timedelta(minutes=15)
 
             # Convertir las fechas al formato deseado (sin el prefijo 'datetime.datetime')
-            current_time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
-            fecha_final_str = fecha_final.strftime("%Y-%m-%d %H:%M:%S")
+            current_time_str = current_server_time.strftime("%Y-%m-%d %H:%M:%S")
+            fecha_final_str = final_server_date.strftime("%Y-%m-%d %H:%M:%S")
             fecha_final_hour_str = fecha_final.strftime("%H:%M:%S")
 
 
@@ -186,7 +196,7 @@ class mysqlConnection_wallet_correo():
                                                                         </td>
                                                                     </tr>
                                                                 </table>
-                                    
+
                                                                 <table class="divider_block block-3" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                                     <tr>
                                                                         <td class="pad" style="padding-bottom:15px;padding-left:5px;padding-right:5px;padding-top:15px;">
@@ -261,7 +271,7 @@ class mysqlConnection_wallet_correo():
                                                                     <tr>
                                                                         <td class="pad">
                                                                             <div style="color:#ffffff;direction:ltr;font-family:Oxygen, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:15px;font-weight:400;letter-spacing:0px;line-height:150%;text-align:center;mso-line-height-alt:22.5px;">
-                                                                                <p style="margin: 0;">Codigo válida hasta:{fecha_final_hour_str} <strong id="vigenciaFecha"></strong></p>
+                                                                                <p style="margin: 0;">Codigo válida hasta: {fecha_final_hour_str} <strong id="vigenciaFecha"></strong></p>
                                                                             </div>
                                                                         </td>
                                                                     </tr>

@@ -3,9 +3,29 @@ import base64
 import os
 from flask_mail import Message
 from local_libs.wallet_email import mysqlConnection_wallet_correo
+from functools import wraps
 
 # Blueprint
 email_blueprint = Blueprint('email_blueprint', __name__)
+
+STATIC_TOKEN = 'nHJGQ8&nYw4FYBzM8i4Xje%VEKpgo$zH25B3oTJu6n2WdUqvtyz#whFX!w$&w6iy997w#UHrnRa@7bDosML#7CrGP%3#PE9iMWaS'
+
+# Función para verificar el token
+def token_verification(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # Obtener el token de la solicitud
+        token = request.headers.get('Authorization')
+
+        # Verificar que el token sea válido
+        if token == f'Bearer {STATIC_TOKEN}':
+            # La autenticación es exitosa, continuar con la lógica de la ruta
+            return f(*args, **kwargs)
+        else:
+            # El token no es válido, devolver un error de autenticación
+            return jsonify(message="Error de autenticación"), 401
+
+    return decorated_function
 
 @email_blueprint.route('/save_pdf', methods=['POST'])
 def guardar_pdf():
@@ -70,6 +90,7 @@ def guardar_pdf():
             return str(e)
 
 @email_blueprint.route('/api/wallet/codigo_verificacion/<int:id>', methods=['POST'])
+@token_verification
 def send_code_verification(id):
 
     correo = mysqlConnection_wallet_correo()
