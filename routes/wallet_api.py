@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, request, jsonify
+from flask import Flask, Blueprint, request, jsonify, current_app
 from local_libs.wallet_mysql import mysqlConnection_wallet
 from functools import wraps
 import datetime
@@ -288,13 +288,16 @@ def verificar_codigo_verificacion():
     # Código generado en la base de datos
     current_code = mysql.Get_Codigo_verificacion_id(user_id)
 
-    if current_code == "empty":
+    with current_app.app_context():
+
+        SERVER_URL = current_app.config["SERVER_URL"]
 
         # Se genera un nuevo código de verificación
-        url = 'http://127.0.0.1:1010/api/wallet/codigo_verificacion/' + user_id # URL DE PRUEBAS
-        # url = 'https://jgallego.pythonanywhere.com/api/wallet/codigo_verificacion/' + user_id
+        generate_verification_code_url = SERVER_URL + '/api/wallet/codigo_verificacion/' + user_id
 
-        response = requests.post(url)
+    if current_code == "empty":
+
+        response = requests.post(generate_verification_code_url)
         message = response.json()
 
         if message["message"] == "success":
@@ -305,11 +308,7 @@ def verificar_codigo_verificacion():
     # Si el usuario no tiene códigos o esta vencido se genera uno nuevo
     if current_code[0]['Fecha_Final'] < datetime.datetime.now():
 
-        # Se genera un nuevo código de verificación
-        url = 'http://127.0.0.1:1010/api/wallet/codigo_verificacion/' + user_id # URL DE PRUEBAS
-        # url = 'https://jgallego.pythonanywhere.com/api/wallet/codigo_verificacion/' + user_id
-
-        response = requests.post(url)
+        response = requests.post(generate_verification_code_url)
         message = response.json()
 
         if message["message"] == "success":

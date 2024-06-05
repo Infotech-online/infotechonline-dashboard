@@ -33,10 +33,12 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     PROJECT_FOLDER = os.path.abspath(os.getcwd())
+    SERVER_URL = "http://127.0.0.1:1010"
 
 class ProductionConfig(Config):
     DEBUG = False
     PROJECT_FOLDER = os.path.expanduser('~/infotechonline-dashboard')
+    SERVER_URL = "https://jgallego.pythonanywhere.com"
 
 # Se devuelve la configuración segun el entorno configurado en ENVIRONMENT
 if environment == "production":
