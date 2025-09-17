@@ -360,7 +360,7 @@ class mysqlConnection_wallet():
         try:
             # Construir la consulta SQL de inserción
             sql = "INSERT INTO Usuario (Cedula, Nombre, Correo, Numero_telefono, Estado, Tipo_usuario, Fondo_NIT) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-            values = (cedula, nombre, correo, numero_telefono, Tipo_usuario, fondo_nit)
+            values = (cedula, nombre, correo, numero_telefono, 'Activo', Tipo_usuario, fondo_nit)
 
             # Ejecutar la consulta SQL
             self.mycursor.execute(sql, values)

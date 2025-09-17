@@ -13,7 +13,7 @@ def create_app():
     app.secret_key = "super secret key"
 
     # CORS
-    CORS(app, resources={r"/*": {"origins": "https://infotechonline.co"}})
+    CORS(app, resources={r"/*": {"origins": ["https://infotechonline.co", "https://staging-e1b6-woo-briskly-beautiful-post9.wpcomstaging.com"]}})
 
     # Config Data
     app.config.from_object(config)

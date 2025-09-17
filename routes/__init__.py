@@ -9,6 +9,10 @@ def create_routes_blueprint(mail, config):
     from .email import email_blueprint
     from .cdn import cdn_blueprint
     from .price_increase import price_increase_blueprint
+    from .crm_infotech import crm_blueprint
+
+
+    from .leaderboard import leaderboard_blueprint # Temporal
 
     from .wallet_api import wallet_blueprint
     # Crea un Blueprint para las rutas
@@ -24,5 +28,6 @@ def create_routes_blueprint(mail, config):
     routes_blueprint.register_blueprint(cdn_blueprint, config=config)
     routes_blueprint.register_blueprint(price_increase_blueprint, config=config)
     routes_blueprint.register_blueprint(wallet_blueprint)
-    
+    routes_blueprint.register_blueprint(crm_blueprint)
+
     return routes_blueprint

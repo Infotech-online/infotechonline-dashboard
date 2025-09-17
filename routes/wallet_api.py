@@ -35,19 +35,19 @@ def token_verification(f):
 def create_Fondo():
 
     mysql = mysqlConnection_wallet()
- 
+
     # Obtener los datos del cuerpo de la solicitud
     data = request.json
     NIT = data.get('NIT')
     Direccion = data.get('Direccion')
     Nombre_legal = data.get('Nombre_legal')
-    Envio_Gratuito = data.get('Envio_Gratuito') 
+    Envio_Gratuito = data.get('Envio_Gratuito')
     Margen_beneficio = data.get('Margen_beneficio')
     Nombre_Representante = data.get('Nombre_Representante')
     Telefono_Representante = data.get('Telefono_Representante')
     Cedula_Representante = data.get('Cedula_Representante')
     Puesto_Representante = data.get('Puesto_Representante')
-    
+
     # Llamar a la función create_Fondo con los datos recibidos
     resultado = mysql.create_Fondo(
         NIT=NIT,
@@ -117,11 +117,11 @@ def bono_create():
     Saldo = data.get("Saldo")
     Fecha_vencimiento = data.get("Fecha_vencimiento")
     Info_Bono = data.get("Info_Bono")
-    
+
     resultado = mysql.create_Bono(
-        idBono,  
-        Saldo,   
-        Fecha_vencimiento,  
+        idBono,
+        Saldo,
+        Fecha_vencimiento,
         Info_Bono
     )
     return jsonify({'message': resultado})
@@ -132,8 +132,8 @@ def bono_update(id):
 
     mysql = mysqlConnection_wallet()
 
-    data = request.json  
-    resultado = mysql.update_bono(id, data)  
+    data = request.json
+    resultado = mysql.update_bono(id, data)
     return jsonify({'message': resultado})
 
 @wallet_blueprint.route('/api/wallet/bono/', methods=['GET'])
@@ -295,9 +295,16 @@ def verificar_codigo_verificacion():
         # Se genera un nuevo código de verificación
         generate_verification_code_url = SERVER_URL + '/api/wallet/codigo_verificacion/' + user_id
 
+        # Definir los encabezados
+        headers = {
+            'Content-Type': 'application/json', # Tipo de contenido
+            'Accept': 'application/json',
+            'Authorization': f'Bearer {STATIC_TOKEN}', # Token de autorización
+        }
+
     if current_code == "empty":
 
-        response = requests.post(generate_verification_code_url)
+        response = requests.post(generate_verification_code_url, headers=headers)
         message = response.json()
 
         if message["message"] == "success":
@@ -308,7 +315,7 @@ def verificar_codigo_verificacion():
     # Si el usuario no tiene códigos o esta vencido se genera uno nuevo
     if current_code[0]['Fecha_Final'] < datetime.datetime.now():
 
-        response = requests.post(generate_verification_code_url)
+        response = requests.post(generate_verification_code_url, headers=headers)
         message = response.json()
 
         if message["message"] == "success":
@@ -318,7 +325,7 @@ def verificar_codigo_verificacion():
 
     # Si el código de verificacón proporcionado por el usuario es igual al código generado
     if current_code[0]['Codigo'] == int(code):
-        
+
         # Se establece el codigo como usado
         mysql = mysqlConnection_wallet()
         result = mysql.actualizar_estado_codigo_verificacion_a_usado(code)

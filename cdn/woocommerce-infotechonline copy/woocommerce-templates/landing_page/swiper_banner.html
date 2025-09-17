@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Demo styles -->
+<style>
+.swiper-main-banner-container {
+width: 100%;
+max-width: 1400px;
+height: 550px;
+max-height: 550px;
+border-radius: 10px;
+}
+.swiper-main-banner-slide {
+text-align: center;
+font-size: 18px;
+background: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.swiper-main-banner-slide img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.swiper-main-banner-button-next {
+color: white;
+-webkit-filter: drop-shadow( 2px 2px 2px rgba(96, 96, 96, 0.7));
+filter: drop-shadow( 2px 2px 2px rgba(96, 96, 96, 0.7));
+}
+.swiper-main-banner-button-prev {
+color: white;
+-webkit-filter: drop-shadow( 2px 2px 2px rgba(96, 96, 96, 0.7));
+filter: drop-shadow( 2px 2px 2px rgba(96, 96, 96, 0.7));
+}
+.swiper-main-banner-pagination {
+color: white;
+text-shadow: 1px 1px 0px #585858b0;
+-webkit-filter: drop-shadow( 2px 2px 2px rgba(96, 96, 96, 0.7));
+filter: drop-shadow( 2px 2px 2px rgba(96, 96, 96, 0.7));
+}
+
+@media only screen and (max-width: 600px){
+	.swiper-main-banner-container {
+    height: 136px;
+    margin-top: 70px;
+    }
+
+    .swiper-main-banner-pagination {
+        display: none;
+    }
+}
+@media only screen and (max-width: 425px){
+	.swiper-main-banner-container {
+    height: 136px;
+    margin-top: 70px;
+    }
+
+    .swiper-main-banner-pagination {
+        display: none;
+    }
+}
+</style>
+
+<!-- Swiper -->
+<div class="swiper swiper-main-banner-container swiper_main_banner">
+
+    <div class="swiper-wrapper swiper-main-banner-wrapper">
+
+        <div class="swiper-slide swiper-main-banner-slide">
+            <a href="/catalogo-live/?&category=ofertas" style="width: 100%;">
+                <img src="https://infotechonline.co/wp-content/uploads/2025/09/Banners-1400-x-550-px-1.png" alt="" srcset="">
+            </a>
+        </div>
+
+        <div class="swiper-slide swiper-main-banner-slide">
+            <a href="" style="width: 100%;">
+                <img src="https://infotechonline.co/wp-content/uploads/2025/08/INFOTECH-BANNER-2.png" alt="" srcset="">
+            </a>
+        </div>
+
+        <div class="swiper-slide swiper-main-banner-slide">
+            <a href="/producto/licencia-microsoft-office-home-and-business-2024/" style="width: 100%;">
+                <img src="https://infotechonline.co/wp-content/uploads/2025/08/2do-Banner.png" alt="" srcset="">
+            </a>
+        </div>
+
+        <div class="swiper-slide swiper-main-banner-slide">
+            <a href="/producto/mini-proyector-magcubic-hy300-proyector-portatil-inteligente-4k-pantalla-de-130-pulgadas-giro-de-180-grados/" style="width: 100%;">
+                <img src="https://infotechonline.co/wp-content/uploads/2025/05/banner_videoproyector_Mesa-de-trabajo-1.jpg" alt="" srcset="">
+            </a>
+        </div>
+
+        <div class="swiper-slide swiper-main-banner-slide">
+            <a href="/producto/dispensador-inteligente-de-alimento-para-mascotas-wi-fi-nha-p610/" style="width: 100%;">
+                <img src="https://infotechonline.co/wp-content/uploads/2025/03/banner_mascotas_Mesa-de-trabajo-1.jpg" alt="" srcset="">
+            </a>
+        </div>
+
+        <div class="swiper-slide swiper-main-banner-slide">
+            <a href="/catalogo-live/?&category=hogar-inteligente" style="width: 100%;">
+                <img src="https://infotechonline.co/wp-content/uploads/2024/06/Banner-Junio_Mesa-de-trabajo-1-1200x471.png" alt="" srcset="">
+            </a>
+        </div>
+
+        <div class="swiper-slide swiper-main-banner-slide">
+            <a href="/" style="width: 100%;">
+                <img src="https://infotechonline.co/wp-content/uploads/2025/03/banner_hp_campana_Mesa-de-trabajo-1.jpg" alt="" srcset="">
+            </a>
+        </div>
+    </div>
+
+    <div class="swiper-button-next swiper-main-banner-button-next"></div>
+    <div class="swiper-button-prev swiper-main-banner-button-prev"></div>
+    <div class="swiper-pagination swiper-main-banner-pagination"></div>
+
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://jgallego.pythonanywhere.com/cdn/woocommerce-infotechonline/woocommerce-js/landing_page/swiper_main_banner.js"></script>

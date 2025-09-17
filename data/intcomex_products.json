@@ -146,6 +146,69 @@
             "stock": "instock",
             "availability": true,
             "stock_quantity": 20
+        },
+        "101143 - KNB-468BL": {
+            "intcomexSku": "KNB-468BL",
+            "price": "128000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "101144 - JBLGO3SQUADAM": {
+            "intcomexSku": "JBLGO3SQUADAM",
+            "price": "200000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "101145 - KNS-420GR": {
+            "intcomexSku": "KNS-420GR",
+            "price": "66000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "101146 - JBLGOESBLKAM": {
+            "intcomexSku": "JBLGOESBLKAM",
+            "price": "146000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "101152 - JBLGO4SQUADAM": {
+            "intcomexSku": "JBLGO4SQUADAM",
+            "price": "210000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "101153 - JBLGO4BLUAM": {
+            "intcomexSku": "JBLGO4BLUAM",
+            "price": "210000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "101154 - JBLGO4BLKAM": {
+            "intcomexSku": "JBLGO4BLKAM",
+            "price": "210000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "101155 - JBLGO4REDAM": {
+            "intcomexSku": "JBLGO4REDAM",
+            "price": "210000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "101163 - KCK-265S": {
+            "intcomexSku": "KCK-265S",
+            "price": "150000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
         }
     },
     "impresoras": {},
@@ -216,6 +279,55 @@
             "stock": "instock",
             "availability": true,
             "stock_quantity": 20
+        },
+        "601031 - NHS-D100": {
+            "intcomexSku": "NHS-D100",
+            "price": "470000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "601032 - NHA-A600": {
+            "intcomexSku": "NHA-A600",
+            "price": "230000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "601033 - NHC-O640": {
+            "intcomexSku": "NHC-O640",
+            "price": "329000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "601034 - NHC-F610": {
+            "intcomexSku": "NHC-F610",
+            "price": "441000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "601035 - NHB-C110 2PK": {
+            "intcomexSku": "NHB-C110 2PK",
+            "price": "79000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "601036 - NHB-W110": {
+            "intcomexSku": "NHB-W110",
+            "price": "48000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "601037 - NHB-W110 2PK": {
+            "intcomexSku": "NHB-W110 2PK",
+            "price": "71000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
         }
     },
     "smartphones": {},

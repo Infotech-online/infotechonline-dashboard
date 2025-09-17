@@ -195,6 +195,13 @@
             "stock": "instock",
             "availability": true,
             "stock_quantity": 0
+        },
+        "101149 - 941-000147": {
+            "ingramSku": "941-000147",
+            "price": "1417000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
         }
     },
     "impresoras": {
@@ -267,6 +274,27 @@
             "stock": "instock",
             "availability": true,
             "stock_quantity": 22
+        },
+        "201016 - MFCT4500DW": {
+            "ingramSku": "MFCT4500DW",
+            "price": "3385000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "201017 - C11CJ21301": {
+            "ingramSku": "C11CJ21301",
+            "price": "5244000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "201017 - DCPT720DW": {
+            "ingramSku": "DCPT720DW",
+            "price": "5244000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
         }
     },
     "monitores": {
@@ -407,6 +435,27 @@
             "ingramSku": "5754161",
             "price": 940000,
             "stock": "outofstock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "301029 - 55UH7J": {
+            "ingramSku": "55UH7J",
+            "price": "4945000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "301030 - LH85QMCEBGCXGO": {
+            "ingramSku": "LH85QMCEBGCXGO",
+            "price": "15447000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "301031 - LH32QMCEBGCXZA": {
+            "ingramSku": "LH32QMCEBGCXZA",
+            "price": "1949000",
+            "stock": "instock",
             "availability": true,
             "stock_quantity": 0
         }
@@ -674,8 +723,50 @@
             "stock_quantity": 0
         },
         "401061 - 8W383LA#ABM": {
-            "ingramSku": "6214361",
+            "ingramSku": "8W383LA#ABM",
             "price": "1900000",
+            "stock": "outofstock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "401056 - 210-AZBG": {
+            "ingramSku": "210-AZBG",
+            "price": "607000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "401057 - 7D8KA00ALA": {
+            "ingramSku": "7D8KA00ALA",
+            "price": "5268000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "401058 - 90NB0ZT2-M00FH0": {
+            "ingramSku": "90NB0ZT2-M00FH0",
+            "price": "1670000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "401059 - 826Y4LA#ABM": {
+            "ingramSku": "826Y4LA#ABM",
+            "price": "2000000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "401062 - 3000155478867": {
+            "ingramSku": "3000155478867",
+            "price": "8811000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "401063 - 3000157455877": {
+            "ingramSku": "3000157455877",
+            "price": "13223000",
             "stock": "instock",
             "availability": true,
             "stock_quantity": 0
@@ -891,35 +982,84 @@
             "stock_quantity": 0
         },
         "801025 - UN55CU7000KXZL": {
-            "ingramSku": "5874501",
-            "price": 2114000,
+            "ingramSku": "UN55CU7000KXZL",
+            "price": "2100000",
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 133
+            "stock_quantity": 0
         },
         "801026 - 43UR781C0SB": {
-            "ingramSku": "5941473",
-            "price": 1669000,
+            "ingramSku": "43UR781C0SB",
+            "price": "1669000",
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 72
+            "stock_quantity": 0
         },
         "801028 - UN40T5290AKXZL": {
-            "ingramSku": "5188858",
-            "price": 1120000,
+            "ingramSku": "UN40T5290AKXZL",
+            "price": "1120000",
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 34
+            "stock_quantity": 0
+        },
+        "801029 - 43UR781C0SB": {
+            "ingramSku": "43UR781C0SB",
+            "price": "1628000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
         }
     },
     "consolas": {},
     "tablets": {
         "1101003 - ZAC30086CO": {
-            "ingramSku": "5925456",
-            "price": 763000,
+            "ingramSku": "ZAC30086CO",
+            "price": "763000",
             "stock": "instock",
             "availability": true,
-            "stock_quantity": 57
+            "stock_quantity": 0
+        },
+        "1101002 - SM-P613NZAUCOO": {
+            "ingramSku": "SM-P613NZAUCOO",
+            "price": "1581000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1101004 - ZAAF0071CO": {
+            "ingramSku": "ZAAF0071CO",
+            "price": "882000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1101006 - ZAC50012CO": {
+            "ingramSku": "ZAC50012CO",
+            "price": "768000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1101007 - ZADB0361CO": {
+            "ingramSku": "ZADB0361CO",
+            "price": "865000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1101008 - ZADB0122CO": {
+            "ingramSku": "ZADB0122CO",
+            "price": "1258000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1101009 - ZAAE0067CO": {
+            "ingramSku": "ZAAE0067CO",
+            "price": "690000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
         }
     },
     "memorias-ram": {
@@ -929,10 +1069,208 @@
             "stock": "outofstock",
             "availability": true,
             "stock_quantity": 0
+        },
+        "1001004 - KVR32S22S8/16": {
+            "ingramSku": "KVR32S22S8/16",
+            "price": "205000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1001007-5022322": {
+            "ingramSku": "5022322",
+            "price": "383000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1001008 - P06035-B21": {
+            "ingramSku": "P06035-B21",
+            "price": "7404000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1001009 - KTD-PE432E/16G": {
+            "ingramSku": "KTD-PE432E/16G",
+            "price": "256000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1001010 - P43019-B21": {
+            "ingramSku": "P43019-B21",
+            "price": "1752000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
         }
     },
-    "almacenamiento": {},
-    "ups-energia": {},
+    "almacenamiento": {
+        "1201003 - SNV2S/1000G": {
+            "ingramSku": "SNV2S/1000G",
+            "price": "344000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201004 - SNV2S/250G": {
+            "ingramSku": "SNV2S/250G",
+            "price": "179000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201005 - AHD710P-2TU31-CBK": {
+            "ingramSku": "AHD710P-2TU31-CBK",
+            "price": "394000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201006 - ALEG-700-512GCS": {
+            "ingramSku": "ALEG-700-512GCS",
+            "price": "218000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201007 - ALEG-700-1TCS": {
+            "ingramSku": "ALEG-700-1TCS",
+            "price": "382000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201009 - SXS1000/1000G": {
+            "ingramSku": "SXS1000/1000G",
+            "price": "410000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201010 - SXS1000/2000G": {
+            "ingramSku": "SXS1000/2000G",
+            "price": "634000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201011 - 4XB7A82261": {
+            "ingramSku": "4XB7A82261",
+            "price": "3796000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201012 - S3510SMU33": {
+            "ingramSku": "S3510SMU33",
+            "price": "203000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201013 - 7XB7A00069": {
+            "ingramSku": "7XB7A00069",
+            "price": "2066000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201014 - 400-ATKJ": {
+            "ingramSku": "400-ATKJ",
+            "price": "1247000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201015 - 7XB7A00023": {
+            "ingramSku": "7XB7A00023",
+            "price": "2330000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201016 - 7XB7A00027": {
+            "ingramSku": "7XB7A00027",
+            "price": "1321000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201017 - 400-BEGI": {
+            "ingramSku": "400-BEGI",
+            "price": "1530000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201018 - 861681-B21": {
+            "ingramSku": "861681-B21",
+            "price": "1388000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201019 - ASU650SS-512GT-R": {
+            "ingramSku": "ASU650SS-512GT-R",
+            "price": "208000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201020 - SA400S37/960G": {
+            "ingramSku": "SA400S37/960G",
+            "price": "344000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1201021 - SA400S37/480G": {
+            "ingramSku": "SA400S37/480G",
+            "price": "200000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        }
+    },
+    "ups-energia": {
+        "1301004 - BV800": {
+            "ingramSku": "BV800",
+            "price": "370000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1301005 - BV500": {
+            "ingramSku": "BV500",
+            "price": "314000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1301006 - SRV3KA": {
+            "ingramSku": "SRV3KA",
+            "price": "3991000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1301007 - SRV2KRARK": {
+            "ingramSku": "SRV2KRARK",
+            "price": "3669000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        },
+        "1301008 - GXT5-3000LVRT2UXL": {
+            "ingramSku": "GXT5-3000LVRT2UXL",
+            "price": "5508000",
+            "stock": "instock",
+            "availability": true,
+            "stock_quantity": 0
+        }
+    },
     "redes": {},
     "servidores": {}
 }

@@ -1,0 +1,54 @@
+<style>
+.btn {
+position: relative;
+font-size: 13px;
+text-transform: uppercase;
+text-decoration: none;
+padding: 10px 20px;
+display: inline-block;
+border-radius: 50px;
+transition: all .3s;
+border: none;
+font-family: Arial, sans-serif;
+font-weight: 600;
+color: white;
+background-color: #0AA54B;
+cursor: pointer;
+margin-top: 120px;
+}
+.btn:hover {
+transform: scale(1.05);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+color: white;
+background-color: #29A5E4;
+background-color: #0AA54B;
+}
+.btn:active {
+transform: scale(0.95);
+box-shadow: none;
+}
+.btn::after {
+content: "";
+display: inline-block;
+height: 100%;
+width: 100%;
+border-radius: 50px;
+position: absolute;
+top: 0;
+left: 0;
+z-index: -1;
+transition: all .4s;
+}
+.btn::after {
+background-color: #0AA54B;
+}
+.btn:hover::after {
+transform: scaleX(1.2) scaleY(1.4);
+opacity: 0;
+}
+</style>
+<a class="btn" href="/catalogo-corporativo/?&category=corporativo">Corporativo</a>
+
+
+
+
