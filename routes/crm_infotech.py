@@ -28,12 +28,17 @@ def crm_infotech_word_template():
     numero_oportunidad = data.get('numero_oportunidad', None)
 
     # Información de los productos en la oportunidad
-    productos_oportunidad = data.get('productos_oportunidad', None)
+    productos_oportunidad = data.get('productos_oportunidad', [])
 
     # Información del usuario que crea la oportunidad
     usuario_propietario = data.get('usuario_propietario', None)
     cargo_usuario = data.get('cargo_usuario', None)
     telefono_usuario = data.get('telefono_usuario', None)
+
+    # Totales de la oportunidad
+    subtotal_ = data.get('subtotal_', None)
+    iva_ = data.get('iva_', None)
+    total_ = data.get('total_', None)
 
     # Contexto del documento
     context = {
@@ -47,7 +52,11 @@ def crm_infotech_word_template():
 
         'nombre_usuario': usuario_propietario,
         'cargo_usuario': cargo_usuario,
-        'celular_usuario': telefono_usuario
+        'celular_usuario': telefono_usuario,
+
+        'subtotal_': subtotal_,
+        'iva_': iva_,
+        'total_': total_
     }
 
     try:
